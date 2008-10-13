@@ -4,7 +4,7 @@ public class Teletransportacion extends Habilidad {
 	public void interactuar(Pooglin pooglin, Planeta planeta) {
 		if(contadorPasos>0){
 			pooglin.setPosicionX(pooglin.getPosicionX()+ 20);
-			pooglin.definirInteraccion(null);
+			pooglin.definirHabilidad(null);
 			pooglin.caminar();
 		}else{
 			contadorPasos--;
