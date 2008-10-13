@@ -7,7 +7,7 @@ public class PlatilloVolador extends Habilidad {
 
 			while(planeta.getBloque(pooglin.getPosicionX(), pooglin.getPosicionY()+ 1).esTraspasable())
 				pooglin.setPosicionY(pooglin.getPosicionY()+ 1);
-				pooglin.definirInteraccion(null);
+				
 		}
 		
 	}
