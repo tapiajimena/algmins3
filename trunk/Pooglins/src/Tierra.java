@@ -25,10 +25,6 @@ public class Tierra extends Bloque implements Rompible {
 		}			
 	}
 	
-	public void setDureza(int dureza) {
-		this.dureza = dureza;
-	}
-
 	public int getDureza() {
 		return dureza;
 	}
