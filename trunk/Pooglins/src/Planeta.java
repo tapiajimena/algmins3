@@ -1,15 +1,19 @@
 public class Planeta {
  
+	@SuppressWarnings("unused")
 	private int ancho;
 	 
+	@SuppressWarnings("unused")
 	private int alto;
 	 
 	private Bloque[][] Terreno;
 	 
+	@SuppressWarnings("unused")
 	private Nivel nivel;
 	 
 	// private Bloque[] bloque;
-	 
+	
+	@SuppressWarnings("unused")
 	private Habilidad habilidad;
 
 	
@@ -28,7 +32,8 @@ public class Planeta {
 	}
 	 
 	public void quitarObstaculo(int x, int y) {
-		this.Terreno[x][y] = new Aire();
+		Punto punto=new Punto(x,y);
+		this.Terreno[x][y] = new Aire(punto);
 	}
 
 	public Bloque getBloque(int x, int y){

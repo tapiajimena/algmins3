@@ -1,4 +1,4 @@
-p
+
 public abstract class Habilidad {
  
 	private Pooglin pooglin;

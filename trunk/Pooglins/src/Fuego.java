@@ -1,6 +1,7 @@
 
 public class Fuego extends Bloque implements Apagable {
  
+	@SuppressWarnings("unused")
 	private int resistencia=100;
 		
 	public Fuego(Punto punto){
