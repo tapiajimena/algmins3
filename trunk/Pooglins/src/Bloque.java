@@ -3,8 +3,6 @@ public abstract class Bloque {
  
 	private Punto posicion;
 	 
-	private Planeta planeta;
-	
 	public Bloque(Punto punto){
 		this.posicion=punto;
 	}
