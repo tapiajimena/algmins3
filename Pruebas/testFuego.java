@@ -23,9 +23,9 @@ public class testFuego extends TestCase {
 		//hago interactuar al pooglin y al fuego
 		fuego.interactuar(unPooglin);
 
-		assertEquals(true, unPooglin.EstaMuerto());
+		assertEquals(true, unPooglin.estaMuerto());
 
-		assertEquals(true, unPooglin.EstaMuerto());
+		assertEquals(true, unPooglin.estaMuerto());
 
 				
 	}
