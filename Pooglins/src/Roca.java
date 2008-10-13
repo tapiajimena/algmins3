@@ -1,3 +1,5 @@
+package src;
+
 public class Roca extends Bloque implements Rompible {
  
 	/**

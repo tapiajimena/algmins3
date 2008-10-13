@@ -1,3 +1,5 @@
+package src;
+
 public class Bloque {
  
 	private Punto posicion;

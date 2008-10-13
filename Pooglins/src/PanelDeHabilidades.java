@@ -1,3 +1,4 @@
+package src;
 public class PanelDeHabilidades {
  
 	private OpcionHabilidad[] opcionHabilidad;
