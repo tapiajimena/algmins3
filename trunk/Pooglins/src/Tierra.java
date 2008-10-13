@@ -1,4 +1,5 @@
 public class Tierra extends Bloque implements Rompible {
+	
 	private int dureza;
 
 	public Tierra(Punto punto) {
@@ -21,8 +22,7 @@ public class Tierra extends Bloque implements Rompible {
 	public void decrementarDureza(int dec){
 		if (dureza>=0){
 			this.dureza=-dec;
-		}	
-		
+		}			
 	}
 	
 	public void setDureza(int dureza) {
