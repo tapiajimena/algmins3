@@ -20,7 +20,7 @@ public class Pooglin {
 	}
 	 
 	public void morir() {
-	 setEstaMuerto(true);
+	 estaMuerto=true;
 	}
 	 
 	public void caminar() {
@@ -42,21 +42,7 @@ public class Pooglin {
 	
 	 
 	public void darVuelta() {
-		
-		if((!estaMuerto)){	
-			if((nivel.getPlaneta().getBloque(this.getPosicionX()-1,this.getPosicionY()).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()+1).esTraspasable() ))
-				{
-					this.setPosicionX(this.getPosicionX()-1);
-				}
-			//Diagonal inferior adelante;
-			else if((nivel.getPlaneta().getBloque(this.getPosicionX()-1,this.getPosicionY()).esTraspasable()) && (nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()+1).esTraspasable() ))
-			{
-				this.caer();
-			}	
-			else if(!(nivel.getPlaneta().getBloque(this.getPosicionX()-1,this.getPosicionY()).esTraspasable())){
-				this.caminar();
-			}
-			}
+		this.cantidadDeMovimiento*=-1;
 	}
 	 
 	public void caer() {
