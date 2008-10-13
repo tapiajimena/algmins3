@@ -4,23 +4,36 @@ public class Punto {
 	 
 	private int posiciony;
 	 
-	private Pooglin pooglin;
 	
-	Punto(Pooglin unPooglin, int x, int y){
+	Punto(){
+		this.posicionx=0;
+		this.posiciony=0;
+	}
+	
+	Punto(int x, int y){
 		this.posicionx=x;
-		this.posiciony=y;
-		this.pooglin=unPooglin;
-		
-		
+		this.posiciony=y;		
 	}
 	
 	public int getx(){
-		
+	return this.posicionx;	
 	}
-
 	
+	public int gety(){
+	return this.posiciony;
+	}
+	
+	public void setx(int x){
+		this.posicionx=x;	
+	}
+	
+	public void sety(int y){
+		this.posiciony=y;
+	}
 	 
 	public void copiar(Punto punto) {
+		this.posicionx=punto.posicionx;
+		this.posiciony=punto.posiciony;
 		
 	 
 	}
