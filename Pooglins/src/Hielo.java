@@ -15,6 +15,7 @@ public class Hielo extends Bloque implements Rompible {
 
 	public void interactuar(Pooglin unPooglin) {
 		unPooglin.caminar();
+		
 	}
 
 	public boolean esRomplible() {

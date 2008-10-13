@@ -1,7 +1,7 @@
 
-public class NaveDePartida extends Bloque {
+public class PuertaDeEscape extends Bloque {
 	
-	public NaveDePartida(Punto punto) {
+	public PuertaDeEscape(Punto punto) {
 		super(punto);
 		
 	}
@@ -11,8 +11,5 @@ public class NaveDePartida extends Bloque {
 		
 		
 	}
-	
-	
- 
+
 }
- 
