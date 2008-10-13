@@ -37,7 +37,7 @@ public class Pooglin {
 	 
 	}
 	 
-	private void darVuelta() {
+	public void darVuelta() {
 	 
 	}
 	 
