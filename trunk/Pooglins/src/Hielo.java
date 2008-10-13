@@ -1,3 +1,5 @@
+package src;
+
 public class Hielo extends Bloque implements Rompible {
  
 	private int dureza;

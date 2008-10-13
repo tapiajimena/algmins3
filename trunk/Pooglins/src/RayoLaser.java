@@ -1,3 +1,5 @@
+package src;
+
 public class RayoLaser extends Habilidad {
  
 	private int disparos;
