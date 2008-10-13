@@ -94,11 +94,7 @@ public class Pooglin {
 		return posicion.gety();
 	}
 
-	public void setEstaMuerto(boolean estaMuerto) {
-		this.estaMuerto = estaMuerto;
-	}
-
-	public boolean isEstaMuerto() {
+	public boolean estaMuerto() {
 		return estaMuerto;
 	}
 
