@@ -22,7 +22,7 @@ public class testFuego extends TestCase {
 		
 		//hago interactuar al pooglin y al fuego
 		fuego.interactuar(unPooglin);
-		assertEquals(true, unPooglin.isEstaMuerto());
+		assertEquals(true, unPooglin.estaMuerto());
 				
 	}
 }
