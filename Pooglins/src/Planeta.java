@@ -1,5 +1,3 @@
-
-
 public class Planeta {
  
 	private int ancho;
@@ -46,4 +44,3 @@ public class Planeta {
 	}
 	 
 }
- 
