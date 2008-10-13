@@ -25,7 +25,7 @@ public class Pooglin {
 	 
 	public void caminar() {
 	if((!estaMuerto)){	
-	if((nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()+1).esTraspasable() ))
+		if((nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()+1).esTraspasable() ))
 		{
 			this.setPosicionX(this.getPosicionX()+1);
 		}
@@ -60,8 +60,8 @@ public class Pooglin {
 	}
 		
 	
-	public void definirInteraccion(Habilidad interaccion) {
-	 
+	public void definirHabilidad(Habilidad habilidad) {
+		this.habilidad=habilidad;
 	}
 
 	public void setPosicionX(int x) {
