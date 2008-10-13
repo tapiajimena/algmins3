@@ -1,5 +1,4 @@
-package src;
-
+p
 public abstract class Habilidad {
  
 	private Pooglin pooglin;
