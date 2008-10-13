@@ -1,4 +1,4 @@
-package src;
+
 
 public class Hielo extends Bloque implements Rompible {
  

@@ -1,4 +1,3 @@
-package src;
 
 public class Teletransportacion extends Habilidad {
  
