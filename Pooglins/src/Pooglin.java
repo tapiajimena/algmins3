@@ -16,7 +16,7 @@ public class Pooglin {
 	}
 	
 	public Habilidad interactuar(Bloque obstaculo) {
-		return null;
+		return this.habilidad;
 	}
 	 
 	public void morir() {
