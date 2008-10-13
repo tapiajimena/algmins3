@@ -2,22 +2,35 @@
 public class Pooglin {
  
 	private int id;
-	private Punto Posicion;
+
 	 
 	private int cantidadDeMovimiento;
 	 
 	private Punto posicion;
 	
+	
 	private Nivel nivel;
 	 
 	private Habilidad habilidad;
+	
+	private boolean estaMuerto;
+	
+	Pooglin(){
+		Punto p1=new Punto(1,1);
+		this.posicion=p1;
+	}
+	
+	 Pooglin(Punto punto){
+		this.posicion=punto;
+		this.estaMuerto =false;
+	}
 	
 	public Habilidad interactuar(Bloque obstaculo) {
 		return null;
 	}
 	 
 	public void morir() {
-	 
+	 setEstaMuerto(true);
 	}
 	 
 	public void caminar() {
@@ -30,9 +43,6 @@ public class Pooglin {
 	 
 	public void definirInteraccion(Habilidad interaccion) {
 	 
-	}
-
-	public void matar() {
 	}
 
 	public void setPosicionX(int x) {
@@ -49,6 +59,14 @@ public class Pooglin {
 
 	public int getPosicionY() {
 		return posicion.gety();
+	}
+
+	public void setEstaMuerto(boolean estaMuerto) {
+		this.estaMuerto = estaMuerto;
+	}
+
+	public boolean isEstaMuerto() {
+		return estaMuerto;
 	}
 
 	
