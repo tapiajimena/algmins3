@@ -1,6 +1,8 @@
+@SuppressWarnings("unused")
 
 public class OpcionHabilidad {
  
+	
 	private int cant;
 	 
 	private String id;

@@ -1,9 +1,9 @@
-
 import java.util.ArrayList;
 
-
+@SuppressWarnings("unused")
 public class Nivel {
  
+	
 	private int numero;
 	 
 	private String nombre;
