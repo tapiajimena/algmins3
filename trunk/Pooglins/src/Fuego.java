@@ -8,6 +8,10 @@ public class Fuego extends Bloque implements Apagable {
 			
 	}
 	
+	public boolean esTraspasable() {
+		return true;
+	}
+	
 	public boolean esApagable(){
 		return true;
 	}
