@@ -1,6 +1,8 @@
 public interface Apagable {
- 
-	private Fuego fuego;
-	 
+	
+	public boolean esApagable();
+	
+	
+	
 }
  
