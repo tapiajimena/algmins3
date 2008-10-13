@@ -6,10 +6,9 @@ public class Nivel {
  
 	private int numero;
 	 
-	private string nombre;
+	private String nombre;
 	 
-	private Planeta planeta;
-	 
+ 
 	private Tiempo cantTiempo;
 	 
 	private Tiempo tiempoTranscurrido;
@@ -34,6 +33,14 @@ public class Nivel {
 	 
 	public void Nivel(String configuracion) {
 	 
+	}
+
+	public void setPlaneta(Planeta planeta) {
+		this.planeta = planeta;
+	}
+
+	public Planeta getPlaneta() {
+		return planeta;
 	}
 	 
 }
