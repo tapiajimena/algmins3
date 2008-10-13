@@ -6,9 +6,7 @@ public class Pooglin {
 	 
 	private int cantidadDeMovimiento;
 	 
-	private Punto posicionX;
-	
-	private Punto posicionY;
+	private Punto posicion;
 	
 	private Nivel nivel;
 	 
@@ -37,20 +35,20 @@ public class Pooglin {
 	public void matar() {
 	}
 
-	public void setPosicionX(Punto posicionX) {
-		this.posicionX = posicionX;
+	public void setPosicionX(int x) {
+		this.posicion.setx(x);
 	}
 
-	public Punto getPosicionX() {
-		return posicionX;
+	public int getPosicionX() {
+		return posicion.getx();
 	}
 
-	public void setPosicionY(Punto posicionY) {
-		this.posicionY = posicionY;
+	public void setPosicionY(int y) {
+		this.posicion.sety(y);
 	}
 
-	public Punto getPosicionY() {
-		return posicionY;
+	public int getPosicionY() {
+		return posicion.gety();
 	}
 
 	
