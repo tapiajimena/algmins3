@@ -6,7 +6,7 @@ public class Hielo extends Bloque implements Rompible {
 
 	public Hielo(Punto punto) {
 		super(punto);
-		this.dureza=4;
+		this.dureza=6;
 	}
 
 	public void golpear() {
