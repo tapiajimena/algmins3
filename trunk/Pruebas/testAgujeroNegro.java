@@ -11,14 +11,26 @@ public class testAgujeroNegro extends TestCase {
 			agujero.setPosicionX(i/3);
 			agujero.setPosicionY(i%3);
 			agujero.interactuar(unPooglin);
-			assertEquals(true,unPooglin.estaMuerto());
+
+			assertEquals(true,unPooglin.EstaMuerto());
+
+			assertEquals(true,unPooglin.EstaMuerto());
+
 		}
 			
-		Pooglin unPooglin=new Pooglin(new Punto(2,0));
+
+			Pooglin unPooglin=new Pooglin(new Punto(2,0));
+			agujero.setPosicionX(0);
+			agujero.setPosicionY(0);
+			agujero.interactuar(unPooglin);
+			assertEquals(false,unPooglin.EstaMuerto());
+
+		Pooglin unPooglin2=new Pooglin(new Punto(2,0));
 		agujero.setPosicionX(0);
 		agujero.setPosicionY(0);
-		agujero.interactuar(unPooglin);
-		assertEquals(false,unPooglin.estaMuerto());
+		agujero.interactuar(unPooglin2);
+		assertEquals(false,unPooglin2.EstaMuerto());
+
 	
 	}
 
