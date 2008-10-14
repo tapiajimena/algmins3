@@ -15,6 +15,7 @@ public class TaladroUltrasonico extends Habilidad{
 						Punto punto = new Punto(posicionX,posicionY+1);
 						@SuppressWarnings("unused")
 						Bloque BloqueTaladrado = new Aire(punto);
+						BloqueTaladrado.interactuar(unPooglin);
 					}
 			}
 			else{
