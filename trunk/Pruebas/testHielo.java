@@ -28,7 +28,7 @@ public class testHielo extends TestCase {
 			assertEquals(6-decremento,hielo.getDureza());
 			System.out.println(hielo.getDureza());
 		}
-		//Probemos que pasa si sigo decrementando una ves
+		//Probemos que pasa si sigo decrementando una vez
 		//que ya llegue a 0 en la dureza del hielo.
 		int nuevoDecremento = 0;
 		System.out.println("La dureza en este momento quedo en 2");
