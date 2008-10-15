@@ -1,14 +1,11 @@
 public class Planeta {
  
-	@SuppressWarnings("unused")
 	private int ancho;
 	 
-	@SuppressWarnings("unused")
 	private int alto;
 	 
 	private Bloque[][] Terreno;
 	 
-	@SuppressWarnings("unused")
 	private Nivel nivel;
 	 
 	// private Bloque[] bloque;
@@ -18,8 +15,8 @@ public class Planeta {
 
 	
 	Planeta(int alto, int ancho, Bloque[][] terreno ){
-		this.alto=alto;
-		this.ancho=ancho;
+		this.alto=(alto);
+		this.ancho=(ancho);
 		this.Terreno=terreno;
 	}
 	 
@@ -46,6 +43,19 @@ public class Planeta {
 
 	public Bloque[][] getTerreno() {
 		return Terreno;
+	}
+
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getAlto() {
+		return alto;
+	}
+
+	public Nivel getNivel() {
+		return nivel;
 	}
 	 
 }

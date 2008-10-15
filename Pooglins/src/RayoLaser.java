@@ -22,7 +22,6 @@ public class RayoLaser extends Habilidad {
 						Punto punto = new Punto(posicionX+1,posicionY);
 						@SuppressWarnings("unused")
 						Bloque BloqueEliminado = new Aire(punto);
-						BloqueEliminado.interactuar(unPooglin);
 					}
 			}
 			else{
