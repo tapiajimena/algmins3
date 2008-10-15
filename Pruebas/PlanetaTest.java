@@ -26,7 +26,7 @@ public class PlanetaTest extends TestCase {
 		unPlaneta.agregarObstaculo(unaTierra,2,2);
 		assertEquals(2,unPlaneta.getBloque(2,2).getPosicionX());
 		assertEquals(2,unPlaneta.getBloque(2,2).getPosicionY());
-		System.out.println("Se agrego un bloque Tierra");
+		System.out.println("Se agregó un bloque Tierra");
 	}
 	
 	
