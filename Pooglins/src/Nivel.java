@@ -17,8 +17,8 @@ public class Nivel {
 	 
 	private int cantInicialPooglins;
 	 
-	private ArrayList Tripulacion;
-	 
+	private ArrayList TripulacionSalvada;
+	
 	private Pooglin[] pooglin;
 	 
 	private Planeta planeta;
@@ -42,6 +42,8 @@ public class Nivel {
 	public Planeta getPlaneta() {
 		return planeta;
 	}
-	 
+	
+
+	
 }
  

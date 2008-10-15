@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 public abstract class Bloque {
  
 	private Punto posicion;
@@ -32,5 +34,6 @@ public abstract class Bloque {
 	public void setPosicionY(int y) {
 		this.posicion.sety(y);
 	} 
+	
 }
  
