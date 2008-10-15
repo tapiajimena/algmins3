@@ -1,5 +1,6 @@
 
 public class Aire extends Bloque {
+	private Nivel nivel = new Nivel();
 	
 	public Aire(Punto punto) {
 		super(punto);
@@ -8,11 +9,17 @@ public class Aire extends Bloque {
 	public boolean esTraspasable(){
 		return true;
 	}
-	@Override
+	
 	public void interactuar(Pooglin unPooglin) {
-		// TODO Auto-generated method stub
-		
+		if (unPooglin.getPosicionX()==this.getPosicionX()){
+	    	if(unPooglin.getPosicionY()==this.getPosicionY()){
+	    		if (nivel.getPlaneta().getBloque(this.getPosicionX(),this.getPosicionY()+1).esTraspasable()){
+	    			unPooglin.caer();
+	    		}else{
+	    				unPooglin.caminar();
+	    		}
 	}
  
 }
- 
+}
+}
