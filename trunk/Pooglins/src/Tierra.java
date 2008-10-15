@@ -4,11 +4,11 @@ public class Tierra extends Bloque implements Rompible {
 
 	public Tierra(Punto punto) {
 		super(punto);
-		this.dureza=4;
+		this.dureza = 4;
 	}
 
 	public void golpear() {
-		decrementarDureza(1);
+		this.decrementarDureza(1);
 	}
 
 	public void interactuar(Pooglin unPooglin) {
@@ -22,10 +22,15 @@ public class Tierra extends Bloque implements Rompible {
 	}
 
 	public void decrementarDureza(int dec){
-		if (dureza>=0){
-			this.dureza=-dec;
-		}			
+		if (dec<=4 && dec>=0){
+			this.dureza=this.dureza-dec;
+		}
+			else{
+				this.dureza=0;
+			}
 	}
+	
+				
 	
 	public int getDureza() {
 		return dureza;
