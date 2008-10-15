@@ -12,7 +12,9 @@ public class Hielo extends Bloque implements Rompible {
 	public void golpear() {
 		decrementarDureza(1);
 	}
-
+	public boolean esTraspasable(){
+		return true;
+	}
 	public void interactuar(Pooglin unPooglin) {
 		unPooglin.caminar();
 		
@@ -23,10 +25,13 @@ public class Hielo extends Bloque implements Rompible {
 	}
 
 	public void decrementarDureza(int dec){
-		if (dureza>=0){
-			this.dureza=-dec;
-		}	
-		
+		if (dureza>0){
+			if (dec<=6){
+			this.dureza=dureza-dec;
+		}else if (dec>6){
+			dureza = 0;
+		}
+		}
 	}
 	public int getDureza() {
 		return dureza;

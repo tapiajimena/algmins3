@@ -6,4 +6,7 @@ public class Roca extends Bloque{
 	}
 	public void golpear() {
 	}
+	public boolean esTraspasable(){
+		return false;
+	}
 }

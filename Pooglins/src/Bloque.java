@@ -10,9 +10,8 @@ public abstract class Bloque {
 	public abstract void interactuar(Pooglin unPooglin);
 	
 	public boolean esTraspasable() {
-		return false;
+		return true;
 	}
-	 
 	public boolean vacio() {
 		return false;
 	}
