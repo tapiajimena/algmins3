@@ -23,10 +23,6 @@ public class Planeta {
 		this.Terreno=terreno;
 	}
 	 
-	public Planeta() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public void agregarObstaculo(Bloque bloque, int x, int y) {
 		
 		this.Terreno[bloque.getPosicionX()][bloque.getPosicionY()] = bloque;
