@@ -6,7 +6,7 @@ public class NaveDePartida extends Bloque {
 		
 	}
 
-	@Override
+	
 	public void interactuar(Pooglin unPooglin) {
 		
 		

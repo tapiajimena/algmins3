@@ -8,7 +8,7 @@ public class Roca extends Bloque{
 	public void interactuar(Pooglin unPooglin) {
 		  if(unPooglin.getPosicionX()==this.getPosicionX()){
 		    	if(unPooglin.getPosicionY()==this.getPosicionY()){
-		    		unPooglin.darVuelta();
+		    		unPooglin.caminar();
 		    	}
 		  }
 	}

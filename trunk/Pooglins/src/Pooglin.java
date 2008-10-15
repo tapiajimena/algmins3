@@ -84,6 +84,18 @@ public class Pooglin {
 		return estaMuerto;
 	}
 
+	public void salvar() {
+		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	
 	 
 }
