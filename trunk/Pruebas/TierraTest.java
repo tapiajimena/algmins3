@@ -71,7 +71,8 @@ public class TierraTest extends TestCase {
 	 * camine si éste se encuentra sobre ella.
 	 */
 		unaTierra.interactuar(unPooglin);
-		assertEquals(2,unPooglin.getPosicionX());
+		
+		assertEquals(1,unPooglin.getPosicionX());
 		assertEquals(2,unPooglin.getPosicionY());
 	}
 	

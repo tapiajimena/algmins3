@@ -20,4 +20,7 @@ public class Roca extends Bloque{
 		return false;
 	}
 
+	public double getDureza() {
+		return dureza;
+	} 
 }

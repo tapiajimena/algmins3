@@ -1,4 +1,3 @@
-
 public class Pooglin {
  
 	private int id;
@@ -8,7 +7,9 @@ public class Pooglin {
 	private Habilidad habilidad;
 	private boolean estaMuerto;
 	
-	
+	Pooglin(){
+		this.estaMuerto =false;
+	}
 		
 	Pooglin(Punto punto){
 		this.posicion=punto;
