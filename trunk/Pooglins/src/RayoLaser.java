@@ -2,6 +2,10 @@ public class RayoLaser extends Habilidad {
  
 	private int disparos;
 	
+	public RayoLaser(int cantidadDisparos){
+		this.disparos = cantidadDisparos;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * @see Habilidad#interactuar(Pooglin, Planeta)
@@ -16,7 +20,9 @@ public class RayoLaser extends Habilidad {
 			if (this.getDisparos()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX+1,posicionY);
 				if (bloqueRompible.getDureza() != 0){
-					bloqueRompible.golpear();
+					Bloque unBloque = (Bloque) bloqueRompible;
+					
+				 	this.decremetarDisparos();
 					}
 					else{
 						Punto punto = new Punto(posicionX+1,posicionY);
@@ -35,17 +41,13 @@ public class RayoLaser extends Habilidad {
 	}
 	
 	
+	public void decremetarDisparos(){
+		this.disparos--;
+	}
+	
 	public int getDisparos(){
 		return this.disparos;
 	}
 	
-	public void setDisparos(){
-		this.disparos = 10;
-	}
-	
-	public RayoLaser(int cantidadDisparos){
-		this.disparos = cantidadDisparos;
-	}
-	 
 }
  

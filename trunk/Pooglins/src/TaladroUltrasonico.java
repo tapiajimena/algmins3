@@ -1,6 +1,10 @@
 public class TaladroUltrasonico extends Habilidad{
 	
-	private int vueltasDeTorpedo = 5;
+	private int vueltasDeTorpedo;
+	
+	public TaladroUltrasonico(int cantidadVueltas){
+		this.vueltasDeTorpedo = cantidadVueltas;
+	}
 
 	public void interactuar(Pooglin unPooglin, Planeta unPlaneta){
 		int posicionX = unPooglin.getPosicionX();
@@ -10,6 +14,7 @@ public class TaladroUltrasonico extends Habilidad{
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX,posicionY+1);
 					if (bloqueRompible.getDureza() != 0){
 						bloqueRompible.golpear();
+						this.decrementarVueltas();
 					}
 					else{
 						Punto punto = new Punto(posicionX,posicionY+1);
@@ -26,10 +31,11 @@ public class TaladroUltrasonico extends Habilidad{
 		}
 	}
 
-	public void setVueltasDeTorpedo() {
-		this.vueltasDeTorpedo = 15;
-	}
 
+	public void decrementarVueltas(){
+		this.vueltasDeTorpedo--;
+	}
+	
 	public int getVueltasDeTorpedo() {
 		return vueltasDeTorpedo;
 	}
