@@ -1,19 +1,19 @@
+import java.util.ArrayList;
 
 public class PanelDeHabilidades {
- 
-	@SuppressWarnings("unused")
-	private OpcionHabilidad[] opcionHabilidad;
-	 
-	@SuppressWarnings("unused")
-	private Nivel nivel;
-	 
+	private OpcionHabilidad seleccionada=null;
+	private ArrayList opciones;
+	//private Nivel nivel;
+	
 	public void agregar(OpcionHabilidad opcion) {
-	 
-	}
-	 
-	public Habilidad devolverHabilidadSeleccionada() {
-		return null;
-	}
-	 
+	
+	};
+	public void seleccionar(OpcionHabilidad opcion){
+		this.seleccionada=opcion;
+	};
+	public Habilidad obtenerSeleccionada(){
+		return this.seleccionada.obtenerHabilidad();
+	};
+	
 }
  
