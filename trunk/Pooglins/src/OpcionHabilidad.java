@@ -1,23 +1,22 @@
-@SuppressWarnings("unused")
-
 public class OpcionHabilidad {
- 
-	
-	private int cant;
-	 
-	private String id;
-	 
+ 	private PanelDeHabilidades panel;
+	private int cantidadDeUsos;
 	private Habilidad habilidad;
-	 
-	private PanelDeHabilidades panelDeHabilidades;
-	 
+	public OpcionHabilidad(Habilidad habilidad,int cantidadPermitida,PanelDeHabilidades panel){
+		this.habilidad=habilidad;
+		this.cantidadDeUsos=cantidadPermitida;
+		this.panel=panel;
+	}
 	public boolean estaVacio() {
-		return false;
+		return (cantidadDeUsos<=0);
 	}
-	 
 	public Habilidad obtenerHabilidad() {
-		return null;
+		if(cantidadDeUsos<=0)return null;
+		this.cantidadDeUsos--;
+		return this.habilidad;
+	} 
+	public void seleccionar(){
+		panel.seleccionar(this);
 	}
-	 
 }
  
