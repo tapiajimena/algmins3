@@ -1,4 +1,4 @@
-public class RayoLaser extends Habilidad {
+public class RayoLaser extends Habilidad{
  
 	private int disparos;
 	
@@ -20,9 +20,8 @@ public class RayoLaser extends Habilidad {
 			if (this.getDisparos()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX+1,posicionY);
 				if (bloqueRompible.getDureza() != 0){
-					Bloque unBloque = (Bloque) bloqueRompible;
-					
-				 	this.decremetarDisparos();
+					//this.golpear();
+					this.decremetarDisparos();
 					}
 					else{
 						Punto punto = new Punto(posicionX+1,posicionY);
