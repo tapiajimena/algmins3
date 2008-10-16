@@ -25,6 +25,9 @@ public class Fuego extends Bloque implements Apagable {
 	    }
 	 }
 	
-	
+// Quitar, abria que agregar como un toString en cada clase, para visualizarlo mejor...
+	public void queES(){
+		System.out.println("Esto es Fuego en la pos:"+this.getPosicionX()+"-"+this.getPosicionY());
+	}
 }
  

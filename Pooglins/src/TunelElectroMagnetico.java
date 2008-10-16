@@ -12,7 +12,6 @@ public class TunelElectroMagnetico extends Habilidad {
 			if (unPlaneta.getBloque(posicionX+1,posicionY) instanceof Aire){
 				if (this.getLongitudFaltante()!=0 && this.longitudFaltante>0){
 					Punto punto = new Punto(posicionX+1,posicionY);
-					@SuppressWarnings("unused")
 					Bloque BloqueTunel = new Tunel(punto);
 					unPlaneta.agregarObstaculo(BloqueTunel,posicionX+1,posicionY);
 					BloqueTunel.interactuar(unPooglin);
