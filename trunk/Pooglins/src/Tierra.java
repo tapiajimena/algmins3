@@ -13,6 +13,7 @@ public class Tierra extends Bloque implements Rompible {
 
 	public void interactuar(Pooglin unPooglin) {
 		unPooglin.caminar();
+		unPooglin.interactuar(this);
 	}
 	public boolean esTraspasable(){
 		return false;

@@ -5,8 +5,8 @@ public class RayoLaserTest extends TestCase {
 	Punto posPooglin = new Punto(1,2);
 	Punto posTierra = new Punto (2,2);
 	Pooglin unPooglin = new Pooglin(posPooglin);
-	Bloque[][] unTerreno = new Bloque[3][3];
-	Planeta unPlaneta = new Planeta(4,4, unTerreno);
+	Bloque[][] unTerreno = new Bloque[4][4];
+	Planeta unPlaneta = new Planeta(4,4,unTerreno);
 	Tierra unaTierra = new Tierra(posTierra);
 	RayoLaser unRayoLaser = new RayoLaser(1);
 	
@@ -24,7 +24,18 @@ public class RayoLaserTest extends TestCase {
 	
 	public void testInteraccionPooglin(){
 
+		/*
+		 * Armo un Terreno para poder realizar las interacciones.
+		 */
+		for(int i=0;i<=4;i++){
+			for(int j=0; j<=4; j++;){
+				Punto punto = new Punto(i,j);
+				Aire unAire = new Aire(punto);
+				unPlaneta.agregarObstaculo(unAire,i,j);
+			}
+		}
 		unPlaneta.agregarObstaculo(unaTierra,2,2);
+		
 		unRayoLaser.interactuar(unPooglin,unPlaneta);
 		/*
 		 * El Pooglin tiene que mantener su posicion en X porque su
@@ -41,7 +52,6 @@ public class RayoLaserTest extends TestCase {
 		unaTierra.decrementarDureza(3);
 		System.out.println("La dureza ahora es " + unaTierra.getDureza());
 		unRayoLaser.interactuar(unPooglin,unPlaneta);
-		System.out.println("Sssssssssss.");
 		/*
 		 * Para probar que hay un bloque Aire, compruebo si es o no traspasable
 		 * ya que la Tierra no lo era y el Aire si.

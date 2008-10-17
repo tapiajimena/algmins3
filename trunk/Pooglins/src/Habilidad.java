@@ -3,10 +3,13 @@ public abstract class Habilidad {
  
 	@SuppressWarnings("unused")
 	private Pooglin pooglin;
+
+	public Habilidad(Pooglin pooglin){
+		this.pooglin=pooglin;
+
+	 }
 	 
-	@SuppressWarnings("unused")
-	private Planeta planeta;
-	 
-	public abstract void interactuar(Pooglin pooglin, Planeta planeta);
+	public abstract void interactuar(Planeta planeta);
+	
 }
  
