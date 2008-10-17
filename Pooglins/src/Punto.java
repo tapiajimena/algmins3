@@ -17,11 +17,11 @@ public class Punto {
 	}
 	
 	public int getx(){
-	return this.posicionx;	
+		return this.posicionx;	
 	}
 	
-	public int gety(){
-	return this.posiciony;
+	public int getY(){
+		return this.posiciony;
 	}
 	
 	public void setx(int x){
@@ -35,9 +35,14 @@ public class Punto {
 	public void copiar(Punto punto) {
 		this.posicionx=punto.posicionx;
 		this.posiciony=punto.posiciony;
-		
-	 
 	}
+	
+	public boolean equals(Object otroObjeto){
+		//poner el codigo que siempre va aca 
+		//comparar los x y los y
+		return true;
+	}
+	
 	 
 }
  

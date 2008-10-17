@@ -20,7 +20,7 @@ public class RayoLaser extends Habilidad{
 			if (this.getDisparos()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX+1,posicionY);
 				if (bloqueRompible.getDureza() != 0){
-					//this.golpear();
+					bloqueRompible.golpear();
 					this.decremetarDisparos();
 					}
 					else{

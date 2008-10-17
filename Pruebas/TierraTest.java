@@ -59,7 +59,7 @@ public class TierraTest extends TestCase {
 	}
 		
 	
-	public void testInteraccionPooglinHielo(){
+	public void testInteraccionPooglinTierra(){
 	/*
 	 * Corroboro que el Pooglin esté parado sobre la un bloque Tierra.
 	 */

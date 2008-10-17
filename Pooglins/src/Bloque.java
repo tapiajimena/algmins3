@@ -25,7 +25,7 @@ public abstract class Bloque {
 		return posicion.getx();
 	}
 	public int getPosicionY() {
-		return posicion.gety();
+		return posicion.getY();
 	}
 
 	public void setPosicionX(int x) {
