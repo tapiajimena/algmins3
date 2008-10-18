@@ -10,11 +10,9 @@ public class Roca extends Bloque{
 		dureza = 1000;
 	}	
 	public void interactuar(Pooglin unPooglin) {
-		  if(unPooglin.getPosicionX()==this.getPosicionX()){
-		    	if(unPooglin.getPosicionY()==this.getPosicionY()){
-		    		unPooglin.caminar();
-		    	}
-		  }
+		if(this.posicion.equals(unPooglin.getPosicion())){
+    		unPooglin.morir();
+		}
 	}
 	public void golpear() {
 		dureza = dureza - 0.1;

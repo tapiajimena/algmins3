@@ -24,8 +24,8 @@ public class RayoLaserTest extends TestCase {
 		 * encuentra delante del Pooglin
 		 */
 		
-		assertEquals(unPooglin.getPosicionX()+1,unaTierra.getPosicionX());
-		assertEquals(unPooglin.getPosicionY(),unaTierra.getPosicionY());
+		assertEquals(unPooglin.getPosicion().getX()+1,unaTierra.getPosicion().getX());
+		assertEquals(unPooglin.getPosicion().getY(),unaTierra.getPosicion().getY());
 	}
 	
 	
@@ -38,18 +38,18 @@ public class RayoLaserTest extends TestCase {
 			for(int j=0; j<=4; j++){
 				Punto punto = new Punto(i,j);
 				Aire unAire = new Aire(punto);
-				unPlaneta.agregarObstaculo(unAire,i,j);
+				unPlaneta.agregarObstaculo(unAire);
 			}
 		}
-		unPlaneta.agregarObstaculo(unaTierra,2,2);
+		unPlaneta.agregarObstaculo(unaTierra);
 		
 		unRayoLaser.interactuar(unPlaneta);
 		/*
 		 * El Pooglin tiene que mantener su posicion en X porque su
 		 * dureza aun es 0 entonces no creó aire delante suyo.
 		 */
-	    assertEquals(1,unPooglin.getPosicionX());
-		assertEquals(2,unPooglin.getPosicionY());
+	    assertEquals(1,unPooglin.getPosicion().getX());
+		assertEquals(2,unPooglin.getPosicion().getY());
 		
 		/*
 		 * Ahora decremento la dureza de Tierra (dejándola en cero) para que
@@ -63,10 +63,10 @@ public class RayoLaserTest extends TestCase {
 		 * Para probar que hay un bloque Aire, compruebo si es o no traspasable
 		 * ya que la Tierra no lo era y el Aire si.
 		 */
-		assertTrue(unPlaneta.getBloque(2,2).esTraspasable());
+		assertTrue(unPlaneta.getBloque(new Punto(2,2)).esTraspasable());
 		System.out.println("Se eliminó la Tierra delante del Pooglin.");
-		assertEquals(1,unPooglin.getPosicionX());
-		assertEquals(2,unPooglin.getPosicionY());
+		assertEquals(1,unPooglin.getPosicion().getX());
+		assertEquals(2,unPooglin.getPosicion().getY());
 		System.out.println("La posición del Pooglin aún no cambia.");
 		
 		

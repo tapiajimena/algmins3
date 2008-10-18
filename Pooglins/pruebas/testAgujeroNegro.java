@@ -32,7 +32,7 @@ public class testAgujeroNegro extends TestCase {
 			agujero.setPosicionX(i/3);
 			agujero.setPosicionY(i%3);
 			agujero.interactuar(unPooglin);
-			boolean muerto= (Math.abs(agujero.getPosicionX()- unPooglin.getPosicionX())<=1) && (Math.abs(agujero.getPosicionY()- unPooglin.getPosicionY())<=1);
+			boolean muerto=(agujero.getPosicion().distancia(unPooglin.getPosicion())<=1);
 			assertEquals(muerto,unPooglin.estaMuerto());
 		}
 	}

@@ -22,10 +22,8 @@ public class Fuego extends Bloque implements Apagable {
 	}
 	
 	public void interactuar(Pooglin unPooglin){
-	    if(unPooglin.getPosicionX()==this.getPosicionX()){
-	    	if(unPooglin.getPosicionY()==this.getPosicionY()){
+	    if(this.posicion.equals(unPooglin.getPosicion())){
 	    		unPooglin.morir();
-	    	}
 	    }
 	 }
 	

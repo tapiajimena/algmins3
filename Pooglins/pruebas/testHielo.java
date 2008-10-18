@@ -63,8 +63,8 @@ public class testHielo extends TestCase {
 		
 	public void testInteraccionPooglinHielo(){
 	//Corroboro que esten en la misma posicion.
-		assertEquals(pooglin.getPosicionX(),hielo.getPosicionX());
-		assertEquals(pooglin.getPosicionY(),hielo.getPosicionY());
+		assertEquals(pooglin.getPosicion().getX(),hielo.getPosicion().getY());
+		assertEquals(pooglin.getPosicion().getY(),hielo.getPosicion().getY());
 		System.out.println("La posicion del pooglin es(2,3)");
 	//Los hago interactuar
 		//hielo.interactuar(pooglin);

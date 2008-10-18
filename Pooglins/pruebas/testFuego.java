@@ -12,10 +12,10 @@ public class testFuego extends TestCase {
 	public void testPosiciones(){	
 		//Corroboro que las posiciones del pooglin
 		//y del fuego sean las mismas
-		assertEquals(2,unPooglin.getPosicionY());
-		assertEquals(2, unPooglin.getPosicionX());
-		assertEquals(2,fuego.getPosicionY());
-		assertEquals(2,fuego.getPosicionX());
+		assertEquals(2,unPooglin.getPosicion().getY());
+		assertEquals(2, unPooglin.getPosicion().getX());
+		assertEquals(2,fuego.getPosicion().getX());
+		assertEquals(2,fuego.getPosicion().getY());
 	}
 	
 	public void testInteraccionPooglinFuego(){

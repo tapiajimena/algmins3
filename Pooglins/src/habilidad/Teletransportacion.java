@@ -1,5 +1,6 @@
 package habilidad;
 import pooglin.Pooglin;
+import punto.Punto;
 import juego.Planeta;
 
 public class Teletransportacion extends Habilidad {
@@ -10,9 +11,10 @@ public class Teletransportacion extends Habilidad {
 	@Override
 	public void interactuar(Planeta planeta) {
 		if(contadorPasos<=0){
-			pooglin.setPosicionX(pooglin.getPosicionX()+ 20);
+			Punto proximaPosicion = pooglin.getPosicion();
+			proximaPosicion.setX( proximaPosicion.getX()+20);
+			pooglin.setPosicion(proximaPosicion);
 			pooglin.definirHabilidad(null);
-			//pooglin.caminar();
 		}else{
 			contadorPasos--;
 			//pooglin.caminar();

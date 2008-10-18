@@ -16,21 +16,21 @@ public class TunelElectroMagnetico extends Habilidad {
 	}
 	
 	public void interactuar(Planeta unPlaneta){
-			int posicionX = pooglin.getPosicionX();
-			int posicionY = pooglin.getPosicionY();
-			if (unPlaneta.getBloque(posicionX+1,posicionY) instanceof Aire){
-				if (this.getLongitudFaltante()!=0 && this.longitudFaltante>0){
-					Punto punto = new Punto(posicionX+1,posicionY);
-					Bloque BloqueTunel = new Tunel(punto);
-					unPlaneta.agregarObstaculo(BloqueTunel,posicionX+1,posicionY);
-					BloqueTunel.interactuar(pooglin);
-					this.longitudFaltante--;
-				}else{
-					pooglin.caminar();
-				}
+		Punto posicionBloque = pooglin.getPosicion();
+		/*el bloque de delante*/
+		posicionBloque.setX( posicionBloque.getX()+1);	
+		if (unPlaneta.getBloque(posicionBloque) instanceof Aire){
+			if (this.getLongitudFaltante()!=0 && this.longitudFaltante>0){
+				Bloque BloqueTunel = new Tunel(posicionBloque);
+				unPlaneta.agregarObstaculo(BloqueTunel);
+				BloqueTunel.interactuar(pooglin);
+				this.longitudFaltante--;
 			}else{
-				pooglin.caminar();
+					pooglin.caminar();
 			}
+		}else{
+			pooglin.caminar();
+		}
 	}
 
 
