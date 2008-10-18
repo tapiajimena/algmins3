@@ -1,3 +1,6 @@
+package punto;
+
+
 
 public class Punto {
  
@@ -6,12 +9,12 @@ public class Punto {
 	private int posiciony;
 	 
 	
-	Punto(){
+	public Punto(){
 		this.posicionx=0;
 		this.posiciony=0;
 	}
 	
-	Punto(int x, int y){
+	public Punto(int x, int y){
 		this.posicionx=x;
 		this.posiciony=y;		
 	}
