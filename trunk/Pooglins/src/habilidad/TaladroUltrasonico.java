@@ -9,6 +9,7 @@ import bloque.Rompible;
 public class TaladroUltrasonico extends Habilidad{
 	
 	private int vueltasDeTorpedo=20;
+	
 	public TaladroUltrasonico(Pooglin unPooglin){
 		super(unPooglin);
 	};
@@ -18,35 +19,29 @@ public class TaladroUltrasonico extends Habilidad{
 	}
 
 	public void interactuar(Planeta unPlaneta){
-		int posicionX = pooglin.getPosicionX();
-		int posicionY = pooglin.getPosicionY();
-		if (unPlaneta.getBloque(posicionX,posicionY+1) instanceof Rompible ){
+		Punto posicionBloque=pooglin.getPosicion();
+		posicionBloque.setY(posicionBloque.getY()+1);
+		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible ){
 			if (this.getVueltasDeTorpedo()!= 0){
-				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX,posicionY+1);
-					if (bloqueRompible.getDureza() != 0){
-						bloqueRompible.golpear();
-						this.decrementarVueltas();
-					}
-					else{
-						Punto punto = new Punto(posicionX,posicionY+1);
-						@SuppressWarnings("unused")
-						Bloque BloqueTaladrado = new Aire(punto);
-					}
-			}
-			else{
+				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionBloque);
+				if (bloqueRompible.getDureza() != 0){
+					bloqueRompible.golpear();
+					this.decrementarVueltas();
+				}else{
+					unPlaneta.quitarObstaculo(posicionBloque);
+				}
+			}else{
 				pooglin.caminar();
 			}
-		}
-		else{
+		}else{
 			pooglin.caminar();
 		}
 	}
 
-
 	public void decrementarVueltas(){
 		this.vueltasDeTorpedo--;
 	}
-	
+
 	public int getVueltasDeTorpedo() {
 		return vueltasDeTorpedo;
 	}

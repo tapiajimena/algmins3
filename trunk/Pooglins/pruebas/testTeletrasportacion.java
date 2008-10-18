@@ -13,8 +13,8 @@ public class testTeletrasportacion extends TestCase {
 		for(int turno=0;turno<5;turno++){
 			teletransportacion.interactuar(null);
 		}
-		int anteUltimaPosicionX=unPooglin.getPosicionX();
+		int anteUltimaPosicionX=unPooglin.getPosicion().getX();
 		teletransportacion.interactuar(null);
-		assertEquals(anteUltimaPosicionX + 20,unPooglin.getPosicionX());
+		assertEquals(anteUltimaPosicionX + 20,unPooglin.getPosicion().getX());
 	}
 }

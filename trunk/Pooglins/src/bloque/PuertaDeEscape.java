@@ -11,12 +11,9 @@ public class PuertaDeEscape extends Bloque {
 	}
 
 	public void interactuar(Pooglin unPooglin) {
-		  if(unPooglin.getPosicionX()==this.getPosicionX()){
-		    	if(unPooglin.getPosicionY()==this.getPosicionY()){
-		    		unPooglin.salvar();
-	 	
-		    	}
-		  }
+		if(this.posicion.equals(unPooglin.getPosicion())){
+    		unPooglin.salvar();
+		}
 	}
 	
 }

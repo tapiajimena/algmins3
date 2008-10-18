@@ -28,9 +28,9 @@ public class PlanetaTest extends TestCase {
 		/*
 		 * Agrego un bloque Tierra al Planeta y verifico las posiciones.
 		 */
-		unPlaneta.agregarObstaculo(unaTierra,2,2);
-		assertEquals(2,unPlaneta.getBloque(2,2).getPosicionX());
-		assertEquals(2,unPlaneta.getBloque(2,2).getPosicionY());
+		unPlaneta.agregarObstaculo(unaTierra);
+		assertEquals(2,unPlaneta.getBloque(new Punto(2,2)).getPosicion().getX());
+		assertEquals(2,unPlaneta.getBloque(new Punto(2,2)).getPosicion().getY());
 		System.out.println("Se agregó un bloque Tierra");
 	}
 	
@@ -41,8 +41,8 @@ public class PlanetaTest extends TestCase {
 		 * donde estaba el bloque Tierra ahora hay Aire.
 		 * Para esto compruebo que ese bloque sea traspasable.
 		 */
-		unPlaneta.quitarObstaculo(2,2);
-		assertTrue(unPlaneta.getBloque(2,2).esTraspasable());
+		unPlaneta.quitarObstaculo(new Punto(2,2));
+		assertTrue(unPlaneta.getBloque(new Punto(2,2)).esTraspasable());
 		System.out.println("Se eliminó un bloque Tierra");
 	}
 	

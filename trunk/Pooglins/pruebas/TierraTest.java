@@ -66,17 +66,17 @@ public class TierraTest extends TestCase {
 	/*
 	 * Corroboro que el Pooglin esté parado sobre la un bloque Tierra.
 	 */
-		assertEquals(unPooglin.getPosicionX(),unaTierra.getPosicionX());
-		assertEquals(unPooglin.getPosicionY()-1,unaTierra.getPosicionY());
-		System.out.println("La posicion del Pooglin es " + unPooglin.getPosicionX()+"," + unPooglin.getPosicionY());
+		assertEquals(unPooglin.getPosicion().getX(),unaTierra.getPosicion().getX());
+		assertEquals(unPooglin.getPosicion().getY()-1,unaTierra.getPosicion().getY());
+		System.out.println("La posicion del Pooglin es " + unPooglin.getPosicion().getX()+"," + unPooglin.getPosicion().getY());
 	/*
 	 * Los hago interactuar, es decir, el bloque Tierra le dice al Pooglin que
 	 * camine si éste se encuentra sobre ella.
 	 */
 		unaTierra.interactuar(unPooglin);
 		
-		assertEquals(1,unPooglin.getPosicionX());
-		assertEquals(2,unPooglin.getPosicionY());
+		assertEquals(1,unPooglin.getPosicion().getX());
+		assertEquals(2,unPooglin.getPosicion().getY());
 	}
 	
 	

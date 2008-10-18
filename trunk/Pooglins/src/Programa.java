@@ -11,11 +11,11 @@ public class Programa {
 	Pooglin unPooglin=new Pooglin(punto);
 	
 
-	System.out.println(unPooglin.getPosicionX()+" "+unPooglin.getPosicionY());
+	System.out.println(unPooglin.getPosicion().getX()+" "+unPooglin.getPosicion().getY());
 	
 	unPooglin.caminar();
 	
-	System.out.println(unPooglin.getPosicionX()+" "+unPooglin.getPosicionY());
+	System.out.println(unPooglin.getPosicion().getX()+" "+unPooglin.getPosicion().getY());
 	
 	/*
 	 

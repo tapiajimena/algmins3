@@ -13,10 +13,10 @@ public class AgujeroNegro extends Bloque {
 	}
 	@Override
 	public void interactuar(Pooglin unPooglin) {
-		if( Math.abs( unPooglin.getPosicionX()-this.getPosicionX() ) <=1 && Math.abs( unPooglin.getPosicionY()-this.getPosicionY() )<=1){
+		if(this.posicion.distancia(unPooglin.getPosicion())<=1){
 			unPooglin.morir();
 		}
+		
 	}
-	
 }
  

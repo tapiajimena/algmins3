@@ -1,51 +1,66 @@
 package punto;
 
-
-
 public class Punto {
  
-	private int posicionx;
+	private int posicionX;
 	 
-	private int posiciony;
+	private int posicionY;
 	 
 	
 	public Punto(){
-		this.posicionx=0;
-		this.posiciony=0;
+		this.posicionX=0;
+		this.posicionY=0;
 	}
 	
+	public Punto(Punto unPunto){
+		this.posicionX=unPunto.posicionX;
+		this.posicionY=unPunto.posicionY;
+	}
 	public Punto(int x, int y){
-		this.posicionx=x;
-		this.posiciony=y;		
+		this.posicionX=x;
+		this.posicionY=y;		
 	}
 	
-	public int getx(){
-		return this.posicionx;	
+	public int getX(){
+		return this.posicionX;	
 	}
 	
 	public int getY(){
-		return this.posiciony;
+		return this.posicionY;
 	}
 	
-	public void setx(int x){
-		this.posicionx=x;	
+	public void setX(int x){
+		this.posicionX=x;	
 	}
 	
-	public void sety(int y){
-		this.posiciony=y;
+	public void setY(int y){
+		this.posicionY=y;
 	}
-	 
+			 
 	public void copiar(Punto punto) {
-		this.posicionx=punto.posicionx;
-		this.posiciony=punto.posiciony;
+		this.posicionX=punto.posicionX;
+		this.posicionY=punto.posicionY;
 	}
 	
 	public boolean equals(Object otroObjeto){
-		//poner el codigo que siempre va aca 
-		//comparar los x y los y
-		return true;
+		boolean salida = false;
+        if (otroObjeto != null && otroObjeto instanceof Punto) {
+           Punto otroPunto = (Punto)otroObjeto;
+           salida  = (this.posicionX == otroPunto.posicionX) && (this.posicionY == otroPunto.posicionY);
+        }
+        return salida;
+
+	}
+	public int distancia(Punto P){
+		int maximo=Math.abs(this.posicionY-P.posicionY);
+		if(maximo<Math.abs(this.posicionX-P.posicionX))
+			maximo=Math.abs(this.posicionX-P.posicionX);
+		return maximo;
 	}
 	
+	public Punto puntoRelativo(int x,int y){
+		return new Punto(x+this.posicionX,y+this.posicionY);
+	}
 	 
 }
  

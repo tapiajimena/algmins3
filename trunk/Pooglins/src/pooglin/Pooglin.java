@@ -36,14 +36,14 @@ public class Pooglin {
 	 
 	public void caminar() {
 		if((!estaMuerto)){	
-			if((nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()+1).esTraspasable() )){
-				this.setPosicionX(this.getPosicionX()+1);
+			if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 0)).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 1)).esTraspasable() )){
+				this.posicion.setX(this.getPosicion().getX()+1);
 			}
 		//Diagonal inferior adelante;
-		else if((nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()).esTraspasable()) && (nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()+1).esTraspasable() )){
+		else if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 0)).esTraspasable()) && (nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 1)).esTraspasable() )){
 			this.caer();
 		}	
-		else if(!(nivel.getPlaneta().getBloque(this.getPosicionX()+1,this.getPosicionY()).esTraspasable())){
+		else if(!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 0)).esTraspasable())){
 			this.darVuelta();
 		}
 		}
@@ -57,9 +57,9 @@ public class Pooglin {
 	public void caer() {
 		int bloquesCaidos=0;
 		
-		if ((nivel.getPlaneta().getBloque(this.getPosicionX(),this.getPosicionY()+1).esTraspasable())&& (bloquesCaidos<=5)){
+		if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0,1)).esTraspasable())&& (bloquesCaidos<=5)){
 			bloquesCaidos++;
-			this.setPosicionY(this.getPosicionY()+1);
+			this.posicion.setY(this.getPosicion().getY()+1);
 		}
 		if (bloquesCaidos>5){
 			this.morir();
@@ -71,23 +71,15 @@ public class Pooglin {
 	public void definirHabilidad(Habilidad habilidad) {
 		this.habilidad=habilidad;
 	}
-
-	public void setPosicionX(int x) {
-		this.posicion.setx(x);
+	
+	public Punto getPosicion(){
+		return new Punto(this.posicion);
 	}
-
-	public int getPosicionX() {
-		return posicion.getx();
+	
+	public void setPosicion(Punto punto){
+		this.posicion=punto;
 	}
-
-	public void setPosicionY(int y) {
-		this.posicion.sety(y);
-	}
-
-	public int getPosicionY() {
-		return posicion.getY();
-	}
-
+	
 	public boolean estaMuerto() {
 		return estaMuerto;
 	}
