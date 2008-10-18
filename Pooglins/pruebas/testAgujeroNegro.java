@@ -1,3 +1,5 @@
+import pooglin.Pooglin;
+import punto.Punto;
 import bloque.AgujeroNegro;
 import bloque.Bloque;
 import junit.framework.TestCase;

@@ -1,10 +1,11 @@
+import pooglin.Pooglin;
 import junit.framework.TestCase;
 
 
 public class PruebasIntegrales extends TestCase {
 	
 	public void testPooglingSoloPelado(){
-		Pooglin unPoogling = new Pooglin();
+		//Pooglin unPoogling = new Pooglin();
 		/*
 		 * creo un terreno
 		 * agrego el poogling
