@@ -1,17 +1,22 @@
 package habilidad;
-import Planeta;
-import Pooglin;
-import Punto;
+import pooglin.Pooglin;
+import punto.Punto;
+import juego.Planeta;
 import bloque.Aire;
 import bloque.Bloque;
 import bloque.Rompible;
 
 public class RayoLaser extends Habilidad{
  
-	private int disparos;
+	private int disparos=20;
 	
-	public RayoLaser(int cantidadDisparos){
+	public RayoLaser(Pooglin unPooglin){
+		super(unPooglin);
+	}
+	public RayoLaser(Pooglin unPooglin,int cantidadDisparos){
+		super(unPooglin);
 		this.disparos = cantidadDisparos;
+		
 	}
 	
 	/*
@@ -21,9 +26,9 @@ public class RayoLaser extends Habilidad{
 	 * Toma la posición del bloque que se encuentra delante del Pooglin, chequea que
 	 * sea rompible y en caso afirmativo, comienza a golpear.
 	 */
-	public void interactuar(Pooglin unPooglin, Planeta unPlaneta){
-		int posicionX = unPooglin.getPosicionX();
-		int posicionY = unPooglin.getPosicionY();
+	public void interactuar(Planeta unPlaneta){
+		int posicionX = pooglin.getPosicionX();
+		int posicionY = pooglin.getPosicionY();
 		if (unPlaneta.getBloque(posicionX+1,posicionY) instanceof Rompible){
 			if (this.getDisparos()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX+1,posicionY);
@@ -33,17 +38,17 @@ public class RayoLaser extends Habilidad{
 					}
 					else{
 						Punto punto = new Punto(posicionX+1,posicionY);
-						@SuppressWarnings("unused")
+
 						Bloque BloqueEliminado = new Aire(punto);
 						unPlaneta.agregarObstaculo(BloqueEliminado,posicionX+1,posicionY);
 					}
 			}
 			else{
-				unPooglin.caminar();
+				pooglin.caminar();
 			}
 		}
 		else{
-			unPooglin.caminar();
+			pooglin.caminar();
 		}
 	}
 	
@@ -55,6 +60,7 @@ public class RayoLaser extends Habilidad{
 	public int getDisparos(){
 		return this.disparos;
 	}
-	
+
+
 }
  

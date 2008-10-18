@@ -1,12 +1,12 @@
 package habilidad;
-import Planeta;
-import Pooglin;
+import pooglin.Pooglin;
+import juego.Planeta;
 
 
 public abstract class Habilidad {
  
-	@SuppressWarnings("unused")
-	private Pooglin pooglin;
+	
+	protected Pooglin pooglin;
 
 	public Habilidad(Pooglin pooglin){
 		this.pooglin=pooglin;
