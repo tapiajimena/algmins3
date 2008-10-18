@@ -1,9 +1,6 @@
 package bloque;
-
-import Pooglin;
-import Punto;
-
-import java.util.ArrayList;
+import pooglin.Pooglin;
+import punto.Punto;
 
 public abstract class Bloque {
  

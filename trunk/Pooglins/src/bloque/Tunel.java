@@ -1,6 +1,6 @@
 package bloque;
-import Pooglin;
-import Punto;
+import pooglin.Pooglin;
+import punto.Punto;
 
 public class Tunel extends Bloque {
 
