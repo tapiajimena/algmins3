@@ -1,3 +1,5 @@
+import pooglin.Pooglin;
+import punto.Punto;
 import bloque.Roca;
 import junit.framework.TestCase;
 public class testRoca extends TestCase {

@@ -1,6 +1,8 @@
+import punto.Punto;
 import bloque.Aire;
 import bloque.Bloque;
 import bloque.Tierra;
+import juego.Planeta;
 import junit.framework.TestCase;
 
 
