@@ -20,7 +20,7 @@ public class Planeta {
 	private Habilidad habilidad;
 
 	
-	Planeta(int alto, int ancho, Bloque[][] terreno ){
+	public Planeta(int alto, int ancho, Bloque[][] terreno ){
 		this.alto=(alto);
 		this.ancho=(ancho);
 		this.Terreno=terreno;
