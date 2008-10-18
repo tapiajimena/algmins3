@@ -1,6 +1,6 @@
 package bloque;
-import Pooglin;
-import Punto;
+import pooglin.Pooglin;
+import punto.Punto;
 
 public class Tierra extends Bloque implements Rompible {
 	
@@ -17,7 +17,7 @@ public class Tierra extends Bloque implements Rompible {
 
 	public void interactuar(Pooglin unPooglin) {
 		unPooglin.caminar();
-		unPooglin.interactuar(this);
+		//unPooglin.interactuar(this);
 	}
 	public boolean esTraspasable(){
 		return false;

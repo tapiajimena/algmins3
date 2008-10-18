@@ -1,7 +1,7 @@
 package bloque;
-import Nivel;
-import Pooglin;
-import Punto;
+import pooglin.Pooglin;
+import punto.Punto;
+import juego.Nivel;
 
 
 public class Aire extends Bloque {
