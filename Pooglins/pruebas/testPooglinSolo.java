@@ -7,7 +7,12 @@ public class testPooglinSolo extends TestCase {
 	Pooglin p = new Pooglin();
 	
 	public void testPooglin() {
-		fail("Not yet implemented");
+		Punto punto=new Punto(1,3);
+		Pooglin op=new Pooglin(punto);
+		/*compruebo que la posicion del Pooglin es la posicion de inicializacion*/
+		assertTrue(op.getPosicion().equals(punto));
+		
+		assertFalse(op.estaMuerto());
 	}
 
 	public void testPooglinPunto() {
@@ -16,33 +21,32 @@ public class testPooglinSolo extends TestCase {
 		assertTrue(pto.equals(p.getPosicion()));
 	}
 
-	public void testInteractuar() {
-		fail("Not yet implemented");
-	}
-
 	public void testMorir() {
 		assertFalse(p.estaMuerto());
 		p.morir();
 		assertTrue(p.estaMuerto());
 	}
-
+	public void testInteractuar() {
+		fail("Not yet implemented");
+	}
+/*
 	public void testCaminar() {
 		fail("Not yet implemented");
 	}
-
+	/*
 	public void testDarVuelta() {
-		fail("Not yet implemented");
+	/*	
 	}
 
 	public void testCaer() {
 		fail("Not yet implemented");
 	}
-
+	/*
 	public void testDefinirHabilidad() {
 		fail("Not yet implemented");
 	}
 
 	public void testSalvar() {
 		fail("Not yet implemented");
-	}
+	}*/
 }
