@@ -1,22 +1,25 @@
 package habilidad;
-import Planeta;
-import Pooglin;
-import Punto;
+import pooglin.Pooglin;
+import punto.Punto;
+import juego.Planeta;
 import bloque.Aire;
 import bloque.Bloque;
 import bloque.Rompible;
 
 public class TaladroUltrasonico extends Habilidad{
 	
-	private int vueltasDeTorpedo;
-	
-	public TaladroUltrasonico(int cantidadVueltas){
+	private int vueltasDeTorpedo=20;
+	public TaladroUltrasonico(Pooglin unPooglin){
+		super(unPooglin);
+	};
+	public TaladroUltrasonico(Pooglin unPooglin,int cantidadVueltas){
+		super(unPooglin);
 		this.vueltasDeTorpedo = cantidadVueltas;
 	}
 
-	public void interactuar(Pooglin unPooglin, Planeta unPlaneta){
-		int posicionX = unPooglin.getPosicionX();
-		int posicionY = unPooglin.getPosicionY();
+	public void interactuar(Planeta unPlaneta){
+		int posicionX = pooglin.getPosicionX();
+		int posicionY = pooglin.getPosicionY();
 		if (unPlaneta.getBloque(posicionX,posicionY+1) instanceof Rompible ){
 			if (this.getVueltasDeTorpedo()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionX,posicionY+1);
@@ -31,11 +34,11 @@ public class TaladroUltrasonico extends Habilidad{
 					}
 			}
 			else{
-				unPooglin.caminar();
+				pooglin.caminar();
 			}
 		}
 		else{
-			unPooglin.caminar();
+			pooglin.caminar();
 		}
 	}
 
