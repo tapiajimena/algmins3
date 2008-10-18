@@ -14,6 +14,7 @@ public class Pooglin {
 	
 	public Pooglin(){
 		this.estaMuerto =false;
+		this.posicion=new Punto(0,0);
 	}
 		
 	public Pooglin(Punto punto){
@@ -67,7 +68,6 @@ public class Pooglin {
 	
 	}
 		
-	
 	public void definirHabilidad(Habilidad habilidad) {
 		this.habilidad=habilidad;
 	}
@@ -91,12 +91,5 @@ public class Pooglin {
 	public int getId() {
 		return id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	
-	 
 }
  

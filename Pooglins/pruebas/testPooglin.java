@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
 
-
 public class testPooglin extends TestCase {
 	
 	public void testPooglinContraTierraSinTaladro(){
