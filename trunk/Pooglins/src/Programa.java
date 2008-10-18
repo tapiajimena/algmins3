@@ -1,3 +1,6 @@
+import pooglin.Pooglin;
+import punto.Punto;
+
 public class Programa {
 
 	

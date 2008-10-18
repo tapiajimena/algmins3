@@ -1,3 +1,6 @@
+package pooglin;
+import punto.Punto;
+import juego.Nivel;
 import habilidad.Habilidad;
 
 public class Pooglin {
@@ -9,11 +12,11 @@ public class Pooglin {
 	private Habilidad habilidad;
 	private boolean estaMuerto;
 	
-	Pooglin(){
+	public Pooglin(){
 		this.estaMuerto =false;
 	}
 		
-	Pooglin(Punto punto){
+	public Pooglin(Punto punto){
 		this.posicion=punto;
 		this.estaMuerto =false;
 	}
