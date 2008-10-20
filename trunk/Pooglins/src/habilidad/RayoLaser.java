@@ -18,17 +18,16 @@ public class RayoLaser extends Habilidad{
 	}
 	
 	/*
-	 * (non-Javadoc)
-	 * @see Habilidad#interactuar(Pooglin, Planeta)
-	 * 
-	 * Toma la posición del bloque que se encuentra delante del Pooglin, chequea que
-	 * sea rompible y en caso afirmativo, comienza a golpear.
+	 * Toma la posición del bloque que se encuentra delante del Pooglin, 
+	 * chequea que sea rompible y en caso afirmativo, comienza a golpear.
 	 */
 	public void interactuar(Planeta unPlaneta){
 		
 		Punto posicionBloque = pooglin.getPosicion();
+
 		/*el bloque de delante*/
-		posicionBloque.sumar(pooglin.getDireccion());
+		posicionBloque.sumar(pooglin.obtenerDireccion());
+
 		
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible){
 			if (this.getDisparos()!= 0){
@@ -58,4 +57,3 @@ public class RayoLaser extends Habilidad{
 
 
 }
- 
