@@ -5,7 +5,7 @@ import bloque.Bloque;
 import junit.framework.TestCase;
 
 
-public class testAgujeroNegro extends TestCase {
+public class AgujeroNegroTest extends TestCase {
 	
 	public void testVacio(){
 		Bloque agujero=new AgujeroNegro(new Punto(1,1));

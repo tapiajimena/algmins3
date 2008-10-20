@@ -3,7 +3,7 @@ import punto.Punto;
 import junit.framework.TestCase;
 
 
-public class testPooglinSolo extends TestCase {
+public class PooglinSoloTest extends TestCase {
 	Pooglin p = new Pooglin();
 	
 	public void testPooglin() {

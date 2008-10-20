@@ -1,18 +1,9 @@
-
 import pooglin.Pooglin;
 import punto.Punto;
 import bloque.Hielo;
 import junit.framework.TestCase;
 
-/**
- * 
- */
-
-/**
- * @author Administrator
- *
- */
-public class testHielo extends TestCase {
+public class HieloTest extends TestCase {
 
 	Punto punto = new Punto(2,3);
 	Hielo hielo = new Hielo(punto);
