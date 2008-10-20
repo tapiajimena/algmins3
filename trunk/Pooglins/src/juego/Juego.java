@@ -5,7 +5,7 @@ import pooglin.Pooglin;
 public class Juego {
  
 	private Nivel[] nivel;
-	private Pooglin[] listaPooglins;
+	
 	 
 }
  
