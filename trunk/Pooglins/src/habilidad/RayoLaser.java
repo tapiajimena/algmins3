@@ -28,7 +28,7 @@ public class RayoLaser extends Habilidad{
 		
 		Punto posicionBloque = pooglin.getPosicion();
 		/*el bloque de delante*/
-		posicionBloque.setX( posicionBloque.getX()+1);
+		posicionBloque.sumar(pooglin.getDireccion());
 		
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible){
 			if (this.getDisparos()!= 0){
