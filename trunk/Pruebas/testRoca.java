@@ -25,8 +25,13 @@ public class testRoca extends TestCase {
 	}
 
 	public void testInteraccion(){
-		//No se que hacer hoy....
-		
+		boolean x = this.pooglin.getPosicion().equals(roca.getPosicion());
+		assertEquals(true, x);
+		this.roca.interactuar(pooglin);
+		assertTrue(pooglin.estaMuerto());
 	}
+
+
+
 	
 }
