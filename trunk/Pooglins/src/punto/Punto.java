@@ -62,5 +62,9 @@ public class Punto {
 		return new Punto(x+this.posicionX,y+this.posicionY);
 	}
 	 
+	//USO INTERNO: Equivalente al toString, solo se usa para ver el punto.
+	public void quePuntoEs(){
+		System.out.println("("+this.posicionX+","+this.posicionY+")");
+	}
 }
  
