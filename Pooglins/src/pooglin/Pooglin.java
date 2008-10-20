@@ -92,6 +92,10 @@ public class Pooglin {
 	public void salvar() {
 		
 	}
+	
+	public Punto obtenerDireccion(){ 
+		return new Punto(this.cantidadDeMovimiento,0);
+	}
 
 	public int getId() {
 		return id;
