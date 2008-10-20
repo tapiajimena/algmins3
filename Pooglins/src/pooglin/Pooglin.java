@@ -22,6 +22,11 @@ public class Pooglin {
 		this.estaMuerto =false;
 	}
 	
+	public Pooglin(Punto punto, Nivel nivel) {
+		this.posicion=punto;
+		this.nivel=nivel;
+	}
+
 	public void interactuar() {
 		if (habilidad!=null){
 			this.habilidad.interactuar(nivel.getPlaneta());
