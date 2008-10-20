@@ -5,7 +5,7 @@ import habilidad.Teletransportacion;
 import junit.framework.TestCase;
 
 
-public class testTeletrasportacion extends TestCase {
+public class TeletrasportacionTest extends TestCase {
 
 	public void testInteractuar() {
 		Pooglin unPooglin=new Pooglin(new Punto(0,0));

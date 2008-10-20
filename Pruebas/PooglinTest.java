@@ -1,6 +1,6 @@
 import junit.framework.TestCase;
 
-public class testPooglin extends TestCase {
+public class PooglinTest extends TestCase {
 	
 	public void testPooglinContraTierraSinTaladro(){
 	

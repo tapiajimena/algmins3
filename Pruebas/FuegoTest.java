@@ -3,7 +3,7 @@ import punto.Punto;
 import bloque.Fuego;
 import junit.framework.*;
 
-public class testFuego extends TestCase {
+public class FuegoTest extends TestCase {
 
 	Punto punto =new Punto (2,2);
 	Pooglin unPooglin = new Pooglin(punto);

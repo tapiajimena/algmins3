@@ -2,7 +2,7 @@ import pooglin.Pooglin;
 import punto.Punto;
 import bloque.Roca;
 import junit.framework.TestCase;
-public class testRoca extends TestCase {
+public class RocaTest extends TestCase {
 	
 	Punto punto = new Punto(1,1);
 	Roca roca = new Roca(punto);
