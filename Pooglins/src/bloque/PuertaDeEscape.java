@@ -15,5 +15,7 @@ public class PuertaDeEscape extends Bloque {
     		unPooglin.salvar();
 		}
 	}
-	
+	public boolean esTraspasable(){
+		return true;
+	}
 }
