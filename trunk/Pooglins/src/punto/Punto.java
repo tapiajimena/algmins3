@@ -61,6 +61,11 @@ public class Punto {
 	public Punto puntoRelativo(int x,int y){
 		return new Punto(x+this.posicionX,y+this.posicionY);
 	}
+		
+	public void sumar(Punto otroPunto){
+		this.setX(this.getX()+otroPunto.getX());
+		this.setY(this.getY()+otroPunto.getY());
+	}
 	 
 	//USO INTERNO: Equivalente al toString, solo se usa para ver el punto.
 	public void quePuntoEs(){
