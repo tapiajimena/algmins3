@@ -39,7 +39,7 @@ public class Nivel {
 		 
 	}
 	 
-	public void Nivel(Planeta planeta, Pooglin[] pooglins) {
+	public  Nivel(Planeta planeta, Pooglin[] pooglins) {
 		this.planeta=planeta;
 		this.pooglin=pooglins;
 		
