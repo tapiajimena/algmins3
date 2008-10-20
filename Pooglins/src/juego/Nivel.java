@@ -34,8 +34,15 @@ public class Nivel {
 	public void liberarTripulacion() {
 	 
 	}
-	 
+	
 	public void Nivel(String configuracion) {
+		 
+	}
+	 
+	public void Nivel(Planeta planeta, Pooglin[] pooglins) {
+		this.planeta=planeta;
+		this.pooglin=pooglins;
+		
 	 
 	}
 
