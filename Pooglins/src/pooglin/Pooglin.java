@@ -34,8 +34,8 @@ public class Pooglin {
 	public void morir() {
 	 estaMuerto=true;
 	}
-	 
 	public void caminar() {
+		
 		if((!estaMuerto)){	
 			if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 0)).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 1)).esTraspasable() )){
 				this.posicion.setX(this.getPosicion().getX()+1);
