@@ -59,6 +59,22 @@ public class Planeta {
 		this.ancho=(ancho);
 		this.terreno=terreno;
 	}
+		
+	public Planeta(int alto, int ancho, char[][] terreno ){
+		this.alto=alto;
+		this.ancho=ancho;
+		
+		this.terreno=new Bloque[alto][ancho];
+		
+        for(int i=0;i<alto;i++){
+        	for(int j=0;j<ancho;j++){
+        		
+        		this.terreno[i][j]=transformarABloque(terreno[i][j],new Punto(i,j));
+        	}
+        }
+     
+		
+	}
 	
 	public void agregarObstaculo(Bloque bloque) {
 		this.terreno[bloque.getPosicionX()][bloque.getPosicionY()] = bloque;	 
