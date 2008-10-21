@@ -15,7 +15,7 @@ public class PruebasIntegrales extends TestCase {
 		Punto punto=new Punto(0,0);
 		Punto punto2=new Punto(1,2);
 		//Creo una matriz con el terreno.
-		char[][] matriz={{'A','A','A','A','A'},{'T','A','A','A','A'},{'A','A','A','A','A'},{'T','T','T','T','T'}};
+		char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','A'},{'A','F','A','A','A'},{'T','T','T','T','T'}};
 		
 		//Cantidad filas de la matriz
 		System.out.println(matriz.length);
@@ -54,21 +54,17 @@ public class PruebasIntegrales extends TestCase {
 		
 		//*Sacar los quePuntoEs no hace falta si hacemos los assert
 		
-		unPooglin.caminar();
+		unPooglin.interactuar();
 		unPooglin.getPosicion().quePuntoEs();
 		
-		unPooglin.caminar();
+		unPooglin.interactuar();
 		unPooglin.getPosicion().quePuntoEs();
 		
-		unPooglin.caminar();
+		unPooglin.interactuar();
 		unPooglin.getPosicion().quePuntoEs();
 		
-		unPooglin.caminar();
+		unPooglin.interactuar();
 		unPooglin.getPosicion().quePuntoEs();
-		
-		unPooglin.caminar();
-		unPooglin.getPosicion().quePuntoEs();
-		
 		
 		System.out.println(unPooglin.estaMuerto());
 		
