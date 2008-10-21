@@ -31,5 +31,8 @@ public class Fuego extends Bloque implements Apagable {
 	public void queES(){
 		System.out.println("Esto es Fuego en la pos:"+this.getPosicionX()+"-"+this.getPosicionY());
 	}
+	public void queEs(){
+		System.out.println("Esto es Fuego");
+	}
 }
  

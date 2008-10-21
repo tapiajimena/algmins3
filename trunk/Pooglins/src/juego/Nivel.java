@@ -38,10 +38,14 @@ public class Nivel {
 	public void Nivel(String configuracion) {
 		 
 	}
+	public  Nivel() {
+	
 	 
-	public  Nivel(Planeta planeta, Pooglin[] pooglins) {
+	}
+	 
+	public  Nivel(Pooglin[] pooglins,Planeta planeta) {
 		this.planeta=planeta;
-		this.pooglin=pooglins;
+		this.setPooglin(pooglins);
 		
 	 
 	}
@@ -52,6 +56,14 @@ public class Nivel {
 
 	public Planeta getPlaneta() {
 		return planeta;
+	}
+
+	public void setPooglin(Pooglin[] pooglin) {
+		this.pooglin = pooglin;
+	}
+
+	public Pooglin[] getPooglin() {
+		return pooglin;
 	}
 	
 

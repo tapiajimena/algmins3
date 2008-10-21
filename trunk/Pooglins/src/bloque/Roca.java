@@ -25,4 +25,7 @@ public class Roca extends Bloque{
 	public double getDureza() {
 		return dureza;
 	} 
+	public void queEs(){
+		System.out.println("Esto es una Roca");
+	}
 }
