@@ -27,7 +27,7 @@ public class PruebasIntegrales extends TestCase {
 		*.dat o .txt
 		*
 		*/
-		Planeta unPlaneta=new Planeta("C:\\Documents and Settings\\Usuario\\Mis documentos\\workspace_java\\TPooglinsLunes\\archivo.dat",5,5);
+		Planeta unPlaneta=new Planeta("C:\\archivo.dat",5,5);
 		//Seteo el planeta cargado al nivel
 		nivel.setPlaneta(unPlaneta);
 		
