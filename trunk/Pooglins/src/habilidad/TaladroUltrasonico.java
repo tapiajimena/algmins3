@@ -1,9 +1,7 @@
 package habilidad;
+import juego.Planeta;
 import pooglin.Pooglin;
 import punto.Punto;
-import juego.Planeta;
-import bloque.Aire;
-import bloque.Bloque;
 import bloque.Rompible;
 
 public class TaladroUltrasonico extends Habilidad{
