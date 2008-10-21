@@ -13,14 +13,8 @@ public class Aire extends Bloque {
 	}
 	
 	public void interactuar(Pooglin unPooglin) {
-	/*	if (unPooglin.getPosicionX()==this.getPosicionX()){
-			if(unPooglin.getPosicionY()==this.getPosicionY()){
-	    		if (nivel.getPlaneta().getBloque(this.getPosicionX(),this.getPosicionY()+1).esTraspasable()){
-	    			unPooglin.caer();
-	    		}else unPooglin.caminar();
-			}
-
-		}*/
+		unPooglin.caminar();
+			
 	}
 	
 	public void queEs(){

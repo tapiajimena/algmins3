@@ -34,8 +34,13 @@ public class Pooglin {
 		} else {
 			this.caminar();
 		}
-		
+		/*le pide la interaccion a los bloques contiguos*/
+		for(int i=-1;i<2;i++){
+			for(int j=-1;j<2;j++)
+				nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(i,j));
+			
 		}
+	}
 	 
 	public void morir() {
 	 estaMuerto=true;
