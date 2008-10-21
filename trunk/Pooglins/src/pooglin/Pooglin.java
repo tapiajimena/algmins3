@@ -29,17 +29,19 @@ public class Pooglin {
 	}
 
 	public void interactuar() {
+		
 		if (habilidad!=null){
 			this.habilidad.interactuar(nivel.getPlaneta());
 		} else {
-			this.caminar();
+			nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);
 		}
+		
 		/*le pide la interaccion a los bloques contiguos*/
-		for(int i=-1;i<2;i++){
+	/*	for(int i=-1;i<2;i++){
 			for(int j=-1;j<2;j++)
 				nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(i,j));
 			
-		}
+		}*/
 	}
 	 
 	public void morir() {
@@ -52,6 +54,7 @@ public class Pooglin {
 			if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1,0)).esTraspasable())){
 				System.out.println("Cae para abajo");
 				this.caer();
+				
 			}
 			
 			//Si abajo a la derecha no hay bloque no transpasable el pooglin cae.
@@ -61,6 +64,7 @@ public class Pooglin {
 					System.out.println("Cae en diagonal");
 					this.posicion.setY(this.getPosicion().getY()+1);
 					this.posicion.setX(this.getPosicion().getX()+1);
+					
 					//this.caer();
 				
 			}
@@ -68,9 +72,11 @@ public class Pooglin {
 			else if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, 1)).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 1)).esTraspasable() )){
 				System.out.println("Avanzo hacia adelante");
 				this.posicion.setY(this.getPosicion().getY()+1);
+				
 			}
 			else if(!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, 1)).esTraspasable())){
 				System.out.println("Doy la vuelta");
+				
 				this.darVuelta();
 		}
 		}
@@ -87,6 +93,7 @@ public class Pooglin {
 			System.out.println("Me cai, ouch");
 			bloquesCaidos++;
 			this.posicion.setX(this.getPosicion().getX()+1);
+			
 		}
 		if (bloquesCaidos>5){
 			this.morir();
