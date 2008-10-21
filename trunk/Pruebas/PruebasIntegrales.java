@@ -14,8 +14,16 @@ public class PruebasIntegrales extends TestCase {
 		Nivel nivel=new Nivel();
 		Punto punto=new Punto(0,0);
 		Punto punto2=new Punto(1,2);
+		//Creo una matriz con el terreno.
+		char[][] matriz={{'A','A','A','A','A'},{'T','A','A','A','A'},{'A','A','A','A','A'},{'T','T','T','T','T'}};
 		
-		/*Abajo cargamos un planeta desde un archivo.
+		//Cantidad filas de la matriz
+		System.out.println(matriz.length);
+		//Cantidad columnas de la matriz
+		System.out.println(matriz[0].length);
+		
+		/*ESTO ESTA COMENTADO PERO FUNCIONA
+		 * Abajo cargamos un planeta desde un archivo.
 		*Este seria el planeta a cargar..
 		*AAAAA
 		*TAAAA
@@ -26,8 +34,12 @@ public class PruebasIntegrales extends TestCase {
 		*Fijarse para probar poner un archivo en un directorio por ejemplo c: y un archivo
 		*.dat o .txt
 		*
+		*Planeta unPlaneta=new Planeta("C:\\archivo.dat",5,5);
+		*
 		*/
-		Planeta unPlaneta=new Planeta("C:\\archivo.dat",5,5);
+		
+		Planeta unPlaneta=new Planeta(4,5,matriz);
+		
 		//Seteo el planeta cargado al nivel
 		nivel.setPlaneta(unPlaneta);
 		
