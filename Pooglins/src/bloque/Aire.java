@@ -22,4 +22,8 @@ public class Aire extends Bloque {
 
 		}*/
 	}
+	
+	public void queEs(){
+		System.out.println("Esto es Aire");
+	}
 }

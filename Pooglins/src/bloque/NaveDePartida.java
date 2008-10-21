@@ -17,6 +17,8 @@ public class NaveDePartida extends Bloque {
 	}
 	
 	
- 
+	public void queEs(){
+		System.out.println("Esto es la Nave de Partida");
+	}
 }
  
