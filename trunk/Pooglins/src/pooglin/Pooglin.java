@@ -94,6 +94,11 @@ public class Pooglin {
 			bloquesCaidos++;
 			this.posicion.setX(this.getPosicion().getX()+1);
 			
+			if(!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1,0)).esTraspasable())){
+				bloquesCaidos=0;
+			}
+			
+			
 		}
 		if (bloquesCaidos>5){
 			this.morir();
