@@ -29,10 +29,26 @@ public class RocaTest extends TestCase {
 		
 		Planeta unPlaneta=new Planeta(4,5,matriz);
 		nivel.setPlaneta(unPlaneta);
-		Pooglin pooglin= new Pooglin(punto);
 		
-		boolean posiciones = pooglin.getPosicion().equals(roca.getPosicion());
-		assertEquals(true, posiciones);
+		Punto otroPunto = new Punto(0,0);
+		Pooglin pooglin= new Pooglin(otroPunto,nivel);
+		
+		
+		/*La roca le debe decir al pooglin que de la vuelta, asique 
+		 * interactuamos 3 veces. 
+		 */
+		pooglin.interactuar();
+	
+		pooglin.interactuar();
+		
+		pooglin.interactuar();
+		/*
+		 * Ahora debe estar en la posicion (1,1)
+		 * 
+		 */
+	Punto unPunto=new Punto(1,1);
+	 assertEquals(unPunto,pooglin.getPosicion());
+		
 		
 	}
 
