@@ -5,13 +5,11 @@ import junit.framework.TestCase;
 
 public class PooglinSoloTest extends TestCase {
 	Pooglin p = new Pooglin();
-	
 	public void testPooglin() {
 		Punto punto=new Punto(1,3);
 		Pooglin op=new Pooglin(punto);
 		/*compruebo que la posicion del Pooglin es la posicion de inicializacion*/
 		assertTrue(op.getPosicion().equals(punto));
-		
 		assertFalse(op.estaMuerto());
 	}
 
@@ -26,27 +24,5 @@ public class PooglinSoloTest extends TestCase {
 		p.morir();
 		assertTrue(p.estaMuerto());
 	}
-	public void testInteractuar() {
-		fail("Not yet implemented");
-	}
-/*
-	public void testCaminar() {
-		fail("Not yet implemented");
-	}
-	/*
-	public void testDarVuelta() {
-	/*	
-	}
 
-	public void testCaer() {
-		fail("Not yet implemented");
-	}
-	/*
-	public void testDefinirHabilidad() {
-		fail("Not yet implemented");
-	}
-
-	public void testSalvar() {
-		fail("Not yet implemented");
-	}*/
 }
