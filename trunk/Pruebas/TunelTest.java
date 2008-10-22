@@ -28,7 +28,7 @@ public class TunelTest extends TestCase {
 		 * El Pooglin tiene que aumentar su posición en X cuando atravieza
 		 * un bloque Tunel
 		 */
-	    assertEquals(2,unPooglin.getPosicion().getX());
+	    	assertEquals(2,unPooglin.getPosicion().getX());
 		assertEquals(2,unPooglin.getPosicion().getY());
 		
 		
