@@ -33,6 +33,7 @@ public class Planeta {
 			case 'H' :/*Hielo*/bloque=new Hielo(punto);break;
 			case 'P' :/*NavePartida*/bloque=new NaveDePartida(punto);break;
 			case 'E' :/*NaveEntrada*/bloque=new PuertaDeEscape(punto);break;
+			case 'B' :/*TunelElectromagentico(Bridge)*/bloque=new PuertaDeEscape(punto);break;
 			default : bloque=new Aire(punto);
 		}
 		return bloque;

@@ -16,11 +16,11 @@ public class Tunel extends Bloque {
 	}
 
 	public void interactuar(Pooglin unPooglin) {
-		////////////////
+		unPooglin.caminar();
 
 	}
 	public boolean esTraspasable(){
-		return true;
+		return false;
 	}
 	public void queEs(){
 		System.out.println("Esto es un Tunel");
