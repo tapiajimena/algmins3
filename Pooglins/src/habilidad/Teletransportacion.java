@@ -12,7 +12,7 @@ public class Teletransportacion extends Habilidad {
 	public void interactuar(Planeta planeta) {
 		if(contadorPasos<=0){
 			Punto proximaPosicion = pooglin.getPosicion();
-			proximaPosicion.setX( proximaPosicion.getX()+20);
+			proximaPosicion.setX(proximaPosicion.getX()+20);
 			pooglin.setPosicion(proximaPosicion);
 			pooglin.definirHabilidad(null);
 		}else{
