@@ -23,11 +23,10 @@ public class RayoLaser extends Habilidad{
 	 */
 	public void interactuar(Planeta unPlaneta){
 		
-		Punto posicionBloque = pooglin.getPosicion();
+		Punto posicionBloque;
 
 		/*el bloque de delante*/
-		posicionBloque.sumar(pooglin.obtenerDireccion());
-
+		posicionBloque=pooglin.getPosicion().puntoRelativo(0, pooglin.getVectorDireccion());
 		
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible){
 			if (this.getDisparos()!= 0){
