@@ -6,7 +6,6 @@ import habilidad.Habilidad;
 public class Pooglin {
 
 	private int id;
-	private int cantidadDeMovimiento;
 	private Punto posicion;
 	private Nivel nivel;
 	private Habilidad habilidad;
@@ -15,19 +14,16 @@ public class Pooglin {
 	private int vectorDireccion;
 
 	public Pooglin(){
-		
 		this.estaMuerto =false;
 		this.posicion=new Punto(0,0);
 		this.vectorDireccion=1;
-
+		
 	}
 
 	public Pooglin(Punto punto){
-		
 		this.posicion=punto;
 		this.estaMuerto =false;
 		this.vectorDireccion=1;
-	
 	}
 
 	public Pooglin(Punto punto, Nivel nivel) {
@@ -136,7 +132,7 @@ public class Pooglin {
 	
 	/*Devuelve una copia de  la posicion del Pooglin*/
 	public Punto obtenerDireccion(){ 
-		return new Punto(this.cantidadDeMovimiento,0);
+		return new Punto(this.vectorDireccion,0);
 	}
 	/*Devuelve el numero identificador del Pooglin*/
 	public int getId() {
