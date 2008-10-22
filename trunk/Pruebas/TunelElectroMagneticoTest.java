@@ -34,77 +34,32 @@ public class TunelElectroMagneticoTest extends TestCase {
 	    
 	    unPooglin=new Pooglin(new Punto(2,0),nivel);
 	    /*
-	     * Corroboro que un bloque del tipo tierra se
+	     * Corroboro que un bloque traspasable se
 	     * encuentra delante del Pooglin
 	     */
 	    Bloque bloqueFrontal=unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(0,1));
 	    
-	    assertTrue(bloqueFrontal instanceof Tierra);
+	    assertTrue(bloqueFrontal.esTraspasable());
 	    
 	    constructorDeTunel =new TunelElectroMagnetico(unPooglin);
-	    
-	    /*guardo informacion inicial*/
-	    
-	    int durezaInicial=((Tierra)bloqueFrontal).getDureza();
-	    
-	    Punto posicionInicialPooglin=unPooglin.getPosicion();
-	    
-	    Punto posicionInicialBloque=bloqueFrontal.getPosicion();
-	    
-	    int disparosInicial=constructorDeTunel.getLongitudFaltante();
-	    
+	    int longitudInicial=constructorDeTunel.getLongitudFaltante();
+	    Punto posicionInicialPooglin;
 	    /*Empiezo la interaccion*/
-	    /* La idea es golpear la tierra hasta tenga dureza cero*/
-	    for(int i=1;durezaInicial>=i;i++){
+	    for(int i=1;i<constructorDeTunel.getLongitudFaltante();i++){
+		posicionInicialPooglin=unPooglin.getPosicion();
 		constructorDeTunel.interactuar(unPlaneta);
-		
-		assertEquals(durezaInicial-i,((Tierra)bloqueFrontal).getDureza());
-		assertEquals(disparosInicial-i,constructorDeTunel.getLongitudFaltante());
+		assertEquals(longitudInicial-i,constructorDeTunel.getLongitudFaltante());
+		assertTrue(unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(-1,unPooglin.getVectorDireccion())));		
 	    }
-	    /*el bloque de tierra todabia no esta roto por lo que 
-	     * el pooglin debe seguir en la posicionanterior
-	     */
-	    assertTrue(posicionInicialPooglin.equals(unPooglin.getPosicion()));
-	    /*
-	     * Con una interacccion mas el bloque se debe romper, el pooglin avanza un casillero simultaneamente
-	     * Para probar que hay un bloque Aire delante, compruebo si es o no traspasable
-	     * ya que la Tierra no lo era y el Aire si.
-	     */
-	    constructorDeTunel.interactuar(unPlaneta);
-	    
-	    bloqueFrontal=unPlaneta.getBloque(posicionInicialBloque);
-	    
-	    assertTrue(bloqueFrontal.esTraspasable());
-	    
-	    assertTrue( unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(0, 1)));
-	    /*Ahora de manera similar compruebo que rompa el bloque siguiente
-	    *empiezo por guardar el estado inicial
-	    */
-	    bloqueFrontal =unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(0,1));
-	   
-	    durezaInicial=((Tierra)bloqueFrontal).getDureza();
-	    
 	    posicionInicialPooglin=unPooglin.getPosicion();
-	    
-	    posicionInicialBloque=bloqueFrontal.getPosicion();
-	    /*Opero*/
-	    assertTrue(bloqueFrontal instanceof Tierra);
-	    
-	    for(int i=1;durezaInicial>=i;i++){
-		constructorDeTunel.interactuar(unPlaneta);
-		
-		assertEquals(durezaInicial-i,((Tierra)bloqueFrontal).getDureza());
-	    }
-	    /*aun no avanzo un bloque*/
-	    assertTrue(posicionInicialPooglin.equals(unPooglin.getPosicion()));
-	    /*rompe el bloque y avanza*/
 	    constructorDeTunel.interactuar(unPlaneta);
+	    System.out.println(unPooglin.getPosicion());
+	    //assertTrue(unPooglin.getPosicion().equals(new Punto(1,3)));
+	    constructorDeTunel.interactuar(unPlaneta);
+	    //unPooglin.caminar();
+	    System.out.println(unPooglin.getPosicion());
+	    constructorDeTunel.interactuar(unPlaneta);
+	    System.out.println(unPooglin.getPosicion());
 	    
-	    bloqueFrontal=unPlaneta.getBloque(posicionInicialBloque);
-	    /*Corroboro que ahora hay una bloque traspasable en lugar del 
-	     * bloque anterior y que el pooglin avanzo una posicion
-	     */
-	    assertTrue(bloqueFrontal.esTraspasable());
-	    assertTrue( unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(0, 1)));
 	}
 }
