@@ -10,6 +10,7 @@ import juego.Planeta;
 import junit.framework.TestCase;
 
 
+@SuppressWarnings("unused")
 public class TunelElectroMagneticoTest extends TestCase {
     Pooglin unPooglin ;
 	Nivel nivel;
