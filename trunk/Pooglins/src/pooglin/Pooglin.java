@@ -84,14 +84,20 @@ public class Pooglin {
 					}
 			}
 			else if(!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())){
-
-				System.out.println("Doy la vuelta");
-				this.darVuelta();
+			    	if(!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(-1, direccion)).esTraspasable())){
+			    	    System.out.println("Doy la vuelta");
+			    	    this.darVuelta();
+			    	}else{
+			    	    this.posicion.setY(this.getPosicion().getY()+direccion);
+			    	    this.posicion.setX(this.getPosicion().getX()-1);
+			    	}
+			    	/* originalmente
+			    	 * System.out.println("Doy la vuelta");
+			    	 * this.darVuelta();
+			    	 */
 			}
 		}
 	}
-
-
 
 	public void darVuelta() {
 		
