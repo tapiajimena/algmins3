@@ -123,38 +123,29 @@ public class Pooglin {
 	}
 
 	public void setPosicion(Punto punto){
-	
-		this.posicion=punto;
-	
+		this.posicion=punto;	
 	}
 
 	public boolean estaMuerto() {
-	
 		return estaMuerto;
-	
 	}
 
 	public void salvar() {
 		//Metodo a implementar cuando se realize el motor del juego.
 	}
-
+	
+	/*Devuelve una copia de  la posicion del Pooglin*/
 	public Punto obtenerDireccion(){ 
-		
 		return new Punto(this.cantidadDeMovimiento,0);
-	
 	}
-
+	/*Devuelve el numero identificador del Pooglin*/
 	public int getId() {
-	
 		return id;
-	
 	}
-
-
-	public int getVectorDireccion(){
-		
-		return this.vectorDireccion;
 	
+	/*Devuelve */
+	public int getVectorDireccion(){	
+		return this.vectorDireccion;
 	}
 
 }
