@@ -1,9 +1,7 @@
 package habilidad;
+import juego.Planeta;
 import pooglin.Pooglin;
 import punto.Punto;
-import juego.Planeta;
-import bloque.Aire;
-import bloque.Bloque;
 import bloque.Tunel;
 
 public class TunelElectroMagnetico extends Habilidad {
@@ -17,20 +15,17 @@ public class TunelElectroMagnetico extends Habilidad {
 	
 	public void interactuar(Planeta unPlaneta){
 		Punto posicionBloque = pooglin.getPosicion();
-		/*el bloque de delante*/
-		posicionBloque.setX(posicionBloque.getX()+1);	
-		if (unPlaneta.getBloque(posicionBloque) instanceof Aire){
-			if (this.getLongitudFaltante()!=0 && this.longitudFaltante>0){
-				Bloque BloqueTunel = new Tunel(posicionBloque);
-				unPlaneta.agregarObstaculo(BloqueTunel);
-				BloqueTunel.interactuar(pooglin);
+		/*el bloque de delante*/	
+		
+		posicionBloque=pooglin.getPosicion().puntoRelativo(0,pooglin.getVectorDireccion());
+		
+		if (unPlaneta.getBloque(posicionBloque).esTraspasable()){
+			if (this.longitudFaltante>0){
+				unPlaneta.agregarObstaculo(new Tunel(posicionBloque));
 				this.longitudFaltante--;
-			}else{
-					pooglin.caminar();
 			}
-		}else{
-			pooglin.caminar();
 		}
+		pooglin.caminar();
 	}
 
 
