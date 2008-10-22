@@ -21,28 +21,44 @@ public class RayoLaserTest extends TestCase {
 	public void testInteraccionPooglin(){
 	    /*Creo el nivel del pooglin y cargo el planeta*/
 	    nivel=new Nivel();
-	    nivel.setPlaneta(unPlaneta);
 	    char[][] matriz={{'A','A','A','T','T'},
 		    {'A','A','A','T','T'},
 		    {'A','A','A','T','T'},
 		    {'T','T','T','T','T'}};
 	    unPlaneta=new Planeta(4,5,matriz);
+	    nivel.setPlaneta(unPlaneta);
 	    unPooglin=new Pooglin(new Punto(2,2),nivel);
 	    /*
 	     * Corroboro que un bloque del tipo tierra se
 	     * encuentra delante del Pooglin
 	     */
-	    Bloque tierra=unPlaneta.getBloque(unPooglin.getPosicion().puntoRelativo(1,0));
-	    assertTrue(tierra instanceof Tierra);
+	    Bloque bloqueFrontal=unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(0,1));
+	    assertTrue(bloqueFrontal instanceof Tierra);
 	    unRayoLaser=new RayoLaser(unPooglin);
 	    /*Empiezo la interaccion*/
 	    /* La idea es golpear la tierra hasta tenga dureza cero*/
-	    int durezaInicial=((Tierra)tierra).getDureza();
+	    int durezaInicial=((Tierra)bloqueFrontal).getDureza();
+	    Punto posicionInicialPooglin=unPooglin.getPosicion();
+	    Punto posicionInicialBloque=bloqueFrontal.getPosicion();
 	    for(int i=1;durezaInicial>=i;i++){
 		unRayoLaser.interactuar(unPlaneta);
-		assertEquals(durezaInicial-i,((Tierra)tierra).getDureza());
+		assertEquals(durezaInicial-i,((Tierra)bloqueFrontal).getDureza());
 	    }
-	    /*falta ver q se elimina el bloque tierra estoy en eso*/
+	    /*el bloque de tierra todabia no esta roto por lo que 
+	     * el pooglin debe seguir en la posicionanterior
+	     */
+	    assertTrue(posicionInicialPooglin.equals(unPooglin.getPosicion()));
+	    /*
+	     * Con una interacccion mas el bloque se debe romper, el pooglin avanza un casillero simultaneamente
+	     * Para probar que hay un bloque Aire delante, compruebo si es o no traspasable
+	     * ya que la Tierra no lo era y el Aire si.
+	     */
+	    unRayoLaser.interactuar(unPlaneta);
+	    bloqueFrontal=unPlaneta.getBloque(posicionInicialBloque);
+	    assertTrue(bloqueFrontal.esTraspasable());
+	    /*
+	     * 
+	    */
 
 	}
 
