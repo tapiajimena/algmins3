@@ -1,14 +1,28 @@
 import pooglin.Pooglin;
 import punto.Punto;
 import bloque.Hielo;
+import juego.Nivel;
+import juego.Planeta;
 import junit.framework.TestCase;
 
 public class HieloTest extends TestCase {
 
-	Punto punto = new Punto(2,3);
+	Punto punto = new Punto(1,1);
 	Hielo hielo = new Hielo(punto);
-	Pooglin pooglin= new Pooglin(punto);
-
+	Nivel nivel=new Nivel();
+	
+	
+	/*Creo una matriz con el terreno a utilizar.
+	*Tambien si se quiere se le puede pasar un archivo con la matriz al constructor 
+	*de Planeta.
+	*"Geografia" de este terreno:
+	* 	  AAAAA
+	*	  AHAAA
+	*	  TTTTT
+	*	  TTTTT
+	*/
+	char[][] matriz={{'A','A','A','A','A'},{'A','H','A','A','A'},{'T','T','T','T','T'},{'T','T','T','T','T'}};
+	
 	public void testGolpear(){
 		//El constructor de hielo inicializa un atributo
 		//llamado dureza, que corresponde a la cantidad de vida
@@ -53,14 +67,29 @@ public class HieloTest extends TestCase {
 	}
 		
 	public void testInteraccionPooglinHielo(){
+		Pooglin pooglin = new Pooglin(punto,nivel);
+		Planeta unPlaneta=new Planeta(4,5,matriz);
+		nivel.setPlaneta(unPlaneta);
+			
+	
 	//Corroboro que esten en la misma posicion.
-		boolean x = this.pooglin.getPosicion().equals(hielo.getPosicion());
-		assertTrue(x);
+		boolean posiciones = pooglin.getPosicion().equals(hielo.getPosicion());
+		assertTrue(posiciones);
 	//Los hago interactuar
-		//hielo.interactuar(pooglin);
-		//assertEquals(3,pooglin.getPosicionX());
-		//assertEquals(3,pooglin.getPosicionY());
+
+		hielo.interactuar(pooglin);
+		/*
+		 * su nueva posicion al hacer el hielo avanzarlo 
+		 * mas rapido seria avanzar 
+		 * dos lugares con lo cual pasaria a estar 
+		 * en el punto (1,3).
+		 */
+		Punto nuevoPunto=new Punto(1,3);
+		assertEquals(nuevoPunto,pooglin.getPosicion());
+		
 	}
+
+	
 }
 
 

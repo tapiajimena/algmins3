@@ -10,11 +10,13 @@ public class Pooglin {
 	private Nivel nivel;
 	private Habilidad habilidad;
 	private boolean estaMuerto;
+	private boolean estaSalvado;
 	private int bloquesCaidos;
 	private int vectorDireccion;
 
 	public Pooglin(){
 		this.estaMuerto =false;
+		this.estaSalvado = false;
 		this.posicion=new Punto(0,0);
 		this.vectorDireccion=1;
 		
@@ -22,6 +24,7 @@ public class Pooglin {
 
 	public Pooglin(Punto punto){
 		this.posicion=punto;
+		this.estaSalvado = false;
 		this.estaMuerto =false;
 		this.vectorDireccion=1;
 	}
@@ -52,7 +55,7 @@ public class Pooglin {
 
 		int direccion=this.vectorDireccion;
 
-		if(!estaMuerto){
+		if((!estaMuerto)&&(!estaSalvado)){
 
 			//Si de entrada abajo no hay nada...
 			if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1,0)).esTraspasable())){
@@ -70,10 +73,15 @@ public class Pooglin {
 			}
 			//Adelante normal...
 			else if((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable()) && !(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, direccion)).esTraspasable() )){
-				
-				System.out.println("Avanzo hacia adelante");
-				this.posicion.setY(this.getPosicion().getY()+direccion);
-
+					if ((nivel.getPlaneta().getBloque(this.getPosicion())).esDerretible()){
+							System.out.println("Me resbalo, hay hielo");
+							this.posicion.setY(this.getPosicion().getY()+direccion);
+					}
+					else
+					{
+							System.out.println("Avanzo hacia adelante");
+							this.posicion.setY(this.getPosicion().getY()+direccion);
+					}
 			}
 			else if(!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())){
 
@@ -127,7 +135,7 @@ public class Pooglin {
 	}
 
 	public void salvar() {
-		//Metodo a implementar cuando se realize el motor del juego.
+		estaSalvado = true;
 	}
 	
 	/*Devuelve una copia de  la posicion del Pooglin*/
@@ -142,6 +150,10 @@ public class Pooglin {
 	/*Devuelve */
 	public int getVectorDireccion(){	
 		return this.vectorDireccion;
+	}
+
+	public boolean EstaSalvado() {
+		return estaSalvado;
 	}
 
 }

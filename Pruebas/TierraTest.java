@@ -1,14 +1,29 @@
 import pooglin.Pooglin;
 import punto.Punto;
 import bloque.Tierra;
+import juego.Nivel;
+import juego.Planeta;
 import junit.framework.TestCase;
 
 public class TierraTest extends TestCase {
 	
-	Punto posTierra = new Punto(1,1);
-	Punto posPooglin = new Punto(1,2);
-	Tierra unaTierra = new Tierra(posTierra);
-	Pooglin unPooglin= new Pooglin(posPooglin);
+
+	Nivel nivel = new Nivel();
+	Punto punto = new Punto(2,0);
+	Tierra unaTierra = new Tierra(punto);
+	
+	/*Creo una matriz con el terreno a utilizar.
+	*Tambien si se quiere se le puede pasar un archivo con la matriz al constructor 
+	*de Planeta.
+	*"Geografia" de este terreno:
+	*  	  AAAAA
+	*	  AAAAA
+	*  P->AAAAA
+	*	  TTTTT
+	*P:Lugar de partida.(2,0)
+	*Lugar donde deberia llegar.(2,1)
+	*/
+	char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','A'},{'A','A','A','A','A'},{'T','T','T','T','T'}};
 
 	
 	public void testGolpear(){
@@ -63,21 +78,26 @@ public class TierraTest extends TestCase {
 		
 	
 	public void testInteraccionPooglinTierra(){
-	/*
-	 * Corroboro que el Pooglin esté parado sobre la un bloque Tierra.
-	 */
-		assertEquals(unPooglin.getPosicion().getX(),unaTierra.getPosicion().getX());
-		assertEquals(unPooglin.getPosicion().getY()-1,unaTierra.getPosicion().getY());
-		System.out.println("La posicion del Pooglin es " + unPooglin.getPosicion().getX()+"," + unPooglin.getPosicion().getY());
-	/*
-	 * Los hago interactuar, es decir, el bloque Tierra le dice al Pooglin que
-	 * camine si éste se encuentra sobre ella.
-	 */
-		unaTierra.interactuar(unPooglin);
 		
-		assertEquals(1,unPooglin.getPosicion().getX());
-		assertEquals(2,unPooglin.getPosicion().getY());
+		Planeta unPlaneta=new Planeta(4,5,matriz);
+		nivel.setPlaneta(unPlaneta);
+		Pooglin pooglin = new Pooglin(punto ,nivel);
+	//Corroboro que esten en la misma posicion.
+		boolean posiciones = pooglin.getPosicion().equals(unaTierra.getPosicion());
+		assertTrue(posiciones);
+	//Los hago interactuar
+		unaTierra.interactuar(pooglin);
+		/*
+		 * su nueva posicion al hacer la tierra que 
+		 * solamente camine 
+		 * pasará a estar 
+		 * en el punto (2,1).
+		 */
+		Punto nuevoPunto=new Punto(2,1);
+		assertEquals(nuevoPunto,pooglin.getPosicion());
+		
 	}
+	
 	
 	
 	public void testEsTraspasable(){

@@ -42,6 +42,9 @@ public abstract class Bloque {
 	public void setPosicionY(int y) {
 		this.posicion.setY(y);
 	} 
+	public boolean esDerretible(){
+		return false;
+	}
 	public void queEs(){
 		
 	}
