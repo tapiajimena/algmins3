@@ -4,7 +4,7 @@ import punto.Punto;
 
 
 
-public class Hielo extends Bloque implements Rompible {
+public class Hielo extends Bloque implements Rompible{
  
 	private int dureza;
 
@@ -16,13 +16,18 @@ public class Hielo extends Bloque implements Rompible {
 	public void golpear() {
 		decrementarDureza(1);
 	}
+	 public boolean esDerretible(){
+		 return true;
+	 }
 	public boolean esTraspasable(){
 		return false;
 	}
 	public void interactuar(Pooglin unPooglin) {
-			unPooglin.caminar();
-			unPooglin.caminar();
-			
+
+		unPooglin.caminar();
+		unPooglin.caminar();
+
+
 	}
 
 	public boolean esRomplible() {
@@ -41,9 +46,12 @@ public class Hielo extends Bloque implements Rompible {
 	public int getDureza() {
 		return dureza;
 	} 
-	
 	public void queEs(){
 		System.out.println("Esto es Hielo");
 	}
+
+
+
+	
 }
  
