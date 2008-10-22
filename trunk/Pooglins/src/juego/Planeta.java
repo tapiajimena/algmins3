@@ -63,7 +63,6 @@ public class Planeta {
 	public Planeta(int alto, int ancho, char[][] terreno ){
 		this.alto=alto;
 		this.ancho=ancho;
-		
 		this.terreno=new Bloque[alto][ancho];
 		
         for(int i=0;i<alto;i++){
@@ -81,11 +80,14 @@ public class Planeta {
 	}
 	
 	public void quitarObstaculo(Punto punto) {
-		this.terreno[punto.getX()][punto.getY()] = new Aire(punto);
+	    if(punto.getX()<this.alto && punto.getY()<this.ancho)
+	    	this.terreno[punto.getX()][punto.getY()] = new Aire(punto);
 	}
 	
 	public Bloque getBloque(Punto punto){
-		return terreno[punto.getX()][punto.getY()];
+	    	if(punto.getX()<this.alto && punto.getY()<this.ancho)
+	    	    return terreno[punto.getX()][punto.getY()];
+	    	return null;
 	}
 	
 	public int getAncho() {

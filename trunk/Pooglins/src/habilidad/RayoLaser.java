@@ -32,17 +32,18 @@ public class RayoLaser extends Habilidad{
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible){
 			if (this.getDisparos()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionBloque);
-				if (bloqueRompible.getDureza() != 0){
+				if (bloqueRompible.getDureza() > 0){
 					bloqueRompible.golpear();
 					this.decremetarDisparos();
 				}else{
-						unPlaneta.quitarObstaculo(posicionBloque);
+					unPlaneta.quitarObstaculo(posicionBloque);
+					pooglin.caminar();
 				}
 			}else{
-				//pooglin.caminar();
+				pooglin.caminar();
 			}
 		}else{
-			//pooglin.caminar();
+			pooglin.caminar();
 		}
 	}
 	
