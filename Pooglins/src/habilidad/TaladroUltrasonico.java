@@ -10,15 +10,11 @@ public class TaladroUltrasonico extends Habilidad{
 	
 	public TaladroUltrasonico(Pooglin unPooglin){
 		super(unPooglin);
-	};
-	public TaladroUltrasonico(Pooglin unPooglin,int cantidadVueltas){
-		super(unPooglin);
-		this.vueltasDeTorpedo = cantidadVueltas;
 	}
-
+	
 	public void interactuar(Planeta unPlaneta){
 		Punto posicionBloque=pooglin.getPosicion();
-		posicionBloque.setY(posicionBloque.getY()+1);
+		posicionBloque=pooglin.getPosicion().puntoRelativo(1,0);
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible ){
 			if (this.getVueltasDeTorpedo()!= 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionBloque);
@@ -27,6 +23,7 @@ public class TaladroUltrasonico extends Habilidad{
 					this.decrementarVueltas();
 				}else{
 					unPlaneta.quitarObstaculo(posicionBloque);
+					pooglin.caminar();
 				}
 			}else{
 				pooglin.caminar();
