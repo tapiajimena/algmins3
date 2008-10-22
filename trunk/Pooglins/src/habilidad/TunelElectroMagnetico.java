@@ -18,7 +18,7 @@ public class TunelElectroMagnetico extends Habilidad {
 	public void interactuar(Planeta unPlaneta){
 		Punto posicionBloque = pooglin.getPosicion();
 		/*el bloque de delante*/
-		posicionBloque.setX( posicionBloque.getX()+1);	
+		posicionBloque.setX(posicionBloque.getX()+1);	
 		if (unPlaneta.getBloque(posicionBloque) instanceof Aire){
 			if (this.getLongitudFaltante()!=0 && this.longitudFaltante>0){
 				Bloque BloqueTunel = new Tunel(posicionBloque);
