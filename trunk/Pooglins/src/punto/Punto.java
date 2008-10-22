@@ -44,11 +44,12 @@ public class Punto {
         return salida;
 
 	}
-	public int distancia(Punto P){
-		int maximo=Math.abs(this.posicionY-P.posicionY);
-		if(maximo<Math.abs(this.posicionX-P.posicionX))
-			maximo=Math.abs(this.posicionX-P.posicionX);
-		return maximo;
+	public double distancia(Punto punto){		
+	    double distanciaX=this.posicionX-punto.posicionX;
+	    double distanciaY=this.posicionY-punto.posicionY;
+	    if(distanciaX==0) return Math.abs(distanciaY);
+	    if(distanciaY==0) return Math.abs(distanciaX);
+	    return Math.pow(Math.pow(distanciaX,2)+ Math.pow(distanciaY,2),1/2);
 	}
 	
 	public Punto puntoRelativo(int x,int y){
