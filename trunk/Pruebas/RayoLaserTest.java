@@ -10,12 +10,10 @@ import bloque.Tierra;
 
 public class RayoLaserTest extends TestCase {
 	
-	
-	
-    	Pooglin unPooglin ;
-	Nivel nivel;
+	   	Pooglin unPooglin ;
+    	Nivel nivel;
     	Planeta unPlaneta ;
-	RayoLaser unRayoLaser;
+    	RayoLaser unRayoLaser;
     	
 	
 	public void testInteraccionPooglin(){

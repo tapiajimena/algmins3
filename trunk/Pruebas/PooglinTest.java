@@ -1,6 +1,8 @@
+
 import junit.framework.TestCase;
 
 public class PooglinTest extends TestCase {
+	
 	
 	public void testPooglinContraTierraSinTaladro(){
 	
@@ -19,6 +21,7 @@ public class PooglinTest extends TestCase {
 	}
 	
 	public void testPooglinContraTierraConRayoLaser(){
-		
+		 				      
+		    
 	}
 }
