@@ -3,14 +3,7 @@ package punto;
 public class Punto {
  
 	private int posicionX;
-	 
 	private int posicionY;
-	 
-	
-	public Punto(){
-		this.posicionX=0;
-		this.posicionY=0;
-	}
 	
 	public Punto(Punto unPunto){
 		this.posicionX=unPunto.posicionX;
@@ -70,6 +63,9 @@ public class Punto {
 	//USO INTERNO: Equivalente al toString, solo se usa para ver el punto.
 	public void quePuntoEs(){
 		System.out.println("("+this.posicionX+","+this.posicionY+")");
+	}
+	public String toString(){
+	    return new String("X="+this.posicionX+" Y="+this.posicionY);
 	}
 }
  
