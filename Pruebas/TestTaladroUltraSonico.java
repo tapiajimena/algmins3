@@ -1,12 +1,11 @@
-import habilidad.RayoLaser;
 import habilidad.TaladroUltrasonico;
+import juego.Nivel;
+import juego.Planeta;
+import junit.framework.TestCase;
 import pooglin.Pooglin;
 import punto.Punto;
 import bloque.Bloque;
 import bloque.Tierra;
-import juego.Nivel;
-import juego.Planeta;
-import junit.framework.TestCase;
 
 
 public class TestTaladroUltraSonico extends TestCase {
@@ -104,6 +103,8 @@ public class TestTaladroUltraSonico extends TestCase {
 	     */
 	    assertTrue(bloqueInferior.esTraspasable());
 	    assertTrue( unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(1,0)));
+	    /*Corroboro que la posicionFinal es la esperada, decencio de  0,2 al 2,2  (y,x)*/
+	    assertTrue(unPooglin.getPosicion().equals(new Punto(2,2)));
 	}
 
  
