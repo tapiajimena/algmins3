@@ -1,3 +1,4 @@
+package tests;
 
 import habilidad.RayoLaser;
 import juego.Nivel;

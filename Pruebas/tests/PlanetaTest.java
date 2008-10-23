@@ -1,3 +1,4 @@
+package tests;
 import punto.Punto;
 import bloque.Aire;
 import bloque.Bloque;

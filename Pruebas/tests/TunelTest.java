@@ -1,3 +1,4 @@
+package tests;
 
 import juego.Nivel;
 import juego.Planeta;
