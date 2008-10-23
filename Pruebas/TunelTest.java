@@ -1,39 +1,60 @@
 
+import juego.Nivel;
+import juego.Planeta;
+import junit.framework.TestCase;
 import pooglin.Pooglin;
 import punto.Punto;
+import bloque.Bloque;
 import bloque.Tunel;
-import junit.framework.TestCase;
 
 
 public class TunelTest extends TestCase {
 	
-	Punto posPooglin = new Punto(1,2);
-	Punto posTunel = new Punto (2,2);
-	Pooglin unPooglin = new Pooglin(posPooglin);
-	Tunel unTunel = new Tunel(posTunel);
+
+	Nivel nivel = new Nivel();
+	Punto punto = new Punto(2,0);
+	Bloque unTunel;
+	
+	/*Creo una matriz con el terreno a utilizar.
+	*Tambien si se quiere se le puede pasar un archivo con la matriz al constructor 
+	*de Planeta.
+	*"Geografia" de este terreno:
+	*  	  AAAAA
+	*	  AAAAA
+	*  P->AAAAA
+	*	  BBBBB
+	*P:Lugar de partida.(2,0)
+	*Lugar donde deberia llegar.(2,1)
+	*/
+	char[][] matriz={
+			{'A','A','A','A','A'},
+			{'A','A','A','A','A'},
+			{'A','A','A','A','A'},
+			{'B','B','B','B','B'}
+	};
 
 	
-	public void testPosiciones(){	
+	public void testInteraccionPooglinTunel(){
+		
+		Planeta unPlaneta=new Planeta(4,5,matriz);
+		nivel.setPlaneta(unPlaneta);
+		Pooglin pooglin = new Pooglin(punto ,nivel);
+		/*Referencio el bloque de debajo, para comprobar */
+		unTunel=unPlaneta.getBloque(punto.puntoRelativo(1, 0));
+		assertTrue(unTunel instanceof Tunel);
+		//Los hago interactuar
+		unTunel.interactuar(pooglin);
 		/*
-		 * Corroboro que la posicion del Tunel sea la que se
-		 * encuentra delante del Pooglin
+		 * su nueva posicion al hacer la Tunel que 
+		 * solamente camine 
+		 * pasará a estar 
+		 * en el punto (2,1).
 		 */
-		assertEquals(unPooglin.getPosicion().getX()+1,unTunel.getPosicion().getX());
-		assertEquals(unPooglin.getPosicion().getY(),unTunel.getPosicion().getY());
+		assertTrue(pooglin.getPosicion().equals(new Punto(2,1)));
 	}
 	
-	
-	public void testInteraccionPooglin(){
-		
-		/*
-		 * El Pooglin tiene que aumentar su posición en X cuando atravieza
-		 * un bloque Tunel
-		 */
-	    	assertEquals(2,unPooglin.getPosicion().getX());
-		assertEquals(2,unPooglin.getPosicion().getY());
-		
-		
+	public void testEsTraspasable(){
+	    unTunel=new Tunel(new Punto(0,0));
+	    assertFalse(unTunel.esTraspasable());
 	}
-
-
 }
