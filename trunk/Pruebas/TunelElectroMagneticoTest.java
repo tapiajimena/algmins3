@@ -45,19 +45,14 @@ public class TunelElectroMagneticoTest extends TestCase {
 	    int longitudInicial=constructorDeTunel.getLongitudFaltante();
 	    Punto posicionInicialPooglin;
 	    /*Empiezo la interaccion*/
-	    for(int i=1;i<constructorDeTunel.getLongitudFaltante();i++){
+	    for(int i=0;i<longitudInicial;i++){
+		System.out.println(unPooglin.getPosicion());
 		posicionInicialPooglin=unPooglin.getPosicion();
 		constructorDeTunel.interactuar(unPlaneta);
 		assertEquals(longitudInicial-i,constructorDeTunel.getLongitudFaltante());
 		assertTrue(unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(-1,unPooglin.getVectorDireccion())));		
 	    }
 	    posicionInicialPooglin=unPooglin.getPosicion();
-	    constructorDeTunel.interactuar(unPlaneta);
-	    System.out.println(unPooglin.getPosicion());
-	    //assertTrue(unPooglin.getPosicion().equals(new Punto(1,3)));
-	    constructorDeTunel.interactuar(unPlaneta);
-	    //unPooglin.caminar();
-	    System.out.println(unPooglin.getPosicion());
 	    constructorDeTunel.interactuar(unPlaneta);
 	    System.out.println(unPooglin.getPosicion());
 	    
