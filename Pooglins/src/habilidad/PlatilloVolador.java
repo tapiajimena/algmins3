@@ -13,7 +13,7 @@ public class PlatilloVolador extends Habilidad {
 	@Override
 	public void interactuar(Planeta planeta) {
 		Punto posicionBloque=pooglin.getPosicion();
-		posicionBloque.setY(posicionBloque.getY()+1);
+		posicionBloque.setX(posicionBloque.getX()+1);
 		if(planeta.getBloque(posicionBloque).esTraspasable())
 			pooglin.setPosicion(posicionBloque);
 				
