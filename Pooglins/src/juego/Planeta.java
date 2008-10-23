@@ -9,7 +9,7 @@ import bloque.Aire;
 import bloque.Bloque;
 import bloque.Fuego;
 import bloque.Hielo;
-import bloque.NaveDePartida;
+import bloque.PuertaDeEntrada;
 import bloque.PuertaDeEscape;
 import bloque.Roca;
 import bloque.Tierra;
@@ -32,7 +32,7 @@ public class Planeta {
 			case 'F' :/*Fuego*/bloque=new Fuego(punto);break;
 			case 'O' :/*HoyoNegro*/bloque=new AgujeroNegro(punto);break;
 			case 'H' :/*Hielo*/bloque=new Hielo(punto);break;
-			case 'P' :/*NavePartida*/bloque=new NaveDePartida(punto);break;
+			case 'P' :/*NavePartida*/bloque=new PuertaDeEntrada(punto);break;
 			case 'E' :/*NaveEntrada*/bloque=new PuertaDeEscape(punto);break;
 			case 'B' :/*TunelElectromagentico(Bridge)*/bloque=new Tunel(punto);break;
 			default : bloque=new Aire(punto);
