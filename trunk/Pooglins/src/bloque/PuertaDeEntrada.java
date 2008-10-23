@@ -3,9 +3,9 @@ import pooglin.Pooglin;
 import punto.Punto;
 
 
-public class NaveDePartida extends Bloque {
+public class PuertaDeEntrada extends Bloque {
 	
-	public NaveDePartida(Punto punto) {
+	public PuertaDeEntrada(Punto punto) {
 		super(punto);
 		
 	}
