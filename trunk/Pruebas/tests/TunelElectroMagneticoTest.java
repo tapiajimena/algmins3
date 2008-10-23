@@ -1,3 +1,4 @@
+package tests;
 import bloque.Bloque;
 import bloque.Tierra;
 import pooglin.Pooglin;

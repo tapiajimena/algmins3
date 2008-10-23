@@ -1,3 +1,4 @@
+package tests;
 import habilidad.Congelamiento;
 import habilidad.Habilidad;
 import juego.Nivel;

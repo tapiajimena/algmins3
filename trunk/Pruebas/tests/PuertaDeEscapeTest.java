@@ -1,3 +1,4 @@
+package tests;
 import bloque.PuertaDeEscape;
 import pooglin.Pooglin;
 import punto.Punto;
