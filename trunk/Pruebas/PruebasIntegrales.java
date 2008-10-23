@@ -266,7 +266,7 @@ public void testNivelPooglinInteraccionBloquesCinco() throws IOException{
 	*de Planeta.
 	*"Geografia" de este terreno:
 	*  P->AAAAA
-	*	  AAAAA
+	*	  AAAAT
 	*	  AAAAT
 	*	  TTTTT
 	*P:Lugar de partida.(0,0)
@@ -274,7 +274,7 @@ public void testNivelPooglinInteraccionBloquesCinco() throws IOException{
 	*al haber un bloque tierra en la pos (2,4) dar vuelta y caminar en la otra
 	*direccion
 	*/
-	char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','A'},{'A','A','A','A','T'},{'T','T','T','T','T'}};
+	char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','T'},{'A','A','A','A','T'},{'T','T','T','T','T'}};
 	
 	//USO INTERNOR: Borrar al finalizar.
 	//Cantidad filas de la matriz

@@ -25,14 +25,16 @@ public class TunelElectroMagneticoTest extends TestCase {
 		    {'A','A','A','A','A','A'},
 		    {'A','A','A','A','A','A'},
 		    {'A','A','A','A','A','A'},
+		    {'A','A','A','A','A','A'},
+		    {'A','A','A','A','A','A'},
 		    {'T','T','T','T','T','T'}
 	    };
 	    
-	    unPlaneta=new Planeta(4,6,matriz);
+	    unPlaneta=new Planeta(6,6,matriz);
 	    
 	    nivel.setPlaneta(unPlaneta);
 	    
-	    unPooglin=new Pooglin(new Punto(2,0),nivel);
+	    unPooglin=new Pooglin(new Punto(4,0),nivel);
 	    /*
 	     * Corroboro que un bloque traspasable se
 	     * encuentra delante del Pooglin
@@ -43,18 +45,19 @@ public class TunelElectroMagneticoTest extends TestCase {
 	    
 	    constructorDeTunel =new TunelElectroMagnetico(unPooglin);
 	    int longitudInicial=constructorDeTunel.getLongitudFaltante();
-	    Punto posicionInicialPooglin;
+	    Punto posicionAnteriorPooglin;
 	    /*Empiezo la interaccion*/
 	    for(int i=1;i<=longitudInicial;i++){
-		System.out.println(unPooglin.getPosicion());
-		posicionInicialPooglin=unPooglin.getPosicion();
+		posicionAnteriorPooglin=unPooglin.getPosicion();
 		constructorDeTunel.interactuar(unPlaneta);
 		assertEquals(longitudInicial-i,constructorDeTunel.getLongitudFaltante());
-		assertTrue(unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(-1,unPooglin.getVectorDireccion())));		
+		/*a medida que construye el tunel va subiendo por el tunel*/
+		assertTrue(unPooglin.getPosicion().equals(posicionAnteriorPooglin.puntoRelativo(-1,unPooglin.getVectorDireccion())));
 	    }
-	    posicionInicialPooglin=unPooglin.getPosicion();
+	    /*una vez que puso la ultima piesa del tunel cae en diagonal*/
+	    posicionAnteriorPooglin=unPooglin.getPosicion();
 	    constructorDeTunel.interactuar(unPlaneta);
-	    System.out.println(unPooglin.getPosicion());
-	    
+	    /*controlo que la nueva posicion uno en la direccion de que se mueve y uno hacia abajo por la caida*/
+	    assertTrue(unPooglin.getPosicion().equals(posicionAnteriorPooglin.puntoRelativo(1,unPooglin.getVectorDireccion())));	    
 	}
 }

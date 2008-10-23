@@ -88,13 +88,9 @@ public class Pooglin {
 			    	    System.out.println("Doy la vuelta");
 			    	    this.darVuelta();
 			    	}else{
-			    	    this.posicion.setY(this.getPosicion().getY()+direccion);
+			    	    this.posicion.setY(this.getPosicion().getY() + direccion);
 			    	    this.posicion.setX(this.getPosicion().getX()-1);
 			    	}
-			    	/* originalmente
-			    	 * System.out.println("Doy la vuelta");
-			    	 * this.darVuelta();
-			    	 */
 			}
 		}
 	}
