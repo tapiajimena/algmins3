@@ -20,14 +20,13 @@ public class TunelElectroMagnetico extends Habilidad {
 		posicionBloque=pooglin.getPosicion().puntoRelativo(0,pooglin.getVectorDireccion());
 		
 		if (unPlaneta.getBloque(posicionBloque).esTraspasable()){
-			if (this.longitudFaltante>0){
+			if (this.longitudFaltante>=0){
 				unPlaneta.agregarObstaculo(new Tunel(posicionBloque));
 				this.longitudFaltante--;
 			}
 		}
 		pooglin.caminar();
 	}
-
 
 	public int getLongitudFaltante() {
 		return longitudFaltante;

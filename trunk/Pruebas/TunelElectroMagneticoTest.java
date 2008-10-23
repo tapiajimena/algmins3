@@ -45,7 +45,7 @@ public class TunelElectroMagneticoTest extends TestCase {
 	    int longitudInicial=constructorDeTunel.getLongitudFaltante();
 	    Punto posicionInicialPooglin;
 	    /*Empiezo la interaccion*/
-	    for(int i=0;i<longitudInicial;i++){
+	    for(int i=1;i<=longitudInicial;i++){
 		System.out.println(unPooglin.getPosicion());
 		posicionInicialPooglin=unPooglin.getPosicion();
 		constructorDeTunel.interactuar(unPlaneta);
