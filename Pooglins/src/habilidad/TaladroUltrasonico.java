@@ -6,7 +6,7 @@ import bloque.Rompible;
 
 public class TaladroUltrasonico extends Habilidad{
 	
-	private int vueltasDeTorpedo=20;
+	private int vueltasDeTorpedo=25;
 	
 	public TaladroUltrasonico(Pooglin unPooglin){
 		super(unPooglin);
