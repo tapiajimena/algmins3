@@ -41,6 +41,10 @@ public class Tierra extends Bloque implements Rompible {
 	public int getDureza() {
 		return dureza;
 	}
+	
+	public char getLetra(){
+		return 'R';
+	}
 	 
 }
  

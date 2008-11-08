@@ -50,7 +50,9 @@ public class Hielo extends Bloque implements Rompible{
 		System.out.println("Esto es Hielo");
 	}
 
-
+	public char getLetra(){
+		return 'H';
+	}
 
 	
 }

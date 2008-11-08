@@ -21,4 +21,8 @@ public class Roca extends Bloque{
 	public void queEs(){
 		System.out.println("Esto es una Roca");
 	}
+	
+	public char getLetra(){
+		return 'R';
+	}
 }
