@@ -25,5 +25,9 @@ public class Tunel extends Bloque {
 	public void queEs(){
 		System.out.println("Esto es un Tunel");
 	}
+	
+	public char getLetra(){
+		return 'B';
+	}
 }
  

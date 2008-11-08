@@ -48,5 +48,8 @@ public abstract class Bloque {
 	public void queEs(){
 		
 	}
+	public char getLetra(){
+		return 'A';
+	}
 }
  

@@ -34,5 +34,8 @@ public class Fuego extends Bloque implements Apagable {
 	public void queEs(){
 		System.out.println("Esto es Fuego");
 	}
+	public char getLetra(){
+		return 'F';
+	}
 }
  

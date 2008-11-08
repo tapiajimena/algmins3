@@ -20,6 +20,8 @@ public class Planeta {
 	private int ancho;
 	private int alto;
 	private Bloque[][] terreno;
+	private char[][] CTerreno;
+
 	/*Devuelve el bloque representado por el caracter,lo inicializa en el punto dado
 	 * MUY FEO CAMBIARLO MAS ADELANTE
 	*/
@@ -39,6 +41,52 @@ public class Planeta {
 		}
 		return bloque;
 	}
+	
+	/*AGREGADO
+	 * Este metodo va actualizando una matriz de char a partir de la matriz de bloques
+	 */
+	
+	public char transformarBloqueAMatriz(Bloque unBloque){
+		
+		char aux;
+		
+		switch(unBloque.getLetra()){
+		case 'A' :/*Aire*/ aux='A' ;break;
+		case 'T' :/*Tierra*/aux= 'T' ;break;
+		case 'R' :/*Roca*/aux= 'R' ;break;
+		case 'F' :/*Fuego*/aux= 'F' ;break;
+		case 'O' :/*HoyoNegro*/aux= 'O' ;break;
+		case 'H' :/*Hielo*/aux= 'H' ;break;
+		case 'P' :/*NavePartida*/aux= 'P' ;break;
+		case 'E' :/*NaveEntrada*/aux= 'E' ;break;
+		case 'B' :/*TunelElectromagentico(Bridge)*/aux= 'B' ;break;
+		default : return 'A' ;
+	}
+		return aux;
+
+	}
+	
+	
+
+	public char[][] bloqueAmatriz(){
+			
+			
+		       for(int i=0;i<alto;i++){
+		        	for(int j=0;j<ancho;j++){
+		        		
+		        		this.CTerreno[i][j]=transformarBloqueAMatriz(terreno[i][j]);
+		        	}
+		        }
+			return CTerreno;
+		     
+			
+			
+			
+		}
+	
+	
+	
+	
 	/*carga el terreno de una archivo MUY PRECARIAMENTE, 
 	PUEDE TIRAR ERROR SI EL ARCHIVO NO ESTA BIEN CARGADO*/
 	public Planeta(String archivoTerreno,int ancho,int alto) throws IOException{
@@ -66,6 +114,8 @@ public class Planeta {
 		this.alto=alto;
 		this.ancho=ancho;
 		this.terreno=new Bloque[alto][ancho];
+		this.CTerreno=terreno;
+		
 		
         for(int i=0;i<alto;i++){
         	for(int j=0;j<ancho;j++){
@@ -99,5 +149,9 @@ public class Planeta {
 	public int getAlto() {
 		return alto;
 	}	
+	
+	public char[][] getCTerreno(){
+		return this.bloqueAmatriz();
+	}
 	
 }
