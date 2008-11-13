@@ -23,30 +23,30 @@ public class Gui extends JFrame implements MouseListener
 	 private Container cp;
 
 	 
-	 private JLabel shagLabel;
+	 private JLabel unLabel;
 
 	// private JPanel barra;
 	 
-	 private JLabel[][] labelMatrix;
+	 private JLabel[][] matrizGui;
 
 	 private Planeta fl;
 	 
 	 private Pooglin unPooglin;
 	 
-	 private JPanel newPanel;// = new JPanel();
+	 private JPanel nuevoPanel;// = new JPanel();
 
-	 private char[][] scrapMatrix; 
+	 private char[][] matrizChars; 
 
 	 
 	 private int timeLeft;
 	 
 	 private  Timer timely; 
 	 
-	 private JPanel progBarPanel;
+	 private JPanel progPanel;
 	 
 	 private  JProgressBar progressBar;
 	 
-	 private TimeCalculator timeCalc;
+	 private AcumuladorDeTiempos contadorDeTiempo;
 	
      private int ix;
 		private int jx;
@@ -77,7 +77,7 @@ public class Gui extends JFrame implements MouseListener
 		
 		
 		
-		test.createPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
+		test.crearPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
 		
 		TaladroUltrasonico unTaladro;
 		 unTaladro=new TaladroUltrasonico(unPooglin);
@@ -90,7 +90,7 @@ public class Gui extends JFrame implements MouseListener
 			unPooglin.interactuar();
 			System.out.println(i);
 			
-			test.createPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
+			test.crearPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
 
 		}
 		
@@ -105,7 +105,7 @@ public class Gui extends JFrame implements MouseListener
 					System.out.println(unPooglin.estaMuerto());
 					System.out.println(i);
 					
-					test.createPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
+					test.crearPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
 
 				} 
 			 
@@ -121,15 +121,15 @@ public class Gui extends JFrame implements MouseListener
          
         cp=getContentPane();
         
-        shagLabel = new JLabel("",new ImageIcon("yeababyyea.jpg"),JLabel.LEFT);//GUI background for initial load
+        unLabel = new JLabel("",new ImageIcon("yeababyyea.jpg"),JLabel.LEFT);//GUI background for initial load
        
-        cp.add(shagLabel);
+        cp.add(unLabel);
        
        
-        timeCalc=new TimeCalculator();
-        timeCalc.calcTimeforMaze(10, 10, 10);
-        ix=timeCalc.getSeconds();//get the seconds allowed for the level;
-        timeLeft=timeCalc.getMinutes();
+        contadorDeTiempo=new AcumuladorDeTiempos();
+        contadorDeTiempo.calcTimeforMaze(10, 10, 10);
+        ix=contadorDeTiempo.getSeconds();//get the seconds allowed for the level;
+        timeLeft=contadorDeTiempo.getMinutes();
        
         this.unPooglin=unP;
         
@@ -137,20 +137,20 @@ public class Gui extends JFrame implements MouseListener
         //OJO
         timely = new Timer(1000,updateCursorAction);//create a timer to update the progress bar
         timely.start();//start the timer
-        progBarPanel = new JPanel();//panel for progress bar
-        progressBar = new JProgressBar(0, timeCalc.getMinutes()*100);//minutes returns a single digit, we have to multiply it for Bar.
+        progPanel = new JPanel();//panel for progress bar
+        progressBar = new JProgressBar(0, contadorDeTiempo.getMinutes()*100);//minutes returns a single digit, we have to multiply it for Bar.
         progressBar.setStringPainted(true);
-        progBarPanel.add(progressBar);
-        cp.add(progBarPanel,BorderLayout.NORTH);
+        progPanel.add(progressBar);
+        cp.add(progPanel,BorderLayout.NORTH);
         
          
 	    
         
-        newPanel = new JPanel();
+        nuevoPanel = new JPanel();
        
         fl=plan;
         
-        loadMatrixGui("new");
+        cargarMatriz("new");
         
         
       
@@ -173,53 +173,53 @@ public class Gui extends JFrame implements MouseListener
 	      public void actionPerformed(ActionEvent evt) {
 	    	  
 	  		unPooglin.interactuar();
-			createPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
+			crearPoo("new", unPooglin.getPosicion().getX(), unPooglin.getPosicion().getY() );
 			System.out.println(unPooglin.estaMuerto());
 	      }
 	   };
     
     
-    public void createPoo(String event, int x, int y){
+    public void crearPoo(String event, int x, int y){
     
     	if (event == "new")
         {       
-    		remove(newPanel);
+    		remove(nuevoPanel);
     		//newPanel = new JPanel();
 
             char[][] temp = fl.getCTerreno();      
             
-            scrapMatrix = new char [fl.getAlto()][fl.getAncho()];   
+            matrizChars = new char [fl.getAlto()][fl.getAncho()];   
             
             for (int i = 0; i < fl.getAlto(); i++){
                for (int j = 0; j < fl.getAncho(); j++){
-                   scrapMatrix[i][j]= temp[i][j];
+                   matrizChars[i][j]= temp[i][j];
              }}
             
-            scrapMatrix[x][y] = 'Y';
+            matrizChars[x][y] = 'Y';
            
             
-            newPanel = new JPanel();
+            nuevoPanel = new JPanel();
             
-            newPanel.setLayout(new GridLayout(fl.getAlto(),fl.getAncho()));
+            nuevoPanel.setLayout(new GridLayout(fl.getAlto(),fl.getAncho()));
             
-            labelMatrix=new JLabel[fl.getAlto()][fl.getAncho()];
+            matrizGui=new JLabel[fl.getAlto()][fl.getAncho()];
             
 
        }
        
        
-         for (int i = 0; i < labelMatrix.length; i++){
-             for (int j = 0; j < labelMatrix[i].length; j++){
-                 labelMatrix[i][j] = new objetoDeTerreno(scrapMatrix[i][j]);
+         for (int i = 0; i < matrizGui.length; i++){
+             for (int j = 0; j < matrizGui[i].length; j++){
+                 matrizGui[i][j] = new objetoDeTerreno(matrizChars[i][j]);
                    
              }}
         
       
        
        
-        cp.add(newPanel);
+        cp.add(nuevoPanel);
         
-        remove(shagLabel);
+        remove(unLabel);
   
         System.gc();
         
@@ -227,50 +227,50 @@ public class Gui extends JFrame implements MouseListener
         
         setVisible (true);
         
-        newPanel.grabFocus(); 
+        nuevoPanel.grabFocus(); 
     	
     	
     	
     }
     
-     public void loadMatrixGui(String event)
+     public void cargarMatriz(String event)
      {
         if (event == "new")
          {       
-        	remove(newPanel);
+        	remove(nuevoPanel);
     		//newPanel = new JPanel();
 
              char[][] temp = fl.getCTerreno();       
              
-             scrapMatrix = new char [fl.getAlto()][fl.getAncho()];   
+             matrizChars = new char [fl.getAlto()][fl.getAncho()];   
              
              for (int i = 0; i < fl.getAlto(); i++){
                 for (int j = 0; j < fl.getAncho(); j++){
-                    scrapMatrix[i][j]= temp[i][j];
+                    matrizChars[i][j]= temp[i][j];
               }}
                    
-             newPanel = new JPanel();
+             nuevoPanel = new JPanel();
              
-             newPanel.setLayout(new GridLayout(fl.getAlto(),fl.getAncho()));
+             nuevoPanel.setLayout(new GridLayout(fl.getAlto(),fl.getAncho()));
              
-             labelMatrix=new JLabel[fl.getAlto()][fl.getAncho()];     
+             matrizGui=new JLabel[fl.getAlto()][fl.getAncho()];     
 
         }
         
         
-          for (int i = 0; i < labelMatrix.length; i++){
-              for (int j = 0; j < labelMatrix[i].length; j++){
-                  labelMatrix[i][j] = new objetoDeTerreno(scrapMatrix[i][j]);
+          for (int i = 0; i < matrizGui.length; i++){
+              for (int j = 0; j < matrizGui[i].length; j++){
+                  matrizGui[i][j] = new objetoDeTerreno(matrizChars[i][j]);
                   
               }}
          
           
-         cp.add(newPanel);
-         remove(shagLabel);
+         cp.add(nuevoPanel);
+         remove(unLabel);
          System.gc();
          pack();
          setVisible (true);
-         newPanel.grabFocus();  
+         nuevoPanel.grabFocus();  
      }
  
     public class objetoDeTerreno extends JLabel implements MouseListener
@@ -286,7 +286,7 @@ public class Gui extends JFrame implements MouseListener
             }
            
             
-            newPanel.add(label);
+            nuevoPanel.add(label);
             
         }
 
@@ -336,8 +336,8 @@ public class Gui extends JFrame implements MouseListener
         {
             timely.stop();
             System.out.println("Game Over!");
-            remove(newPanel);
-            remove(progBarPanel);
+            remove(nuevoPanel);
+            remove(progPanel);
             pack();
             setVisible (true);
             timely.stop();

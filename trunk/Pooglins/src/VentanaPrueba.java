@@ -91,7 +91,6 @@ class VistaPooglin extends JComponent implements MouseListener{
 				rectanguloImagen.x, rectanguloImagen.y,rectanguloImagen.x+rectanguloImagen.width ,rectanguloImagen.y+rectanguloImagen.height, null);
 	   }
 	/*------------------------------------------------------*/
-	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		if(arg0.getSource()instanceof VistaPooglin)
 			System.out.println(((VistaPooglin)arg0.getSource()).id);
@@ -100,19 +99,16 @@ class VistaPooglin extends JComponent implements MouseListener{
 		super.setBounds(rectanguloImpresion);
 		//super.revalidate();
 	}
-	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		rectanguloImagen.x+=60;
 		repaint();
 	}
-	@Override
 	public void mouseExited(MouseEvent arg0) {
 		rectanguloImagen.x-=60;
 		repaint();
 	}
-	@Override
 	public void mousePressed(MouseEvent arg0) {}
-	@Override
+
 	public void mouseReleased(MouseEvent arg0) {}
 	
 	

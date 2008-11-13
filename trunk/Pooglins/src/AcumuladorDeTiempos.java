@@ -1,4 +1,4 @@
-public class TimeCalculator
+public class AcumuladorDeTiempos
 {
 int minutes=0;
 int seconds=0;
