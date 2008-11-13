@@ -38,9 +38,9 @@ public class Gui extends JFrame implements MouseListener
 	 private char[][] matrizChars; 
 
 	 
-	 private int timeLeft;
+	 private int tiempoRestante;
 	 
-	 private  Timer timely; 
+	 private  Timer tiempo; 
 	 
 	 private JPanel progPanel;
 	 
@@ -48,7 +48,7 @@ public class Gui extends JFrame implements MouseListener
 	 
 	 private AcumuladorDeTiempos contadorDeTiempo;
 	
-     private int ix;
+     private int varx;
 		private int jx;
 		
 		
@@ -128,15 +128,15 @@ public class Gui extends JFrame implements MouseListener
        
         contadorDeTiempo=new AcumuladorDeTiempos();
         contadorDeTiempo.calcTimeforMaze(10, 10, 10);
-        ix=contadorDeTiempo.getSeconds();//get the seconds allowed for the level;
-        timeLeft=contadorDeTiempo.getMinutes();
+        varx=contadorDeTiempo.getSeconds();//get the seconds allowed for the level;
+        tiempoRestante=contadorDeTiempo.getMinutes();
        
         this.unPooglin=unP;
         
         jx=0;//reset the variable used for keeping time to zero since its a new level
         //OJO
-        timely = new Timer(1000,updateCursorAction);//create a timer to update the progress bar
-        timely.start();//start the timer
+        tiempo = new Timer(1000,updateCursorAction);//create a timer to update the progress bar
+        tiempo.start();//start the timer
         progPanel = new JPanel();//panel for progress bar
         progressBar = new JProgressBar(0, contadorDeTiempo.getMinutes()*100);//minutes returns a single digit, we have to multiply it for Bar.
         progressBar.setStringPainted(true);
@@ -325,26 +325,26 @@ public class Gui extends JFrame implements MouseListener
 
 		public void actionPerformed(ActionEvent e) //this inner class generates an exeption if the player takes to long to finish a level 
         {
-            ix-=1;
+            varx-=1;
             jx+=1;
-            if(ix<0)
+            if(varx<0)
             {
-                ix=60;
-                timeLeft-=1;
+                varx=60;
+                tiempoRestante-=1;
             }
-        if(timeLeft==0 && ix==0)
+        if(tiempoRestante==0 && varx==0)
         {
-            timely.stop();
+            tiempo.stop();
             System.out.println("Game Over!");
             remove(nuevoPanel);
             remove(progPanel);
             pack();
             setVisible (true);
-            timely.stop();
+            tiempo.stop();
             
         }//end first if
             progressBar.setValue(jx);
-            progressBar.setString(timeLeft+":"+ix);
+            progressBar.setString(tiempoRestante+":"+varx);
         }//end actionPerformed
     };//end class
 
