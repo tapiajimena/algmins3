@@ -7,11 +7,9 @@ public class PuertaDeEntrada extends Bloque {
 	
 	public PuertaDeEntrada(Punto punto) {
 		super(punto);
-		
 	}
 	public void interactuar(Pooglin unPooglin) {
 		unPooglin.caminar();
-		
 	}
 
 	public void queEs(){
