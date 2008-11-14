@@ -36,10 +36,6 @@ public class Nivel {
 	 
 	private Planeta planeta;
 	 
-	private Juego juego;
-	 
-	private PanelDeHabilidades panelDeHabilidades;
-	 
 	public void liberarTripulacion() {
 	 
 	}
@@ -113,23 +109,5 @@ public class Nivel {
 		return TripulacionSalvada;
 	}
 
-	public void setJuego(Juego juego) {
-		this.juego = juego;
-	}
-
-	public Juego getJuego() {
-		return juego;
-	}
-
-	public void setPanelDeHabilidades(PanelDeHabilidades panelDeHabilidades) {
-		this.panelDeHabilidades = panelDeHabilidades;
-	}
-
-	public PanelDeHabilidades getPanelDeHabilidades() {
-		return panelDeHabilidades;
-	}
-	
-
-	
 }
  

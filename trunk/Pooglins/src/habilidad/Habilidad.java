@@ -10,8 +10,7 @@ public abstract class Habilidad {
 
 	public Habilidad(Pooglin pooglin){
 		this.pooglin=pooglin;
-
-	 }
+	}
 	 
 	public abstract void interactuar(Planeta planeta);
 	

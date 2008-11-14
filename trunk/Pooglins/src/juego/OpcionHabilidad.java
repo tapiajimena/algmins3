@@ -1,25 +1,24 @@
 package juego;
 import habilidad.Habilidad;
 
+import pooglin.Pooglin;
+
 public class OpcionHabilidad {
- 	private PanelDeHabilidades panel;
 	private int cantidadDeUsos;
 	private Habilidad habilidad;
-	public OpcionHabilidad(Habilidad habilidad,int cantidadPermitida,PanelDeHabilidades panel){
+	public OpcionHabilidad(Habilidad habilidad,int cantidadPermitida){
 		this.habilidad=habilidad;
 		this.cantidadDeUsos=cantidadPermitida;
-		this.panel=panel;
 	}
 	public boolean estaVacio() {
 		return (cantidadDeUsos<=0);
 	}
-	public Habilidad obtenerHabilidad() {
+	public Habilidad obtenerHabilidad(Pooglin poo) {
 		if(cantidadDeUsos<=0)return null;
-		this.cantidadDeUsos--;
+			this.cantidadDeUsos--;
 		return this.habilidad;
+		
 	} 
-	public void seleccionar(){
-		panel.seleccionar(this);
-	}
+
 }
  
