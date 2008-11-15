@@ -132,8 +132,10 @@ public class Planeta {
 	}
 	
 	public void quitarObstaculo(Punto punto) {
-	    if(punto.getX()<this.alto && punto.getY()<this.ancho)
+	    if(punto.getX()<this.alto && punto.getY()<this.ancho){
+		this.terreno[punto.getX()][punto.getY()].destruir();
 	    	this.terreno[punto.getX()][punto.getY()] = new Aire(punto);
+	    }
 	}
 	
 	public Bloque getBloque(Punto punto){
