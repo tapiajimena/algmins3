@@ -1,8 +1,10 @@
 package bloque;
+import java.util.Observable;
+
 import pooglin.Pooglin;
 import punto.Punto;
 
-public abstract class Bloque {
+public abstract class Bloque extends Observable{
  
 	protected Punto posicion;
 	 
@@ -20,6 +22,7 @@ public abstract class Bloque {
 	}
 	 
 	public void destruir() {
+	    notifyObservers();
 	 
 	}
 	public int getPosicionX() {
