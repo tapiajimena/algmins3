@@ -41,7 +41,7 @@ public class VistaPlaneta extends JPanel implements Observer {
 				gra.setColor(Color.gray);
 			break;
 		}
-		gra.fillRect(10 * bloque.getPosicionY(), 10 * bloque.getPosicionX(),10, 10);
+		gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);
 	}
 	private void pintarFondo(){
 		Graphics2D gra = fondo.createGraphics();
@@ -62,8 +62,10 @@ public class VistaPlaneta extends JPanel implements Observer {
 	}
 	public VistaPlaneta(Planeta elPlaneta) {
 		this.planeta = elPlaneta;
-		alto = elPlaneta.getAlto()*10;
-		ancho = elPlaneta.getAncho()*10;
+		
+		alto = elPlaneta.getAlto()*20;
+		ancho = elPlaneta.getAncho()*20;
+		System.out.println(alto +" "+ancho);
 		fondo = new BufferedImage(ancho,alto,BufferedImage.TYPE_INT_ARGB);
 		frente = new BufferedImage(ancho, alto,BufferedImage.TYPE_INT_ARGB);
 		
@@ -78,8 +80,8 @@ public class VistaPlaneta extends JPanel implements Observer {
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage(fondo, 0, 0, 500,500, 0, 0, ancho, alto, null);
-		g.drawImage(frente, 0, 0, 500,500, 0, 0,ancho, alto, null);
+		g.drawImage(fondo, 0, 0, ancho,alto, 0, 0, ancho, alto, null);
+		g.drawImage(frente, 0, 0, ancho,alto, 0, 0,ancho, alto, null);
 		/*
 		 * sirve para borrar parte de la imagen referenciada por gra Graphics2D
 		 * gra = frente.createGraphics();
