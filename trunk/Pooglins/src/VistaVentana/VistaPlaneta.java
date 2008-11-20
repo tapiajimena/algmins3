@@ -11,21 +11,26 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import juego.Planeta;
+
 public class VistaPlaneta extends JPanel {
 	/**
 	 * 
 	 */
 	private BufferedImage		fondo;
+	@SuppressWarnings("unused")
 	private BufferedImage		frente;
 	private static final long	serialVersionUID	= 1L;
+	@SuppressWarnings("unused")
+	private Planeta planeta;
 
-	public VistaPlaneta() {
+	public VistaPlaneta(Planeta planeta) {
+		this.planeta=planeta;
 		try {
 			fondo = ImageIO.read(new File("fondoAzul.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		;
+		};
 
 		Dimension dim = new Dimension(400, 400);
 		super.setPreferredSize(dim);

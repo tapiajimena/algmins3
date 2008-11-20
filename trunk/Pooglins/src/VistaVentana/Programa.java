@@ -1,11 +1,16 @@
 package VistaVentana;
 
+import juego.CreadorNiveles;
+import juego.Nivel;
+
 public class Programa{
 	public static void main(String[] args){
-		javax.swing.SwingUtilities.invokeLater(new Runnable(){
-			public void run() {
-				new VistaNivel().crearMostrarGUI();
-			}
-		});
+		Nivel nivel=CreadorNiveles.crearNivel();
+		VistaNivel vista=new VistaNivel(nivel);
+		vista.setVisible(true);
+		/*for(int i=0;i<10;i++){			
+			nivel.siguienteRonda();
+			vista.actualizarVista();
+		}*/
 	}
 }
