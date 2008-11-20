@@ -58,7 +58,6 @@ public class PruebasIntegrales extends TestCase {
 		 */
 		for(int i=1; i<=6;i++){
 			unPooglin.interactuar();
-			unPooglin.getPosicion().quePuntoEs();
 		}
 		
 		//Como vemos en el terreno el pooglin debe avanzar hasta la posicion 2,4 de la matriz
@@ -116,7 +115,6 @@ public void testNivelPooglinInteraccionBloquesDos() throws IOException{
 		 */
 		for(int i=1; i<=5;i++){
 			unPooglin.interactuar();
-			unPooglin.getPosicion().quePuntoEs();
 		}
 		/*
 		 * Como el Pooglin cae 5 bloques
@@ -166,7 +164,6 @@ public void testNivelPooglinInteraccionBloqueTres() throws IOException{
 	 */
 	for(int i=1; i<=2;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	Punto nuevoPunto=new Punto(2,1);
 	assertEquals(nuevoPunto,unPooglin.getPosicion());
@@ -175,7 +172,6 @@ public void testNivelPooglinInteraccionBloqueTres() throws IOException{
 	 */
 	for(int i=1; i<=3;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	//Como vemos en el terreno el pooglin debe avanzar hasta la posicion 2,4 de la matriz
 	Punto nuevoPunto2=new Punto(2,4);
@@ -222,7 +218,6 @@ public void testNivelPooglinInteraccionBloquesCuatro() throws IOException{
 	 */
 	for(int i=1; i<=3;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	
 	//Como vemos en el terreno el pooglin debe avanzar hasta la posicion (0,3) de la matriz
@@ -234,7 +229,6 @@ public void testNivelPooglinInteraccionBloquesCuatro() throws IOException{
 	 */
 	for(int i=1; i<=2;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	
 	//Ahora como vemos en el terreno el pooglin debe "caer" hasta la posicion (2,3) de la matriz
@@ -281,7 +275,6 @@ public void testNivelPooglinInteraccionBloquesCinco() throws IOException{
 	 */
 	for(int i=1; i<=2;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	
 	Punto nuevoPunto=new Punto(2,0);
@@ -292,7 +285,6 @@ public void testNivelPooglinInteraccionBloquesCinco() throws IOException{
 	 */
 	for(int i=1; i<=3;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	
 	Punto nuevoPunto2=new Punto(2,3);
@@ -306,7 +298,6 @@ public void testNivelPooglinInteraccionBloquesCinco() throws IOException{
 	 */
 	for(int i=1; i<=4;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	
 	Punto nuevoPunto3=new Punto(2,0);
@@ -351,7 +342,6 @@ public void testNivelPooglinInteraccionBloquesSeis() throws IOException{
 	 */
 	for(int i=1; i<=5;i++){
 		unPooglin.interactuar();
-		unPooglin.getPosicion().quePuntoEs();
 	}
 	
 	//Como vemos en el terreno el pooglin debe avanzar hasta la posicion 2,2 de la matriz
