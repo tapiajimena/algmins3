@@ -8,9 +8,16 @@ public class Programa{
 		Nivel nivel=CreadorNiveles.crearNivel();
 		VistaNivel vista=new VistaNivel(nivel);
 		vista.setVisible(true);
-		/*for(int i=0;i<10;i++){			
+		while(true){			
 			nivel.siguienteRonda();
 			vista.actualizarVista();
-		}*/
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	
+		
 	}
 }

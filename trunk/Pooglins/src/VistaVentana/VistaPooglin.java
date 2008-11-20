@@ -10,18 +10,20 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
+import pooglin.Pooglin;
+
 public class VistaPooglin extends JComponent{
 	private static final long serialVersionUID = 1L;
 	private volatile static boolean esPrimeraInstancia=true;
 	private Rectangle rectanguloImpresion;
 	private Rectangle rectanguloImagen;
-	Object modelo;
+	private Pooglin pooglin;
 	private static BufferedImage imagen;
 
-	public VistaPooglin(Object modelo,int x,int y){
+	public VistaPooglin(Pooglin modelo){
 		super();
-		this.modelo=modelo;
-		this.rectanguloImpresion=new Rectangle(x,y,60,80);
+		this.pooglin=modelo;
+		this.rectanguloImpresion=new Rectangle(pooglin.getPosicion().getX(),pooglin.getPosicion().getY(),20,20);
 		this.rectanguloImagen=new Rectangle(50,0,60,80);
 		/*Me parece medio sonso crear una imagen para cada instancia  
 		 * debo sincronizar esto? o alcanza con q sea volatile `esPrimeraInstancia´ ?
@@ -48,10 +50,14 @@ public class VistaPooglin extends JComponent{
 	public void paintComponent(Graphics g){
 		   /*llamada al padre para habilitar look n feel , es necesario?*/
 		   super.paintComponent(g);
-		   g.drawImage(imagen, 0, 0,rectanguloImpresion.width,rectanguloImpresion.height,
+		   g.drawImage(imagen,0,0,rectanguloImpresion.width,rectanguloImpresion.height,
 				rectanguloImagen.x, rectanguloImagen.y,rectanguloImagen.x+rectanguloImagen.width ,rectanguloImagen.y+rectanguloImagen.height, null);
 	}
 	/*------------------------------------------------------*/
-	public void mover(){}
+	public void actualizar(){
+		rectanguloImpresion.x=pooglin.getPosicion().getY()*20;
+		rectanguloImpresion.y=pooglin.getPosicion().getX()*20;
+		super.setBounds(rectanguloImpresion);
+	}
 	public void cambiarCuadro(){}
 }

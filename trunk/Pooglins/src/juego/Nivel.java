@@ -24,7 +24,7 @@ public class Nivel extends Observable {
 	@SuppressWarnings("unused") 
 	private Tiempo tiempoTranscurrido;
  */
-	
+	private int ronda=0;
 	private ArrayList<Pooglin> pooglins;
 	private int cantMuertos;
 	private int cantidadSalvados;
@@ -35,6 +35,9 @@ public class Nivel extends Observable {
 	private ArrayList<AbstractFactoryHabilidad> fabricasHabilidades;
 	
 	/*------------------------------------------------------------------------------------------------------*/
+	public ArrayList<Pooglin> getPooglinsVivos(){
+		return pooglins;
+	}
 	public String[] getFabricasHabilidad(){
 		int cantHabilidades=fabricasHabilidades.size();
 		String[] habilidades=null;
@@ -49,14 +52,15 @@ public class Nivel extends Observable {
 
 	public void siguienteRonda(){
 		//definir mas adelante el punto de Partida
-		Punto puntoEntrada=new Punto(0,0);
+		Punto puntoEntrada=new Punto(5,5);
 		//agregar un Contador Para asegurar intervalo entre pooglins
-		if(pooglins.size()<=cantInicialPooglins)
+		if(pooglins.size()<cantInicialPooglins && ronda%4==0)
 			pooglins.add(new Pooglin(puntoEntrada,this));
 		for(int i=0;i<pooglins.size();i++){
 			pooglins.get(i).interactuar();
 		}
 		super.notifyObservers();
+		ronda++;
 	}
 	public void asignarHabilidad(int numeroHabilidad,int numeroPooglin){
 		try{
