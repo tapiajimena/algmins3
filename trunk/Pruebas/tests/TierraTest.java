@@ -30,27 +30,26 @@ public class TierraTest extends TestCase {
 	public void testGolpear(){
 		/*
 		 * El constructor de Tierra inicializa la dureza, es decir, la
-		 * cantidad de vida del obstáculo, en 4.
+		 * cantidad de vida del obstï¿½culo, en 4.
 		 */
-		System.out.println("La dureza en este momento esta en " + unaTierra.getDureza());
+		
 		int decremento = 0;
 		while(unaTierra.getDureza()<=4 && unaTierra.getDureza()>0 && decremento<4){
-			//El método golpear disminuye en 1 la dureza.
+			//El mï¿½todo golpear disminuye en 1 la dureza.
 			unaTierra.golpear();
 			decremento++;
 			assertEquals(4-decremento,unaTierra.getDureza());
-			System.out.println(unaTierra.getDureza());
+			
 		}
 		/*
-		 * Si continúo decrementando, una vez que llegué a cero, el proceso se 
+		 * Si continï¿½o decrementando, una vez que lleguï¿½ a cero, el proceso se 
 		 * interrumpe y se  
 		 */
 		int nuevoDecremento = 0;
-		System.out.println("La dureza en este momento quedo en 2");
+		
 		while (unaTierra.getDureza()<=4 && unaTierra.getDureza()>0 && nuevoDecremento < 3){
 			unaTierra.golpear();
 			nuevoDecremento++;
-			System.out.println(unaTierra.getDureza());
 			if (unaTierra.getDureza()>0){
 				assertEquals(2-nuevoDecremento,unaTierra.getDureza());
 			}else{
@@ -58,13 +57,13 @@ public class TierraTest extends TestCase {
 				}	
 				
 			}
-		System.out.println("Como se ve nunca pasa del valor 0");
+		
 	}
 	
 	
 	public void testDecrementarDureza(){
 	/*
-	 * Este método, a diferencia del golpear, permite decrementar la dureza
+	 * Este mï¿½todo, a diferencia del golpear, permite decrementar la dureza
 	 * en un valor determinado. 
 	 */
 		unaTierra.decrementarDureza(3);
@@ -91,7 +90,7 @@ public class TierraTest extends TestCase {
 		/*
 		 * su nueva posicion al hacer la tierra que 
 		 * solamente camine 
-		 * pasará a estar 
+		 * pasarï¿½ a estar 
 		 * en el punto (2,1).
 		 */
 		Punto nuevoPunto=new Punto(2,1);

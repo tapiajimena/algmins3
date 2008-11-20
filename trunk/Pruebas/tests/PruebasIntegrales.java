@@ -40,9 +40,7 @@ public class PruebasIntegrales extends TestCase {
 		
 		//USO INTERNOR: Borrar al finalizar.
 		//Cantidad filas de la matriz
-		System.out.println(matriz.length);
 		//Cantidad columnas de la matriz
-		System.out.println(matriz[0].length);
 		
 		Planeta unPlaneta=new Planeta(4,5,matriz);
 		
@@ -100,10 +98,9 @@ public void testNivelPooglinInteraccionBloquesDos() throws IOException{
 		
 		//USO INTERNOR: Borrar al finalizar.
 		//Cantidad filas de la matriz
-		System.out.println(matriz.length);
-		//Cantidad columnas de la matriz
-		System.out.println(matriz[0].length);
 		
+		//Cantidad columnas de la matriz
+				
 		Planeta unPlaneta=new Planeta(7,5,matriz);
 		
 		//Seteo el Planeta creado al nivel
@@ -149,13 +146,7 @@ public void testNivelPooglinInteraccionBloqueTres() throws IOException{
 	*L:Lugar donde deberia llegar.(2,4)
 	*/
 	char[][] matriz={{'A','A','A','A','A'},{'T','A','A','A','A'},{'A','A','A','A','A'},{'T','T','T','T','T'}};
-	
-	//USO INTERNOR: Borrar al finalizar.
-	//Cantidad filas de la matriz
-	System.out.println(matriz.length);
-	//Cantidad columnas de la matriz
-	System.out.println(matriz[0].length);
-	
+		
 	Planeta unPlaneta=new Planeta(4,5,matriz);
 	
 	//Seteo el Planeta creado al nivel
@@ -214,10 +205,6 @@ public void testNivelPooglinInteraccionBloquesCuatro() throws IOException{
 	char[][] matriz={{'A','A','A','A','A'},{'T','T','T','T','A'},{'A','A','A','A','A'},{'T','T','T','T','T'}};
 	
 	//USO INTERNOR: Borrar al finalizar.
-	//Cantidad filas de la matriz
-	System.out.println(matriz.length);
-	//Cantidad columnas de la matriz
-	System.out.println(matriz[0].length);
 	
 	Planeta unPlaneta=new Planeta(4,5,matriz);
 	
@@ -277,11 +264,6 @@ public void testNivelPooglinInteraccionBloquesCinco() throws IOException{
 	*/
 	char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','T'},{'A','A','A','A','T'},{'T','T','T','T','T'}};
 	
-	//USO INTERNOR: Borrar al finalizar.
-	//Cantidad filas de la matriz
-	System.out.println(matriz.length);
-	//Cantidad columnas de la matriz
-	System.out.println(matriz[0].length);
 	
 	Planeta unPlaneta=new Planeta(4,5,matriz);
 	
@@ -350,12 +332,6 @@ public void testNivelPooglinInteraccionBloquesSeis() throws IOException{
 	*El pooglin deberia morir en la posicion (2,2).
 	*/
 	char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','A'},{'A','A','F','F','F'},{'T','T','T','T','T'}};
-	
-	//USO INTERNOR: Borrar al finalizar.
-	//Cantidad filas de la matriz
-	System.out.println(matriz.length);
-	//Cantidad columnas de la matriz
-	System.out.println(matriz[0].length);
 	
 	Planeta unPlaneta=new Planeta(4,5,matriz);
 	

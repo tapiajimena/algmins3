@@ -9,12 +9,26 @@ import junit.framework.TestCase;
 
 public class PlanetaTest extends TestCase {
 	
-	Punto posTierra = new Punto (2,2);
-	Bloque[][] unTerreno = new Bloque[3][3];
-	Planeta unPlaneta = new Planeta(4,4, unTerreno);
-	Tierra unaTierra = new Tierra(posTierra);
-	Aire unAire = new Aire(posTierra);
+	Punto posTierra;
+	Bloque[][] unTerreno;
+	Planeta unPlaneta;
+	Tierra unaTierra ;
+	Aire unAire ;
 	
+	public void setUp(){
+		posTierra = new Punto (2,2);
+		this.unTerreno = new Bloque[4][4];
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++) {
+				Tierra tierra=new Tierra(new Punto(i,j));
+				this.unTerreno[i][j]=tierra;
+			}
+		}
+		unPlaneta = new Planeta(4,4, unTerreno);
+		unaTierra = new Tierra(posTierra);
+		unAire = new Aire(posTierra);
+		
+	}
 	
 	public void testDimensiones(){
 		/*
@@ -32,7 +46,6 @@ public class PlanetaTest extends TestCase {
 		unPlaneta.agregarObstaculo(unaTierra);
 		assertEquals(2,unPlaneta.getBloque(new Punto(2,2)).getPosicion().getX());
 		assertEquals(2,unPlaneta.getBloque(new Punto(2,2)).getPosicion().getY());
-		System.out.println("Se agregó un bloque Tierra");
 	}
 	
 	
@@ -44,7 +57,6 @@ public class PlanetaTest extends TestCase {
 		 */
 		unPlaneta.quitarObstaculo(new Punto(2,2));
 		assertTrue(unPlaneta.getBloque(new Punto(2,2)).esTraspasable());
-		System.out.println("Se eliminó un bloque Tierra");
 	}
 	
 }

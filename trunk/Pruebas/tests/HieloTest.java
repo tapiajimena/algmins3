@@ -28,23 +28,22 @@ public class HieloTest extends TestCase {
 		//El constructor de hielo inicializa un atributo
 		//llamado dureza, que corresponde a la cantidad de vida
 		//del hielo y que tiene un valor inicial de 6.
-		System.out.println("La dureza en este momento esta en 6");
 		int decremento = 0;
 		while(decremento<4){
-			//El método golpear disminuye en 1 la dureza.
+			//El mï¿½todo golpear disminuye en 1 la dureza.
 			hielo.golpear();
 			decremento++;
 			assertEquals(6-decremento,hielo.getDureza());
-			System.out.println(hielo.getDureza());
+			
 		}
 		//Probemos que pasa si sigo decrementando una vez
 		//que ya llegue a 0 en la dureza del hielo.
 		int nuevoDecremento = 0;
-		System.out.println("La dureza en este momento quedo en 2");
+		
 		while (nuevoDecremento < 3){
 			hielo.golpear();
 			nuevoDecremento++;
-			System.out.println(hielo.getDureza());
+			
 			if (hielo.getDureza()>0){
 				assertEquals(2-nuevoDecremento,hielo.getDureza());
 			}else{
@@ -52,7 +51,7 @@ public class HieloTest extends TestCase {
 				}	
 				
 			}
-		System.out.println("Como se ve nunca pasa del valor 0");
+		
 	}
 	
 	public void testDecrementarDureza(){

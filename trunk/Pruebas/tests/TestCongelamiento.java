@@ -46,7 +46,6 @@ public class TestCongelamiento extends TestCase {
 	 */
 	assertTrue(pooglin.estaMuerto());
 	assertTrue( unPlaneta.getBloque(punto) instanceof Hielo );
-
     }
     
 }
