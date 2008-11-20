@@ -1,7 +1,8 @@
 package juego;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Observable;
+
 
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
@@ -9,7 +10,7 @@ import pooglin.Pooglin;
 import punto.Punto;
 
 
-public class Nivel {
+public class Nivel extends Observable {
 	/*
 	 * En esta clase falta la implementacion de algunos metodos que van
 	 * a estar para la segunda entrega cuando decimos bien como realizar
@@ -45,6 +46,7 @@ public class Nivel {
 		}
 		return habilidades;
 	}
+
 	public void siguienteRonda(){
 		//definir mas adelante el punto de Partida
 		Punto puntoEntrada=new Punto(0,0);
@@ -54,11 +56,12 @@ public class Nivel {
 		for(int i=0;i<pooglins.size();i++){
 			pooglins.get(i).interactuar();
 		}
+		super.notifyObservers();
 	}
 	public void asignarHabilidad(int numeroHabilidad,int numeroPooglin){
 		try{
 			AbstractFactoryHabilidad fabrica=fabricasHabilidades.get(numeroHabilidad);
-			if(fabrica.tieneHabilidad()){
+			if(fabrica.cantidadDisponible()>0){
 				fabrica.asignarHabilidad(pooglins.get(numeroPooglin));
 			}
 		}catch(ArrayIndexOutOfBoundsException e){

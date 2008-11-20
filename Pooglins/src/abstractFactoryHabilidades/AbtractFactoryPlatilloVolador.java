@@ -6,6 +6,9 @@ import pooglin.Pooglin;
 
 public class AbtractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 	private int cantidadDisponible;
+	public AbtractFactoryPlatilloVolador(int cantidadHabilidades){
+		cantidadDisponible=cantidadHabilidades;
+	}
 	public Habilidad asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new PlatilloVolador(pooglin);
@@ -14,8 +17,8 @@ public class AbtractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 		return null;
 	}
 
-	public boolean tieneHabilidad() {
-		return (cantidadDisponible>0);
+	public int cantidadDisponible() {
+		return cantidadDisponible;
 	}
 	public String toString(){
 		return new String("PlatilloVolador");
