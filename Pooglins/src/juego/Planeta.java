@@ -128,13 +128,16 @@ public class Planeta {
 	}
 	
 	public void agregarObstaculo(Bloque bloque) {
-		this.terreno[bloque.getPosicionX()][bloque.getPosicionY()] = bloque;	 
+	    if(bloque.getPosicion().getX()<this.alto && bloque.getPosicion().getY()<this.ancho)
+	    	this.terreno[bloque.getPosicionX()][bloque.getPosicionY()] = bloque;	 
 	}
 	
 	public void quitarObstaculo(Punto punto) {
 	    if(punto.getX()<this.alto && punto.getY()<this.ancho){
-		this.terreno[punto.getX()][punto.getY()].destruir();
-	    	this.terreno[punto.getX()][punto.getY()] = new Aire(punto);
+	    	if(this.terreno[punto.getX()][punto.getY()]!=null){
+	    		this.terreno[punto.getX()][punto.getY()].destruir();
+	    		this.terreno[punto.getX()][punto.getY()] = new Aire(punto);
+	    	}
 	    }
 	}
 	
