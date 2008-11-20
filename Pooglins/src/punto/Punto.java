@@ -61,10 +61,6 @@ public class Punto {
 		this.setY(this.getY()+otroPunto.getY());
 	}
 	 
-	//USO INTERNO: Equivalente al toString, solo se usa para ver el punto.
-	public void quePuntoEs(){
-		System.out.println("("+this.posicionX+","+this.posicionY+")");
-	}
 	public String toString(){
 	    return new String("X="+this.posicionX+" Y="+this.posicionY);
 	}
