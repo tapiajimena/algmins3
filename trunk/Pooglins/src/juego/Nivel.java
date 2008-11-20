@@ -3,7 +3,10 @@ package juego;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import abstractFactoryHabilidades.AbstractFactoryHabilidad;
+
 import pooglin.Pooglin;
+import punto.Punto;
 
 
 public class Nivel {
@@ -19,51 +22,77 @@ public class Nivel {
 	private Tiempo cantTiempo;
 	@SuppressWarnings("unused") 
 	private Tiempo tiempoTranscurrido;
-	//A implementar mas adelante
-	@SuppressWarnings("unchecked")
-	private ArrayList TripulacionSalvada; */
+ */
 	
 	private ArrayList<Pooglin> pooglins;
 	private int cantMuertos;
+	private int cantidadSalvados;
 	private int cantInicialPooglins;
 	private int numero;
 	private String nombre; 
-	private Pooglin[] pooglin;
 	private Planeta planeta;
+	private ArrayList<AbstractFactoryHabilidad> fabricasHabilidades;
+	
 	/*------------------------------------------------------------------------------------------------------*/
+	public String[] getFabricasHabilidad(){
+		int cantHabilidades=fabricasHabilidades.size();
+		String[] habilidades=null;
+		if(cantHabilidades>0){
+			habilidades=new String[cantHabilidades];
+			for(int i=0;i<cantHabilidades;i++){
+				habilidades[i]=fabricasHabilidades.get(i).toString();
+			}
+		}
+		return habilidades;
+	}
 	public void siguienteRonda(){
-		//hago interactuar a todos los pooglins del nivel. Falta ver el asunto de como son liberados.
-		//Puertas dentrada son objetos vivos q modifican la lista de pooglins?
-		Iterator<Pooglin> iterador=this.pooglins.iterator();
-		while(iterador.hasNext()){
-			Pooglin unPooglin=(Pooglin)iterador.next();
-			unPooglin.interactuar();
+		//definir mas adelante el punto de Partida
+		Punto puntoEntrada=new Punto(0,0);
+		//agregar un Contador Para asegurar intervalo entre pooglins
+		if(pooglins.size()<=cantInicialPooglins)
+			pooglins.add(new Pooglin(puntoEntrada,this));
+		for(int i=0;i<pooglins.size();i++){
+			pooglins.get(i).interactuar();
 		}
 	}
-	/*------------------------------------------------------------------------------------------------------*/
-	public void liberarTripulacion() {
-	 
+	public void asignarHabilidad(int numeroHabilidad,int numeroPooglin){
+		try{
+			AbstractFactoryHabilidad fabrica=fabricasHabilidades.get(numeroHabilidad);
+			if(fabrica.tieneHabilidad()){
+				fabrica.asignarHabilidad(pooglins.get(numeroPooglin));
+			}
+		}catch(ArrayIndexOutOfBoundsException e){
+			//nada
+		}
 	}
-	public  Nivel() {	
-	}
-	 
-	public  Nivel(Pooglin[] pooglins,Planeta planeta) {
+	public void pooglinMuerto(Pooglin elMuerto){
+		if(pooglins!=null){
+			cantMuertos++;
+			pooglins.remove(elMuerto);
+		}
+	};
+	public void pooglinSalvado(Pooglin elSalvado){
+		if(pooglins!=null){
+			this.cantidadSalvados++;
+			pooglins.remove(elSalvado);
+		}
+	};
+	public  Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,int cantidadDePooglins ,Planeta planeta) {
 		this.planeta=planeta;
-		this.setPooglin(pooglins);
-		
+		this.pooglins=new ArrayList<Pooglin>();	
+		this.cantInicialPooglins=cantidadDePooglins;
+		this.fabricasHabilidades=fabricas;
 	 
 	}
+	/*------------------------------------------------------------------------------------------------------*/
+	public  Nivel() {
+	}
+
 	public void setPlaneta(Planeta planeta) {
 		this.planeta = planeta;
 	}
 	public Planeta getPlaneta() {
 		return planeta;
-	}
-	public void setPooglin(Pooglin[] pooglins) {
-		this.pooglin = pooglins;
-	}
-	public Pooglin[] getPooglins() {
-		return pooglin;
 	}
 	public void setNumero(int numero) {
 		this.numero = numero;
@@ -77,27 +106,11 @@ public class Nivel {
 	public String getNombre() {
 		return nombre;
 	}
-	public void setCantMuertos(int cantMuertos) {
-		this.cantMuertos = cantMuertos;
-	}
 	public int getCantMuertos() {
 		return cantMuertos;
 	}
-	public void setCantInicialPooglins(int cantInicialPooglins) {
-		this.cantInicialPooglins = cantInicialPooglins;
-	}
-
 	public int getCantInicialPooglins() {
 		return cantInicialPooglins;
 	}
-	/*@SuppressWarnings("unchecked")
-	public void setTripulacionSalvada(ArrayList tripulacionSalvada) {
-		TripulacionSalvada = tripulacionSalvada;
-	}
-
-	@SuppressWarnings("unchecked")
-	public ArrayList getTripulacionSalvada() {
-		return TripulacionSalvada;
-	}*/
 }
  

@@ -9,6 +9,7 @@ public abstract class Bloque extends Observable{
 	protected Punto posicion;
 	 
 	public Bloque(Punto punto){
+		super();
 		this.posicion=punto;
 	}
 	
@@ -22,7 +23,8 @@ public abstract class Bloque extends Observable{
 	}
 	 
 	public void destruir() {
-	    notifyObservers();
+	    if(super.countObservers()>0)
+	    	notifyObservers();
 	 
 	}
 	public int getPosicionX() {

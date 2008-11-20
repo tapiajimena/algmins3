@@ -1,7 +1,7 @@
 package juego;
 
 public class CreadorPlanetas {
-    static public Planeta CrearPlaneta(int id){
+    static public Planeta crearPlaneta(int id){
 	char[][] matriz = null;
 	char[][] m0 = {
 	{ 'A','A','A','A','A','A','A','A','A','A'},
