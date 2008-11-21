@@ -72,7 +72,7 @@ public class VistaPlaneta extends JPanel implements Observer {
 		pintarFondo();
 		pintarPlaneta();
 		
-		Dimension dim = new Dimension(500,500);
+		Dimension dim = new Dimension(ancho,alto);
 		super.setPreferredSize(dim);
 		super.setMaximumSize(dim);
 		super.setMinimumSize(dim);
