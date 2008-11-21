@@ -2,18 +2,14 @@ package VistaVentana;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-
-import pooglin.Pooglin;
 import juego.Nivel;
+import pooglin.Pooglin;
 
 public class VistaNivel extends JFrame {
 	/**
