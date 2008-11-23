@@ -26,6 +26,9 @@ public class AgujeroNegro extends Bloque {
 	public char getLetra(){
 		return 'O';
 	}
-	
+	public boolean esMatable() {
+		
+		return true;
+	}
 }
  

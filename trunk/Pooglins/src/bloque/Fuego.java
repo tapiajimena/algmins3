@@ -37,5 +37,9 @@ public class Fuego extends Bloque implements Apagable {
 	public char getLetra(){
 		return 'F';
 	}
+	public boolean esMatable() {
+		
+		return true;
+	}
 }
  
