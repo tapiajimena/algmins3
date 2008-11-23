@@ -56,5 +56,10 @@ public abstract class Bloque extends Observable{
 	public char getLetra(){
 		return 'A';
 	}
+	
+	public boolean esMatable() {
+		
+		return false;
+	}
 }
  

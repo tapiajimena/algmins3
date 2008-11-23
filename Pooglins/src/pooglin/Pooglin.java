@@ -43,7 +43,14 @@ public class Pooglin {
 	public void interactuar() {
 
 		if (habilidad != null) {
-			this.habilidad.interactuar(nivel.getPlaneta());
+			
+			if (!(nivel.getPlaneta().getBloque(this.getPosicion()).esMatable())){
+				this.habilidad.interactuar(nivel.getPlaneta());	
+			}
+			else{
+				nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);	
+			}
+	
 		} else {
 			nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);
 		}

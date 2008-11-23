@@ -11,7 +11,7 @@ import punto.Punto;
 
 public class MainTest {
 	
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
     	Pooglin unPooglin;
     	Nivel nivel = new Nivel();
 
@@ -38,5 +38,5 @@ public class MainTest {
 
     	test.setTimer();
 
-}
+}*/
     }
