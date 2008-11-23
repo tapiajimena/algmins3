@@ -49,6 +49,16 @@ public class Nivel extends Observable {
 		}
 		return habilidades;
 	}
+	
+	
+	public void crearMatrizPooglins(){
+		for (int i=0; i<this.cantInicialPooglins;i++){
+			System.out.println(this.cantInicialPooglins);
+			System.out.println(i);
+			this.pooglins.add(i, new Pooglin(new Punto(0,0),this));
+		
+		}
+	}
 
 	public void siguienteRonda(){
 		//definir mas adelante el punto de Partida
@@ -84,6 +94,7 @@ public class Nivel extends Observable {
 			pooglins.remove(elSalvado);
 		}
 	};
+	
 	public  Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,int cantidadDePooglins ,Planeta planeta) {
 		this.planeta=planeta;
 		this.pooglins=new ArrayList<Pooglin>();	
@@ -93,6 +104,7 @@ public class Nivel extends Observable {
 	}
 	/*------------------------------------------------------------------------------------------------------*/
 	public  Nivel() {
+		this.pooglins=new ArrayList<Pooglin>();	
 	}
 
 	public void setPlaneta(Planeta planeta) {
@@ -118,6 +130,15 @@ public class Nivel extends Observable {
 	}
 	public int getCantInicialPooglins() {
 		return cantInicialPooglins;
+	}
+	
+	public void setCantInicialPooglins(int cantidad) {
+		 this.cantInicialPooglins=cantidad;
+	}
+	
+	public ArrayList<Pooglin> getListaPooglin(){
+		return pooglins;
+		
 	}
 }
  
