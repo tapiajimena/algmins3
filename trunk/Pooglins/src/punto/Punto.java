@@ -1,4 +1,6 @@
 package punto;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 public class Punto {
  
@@ -63,6 +65,17 @@ public class Punto {
 	 
 	public String toString(){
 	    return new String("X="+this.posicionX+" Y="+this.posicionY);
+	}
+	
+	public Element serializarXML(){
+		Element elemento=DocumentHelper.createElement("Punto");
+		elemento.addAttribute("posicionX",new Integer(posicionX).toString());
+		elemento.addAttribute("posicionY",new Integer(posicionY).toString());
+		return elemento;
+	}
+	public void recuperarEstado(Element estadoPunto){
+		posicionX=Integer.parseInt(estadoPunto.attributeValue("posicionX"));
+		posicionY=Integer.parseInt(estadoPunto.attributeValue("posicionY"));
 	}
 }
  
