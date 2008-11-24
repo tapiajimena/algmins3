@@ -1,4 +1,6 @@
 package tests;
+import org.dom4j.Element;
+
 import punto.Punto;
 import junit.framework.TestCase;
 
@@ -87,5 +89,15 @@ public class TestPunto extends TestCase {
 	Punto otroPunto=new Punto(7,23);
 	punto.sumar(otroPunto);
 	assertTrue(punto.equals(new Punto(8,24)));
+    }
+    public void testSerializacion(){
+    	Punto punto=new Punto(0,7);
+    	Element elemento=punto.serializarXML();
+    	assertEquals(0,Integer.parseInt(elemento.attributeValue("posicionX")));
+    	assertEquals(7,Integer.parseInt(elemento.attributeValue("posicionY")));
+    	Punto otroPunto= new Punto(0,0);
+    	otroPunto.recuperarEstado(elemento);
+    	assertEquals(0,otroPunto.getX());
+    	assertEquals(7,otroPunto.getY());
     }
 }
