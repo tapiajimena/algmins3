@@ -78,6 +78,7 @@ public class VistaNivel extends JFrame {
 		
 		int cantidadVivos=nivel.getPooglinsVivos().size();
 		
+		escenario.actualizar();
 		
 		if(cantidadVivos>this.pooglins.size()){
 			
