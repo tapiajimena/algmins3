@@ -69,7 +69,7 @@ public class VistaNivel extends JFrame {
 		// tama�o de la ventana
 		// ventana.setResizable(false);
 		controlador=new Controlador(this.nivel,this);
-		super.setPreferredSize(new Dimension(500, 500));
+		super.setPreferredSize(new Dimension(1050, 500));
 		// preparo la venta
 		super.pack();
 	}
@@ -80,21 +80,34 @@ public class VistaNivel extends JFrame {
 		
 		escenario.actualizar();
 		
+		
 		if(cantidadVivos>this.pooglins.size()){
 			
+			
 			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(cantidadVivos-1);
+			
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);
 			
 			controlador.setPooglin(vistaPooglin,nuevoPooglin);
+			
 			pooglins.add(vistaPooglin);
+			
 			escenario.add(vistaPooglin);
 			
-		};
+			
+		}
+		
 		for(int i=0;i<this.pooglins.size();i++){
 			pooglins.get(i).actualizar();
+			if((pooglins.get(i).getPooglin().EstaSalvado())||(pooglins.get(i).getPooglin().estaMuerto())){
+				pooglins.get(i).borrar(); 
+			 }
+			
 		}
 	}
-	
+	public VistaPlaneta getVistaPlaneta(){
+		return escenario;
+	}
 	public ButtonModel getSeleccionado(){
 		
 		return groupHabilidad.getSelection();

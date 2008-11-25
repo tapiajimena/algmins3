@@ -47,6 +47,8 @@ public class Controlador {
 			if(boton!=null){
 				int i=Integer.parseInt(boton.getActionCommand());
 				nivel.getFabricasHabilidad().get(i).asignarHabilidad(pooglin);
+				
+				
 			}else {
 				 JFrame frame = new JFrame("Warning");
 	             JOptionPane.showMessageDialog(frame, "No has seleccionado ninguna habilidad");

@@ -59,6 +59,16 @@ public class VistaPooglin extends JComponent{
 		rectanguloImpresion.y=pooglin.getPosicion().getX()*20;
 		super.setBounds(rectanguloImpresion);
 	}
+	
+	
 	public void cambiarCuadro(){}
+	
+	public void borrar(){
+		super.setVisible(false);
+	}
+	
+	public Pooglin getPooglin(){
+		return this.pooglin;
+	}
 }
 
