@@ -1,4 +1,5 @@
 package VistaVentana;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
@@ -35,12 +36,15 @@ public class VistaNivel extends JFrame {
 	private void cargarPanelHabilidad() {
 		panelHabilidad = new JPanel();
 		panelHabilidad.setLayout(new BoxLayout(panelHabilidad,
-				BoxLayout.PAGE_AXIS));
+				BoxLayout.X_AXIS));
+		panelHabilidad.setBackground(Color.white);
 		groupHabilidad = new ButtonGroup();
+		
 		ArrayList<AbstractFactoryHabilidad> nombres=nivel.getFabricasHabilidad();
 		if(nombres!=null)
 		for(int i=0;i<nombres.size();i++){
 			JRadioButton habilidad = new JRadioButton(nombres.get(i).toString());
+			habilidad.setBackground(Color.white);
 			habilidad.setActionCommand(new Integer(i).toString());
 			groupHabilidad.add(habilidad);
 			panelHabilidad.add(habilidad);
@@ -51,9 +55,11 @@ public class VistaNivel extends JFrame {
 		super();
 		this.pooglins=new ArrayList<VistaPooglin>();
 		this.nivel = nivel;
+		
 		super.setTitle("Pooglins "+nivel.getNombre());
 		escenario = new VistaPlaneta(nivel.getPlaneta());
 		escenario.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		
 		escenario.setLayout(null);
 
 		// add funciona como pila L-A-F-P
@@ -66,8 +72,12 @@ public class VistaNivel extends JFrame {
 		// defino es la forma en que se acomodan los componentes
 		super.getContentPane().setLayout(
 				new BoxLayout(super.getContentPane(), BoxLayout.LINE_AXIS));
+		
+		add(panelHabilidad);
+		
 		// tama�o de la ventana
 		// ventana.setResizable(false);
+		super.getContentPane().setBackground(Color.black);
 		controlador=new Controlador(this.nivel,this);
 		super.setPreferredSize(new Dimension(1050, 500));
 		// preparo la venta
