@@ -59,7 +59,6 @@ public class VistaNivel extends JFrame {
 		super.setTitle("Pooglins "+nivel.getNombre());
 		escenario = new VistaPlaneta(nivel.getPlaneta());
 		escenario.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		
 		escenario.setLayout(null);
 
 		// add funciona como pila L-A-F-P
@@ -70,8 +69,7 @@ public class VistaNivel extends JFrame {
 
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		// defino es la forma en que se acomodan los componentes
-		super.getContentPane().setLayout(
-				new BoxLayout(super.getContentPane(), BoxLayout.LINE_AXIS));
+		super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
 		
 		add(panelHabilidad);
 		
