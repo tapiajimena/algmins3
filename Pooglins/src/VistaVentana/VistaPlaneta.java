@@ -34,22 +34,32 @@ public class VistaPlaneta extends JPanel {
 		
 		switch (bloque.getLetra()) {
 			case 'A': 
+				gra.drawImage(ImageIO.read(new File("A.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 				return;
 			case 'T':
 				gra.drawImage(ImageIO.read(new File("T.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 			break;
 			case 'F':
-				gra.setColor(Color.red);gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);
+				gra.drawImage(ImageIO.read(new File("F.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 			break;
 			case 'R':
-				gra.setColor(Color.gray);gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);
+				gra.drawImage(ImageIO.read(new File("R.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			break;
+			case 'H':
+				gra.drawImage(ImageIO.read(new File("H.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			break;
+			case 'O':
+				gra.drawImage(ImageIO.read(new File("O.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			break;
+			case 'S':
+				gra.drawImage(ImageIO.read(new File("S.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 			break;
 		}
 		
 	}
 	private void pintarFondo(){
 		Graphics2D gra = fondo.createGraphics();
-		gra.setColor(Color.cyan);
+		//gra.setColor(Color.cyan);
 		gra.fillRect(0, 0, ancho,alto);
 		
 	}
@@ -92,7 +102,12 @@ public class VistaPlaneta extends JPanel {
 		 * gra.fillRect(50, 50, 200, 200);
 		 */
 	}
-
+	
+	public void actualizar(){
+		
+		pintarPlaneta();
+	}
+	
 	public void update(Observable o, Object arg) {
 			
 	}

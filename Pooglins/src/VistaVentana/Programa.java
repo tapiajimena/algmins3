@@ -17,7 +17,7 @@ public class Programa{
 			nivel.siguienteRonda();
 			vista.actualizarVista();
 			try {
-				Thread.sleep(500);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
