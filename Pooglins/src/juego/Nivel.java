@@ -33,6 +33,7 @@ public class Nivel extends Observable {
 	private String nombre; 
 	private Planeta planeta;
 	private ArrayList<AbstractFactoryHabilidad> fabricasHabilidades;
+	@SuppressWarnings("unused")
 	private AbstractFactoryHabilidad habilidadSeleccionada;
 	/*------------------------------------------------------------------------------------------------------*/
 	public ArrayList<Pooglin> getPooglinsVivos(){
