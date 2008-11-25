@@ -39,7 +39,7 @@ public class Juego {
 		};
 		if(vista==null)System.out.println("ok");
 		vista.setVisible(true);
-		Timer timer = new Timer(50, gameLoop);
+		Timer timer = new Timer(1, gameLoop);
 		timer.start();
 	}
 
