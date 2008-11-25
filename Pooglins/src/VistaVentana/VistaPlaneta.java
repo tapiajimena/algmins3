@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,39 +29,43 @@ public class VistaPlaneta extends JPanel {
 	private BufferedImage		frente;
 	private static final long	serialVersionUID	= 1L;
 	Color						last;
+	private BufferedImage terrenosrc;
 
 	private void pintarBloque(Bloque bloque) throws IOException {
 		Graphics2D gra = frente.createGraphics();
 		
 		switch (bloque.getLetra()) {
 			case 'A': 
-				gra.drawImage(ImageIO.read(new File("A.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-				return;
+				//gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				break;
 			case 'T':
-				gra.drawImage(ImageIO.read(new File("T.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 32,32, 64, null);
 			break;
 			case 'F':
-				gra.drawImage(ImageIO.read(new File("F.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(),160 , 0,192, 32, null);
 			break;
 			case 'R':
-				gra.drawImage(ImageIO.read(new File("R.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 128, 0,160, 32, null);
 			break;
 			case 'H':
-				gra.drawImage(ImageIO.read(new File("H.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(),96, 0,128, 32, null);
 			break;
 			case 'O':
-				gra.drawImage(ImageIO.read(new File("O.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(),64, 0,96, 32, null);
 			break;
 			case 'S':
-				gra.drawImage(ImageIO.read(new File("S.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+				gra.drawImage(terrenosrc, 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 32,0,64, 32, null);
 			break;
+			
 		}
+		gra.dispose();
 		
 	}
 	private void pintarFondo(){
 		Graphics2D gra = fondo.createGraphics();
-		//gra.setColor(Color.cyan);
+		gra.setColor(Color.cyan);
 		gra.fillRect(0, 0, ancho,alto);
+		gra.dispose();
 		
 	}
 	private void pintarPlaneta(){
@@ -81,7 +86,11 @@ public class VistaPlaneta extends JPanel {
 		System.out.println(alto +" "+ancho);
 		fondo = new BufferedImage(ancho,alto,BufferedImage.TYPE_INT_ARGB);
 		frente = new BufferedImage(ancho, alto,BufferedImage.TYPE_INT_ARGB);
-		
+		try {
+			terrenosrc=ImageIO.read( new File("terreno.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		pintarFondo();
 		pintarPlaneta();
 		
@@ -108,7 +117,4 @@ public class VistaPlaneta extends JPanel {
 		pintarPlaneta();
 	}
 	
-	public void update(Observable o, Object arg) {
-			
-	}
 }
