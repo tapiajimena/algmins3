@@ -9,8 +9,8 @@ import bloque.Aire;
 import bloque.Bloque;
 import bloque.Fuego;
 import bloque.Hielo;
-import bloque.PuertaDeEntrada;
-import bloque.PuertaDeEscape;
+import bloque.Entrada;
+import bloque.Salida;
 import bloque.Roca;
 import bloque.Tierra;
 import bloque.Tunel;
@@ -34,8 +34,8 @@ public class Planeta {
 			case 'F' :/*Fuego*/bloque=new Fuego(punto);break;
 			case 'O' :/*HoyoNegro*/bloque=new AgujeroNegro(punto);break;
 			case 'H' :/*Hielo*/bloque=new Hielo(punto);break;
-			case 'P' :/*NavePartida*/bloque=new PuertaDeEntrada(punto);break;
-			case 'E' :/*NaveEntrada*/bloque=new PuertaDeEscape(punto);break;
+			case 'E' :/*Entrada*/bloque=new Entrada(punto);break;
+			case 'S' :/*Salida*/bloque=new Salida(punto);break;
 			case 'B' :/*TunelElectromagentico(Bridge)*/bloque=new Tunel(punto);break;
 			default : bloque=new Aire(punto);
 		}
@@ -57,8 +57,8 @@ public class Planeta {
 		case 'F' :/*Fuego*/aux= 'F' ;break;
 		case 'O' :/*HoyoNegro*/aux= 'O' ;break;
 		case 'H' :/*Hielo*/aux= 'H' ;break;
-		case 'P' :/*NavePartida*/aux= 'P' ;break;
-		case 'E' :/*NaveEntrada*/aux= 'E' ;break;
+		case 'E' :/*Entrada*/aux= 'E' ;break;
+		case 'S' :/*Salida*/aux= 'S' ;break;
 		case 'B' :/*TunelElectromagentico(Bridge)*/aux= 'B' ;break;
 		default : return 'A' ;
 	}

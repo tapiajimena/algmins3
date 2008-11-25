@@ -33,13 +33,13 @@ public class Nivel extends Observable {
 	private String nombre; 
 	private Planeta planeta;
 	private ArrayList<AbstractFactoryHabilidad> fabricasHabilidades;
-	
+	private AbstractFactoryHabilidad habilidadSeleccionada;
 	/*------------------------------------------------------------------------------------------------------*/
 	public ArrayList<Pooglin> getPooglinsVivos(){
 		return pooglins;
 	}
-	public String[] getFabricasHabilidad(){
-		int cantHabilidades=fabricasHabilidades.size();
+	public ArrayList<AbstractFactoryHabilidad> getFabricasHabilidad(){
+		/*int cantHabilidades=fabricasHabilidades.size();
 		String[] habilidades=null;
 		if(cantHabilidades>0){
 			habilidades=new String[cantHabilidades];
@@ -47,25 +47,29 @@ public class Nivel extends Observable {
 				habilidades[i]=fabricasHabilidades.get(i).toString();
 			}
 		}
-		return habilidades;
+		return habilidades;*/
+		return this.fabricasHabilidades;
 	}
 	
 	
-	public void crearMatrizPooglins(){
+/*	public void crearMatrizPooglins(){
 		for (int i=0; i<this.cantInicialPooglins;i++){
-			System.out.println(this.cantInicialPooglins);
-			System.out.println(i);
+	
 			this.pooglins.add(i, new Pooglin(new Punto(0,0),this));
 		
 		}
-	}
+	}*/
 
 	public void siguienteRonda(){
 		//definir mas adelante el punto de Partida
-		Punto puntoEntrada=new Punto(5,5);
+		Punto puntoEntrada=new Punto(1,1);
 		//agregar un Contador Para asegurar intervalo entre pooglins
-		if(pooglins.size()<cantInicialPooglins && ronda%4==0)
-			pooglins.add(new Pooglin(puntoEntrada,this));
+		if(pooglins.size()<(cantInicialPooglins-(this.cantidadSalvados+this.cantMuertos)) && ronda%4==0){
+			Pooglin unPooglin=new Pooglin(puntoEntrada,this);
+			unPooglin.setId(pooglins.size());
+			pooglins.add(unPooglin);
+			
+		}
 		for(int i=0;i<pooglins.size();i++){
 			pooglins.get(i).interactuar();
 		}
@@ -92,6 +96,7 @@ public class Nivel extends Observable {
 		if(pooglins!=null){
 			this.cantidadSalvados++;
 			pooglins.remove(elSalvado);
+			System.out.println("SE SALVA");
 		}
 	};
 	
@@ -100,6 +105,7 @@ public class Nivel extends Observable {
 		this.pooglins=new ArrayList<Pooglin>();	
 		this.cantInicialPooglins=cantidadDePooglins;
 		this.fabricasHabilidades=fabricas;
+	
 	 
 	}
 	/*------------------------------------------------------------------------------------------------------*/
@@ -139,6 +145,10 @@ public class Nivel extends Observable {
 	public ArrayList<Pooglin> getListaPooglin(){
 		return pooglins;
 		
+	}
+	public int getPooglinALanzar() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
  

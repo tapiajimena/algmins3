@@ -61,3 +61,4 @@ public class VistaPooglin extends JComponent{
 	}
 	public void cambiarCuadro(){}
 }
+

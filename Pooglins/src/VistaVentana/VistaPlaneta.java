@@ -5,16 +5,19 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import juego.Planeta;
 import punto.Punto;
 import bloque.Bloque;
 
-public class VistaPlaneta extends JPanel implements Observer {
+public class VistaPlaneta extends JPanel {
 	/**
 	 * 
 	 */
@@ -26,22 +29,23 @@ public class VistaPlaneta extends JPanel implements Observer {
 	private static final long	serialVersionUID	= 1L;
 	Color						last;
 
-	private void pintarBloque(Bloque bloque) {
+	private void pintarBloque(Bloque bloque) throws IOException {
 		Graphics2D gra = frente.createGraphics();
+		
 		switch (bloque.getLetra()) {
-			case 'A':
+			case 'A': 
 				return;
 			case 'T':
-				gra.setColor(Color.green);
+				gra.drawImage(ImageIO.read(new File("T.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 			break;
 			case 'F':
-				gra.setColor(Color.red);
+				gra.setColor(Color.red);gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);
 			break;
 			case 'R':
-				gra.setColor(Color.gray);
+				gra.setColor(Color.gray);gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);
 			break;
 		}
-		gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);
+		
 	}
 	private void pintarFondo(){
 		Graphics2D gra = fondo.createGraphics();
@@ -56,8 +60,7 @@ public class VistaPlaneta extends JPanel implements Observer {
 					pintarBloque(planeta.getBloque(new Punto(i, j)));
 				}catch(Exception e){
 					e.printStackTrace();
-				}
-					
+				}	
 		}
 	}
 	public VistaPlaneta(Planeta elPlaneta) {
