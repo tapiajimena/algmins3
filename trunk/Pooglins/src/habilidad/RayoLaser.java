@@ -36,6 +36,7 @@ public class RayoLaser extends Habilidad{
 					this.decremetarDisparos();
 				}else{
 					unPlaneta.quitarObstaculo(posicionBloque);
+					pooglin.definirHabilidad(null);
 					pooglin.caminar();
 				}
 			}else{

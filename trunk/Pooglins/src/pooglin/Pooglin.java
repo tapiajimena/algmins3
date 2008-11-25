@@ -163,6 +163,8 @@ public class Pooglin {
 	}
 
 	public void salvar() {
+		
+		this.nivel.pooglinSalvado(this);
 		estaSalvado = true;
 	}
 
@@ -183,6 +185,11 @@ public class Pooglin {
 
 	public boolean EstaSalvado() {
 		return estaSalvado;
+	}
+
+	public void setId(int id) {
+		this.id=id;
+		
 	}
 
 }

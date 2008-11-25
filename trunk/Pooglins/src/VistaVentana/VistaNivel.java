@@ -5,9 +5,14 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+
+import abstractFactoryHabilidades.AbstractFactoryHabilidad;
+
+import Controlador.Controlador;
 import juego.Nivel;
 import pooglin.Pooglin;
 
@@ -21,6 +26,7 @@ public class VistaNivel extends JFrame {
 	private VistaPlaneta escenario;
 	private Nivel nivel;
 	private ArrayList<VistaPooglin> pooglins;
+	private Controlador controlador;
 	/*
 	 * Recibe un conjunto de las habilidades permitidas en el nivel para generar
 	 * el panel de opciones de las habilidades
@@ -31,13 +37,13 @@ public class VistaNivel extends JFrame {
 		panelHabilidad.setLayout(new BoxLayout(panelHabilidad,
 				BoxLayout.PAGE_AXIS));
 		groupHabilidad = new ButtonGroup();
-		String[] nombres=nivel.getFabricasHabilidad();
+		ArrayList<AbstractFactoryHabilidad> nombres=nivel.getFabricasHabilidad();
 		if(nombres!=null)
-		for(int i=0;i<nombres.length;i++){
-			JRadioButton habilidad = new JRadioButton(nombres[i]);
+		for(int i=0;i<nombres.size();i++){
+			JRadioButton habilidad = new JRadioButton(nombres.get(i).toString());
+			habilidad.setActionCommand(new Integer(i).toString());
 			groupHabilidad.add(habilidad);
 			panelHabilidad.add(habilidad);
-			
 		}
 	}
 	
@@ -62,22 +68,34 @@ public class VistaNivel extends JFrame {
 				new BoxLayout(super.getContentPane(), BoxLayout.LINE_AXIS));
 		// tama�o de la ventana
 		// ventana.setResizable(false);
-
+		controlador=new Controlador(this.nivel,this);
 		super.setPreferredSize(new Dimension(500, 500));
 		// preparo la venta
 		super.pack();
 	}
-
-	public void actualizarVista() {		
+	
+	public void actualizarVista() {
+		
 		int cantidadVivos=nivel.getPooglinsVivos().size();
+		
+		
 		if(cantidadVivos>this.pooglins.size()){
+			
 			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(cantidadVivos-1);
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);
+			
+			controlador.setPooglin(vistaPooglin,nuevoPooglin);
 			pooglins.add(vistaPooglin);
 			escenario.add(vistaPooglin);
+			
 		};
 		for(int i=0;i<this.pooglins.size();i++){
 			pooglins.get(i).actualizar();
 		}
+	}
+	
+	public ButtonModel getSeleccionado(){
+		
+		return groupHabilidad.getSelection();
 	}
 }
