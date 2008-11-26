@@ -18,10 +18,6 @@ public class Roca extends Bloque{
 		return false;
 	}
 	
-	public void queEs(){
-		System.out.println("Esto es una Roca");
-	}
-	
 	public char getLetra(){
 		return 'R';
 	}

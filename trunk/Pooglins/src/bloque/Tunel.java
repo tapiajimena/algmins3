@@ -22,9 +22,6 @@ public class Tunel extends Bloque {
 	public boolean esTraspasable(){
 	    return false;
 	}
-	public void queEs(){
-		System.out.println("Esto es un Tunel");
-	}
 	
 	public char getLetra(){
 		return 'B';

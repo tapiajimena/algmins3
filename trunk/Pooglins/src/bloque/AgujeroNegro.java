@@ -19,15 +19,11 @@ public class AgujeroNegro extends Bloque {
 		}
 		
 	}
-	public void queEs(){
-		System.out.println("Esto es un Aujero Negro");
-	}
-	
+
 	public char getLetra(){
 		return 'O';
 	}
 	public boolean esMatable() {
-		
 		return true;
 	}
 }
