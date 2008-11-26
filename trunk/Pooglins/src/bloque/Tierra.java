@@ -1,4 +1,7 @@
 package bloque;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import pooglin.Pooglin;
 import punto.Punto;
 
@@ -18,9 +21,11 @@ public class Tierra extends Bloque implements Rompible {
 	public void interactuar(Pooglin unPooglin) {
 		unPooglin.caminar();
 	}
+	
 	public boolean esTraspasable(){
 		return false;
 	}
+	
 	public boolean esRomplible() {
 			return true;
 	}
@@ -40,6 +45,19 @@ public class Tierra extends Bloque implements Rompible {
 	
 	public char getLetra(){
 		return 'T';
+	}
+	
+	public Element serializar(){
+		Element elementTierra=DocumentHelper.createElement("Tierra");
+		elementTierra.addAttribute("dureza",String.valueOf(this.dureza));
+		Element elementoPunto=this.posicion.serializar();
+		elementTierra.add(elementoPunto);
+		return elementTierra;
+	}
+	
+	public void recuperarEstado(Element elementoTierra){
+		this.posicion.recuperarEstado(elementoTierra.element("Punto"));
+		this.dureza = Integer.parseInt(elementoTierra.attributeValue("dureza"));
 	}
 	 
 }

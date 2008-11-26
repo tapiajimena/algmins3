@@ -2,29 +2,45 @@ package bloque;
 import pooglin.Pooglin;
 import punto.Punto;
 
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 
 public class AgujeroNegro extends Bloque {
 	
-    	public AgujeroNegro(Punto punto) {
+    public AgujeroNegro(Punto punto) {
 		super(punto);
 	}
-	@Override
-	      public boolean esTraspasable() {
+	
+    public boolean esTraspasable() {
 		return true;
 	}
-	@Override
-	public void interactuar(Pooglin unPooglin) {
+	
+    public void interactuar(Pooglin unPooglin) {
 		if(this.posicion.distancia(unPooglin.getPosicion()) <= 1){
 			unPooglin.morir();
 		}
 		
 	}
 
-	public char getLetra(){
+    public char getLetra(){
 		return 'O';
 	}
+	
 	public boolean esMatable() {
 		return true;
 	}
+	
+	public Element serializar(){
+		Element elementAgujeroNegro=DocumentHelper.createElement("AgujeroNegro");
+		Element elementoPunto=this.posicion.serializar();
+		elementAgujeroNegro.add(elementoPunto);
+		return elementAgujeroNegro;
+	}
+	
+	public void recuperarEstado(Element elementoAgujeroNegro){
+		this.posicion.recuperarEstado(elementoAgujeroNegro.element("Punto"));
+	}
+
 }
  
