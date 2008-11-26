@@ -34,7 +34,7 @@ public class VistaPlaneta extends JPanel {
 
 	public void cargarListaImagenes() throws IOException{
 		
-		char[] lista={'A','T','F','R','S'};
+		char[] lista={'A','T','F','R','S','O'};
 		
 		for (int i=0; i<lista.length;i++){
 		BufferedImage nueva= ImageIO.read(new File(lista[i]+".png"));
@@ -63,6 +63,9 @@ public class VistaPlaneta extends JPanel {
 		break;
 		case 'S':
 			gra.drawImage(listaDeImagenes.get(4), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+		break;
+		case 'O':
+			gra.drawImage(listaDeImagenes.get(5), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		}
 		

@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
@@ -55,9 +56,14 @@ public class VistaPooglin extends JComponent{
 	}
 	/*------------------------------------------------------*/
 	public void actualizar(){
-		rectanguloImpresion.x=pooglin.getPosicion().getY()*20;
+		Random generador= new Random();
+		int numero=generador.nextInt(10);
+		
+		rectanguloImpresion.x=pooglin.getPosicion().getY()*20+numero;
 		rectanguloImpresion.y=pooglin.getPosicion().getX()*20;
+		
 		super.setBounds(rectanguloImpresion);
+		
 	}
 	
 	
