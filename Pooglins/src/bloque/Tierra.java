@@ -33,11 +33,7 @@ public class Tierra extends Bloque implements Rompible {
 				this.dureza=0;
 			}
 	}
-	
-	public void queEs(){
-		System.out.println("Esto es Tierra");
-	}
-	
+
 	public int getDureza() {
 		return dureza;
 	}

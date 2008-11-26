@@ -46,9 +46,6 @@ public class Hielo extends Bloque implements Rompible{
 	public int getDureza() {
 		return dureza;
 	} 
-	public void queEs(){
-		System.out.println("Esto es Hielo");
-	}
 
 	public char getLetra(){
 		return 'H';

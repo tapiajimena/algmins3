@@ -18,9 +18,7 @@ public class Salida extends Bloque {
 	public boolean esTraspasable(){
 		return true;
 	}
-	public void queEs(){
-		System.out.println("Esto es la Puerta de Escape");
-	}
+
 	public char getLetra(){
 		return 'S';
 	}
