@@ -67,7 +67,7 @@ public class Punto {
 	    return new String("X="+this.posicionX+" Y="+this.posicionY);
 	}
 	
-	public Element serializarXML(){
+	public Element serializar(){
 		Element elemento=DocumentHelper.createElement("Punto");
 		elemento.addAttribute("posicionX",new Integer(posicionX).toString());
 		elemento.addAttribute("posicionY",new Integer(posicionY).toString());
