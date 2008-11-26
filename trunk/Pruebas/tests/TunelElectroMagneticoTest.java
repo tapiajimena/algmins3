@@ -45,20 +45,21 @@ public class TunelElectroMagneticoTest extends TestCase {
 	    assertTrue(bloqueFrontal.esTraspasable());
 	    
 	    constructorDeTunel =new TunelElectroMagnetico(unPooglin);
+	    unPooglin.definirHabilidad(constructorDeTunel);
 	    int longitudInicial=constructorDeTunel.getLongitudFaltante();
 	    Punto posicionAnteriorPooglin;
 	    /*Empiezo la interaccion*/
-	    for(int i=1;i<=longitudInicial;i++){
-		posicionAnteriorPooglin=unPooglin.getPosicion();
-		constructorDeTunel.interactuar(unPlaneta);
-		assertEquals(longitudInicial-i,constructorDeTunel.getLongitudFaltante());
-		/*a medida que construye el tunel va subiendo por el tunel*/
-		assertTrue(unPooglin.getPosicion().equals(posicionAnteriorPooglin.puntoRelativo(-1,unPooglin.getVectorDireccion())));
+	    for(int i=1;longitudInicial>=i;i++){
+	    	posicionAnteriorPooglin=unPooglin.getPosicion();
+	    	constructorDeTunel.interactuar(unPlaneta);
+	    	assertEquals(longitudInicial-i,constructorDeTunel.getLongitudFaltante());
+	    	/*a medida que construye el tunel va subiendo por el tunel*/
+	    	assertTrue(unPooglin.getPosicion().equals(posicionAnteriorPooglin.puntoRelativo(-1,unPooglin.getVectorDireccion())));
 	    }
 	    /*una vez que puso la ultima piesa del tunel cae en diagonal*/
 	    posicionAnteriorPooglin=unPooglin.getPosicion();
-	    constructorDeTunel.interactuar(unPlaneta);
+	    unPooglin.interactuar();
 	    /*controlo que la nueva posicion uno en la direccion de que se mueve y uno hacia abajo por la caida*/
-	    assertTrue(unPooglin.getPosicion().equals(posicionAnteriorPooglin.puntoRelativo(1,unPooglin.getVectorDireccion())));	    
+	    assertTrue(unPooglin.getPosicion().equals(posicionAnteriorPooglin));	    
 	}
 }

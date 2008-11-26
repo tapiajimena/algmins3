@@ -1,4 +1,5 @@
 package tests;
+import habilidad.RayoLaser;
 import habilidad.TaladroUltrasonico;
 import juego.Nivel;
 import juego.Planeta;
@@ -15,9 +16,8 @@ public class TestTaladroUltraSonico extends TestCase {
 	Planeta unPlaneta ;
 	TaladroUltrasonico unTaladro;
 	
-	
-	public void testInteraccionPooglin(){
-	    /*Creo el nivel del pooglin y cargo el planeta*/
+	public void setUp(){
+		 /*Creo el nivel del pooglin y cargo el planeta*/
 	    nivel=new Nivel();
 	    char[][] matriz={
 		    {'A','A','A','A','A','A'},
@@ -31,6 +31,19 @@ public class TestTaladroUltraSonico extends TestCase {
 	    nivel.setPlaneta(unPlaneta);
 	    
 	    unPooglin=new Pooglin(new Punto(0,2),nivel);
+	}
+	public void testElTaladroSeGasta(){
+		unTaladro=new TaladroUltrasonico(unPooglin);
+		int vueltasIniciales=unTaladro.getVueltasDeTorpedo();
+	    /*Empiezo la interaccion*/
+	    /* La idea es golpear la tierra hasta tenga dureza cero*/
+	    for(int i=1;vueltasIniciales>i;i++){
+	    	unTaladro.interactuar(unPlaneta);
+	    	assertEquals(vueltasIniciales-i,unTaladro.getVueltasDeTorpedo());
+	    }
+	}
+	public void testInteraccionPooglin(){
+	   
 	    /*
 	     * Corroboro que un bloque del tipo tierra se
 	     * encuentra delante del Pooglin
@@ -53,11 +66,10 @@ public class TestTaladroUltraSonico extends TestCase {
 	    
 	    /*Empiezo la interaccion*/
 	    /* La idea es golpear la tierra hasta tenga dureza cero*/
-	    for(int i=1;durezaInicial>=i;i++){
-		unTaladro.interactuar(unPlaneta);
-		
-		assertEquals(durezaInicial-i,((Tierra)bloqueInferior).getDureza());
-		assertEquals(disparosInicial-i,unTaladro.getVueltasDeTorpedo());
+	    for(int i=1;durezaInicial>i;i++){
+	    	unTaladro.interactuar(unPlaneta);
+			assertEquals(durezaInicial-i,((Tierra)bloqueInferior).getDureza());
+			assertEquals(disparosInicial-i,unTaladro.getVueltasDeTorpedo());
 	    }
 	    /*el bloque de tierra todabia no esta roto por lo que 
 	     * el pooglin debe seguir en la posicionanterior
@@ -85,13 +97,16 @@ public class TestTaladroUltraSonico extends TestCase {
 	    posicionInicialPooglin=unPooglin.getPosicion();
 	    
 	    posicionInicialBloque=bloqueInferior.getPosicion();
+	    assertTrue(posicionInicialPooglin.puntoRelativo(1,0).equals(posicionInicialBloque));
 	    /*Opero*/
 	    assertTrue(bloqueInferior instanceof Tierra);
-	    
-	    for(int i=1;durezaInicial>=i;i++){
-		unTaladro.interactuar(unPlaneta);
-		
-		assertEquals(durezaInicial-i,((Tierra)bloqueInferior).getDureza());
+	    for(int i=1;durezaInicial>i;i++){
+	    	if(unTaladro.getVueltasDeTorpedo()<=0){
+	    		unTaladro= new TaladroUltrasonico(unPooglin);
+	    		unPooglin.definirHabilidad(unTaladro);
+	    	}
+	    	unTaladro.interactuar(unPlaneta);
+	    	assertEquals(durezaInicial-i,((Tierra)bloqueInferior).getDureza());
 	    }
 	    /*aun no avanzo un bloque*/
 	    assertTrue(posicionInicialPooglin.equals(unPooglin.getPosicion()));
