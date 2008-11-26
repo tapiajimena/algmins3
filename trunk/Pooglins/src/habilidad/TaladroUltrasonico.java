@@ -16,18 +16,16 @@ public class TaladroUltrasonico extends Habilidad{
 		Punto posicionBloque=pooglin.getPosicion();
 		posicionBloque=pooglin.getPosicion().puntoRelativo(1,0);
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible ){
-			if (this.getVueltasDeTorpedo()!= 0){
+			if (this.getVueltasDeTorpedo()> 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionBloque);
-				if (bloqueRompible.getDureza() != 0){
-					bloqueRompible.golpear();
-					this.decrementarVueltas();
-				}else{
+				bloqueRompible.golpear();
+				this.decrementarVueltas();
+				if (bloqueRompible.getDureza() <=0){
 					unPlaneta.quitarObstaculo(posicionBloque);
-					pooglin.definirHabilidad(null);
 					pooglin.caminar();
 				}
 			}else{
-				pooglin.caminar();
+				pooglin.definirHabilidad(null);
 			}
 		}else pooglin.definirHabilidad(null);
 	}
