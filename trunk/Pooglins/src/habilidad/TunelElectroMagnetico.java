@@ -23,11 +23,9 @@ public class TunelElectroMagnetico extends Habilidad {
 			if (this.longitudFaltante>0){
 				unPlaneta.agregarObstaculo(new Tunel(posicionBloque));
 				this.longitudFaltante--;
-			} else {
-				pooglin.definirHabilidad(null);
 			}
 		}
-		pooglin.caminar();
+		pooglin.definirHabilidad(null);
 	}
 
 	public int getLongitudFaltante() {

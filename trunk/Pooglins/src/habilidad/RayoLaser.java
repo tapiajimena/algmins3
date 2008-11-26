@@ -18,7 +18,7 @@ public class RayoLaser extends Habilidad{
 	}
 	
 	/*
-	 * Toma la posición del bloque que se encuentra delante del Pooglin, 
+	 * Toma la posiciï¿½n del bloque que se encuentra delante del Pooglin, 
 	 * chequea que sea rompible y en caso afirmativo, comienza a golpear.
 	 */
 	public void interactuar(Planeta unPlaneta){
@@ -29,22 +29,18 @@ public class RayoLaser extends Habilidad{
 		posicionBloque=pooglin.getPosicion().puntoRelativo(0, pooglin.getVectorDireccion());
 		
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible){
-			if (this.getDisparos()!= 0){
+			if (this.getDisparos()> 0){
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionBloque);
-				if (bloqueRompible.getDureza() > 0){
-					bloqueRompible.golpear();
-					this.decremetarDisparos();
-				}else{
+				bloqueRompible.golpear();
+				this.decremetarDisparos();
+				if (bloqueRompible.getDureza() <= 0){
 					unPlaneta.quitarObstaculo(posicionBloque);
-					pooglin.definirHabilidad(null);
 					pooglin.caminar();
 				}
 			}else{
-				pooglin.caminar();
+				pooglin.definirHabilidad(null);
 			}
-		}else{
-			pooglin.caminar();
-		}
+		}else pooglin.definirHabilidad(null);
 	}
 	
 	

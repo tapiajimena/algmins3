@@ -1,11 +1,19 @@
 package tests;
+import java.io.FileOutputStream;
+import juego.CreadorPlanetas;
+import juego.Planeta;
+import junit.framework.TestCase;
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
+
 import punto.Punto;
 import bloque.Aire;
 import bloque.Bloque;
 import bloque.Tierra;
-import juego.Planeta;
-import junit.framework.TestCase;
-
 
 public class PlanetaTest extends TestCase {
 	
@@ -57,6 +65,57 @@ public class PlanetaTest extends TestCase {
 		 */
 		unPlaneta.quitarObstaculo(new Punto(2,2));
 		assertTrue(unPlaneta.getBloque(new Punto(2,2)).esTraspasable());
+	}
+	public void testSerializacionIOXML(){
+		/*Prueba donde escribo un planeta en xml y luego recupero desde el documento*/
+		Planeta planetaOriginal=CreadorPlanetas.crearPlaneta(0);
+		Element planetaXML=planetaOriginal.serializar();
+		/*Escribiendo a xml*/
+		Document doc=DocumentHelper.createDocument();
+		doc.add(planetaXML);
+		try {
+			FileOutputStream archivo = new FileOutputStream("planetaTest.xml");
+			XMLWriter writer = new XMLWriter(archivo);
+			writer.write(doc);
+			writer.flush();
+			writer.close();
+			archivo.close();
+		} catch (Exception e) {
+			fail();
+			e.printStackTrace();
+		}
+		/*Leyendo de XML*/
+		Planeta planetaRecuperado=new Planeta(0,0,new Bloque[1][1]);
+		SAXReader xmlReader = new SAXReader();
+		try {
+			doc = xmlReader.read("planetaTest.xml");
+			planetaXML=doc.getRootElement();
+			planetaRecuperado.recuperarEstado(planetaXML);
+			assertEquals(planetaOriginal.getAlto(),planetaRecuperado.getAlto());
+			assertEquals(planetaOriginal.getAncho(),planetaRecuperado.getAncho());
+			for(int i=0;i<planetaOriginal.getAlto();i++){
+				for(int j=0;j<planetaOriginal.getAncho();j++){
+					assertTrue(planetaOriginal.getBloque(new Punto(i,j)).equals(planetaRecuperado.getBloque(new Punto(i,j))));
+				}
+			}
+		} catch (DocumentException e) {
+			assertTrue(false);
+			e.printStackTrace();
+		}
+		
+	}
+	public void testSerializacion(){
+		Planeta planetaOriginal=CreadorPlanetas.crearPlaneta(0);
+		Planeta planetaRecuperado=new Planeta(0,0,new Bloque[1][1]);
+		Element planetaXML=planetaOriginal.serializar();
+		planetaRecuperado.recuperarEstado(planetaXML);
+		assertEquals(planetaOriginal.getAlto(),planetaRecuperado.getAlto());
+		assertEquals(planetaOriginal.getAncho(),planetaRecuperado.getAncho());
+		for(int i=0;i<planetaOriginal.getAlto();i++){
+			for(int j=0;j<planetaOriginal.getAncho();j++){
+				assertTrue(planetaOriginal.getBloque(new Punto(i,j)).equals(planetaRecuperado.getBloque(new Punto(i,j))));
+			}
+		}	
 	}
 	
 }
