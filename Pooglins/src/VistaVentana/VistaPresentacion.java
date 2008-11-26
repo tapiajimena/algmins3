@@ -4,6 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
+import juego.CreadorNiveles;
+
 public class VistaPresentacion extends JFrame {
 	/*	CREAMOS UN OBJETO QUE PUEDA CONTENER LA IMAGEN. ESTA IMAGEN
 		PUEDE SER UN ARCHIVO .GIF O .JPG. PARA ESTO UTILIZAMOS LA CLASE
@@ -40,11 +42,23 @@ public class VistaPresentacion extends JFrame {
 	public VistaPresentacion()
 	{
 		super("Bienvenidos");
-		
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//AGREGAMOS LA ETIQUETA QUE CONTIENE LA IMAGEN AL FRAME
 		getContentPane().add(etiqueta2);
-	
 		this.setSize(500, 500);
+		this.pack();
+		this.setVisible(true);
+		
+	}
+	public static void main(String[] args){
+		VistaPresentacion pre=new VistaPresentacion();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		pre.dispose();
+		new VistaNivel(CreadorNiveles.crearNivel()).setVisible(true);
 		
 	}
 		
