@@ -1,6 +1,9 @@
 package bloque;
 import java.util.Observable;
 
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import pooglin.Pooglin;
 import punto.Punto;
 
@@ -61,5 +64,8 @@ public abstract class Bloque extends Observable{
 		
 		return false;
 	}
+	public abstract Element serializar();
+	
+	public abstract void recuperarEstado(Element elementoAire);
 }
  
