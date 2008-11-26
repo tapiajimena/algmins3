@@ -64,6 +64,10 @@ public abstract class Bloque extends Observable{
 		
 		return false;
 	}
+	public boolean equals(Object obj){
+		Bloque otroBloque=(Bloque)obj;
+		return this.posicion.equals(otroBloque.posicion);
+	}
 	public abstract Element serializar();
 	
 	public abstract void recuperarEstado(Element elementoAire);

@@ -30,5 +30,11 @@ public class Entrada extends Bloque {
 	public void recuperarEstado(Element elementoEntrada){
 		this.posicion.recuperarEstado(elementoEntrada.element("Punto"));
 	}
+	public boolean equals(Object obj){
+		if(obj instanceof Entrada){
+			return super.equals(obj);
+		}
+		return false;
+	}
 }
  

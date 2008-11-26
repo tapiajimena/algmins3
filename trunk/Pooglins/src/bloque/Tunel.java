@@ -42,5 +42,12 @@ public class Tunel extends Bloque {
 		this.posicion.recuperarEstado(elementoTunel.element("Punto"));
 		this.duracion = Integer.parseInt(elementoTunel.attributeValue("duracion"));
 	}
+	public boolean equals(Object obj){
+		if(obj instanceof Tunel){
+			if(super.equals(obj))
+				return (this.duracion==((Tunel)obj).duracion);
+		}
+		return false;
+	}
 }
  

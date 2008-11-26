@@ -36,4 +36,10 @@ public class Salida extends Bloque {
 	public void recuperarEstado(Element elementoSalida){
 		this.posicion.recuperarEstado(elementoSalida.element("Punto"));
 	}
+	public boolean equals(Object obj){
+		if(obj instanceof Salida){
+			return super.equals(obj);
+		}
+		return false;
+	}
 }

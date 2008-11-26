@@ -8,7 +8,6 @@ import punto.Punto;
 
 public class Fuego extends Bloque implements Apagable {
  
-	@SuppressWarnings("unused")
 	private int resistencia=100;
 		
 	public Fuego(Punto punto){
@@ -48,6 +47,13 @@ public class Fuego extends Bloque implements Apagable {
 	public void recuperarEstado(Element elementoFuego){
 		this.posicion.recuperarEstado(elementoFuego.element("Punto"));
 		this.resistencia = Integer.parseInt(elementoFuego.attributeValue("resistencia"));
+	}
+	public boolean equals(Object obj){
+		if(obj instanceof Fuego){
+			if( super.equals(obj))
+				return (this.resistencia==((Fuego)obj).resistencia);
+		}
+		return false;
 	}
 }
  

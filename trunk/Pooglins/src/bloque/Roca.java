@@ -35,5 +35,10 @@ public class Roca extends Bloque{
 	public void recuperarEstado(Element elementoRoca){
 		this.posicion.recuperarEstado(elementoRoca.element("Punto"));
 	}
-	
+	public boolean equals(Object obj){
+		if(obj instanceof Roca){
+			return super.equals(obj);
+		}
+		return false;
+	}
 }
