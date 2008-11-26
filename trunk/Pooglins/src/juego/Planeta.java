@@ -2,6 +2,10 @@ package juego;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Iterator;
+
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 
 import punto.Punto;
 import bloque.AgujeroNegro;
@@ -46,20 +50,20 @@ public class Planeta {
 	 * Este metodo va actualizando una matriz de char a partir de la matriz de bloques
 	 */
 	
-	public char transformarBloqueAMatriz(Bloque unBloque){
+/*	public char transformarBloqueAMatriz(Bloque unBloque){
 		
 		char aux;
 		
 		switch(unBloque.getLetra()){
-		case 'A' :/*Aire*/ aux='A' ;break;
-		case 'T' :/*Tierra*/aux= 'T' ;break;
-		case 'R' :/*Roca*/aux= 'R' ;break;
-		case 'F' :/*Fuego*/aux= 'F' ;break;
-		case 'O' :/*HoyoNegro*/aux= 'O' ;break;
-		case 'H' :/*Hielo*/aux= 'H' ;break;
-		case 'E' :/*Entrada*/aux= 'E' ;break;
-		case 'S' :/*Salida*/aux= 'S' ;break;
-		case 'B' :/*TunelElectromagentico(Bridge)*/aux= 'B' ;break;
+		case 'A' :Aire aux='A' ;break;
+		case 'T' :Tierraaux= 'T' ;break;
+		case 'R' :Rocaaux= 'R' ;break;
+		case 'F' :Fuegoaux= 'F' ;break;
+		case 'O' :HoyoNegroaux= 'O' ;break;
+		case 'H' :Hieloaux= 'H' ;break;
+		case 'E' :Entradaaux= 'E' ;break;
+		case 'S' :Salidaaux= 'S' ;break;
+		case 'B' :TunelElectromagentico(Bridge)aux= 'B' ;break;
 		default : return 'A' ;
 	}
 		return aux;
@@ -67,28 +71,21 @@ public class Planeta {
 	}
 	
 	
-
+*/
 	public char[][] bloqueAmatriz(){
-			
-			
 		       for(int i=0;i<alto;i++){
 		        	for(int j=0;j<ancho;j++){
-		        		
-		        		this.CTerreno[i][j]=transformarBloqueAMatriz(terreno[i][j]);
+		        		this.CTerreno[i][j]=terreno[i][j].getLetra();
 		        	}
 		        }
-			return CTerreno;
-		     
-			
-			
-			
-		}
+			return CTerreno;	
+	}
 	
 	
 	
 	
-	/*carga el terreno de una archivo MUY PRECARIAMENTE, 
-	PUEDE TIRAR ERROR SI EL ARCHIVO NO ESTA BIEN CARGADO*/
+/*	carga el terreno de una archivo MUY PRECARIAMENTE, 
+	PUEDE TIRAR ERROR SI EL ARCHIVO NO ESTA BIEN CARGADO
 	public Planeta(String archivoTerreno,int ancho,int alto) throws IOException{
 		this.alto=alto;
 		this.ancho=ancho;
@@ -102,7 +99,7 @@ public class Planeta {
         	}
         }
         inputStream.close();
-	}
+	}*/
 	
 	public Planeta(int alto, int ancho, Bloque[][] terreno ){
 		this.alto=(alto);
@@ -115,8 +112,6 @@ public class Planeta {
 		this.ancho=ancho;
 		this.terreno=new Bloque[alto][ancho];
 		this.CTerreno=terreno;
-		
-		
         for(int i=0;i<alto;i++){
         	for(int j=0;j<ancho;j++){
         		
@@ -158,5 +153,24 @@ public class Planeta {
 	public char[][] getCTerreno(){
 		return this.bloqueAmatriz();
 	}
-	
+	public Element serializar(){
+		Element planetaXML=DocumentHelper.createElement("Planeta");
+		planetaXML.addAttribute("alto",String.valueOf(this.alto));
+		planetaXML.addAttribute("ancho",String.valueOf(this.ancho));
+		for(int i=0;i<alto;i++){
+        	for(int j=0;j<ancho;j++){
+        		Element bloqueXML=null;//=this.terreno[i][j].serializar();
+        		planetaXML.add(bloqueXML);
+        	}
+        }
+		return planetaXML;
+	}
+	public void recuperarEstado(Element planetaXML){
+		this.alto=Integer.parseInt(planetaXML.attributeValue("alto"));
+		this.ancho=Integer.parseInt(planetaXML.attributeValue("ancho"));
+		Iterator<?> iterador=planetaXML.elementIterator();
+		 while(iterador.hasNext()){
+				Element bloqueXML=(Element)iterador.next();
+		 }
+	}
 }
