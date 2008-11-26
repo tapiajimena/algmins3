@@ -66,8 +66,9 @@ public class TierraTest extends TestCase {
 	 * Este m�todo, a diferencia del golpear, permite decrementar la dureza
 	 * en un valor determinado. 
 	 */
+		int durezaInicial=unaTierra.getDureza();
 		unaTierra.decrementarDureza(3);
-		assertEquals(1,unaTierra.getDureza());
+		assertEquals(durezaInicial-3,unaTierra.getDureza());
 	/*
 	 * Veamos si le damos un valor de decremento mayor que 4, deja la
 	 * dureza en 0. 

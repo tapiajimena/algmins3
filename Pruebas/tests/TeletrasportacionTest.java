@@ -48,12 +48,12 @@ public class TeletrasportacionTest extends TestCase {
 	    	Habilidad teletransportacion=new Teletransportacion(pooglin);
 	    	Punto siguientePosicion=pooglin.getPosicion();
 	    	/*Verifico que camina 5 pasos antes de teletransportarce*/
-	    	for(int i=0;i<5;i++){
+	    	for(int i=0;i<3;i++){
 	    		siguientePosicion=siguientePosicion.puntoRelativo(0,pooglin.getVectorDireccion());
 	    		teletransportacion.interactuar(unPlaneta);
 	    		assertTrue( pooglin.getPosicion().equals(siguientePosicion));    
 	    	}
-	    	siguientePosicion=siguientePosicion.puntoRelativo(0,20);
+	    	siguientePosicion=siguientePosicion.puntoRelativo(0,7);
 	    	/*Corroboro que se ha adelantado 20 posiciones despues de la interaccion*/
 	    	teletransportacion.interactuar(unPlaneta);
     		assertTrue(pooglin.getPosicion().equals(siguientePosicion));
