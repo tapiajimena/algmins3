@@ -34,12 +34,11 @@ public class Juego {
 			public void actionPerformed(ActionEvent evt) {
 				nivel.siguienteRonda();
 				vista.actualizarVista();
-
 			}
 		};
 		if(vista==null)System.out.println("ok");
 		vista.setVisible(true);
-		Timer timer = new Timer(0, gameLoop);
+		Timer timer = new Timer(1, gameLoop);
 		timer.start();
 	}
 

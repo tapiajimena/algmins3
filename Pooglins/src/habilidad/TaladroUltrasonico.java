@@ -29,9 +29,7 @@ public class TaladroUltrasonico extends Habilidad{
 			}else{
 				pooglin.caminar();
 			}
-		}else{
-			pooglin.caminar();
-		}
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public void decrementarVueltas(){
