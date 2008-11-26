@@ -33,5 +33,10 @@ public class Aire extends Bloque {
 	public void recuperarEstado(Element elementoAire){
 		this.posicion.recuperarEstado(elementoAire.element("Punto"));
 	}
-	
+	public boolean equals(Object obj){
+		if(obj instanceof Aire){
+			return super.equals(obj);
+		}
+		return false;
+	}
 }

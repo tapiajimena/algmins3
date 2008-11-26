@@ -66,5 +66,12 @@ public class Hielo extends Bloque implements Rompible{
 		this.posicion.recuperarEstado(elementoHielo.element("Punto"));
 		this.dureza = Integer.parseInt(elementoHielo.attributeValue("dureza"));
 	}
+	public boolean equals(Object obj){
+		if(obj instanceof Hielo){
+			if( super.equals(obj))
+				return (this.dureza==((Hielo)obj).dureza);
+		}
+		return false;
+	}
 }
  

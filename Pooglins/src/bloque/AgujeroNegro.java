@@ -41,6 +41,11 @@ public class AgujeroNegro extends Bloque {
 	public void recuperarEstado(Element elementoAgujeroNegro){
 		this.posicion.recuperarEstado(elementoAgujeroNegro.element("Punto"));
 	}
-
+	public boolean equals(Object obj){
+		if(obj instanceof AgujeroNegro){
+			return super.equals(obj);
+		}
+		return false;
+	}
 }
  
