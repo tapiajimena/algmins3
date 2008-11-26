@@ -1,4 +1,7 @@
 package bloque;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import pooglin.Pooglin;
 import punto.Punto;
 
@@ -7,7 +10,6 @@ public class Salida extends Bloque {
 		
 	public Salida(Punto punto) {
 		super(punto);
-		
 	}
 
 	public void interactuar(Pooglin unPooglin) {
@@ -15,11 +17,23 @@ public class Salida extends Bloque {
     		unPooglin.salvar();
 		}
 	}
+	
 	public boolean esTraspasable(){
 		return true;
 	}
 
 	public char getLetra(){
 		return 'S';
+	}
+	
+	public Element serializar(){
+		Element elementoSalida=DocumentHelper.createElement("Salida");
+		Element elementoPunto=this.posicion.serializar();
+		elementoSalida.add(elementoPunto);
+		return elementoSalida;
+	}
+	
+	public void recuperarEstado(Element elementoSalida){
+		this.posicion.recuperarEstado(elementoSalida.element("Punto"));
 	}
 }
