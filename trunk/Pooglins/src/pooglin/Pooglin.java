@@ -1,15 +1,19 @@
 package pooglin;
 
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import punto.Punto;
 import juego.Nivel;
 import habilidad.Habilidad;
 
 public class Pooglin {
 
-	private int id;
+	
 	private Punto posicion;
 	private Nivel nivel;
 	private Habilidad habilidad;
+	private int id;
 	private boolean estaMuerto;
 	private boolean estaSalvado;
 	private int bloquesCaidos;
@@ -190,6 +194,27 @@ public class Pooglin {
 	public void setId(int id) {
 		this.id=id;
 		
+	}
+	public Element serializar(){
+		Element elementPooglin=DocumentHelper.createElement("Pooglin");
+		elementPooglin.addAttribute("id",new Integer(this.id).toString());
+		elementPooglin.addAttribute("bloquesCaidos",new Integer(this.bloquesCaidos).toString());
+		elementPooglin.addAttribute("vectorDireccion",new Integer(this.vectorDireccion).toString());
+		elementPooglin.addAttribute("estaMuerto",new Boolean(this.estaMuerto).toString());
+		elementPooglin.addAttribute("estaSalvado",new Boolean(this.estaSalvado).toString());
+		Element elementoPunto=this.posicion.serializarXML();
+		elementPooglin.add(elementoPunto);
+		/*falta serializar las referencias a habilidad y nivel*/
+		return elementPooglin;
+	}
+	public void recuperarEstado(Element elementoPooglin){
+		this.id=Integer.parseInt(elementoPooglin.attributeValue("id"));
+		this.bloquesCaidos=Integer.parseInt(elementoPooglin.attributeValue("bloquesCaidos"));
+		this.vectorDireccion=Integer.parseInt(elementoPooglin.attributeValue("vectorDireccion"));
+		this.estaMuerto=Boolean.parseBoolean(elementoPooglin.attributeValue("estaMuerto"));
+		this.estaSalvado=Boolean.parseBoolean(elementoPooglin.attributeValue("estaSalvado"));
+		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
+		/*falta recuperar la referencia al nivel*/
 	}
 
 }
