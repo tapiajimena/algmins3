@@ -1,5 +1,4 @@
 package tests;
-import habilidad.RayoLaser;
 import habilidad.TaladroUltrasonico;
 import juego.Nivel;
 import juego.Planeta;
