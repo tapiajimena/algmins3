@@ -8,7 +8,6 @@ import juego.Nivel;
 import habilidad.Habilidad;
 
 public class Pooglin {
-
 	
 	private Punto posicion;
 	private Nivel nivel;
@@ -202,7 +201,7 @@ public class Pooglin {
 		elementPooglin.addAttribute("vectorDireccion",new Integer(this.vectorDireccion).toString());
 		elementPooglin.addAttribute("estaMuerto",new Boolean(this.estaMuerto).toString());
 		elementPooglin.addAttribute("estaSalvado",new Boolean(this.estaSalvado).toString());
-		Element elementoPunto=this.posicion.serializarXML();
+		Element elementoPunto=this.posicion.serializar();
 		elementPooglin.add(elementoPunto);
 		/*falta serializar las referencias a habilidad y nivel*/
 		return elementPooglin;
