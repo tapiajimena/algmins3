@@ -1,8 +1,8 @@
 package VistaVentana;
 
-import java.awt.*;
-import javax.swing.*;
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 import juego.CreadorNiveles;
 
@@ -25,6 +25,12 @@ public class VistaPresentacion extends JFrame {
 		AHORA COLOCAMOS LA RUTA COMPLETA.
 		ImageIcon img = new ImageIcon("C:/IMAGENES/logotipo.gif");
 	*/ 
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	ImageIcon imagen = new ImageIcon("lemmings.jpg");
 

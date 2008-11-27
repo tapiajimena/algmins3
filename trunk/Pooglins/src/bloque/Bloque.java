@@ -1,13 +1,9 @@
 package bloque;
-import java.util.Observable;
-
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-
 import pooglin.Pooglin;
 import punto.Punto;
 
-public abstract class Bloque extends Observable{
+public abstract class Bloque {
  
 	protected Punto posicion;
 	 
@@ -25,11 +21,7 @@ public abstract class Bloque extends Observable{
 		return false;
 	}
 	 
-	public void destruir() {
-	    if(super.countObservers()>0)
-	    	notifyObservers();
-	 
-	}
+	public void destruir(){} ;
 	public int getPosicionX() {
 		return posicion.getX();
 	}
