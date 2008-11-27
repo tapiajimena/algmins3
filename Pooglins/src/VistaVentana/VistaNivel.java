@@ -88,7 +88,7 @@ public class VistaNivel extends JPanel  {
 	public void actualizarVista() {
 		int cantidadVivos=nivel.getPooglinsVivos().size();
 		escenario.actualizar();
-		if(cantidadVivos>this.pooglins.size()){			
+		while(cantidadVivos>this.pooglins.size()){			
 			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(cantidadVivos-1);
 			
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);

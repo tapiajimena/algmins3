@@ -53,6 +53,7 @@ public class Juego extends JFrame {
 
 	public Juego() {
 		this.nivel = CreadorNiveles.crearNivel();
+		cargarJuego("juegoSalvado.xml");
 		this.vista = new VistaNivel(nivel);
 		// add funciona como pila L-A-F-P
         //crear
@@ -145,10 +146,10 @@ public class Juego extends JFrame {
 			         else if(e.getActionCommand().equals("Guardar")){
 			        	 salvarJuego("juegoSalvado.xml");
 			         }
-			         else if(e.getActionCommand().equals("Open")){
-			             JFileChooser chooser = new JFileChooser();
-			             int returnVal = chooser.showOpenDialog(yo());
-			             if(returnVal == JFileChooser.APPROVE_OPTION){}
+			         else if(e.getActionCommand().equals("Abrir")){
+			             cargarJuego("juegoSalvado.xml");
+			             vista = new VistaNivel(nivel);
+			             
 			          }
 			         else if (e.getActionCommand().equals("Pausa")){
 			        	 if(timer.isRunning()) {

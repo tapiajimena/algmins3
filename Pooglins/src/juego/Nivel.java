@@ -184,11 +184,13 @@ public class Nivel extends Observable {
 			Element fabrica = fabricasHabilidades.get(i).serializar();
 			fabricasXML.add(fabrica);
 		}
+		nivelXML.add(fabricasXML);
 		Element listaPooglinsXML = DocumentHelper.createElement("ListaPooglins");
 		for (int i = 0; i < pooglins.size(); i++) {
 			Element unPooglinXML = pooglins.get(i).serializar();
 			listaPooglinsXML.add(unPooglinXML);
 		}
+		nivelXML.add(listaPooglinsXML);
 		//nivelXML.add(tiempo.serializar);
 		return nivelXML;
 	}
@@ -200,6 +202,7 @@ public class Nivel extends Observable {
 		cantInicialPooglins = Integer.parseInt(nivelXML.attributeValue("cantidadInicialPooglins"));
 		ronda = Integer.parseInt(nivelXML.attributeValue("ronda"));
 		nombre = nivelXML.attributeValue("nombre");
+		planeta.recuperarEstado(nivelXML.element("Planeta"));
 		/* Recupero las fabricas de las habilidades */
 		Iterator<?> iterador = nivelXML.element("Habilidades").elementIterator();
 		this.fabricasHabilidades = new ArrayList<AbstractFactoryHabilidad>();
