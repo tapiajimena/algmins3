@@ -18,6 +18,7 @@ public class AbstractFactoryTaladroUltrasonico extends AbstractFactoryHabilidad{
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new TaladroUltrasonico(pooglin);
 			pooglin.definirHabilidad(habilidad);
+			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
 	}
 

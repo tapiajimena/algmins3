@@ -18,6 +18,7 @@ public class AbstractFactoryTeletransportacion extends AbstractFactoryHabilidad{
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new Teletransportacion(pooglin);
 			pooglin.definirHabilidad(habilidad);
+			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
 	}
 
