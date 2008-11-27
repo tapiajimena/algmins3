@@ -35,6 +35,7 @@ public class Nivel extends Observable {
 	private ArrayList<AbstractFactoryHabilidad> fabricasHabilidades;
 	@SuppressWarnings("unused")
 	private AbstractFactoryHabilidad habilidadSeleccionada;
+	private TiempoNivel tiempo;
 	/*------------------------------------------------------------------------------------------------------*/
 	public ArrayList<Pooglin> getPooglinsVivos(){
 		return pooglins;
@@ -101,12 +102,13 @@ public class Nivel extends Observable {
 		}
 	};
 	
-	public  Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,int cantidadDePooglins ,Planeta planeta) {
+	public  Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,int cantidadDePooglins ,Planeta planeta, int min) {
 		this.planeta=planeta;
 		this.pooglins=new ArrayList<Pooglin>();	
 		this.cantInicialPooglins=cantidadDePooglins;
 		this.fabricasHabilidades=fabricas;
-	
+		this.tiempo=new TiempoNivel();
+		this.tiempo.setMinutosRestantes(min);
 	 
 	}
 	/*------------------------------------------------------------------------------------------------------*/
@@ -150,6 +152,14 @@ public class Nivel extends Observable {
 	public int getPooglinALanzar() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	public void setTiempo(int min, int seg) {
+		this.tiempo.setMinutosRestantes(min);
+		this.tiempo.setSegundosRestantes(seg);
+	}
+	
+	public TiempoNivel getTiempo(){
+		return tiempo;
 	}
 }
  

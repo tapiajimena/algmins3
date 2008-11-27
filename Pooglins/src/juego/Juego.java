@@ -12,7 +12,8 @@ public class Juego {
 	private String[] configNiveles;
 	private Nivel nivel;
 	private VistaNivel vista;
-
+	private int numeroNivel;
+	
 	public Juego() {
 		this.nivel = CreadorNiveles.crearNivel();
 		this.vista = new VistaNivel(nivel);
