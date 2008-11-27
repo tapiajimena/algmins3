@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import juego.CreadorNiveles;
 
 public class VistaPresentacion extends JFrame {
 	/*	CREAMOS UN OBJETO QUE PUEDA CONTENER LA IMAGEN. ESTA IMAGEN
