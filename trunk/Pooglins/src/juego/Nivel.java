@@ -189,6 +189,7 @@ public class Nivel extends Observable {
 			Element unPooglinXML = pooglins.get(i).serializar();
 			listaPooglinsXML.add(unPooglinXML);
 		}
+		//nivelXML.add(tiempo.serializar);
 		return nivelXML;
 	}
 
@@ -224,6 +225,8 @@ public class Nivel extends Observable {
 			pooglin.setNivel(this);
 			this.pooglins.add(pooglin);
 		}
+		tiempo=new TiempoNivel();
+		//tiempo.recuperarEstado(nivelXML.element("tiempoNivel"));
 		/* listo el pollo, pelada la gallina */
 	}
 }
