@@ -38,8 +38,9 @@ public class VistaPlaneta extends JPanel {
 		
 		for (int i=0; i<lista.length;i++){
 		BufferedImage nueva= ImageIO.read(new File(lista[i]+".png"));
-		listaDeImagenes.add(nueva);	
+		listaDeImagenes.add(nueva);
 		}
+		listaDeImagenes.add( ImageIO.read(new File( "E.gif")));
 		
 		
 		
@@ -62,7 +63,7 @@ public class VistaPlaneta extends JPanel {
 			gra.drawImage(listaDeImagenes.get(3), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'S':
-			gra.drawImage(listaDeImagenes.get(4), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			gra.drawImage(listaDeImagenes.get(7), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'O':
 			gra.drawImage(listaDeImagenes.get(5), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
