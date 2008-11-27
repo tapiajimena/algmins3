@@ -11,7 +11,7 @@ public class Tierra extends Bloque implements Rompible {
 
 	public Tierra(Punto punto) {
 		super(punto);
-		this.dureza = 20;
+		this.dureza = 2;
 	}
 
 	public void golpear() {
