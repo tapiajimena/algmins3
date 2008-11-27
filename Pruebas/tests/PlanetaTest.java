@@ -7,6 +7,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
@@ -73,9 +74,11 @@ public class PlanetaTest extends TestCase {
 		/*Escribiendo a xml*/
 		Document doc=DocumentHelper.createDocument();
 		doc.add(planetaXML);
+		
 		try {
+			OutputFormat formato=OutputFormat.createPrettyPrint();
 			FileOutputStream archivo = new FileOutputStream("planetaTest.xml");
-			XMLWriter writer = new XMLWriter(archivo);
+			XMLWriter writer = new XMLWriter(archivo,formato);
 			writer.write(doc);
 			writer.flush();
 			writer.close();
