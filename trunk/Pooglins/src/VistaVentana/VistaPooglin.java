@@ -57,6 +57,7 @@ public class VistaPooglin extends JComponent{
 	}
 	/*------------------------------------------------------*/
 	public void actualizar(){
+		
 		Random generador= new Random();
 		int numero=generador.nextInt(10);
 		rectanguloImpresion.x=pooglin.getPosicion().getY()*rectanguloImpresion.width+numero;

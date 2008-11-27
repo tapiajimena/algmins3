@@ -64,7 +64,7 @@ public class VistaPresentacion extends JFrame {
 			e.printStackTrace();
 		}
 		pre.dispose();
-		new VistaNivel(CreadorNiveles.crearNivel()).setVisible(true);
+		//new VistaNivel(CreadorNiveles.crearNivel()).setVisible(true);
 		
 	}
 		
