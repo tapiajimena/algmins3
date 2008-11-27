@@ -75,7 +75,8 @@ public class VistaNivel extends JFrame {
 		// add funciona como pila L-A-F-P
 		//crear
 		cargarPanelHabilidad();
-		super.add(panelHabilidad);
+		//super.add(panelHabilidad);
+		crearProgressBar();
 		super.getContentPane().add(escenario);
 
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -161,6 +162,7 @@ public class VistaNivel extends JFrame {
        	JFrame frame = new JFrame("Warning");
            JOptionPane.showMessageDialog(frame, "Se ha acabado el tiempo. GAME OVER!");
            //Borrar toda la otra vista.
+          // frame.dispose();
            pack();
            setVisible (true);      	
        }
