@@ -1,11 +1,16 @@
 package abstractFactoryHabilidades;
 
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import habilidad.Habilidad;
 import habilidad.PlatilloVolador;
 import pooglin.Pooglin;
 
 public class AbtractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
+	
 	private int cantidadDisponible;
+	
 	public AbtractFactoryPlatilloVolador(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
@@ -20,8 +25,19 @@ public class AbtractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 	public int cantidadDisponible() {
 		return cantidadDisponible;
 	}
+	
 	public String toString(){
 		return new String("PlatilloVolador");
+	}
+	
+	public void recuperarEstado(Element elementoAbstractFactoryPlatilloVoladore) {
+		this.cantidadDisponible = Integer.parseInt(elementoAbstractFactoryPlatilloVoladore.attributeValue("cantidadDisponible"));
+	}
+
+	public Element serializar() {
+		Element elementAbstractFactoryPlatilloVolador=DocumentHelper.createElement("AbstractFactoryPlatilloVolador");
+		elementAbstractFactoryPlatilloVolador.addAttribute("cantidadDisponible",String.valueOf(this.cantidadDisponible));
+		return elementAbstractFactoryPlatilloVolador;
 	}
 
 }
