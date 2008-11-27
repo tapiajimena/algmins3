@@ -14,7 +14,7 @@ public class Congelamiento extends Habilidad {
 	}
 
 	public void interactuar(Planeta planeta) {
-		if(tiempo>=0 )tiempo --;
+		if(tiempo>0 )tiempo --;
 		else {
 			planeta.agregarObstaculo(new Hielo(pooglin.getPosicion()));
 			pooglin.morir();
