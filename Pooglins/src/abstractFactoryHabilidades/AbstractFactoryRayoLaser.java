@@ -17,10 +17,7 @@ public class AbstractFactoryRayoLaser extends AbstractFactoryHabilidad{
 			Habilidad habilidad=new RayoLaser(pooglin);
 			pooglin.definirHabilidad(habilidad);
 			cantidadDisponible--;
-		}else {
-			System.out.println("bien");
-			pooglin.definirHabilidad(null);
-		}
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

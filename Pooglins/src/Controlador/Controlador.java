@@ -1,11 +1,16 @@
 package Controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ButtonModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+
+import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
 import pooglin.Pooglin;
 
@@ -32,7 +37,21 @@ public class Controlador {
 		vistaPooglin.addMouseListener(new EscuchadorDePooglin (nuevoPooglin));
 		
 	}
-	
+	public void setEscuchaHabilidad(JRadioButton boton,AbstractFactoryHabilidad fabrica){
+		boton.addActionListener(new EscuchaOpcionesHabilidades(fabrica));
+	};
+	private class EscuchaOpcionesHabilidades implements ActionListener{
+		private AbstractFactoryHabilidad fabrica;
+		public EscuchaOpcionesHabilidades(AbstractFactoryHabilidad fabrica){
+			this.fabrica=fabrica;
+		}
+		public void actionPerformed(ActionEvent e) {
+			JRadioButton botonHabilidad=(JRadioButton)e.getSource();
+			String texto=fabrica.toString()+" "+fabrica.cantidadDisponible();
+			botonHabilidad.setText(texto);
+		}
+		
+	}
 	
 	private class EscuchadorDePooglin implements MouseListener{
 		private Pooglin pooglin;
@@ -42,8 +61,8 @@ public class Controlador {
 		}
 		
 		public void mouseClicked(MouseEvent arg0) {
-			System.out.println("Has cliqueado el pooglin: "+pooglin.getId());
-			ButtonModel boton=vistaNivel.getSeleccionado();
+			
+			JRadioButton boton=(JRadioButton)vistaNivel.getSeleccionado();
 			if(boton!=null){
 				int i=Integer.parseInt(boton.getActionCommand());
 				nivel.getFabricasHabilidad().get(i).asignarHabilidad(pooglin);		
