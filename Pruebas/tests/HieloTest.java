@@ -67,16 +67,14 @@ public class HieloTest extends TestCase {
 	}
 		
 	public void testInteraccionPooglinHielo(){
+		punto = new Punto(1,1);
+		hielo = new Hielo(punto.puntoRelativo(-1, 0));
 		Pooglin pooglin = new Pooglin(punto,nivel);
 		Planeta unPlaneta=new Planeta(4,5,matriz);
 		nivel.setPlaneta(unPlaneta);
 			
 	
-	//Corroboro que esten en la misma posicion.
-		boolean posiciones = pooglin.getPosicion().equals(hielo.getPosicion());
-		assertTrue(posiciones);
-	//Los hago interactuar
-
+		//Los hago interactuar
 		hielo.interactuar(pooglin);
 		/*
 		 * su nueva posicion al hacer el hielo avanzarlo 

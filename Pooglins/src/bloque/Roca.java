@@ -12,9 +12,9 @@ public class Roca extends Bloque{
 	}
 	
 	public void interactuar(Pooglin unPooglin) {
-		if(this.posicion.equals(unPooglin.getPosicion())){
-    			unPooglin.caminar();
-		}
+		if(this.posicion.equals(unPooglin.getPosicion()))
+    			unPooglin.morir();
+		unPooglin.caminar();
 	}
 	
 	public boolean esTraspasable(){

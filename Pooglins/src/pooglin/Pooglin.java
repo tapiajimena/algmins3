@@ -8,7 +8,7 @@ import juego.Nivel;
 import habilidad.Habilidad;
 
 public class Pooglin {
-	
+
 	private Punto posicion;
 	private Nivel nivel;
 	private Habilidad habilidad;
@@ -41,51 +41,49 @@ public class Pooglin {
 		this.vectorDireccion = 1;
 
 	}
-	public void setNivel(Nivel nivel){
-		this.nivel=nivel;
+
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
 	}
+
 	public void interactuar() {
 
 		if (habilidad != null) {
-			
-			if (!(nivel.getPlaneta().getBloque(this.getPosicion()).esMatable())){
-				this.habilidad.interactuar(nivel.getPlaneta());	
+
+			if (!(nivel.getPlaneta().getBloque(this.getPosicion()).esMatable())) {
+				this.habilidad.interactuar(nivel.getPlaneta());
+			} else {
+				nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(
+						this);
 			}
-			else{
-				nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);	
-			}
-	
+
 		} else {
 			nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);
 		}
 	}
 
 	public void morir() {
-		if(nivel!=null) nivel.pooglinMuerto(this);
+		if (nivel != null)
+			nivel.pooglinMuerto(this);
 		estaMuerto = true;
 	}
 
 	public void caminar() {
-		letraHabilidad='W';//W de walk
+		letraHabilidad = 'W';// W de walk
 		int direccion = this.vectorDireccion;
-		
+		try{
 		if ((!estaMuerto) && (!estaSalvado)) {
 
 			// Si de entrada abajo no hay nada...
-			if ((nivel.getPlaneta().getBloque(
-					this.getPosicion().puntoRelativo(1, 0)).esTraspasable())) {
+			if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 0)).esTraspasable())) {
 				// System.out.println("Cae para abajo");
 				this.caer();
 			}
 			// Si abajo a la derecha no hay bloque no transpasable el pooglin
 			// cae.
 			// No puede haber un bloque tierra si abajo hay aire.
-			else if ((nivel.getPlaneta().getBloque(
-					this.getPosicion().puntoRelativo(0, direccion))
-					.esTraspasable())
-					&& (nivel.getPlaneta().getBloque(
-							this.getPosicion().puntoRelativo(1, direccion))
-							.esTraspasable())) {
+			else if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())
+					&& (nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, direccion)).esTraspasable())) {
 
 				// System.out.println("Cae en diagonal");
 				this.posicion.setY(this.getPosicion().getY() + direccion);
@@ -93,26 +91,17 @@ public class Pooglin {
 
 			}
 			// Adelante normal...
-			else if ((nivel.getPlaneta().getBloque(
-					this.getPosicion().puntoRelativo(0, direccion))
-					.esTraspasable())
-					&& !(nivel.getPlaneta().getBloque(
-							this.getPosicion().puntoRelativo(1, direccion))
-							.esTraspasable())) {
-				if ((nivel.getPlaneta().getBloque(this.getPosicion()))
-						.esDerretible()) {
+			else if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())
+					&& !(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, direccion)).esTraspasable())) {
+				if ((nivel.getPlaneta().getBloque(this.getPosicion())).esDerretible()) {
 					// System.out.println("Me resbalo, hay hielo");
 					this.posicion.setY(this.getPosicion().getY() + direccion);
 				} else {
 					// System.out.println("Avanzo hacia adelante");
 					this.posicion.setY(this.getPosicion().getY() + direccion);
 				}
-			} else if (!(nivel.getPlaneta().getBloque(
-					this.getPosicion().puntoRelativo(0, direccion))
-					.esTraspasable())) {
-				if (!(nivel.getPlaneta().getBloque(
-						this.getPosicion().puntoRelativo(-1, direccion))
-						.esTraspasable())) {
+			} else if (!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())) {
+				if (!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(-1, direccion)).esTraspasable())) {
 					// System.out.println("Doy la vuelta");
 					this.darVuelta();
 				} else {
@@ -120,6 +109,14 @@ public class Pooglin {
 					this.posicion.setX(this.getPosicion().getX() - 1);
 				}
 			}
+		}
+		}catch(ArrayIndexOutOfBoundsException e){
+			this.darVuelta();
+			// segun por donde haya sobrepasado el terreno lo hago volver un par de casilleros
+			if(posicion.getX()<=0) posicion.setX(1);
+			else if(posicion.getX()>=nivel.getPlaneta().getAlto())posicion.setX(nivel.getPlaneta().getAlto()-2);
+			if(posicion.getY()<=0) posicion.setY(1);
+			else if(posicion.getY()>=nivel.getPlaneta().getAncho())posicion.setY(nivel.getPlaneta().getAncho()-2);
 		}
 	}
 
@@ -130,7 +127,7 @@ public class Pooglin {
 	}
 
 	public void caer() {
-		letraHabilidad='F';// f de fall
+		letraHabilidad = 'F';// f de fall
 		if (bloquesCaidos >= 4) {
 			this.morir();
 		}
@@ -166,7 +163,8 @@ public class Pooglin {
 	}
 
 	public void salvar() {
-		if(nivel!=null)	this.nivel.pooglinSalvado(this);
+		if (nivel != null)
+			this.nivel.pooglinSalvado(this);
 		estaSalvado = true;
 	}
 
@@ -188,39 +186,53 @@ public class Pooglin {
 	}
 
 	public void setId(int id) {
-		this.id=id;
-		
+		this.id = id;
+
 	}
-	public Element serializar(){
-		Element elementPooglin=DocumentHelper.createElement("Pooglin");
-		elementPooglin.addAttribute("id",new Integer(this.id).toString());
-		elementPooglin.addAttribute("bloquesCaidos",new Integer(this.bloquesCaidos).toString());
-		elementPooglin.addAttribute("vectorDireccion",new Integer(this.vectorDireccion).toString());
-		elementPooglin.addAttribute("estaMuerto",new Boolean(this.estaMuerto).toString());
-		elementPooglin.addAttribute("estaSalvado",new Boolean(this.estaSalvado).toString());
+
+	public Element serializar() {
+		Element elementPooglin = DocumentHelper.createElement("Pooglin");
+		elementPooglin.addAttribute("id", new Integer(this.id).toString());
+		elementPooglin.addAttribute("bloquesCaidos", new Integer(
+				this.bloquesCaidos).toString());
+		elementPooglin.addAttribute("vectorDireccion", new Integer(
+				this.vectorDireccion).toString());
+		elementPooglin.addAttribute("estaMuerto", new Boolean(this.estaMuerto)
+				.toString());
+		elementPooglin.addAttribute("estaSalvado",
+				new Boolean(this.estaSalvado).toString());
 		elementPooglin.add(this.posicion.serializar());
-		//hago un nodo de 2 niveles para la habilidad, por razones de polimorfismo
-		Element elemHabilidad=DocumentHelper.createElement("Habilidad");
+		// hago un nodo de 2 niveles para la habilidad, por razones de
+		// polimorfismo
+		Element elemHabilidad = DocumentHelper.createElement("Habilidad");
 		elemHabilidad.add(this.habilidad.serializar());
 		elementPooglin.add(elemHabilidad);
-		/*falta serializar las referencias y nivel*/
+		/* falta serializar las referencias y nivel */
 		return elementPooglin;
 	}
-	public void recuperarEstado(Element elementoPooglin){
-		this.id=Integer.parseInt(elementoPooglin.attributeValue("id"));
-		this.bloquesCaidos=Integer.parseInt(elementoPooglin.attributeValue("bloquesCaidos"));
-		this.vectorDireccion=Integer.parseInt(elementoPooglin.attributeValue("vectorDireccion"));
-		this.estaMuerto=Boolean.parseBoolean(elementoPooglin.attributeValue("estaMuerto"));
-		this.estaSalvado=Boolean.parseBoolean(elementoPooglin.attributeValue("estaSalvado"));
+
+	public void recuperarEstado(Element elementoPooglin) {
+		this.id = Integer.parseInt(elementoPooglin.attributeValue("id"));
+		this.bloquesCaidos = Integer.parseInt(elementoPooglin
+				.attributeValue("bloquesCaidos"));
+		this.vectorDireccion = Integer.parseInt(elementoPooglin
+				.attributeValue("vectorDireccion"));
+		this.estaMuerto = Boolean.parseBoolean(elementoPooglin
+				.attributeValue("estaMuerto"));
+		this.estaSalvado = Boolean.parseBoolean(elementoPooglin
+				.attributeValue("estaSalvado"));
 		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
-		
-		//que feo pero no me importa por q son las 4 am
-		Element elemHabilidad=(Element)elementoPooglin.element("Habilidad").elementIterator().next();
+
+		// que feo pero no me importa por q son las 4 am
+		Element elemHabilidad = (Element) elementoPooglin.element("Habilidad")
+				.elementIterator().next();
 		try {
-			Class<?> claseHabilidad=Class.forName("habilidad."+elemHabilidad.getName());
-			if(claseHabilidad.getSuperclass().equals(Habilidad.class)){
-				Constructor<?> constructor=claseHabilidad.getDeclaredConstructor(Pooglin.class);
-				Habilidad habilidad=(Habilidad)constructor.newInstance(this);
+			Class<?> claseHabilidad = Class.forName("habilidad."
+					+ elemHabilidad.getName());
+			if (claseHabilidad.getSuperclass().equals(Habilidad.class)) {
+				Constructor<?> constructor = claseHabilidad
+						.getDeclaredConstructor(Pooglin.class);
+				Habilidad habilidad = (Habilidad) constructor.newInstance(this);
 				habilidad.recuperarEstado(elemHabilidad);
 				this.definirHabilidad(habilidad);
 			}
@@ -230,7 +242,8 @@ public class Pooglin {
 	}
 
 	public char getHabilidad() {
-		if(habilidad!=null)letraHabilidad=habilidad.getLetra();
+		if (habilidad != null)
+			letraHabilidad = habilidad.getLetra();
 		return letraHabilidad;
 	}
 

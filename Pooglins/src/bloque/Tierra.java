@@ -19,6 +19,8 @@ public class Tierra extends Bloque implements Rompible {
 	}
 
 	public void interactuar(Pooglin unPooglin) {
+		if(this.posicion.equals(unPooglin.getPosicion()))
+			unPooglin.morir();
 		unPooglin.caminar();
 	}
 	
