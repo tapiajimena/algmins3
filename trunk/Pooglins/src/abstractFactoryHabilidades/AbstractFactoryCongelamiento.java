@@ -18,6 +18,7 @@ public class AbstractFactoryCongelamiento extends AbstractFactoryHabilidad{
 		if(cantidadDisponible>=0){
 			Habilidad habilidad=new Congelamiento(pooglin);
 			pooglin.definirHabilidad(habilidad);
+			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
 	}
 

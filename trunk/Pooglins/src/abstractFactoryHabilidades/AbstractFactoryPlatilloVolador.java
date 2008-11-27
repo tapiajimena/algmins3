@@ -18,6 +18,7 @@ public class AbstractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new PlatilloVolador(pooglin);
 			pooglin.definirHabilidad(habilidad);
+			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
 	}
 
