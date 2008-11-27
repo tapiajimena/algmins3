@@ -68,12 +68,11 @@ public class Nivel extends Observable {
 		// definir mas adelante el punto de Partida
 		Punto puntoEntrada = new Punto(1, 1);
 		// agregar un Contador Para asegurar intervalo entre pooglins
-		if (pooglins.size() < (cantInicialPooglins - (this.cantidadSalvados + this.cantMuertos))
+		if (pooglins.size() < (cantInicialPooglins + (this.cantidadSalvados + this.cantMuertos))
 				&& ronda % 4 == 0) {
 			Pooglin unPooglin = new Pooglin(puntoEntrada, this);
 			unPooglin.setId(pooglins.size());
 			pooglins.add(unPooglin);
-
 		}
 		for (int i = 0; i < pooglins.size(); i++) {
 			pooglins.get(i).interactuar();
