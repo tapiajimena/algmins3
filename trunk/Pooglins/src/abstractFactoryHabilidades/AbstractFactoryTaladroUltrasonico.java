@@ -21,7 +21,7 @@ public class AbstractFactoryTaladroUltrasonico extends AbstractFactoryHabilidad{
 		return cantidadDisponible;
 	}
 	public String toString(){
-		return new String("RayoLaser");
+		return new String("TaladroUltrasonico");
 	}
 
 }
