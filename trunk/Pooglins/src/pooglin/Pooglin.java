@@ -205,8 +205,10 @@ public class Pooglin {
 		// hago un nodo de 2 niveles para la habilidad, por razones de
 		// polimorfismo
 		Element elemHabilidad = DocumentHelper.createElement("Habilidad");
-		elemHabilidad.add(this.habilidad.serializar());
-		elementPooglin.add(elemHabilidad);
+		if(habilidad!=null)	{
+			elemHabilidad.add(this.habilidad.serializar());
+			elementPooglin.add(elemHabilidad);
+		}
 		/* falta serializar las referencias y nivel */
 		return elementPooglin;
 	}
@@ -223,21 +225,23 @@ public class Pooglin {
 				.attributeValue("estaSalvado"));
 		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
 
-		// que feo pero no me importa por q son las 4 am
-		Element elemHabilidad = (Element) elementoPooglin.element("Habilidad")
-				.elementIterator().next();
-		try {
-			Class<?> claseHabilidad = Class.forName("habilidad."
-					+ elemHabilidad.getName());
-			if (claseHabilidad.getSuperclass().equals(Habilidad.class)) {
-				Constructor<?> constructor = claseHabilidad
-						.getDeclaredConstructor(Pooglin.class);
-				Habilidad habilidad = (Habilidad) constructor.newInstance(this);
-				habilidad.recuperarEstado(elemHabilidad);
-				this.definirHabilidad(habilidad);
+		Element elemHabilidad = (Element) elementoPooglin.element("Habilidad");
+		if (elemHabilidad != null) {
+			elemHabilidad = (Element) elemHabilidad.elementIterator().next();
+			try {
+				Class<?> claseHabilidad = Class.forName("habilidad."
+						+ elemHabilidad.getName());
+				if (claseHabilidad.getSuperclass().equals(Habilidad.class)) {
+					Constructor<?> constructor = claseHabilidad
+							.getDeclaredConstructor(Pooglin.class);
+					Habilidad habilidad = (Habilidad) constructor
+							.newInstance(this);
+					habilidad.recuperarEstado(elemHabilidad);
+					this.definirHabilidad(habilidad);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 
