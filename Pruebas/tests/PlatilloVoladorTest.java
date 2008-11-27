@@ -1,3 +1,4 @@
+package tests;
 import bloque.Aire;
 import juego.Nivel;
 import juego.Planeta;
