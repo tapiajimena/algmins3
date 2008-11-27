@@ -17,6 +17,7 @@ public class Pooglin {
 	private boolean estaSalvado;
 	private int bloquesCaidos;
 	private int vectorDireccion;
+	private char letraHabilidad;
 
 	public Pooglin() {
 		this.estaMuerto = false;
@@ -46,7 +47,7 @@ public class Pooglin {
 	public void interactuar() {
 
 		if (habilidad != null) {
-			
+			letraHabilidad=habilidad.getLetra();
 			if (!(nivel.getPlaneta().getBloque(this.getPosicion()).esMatable())){
 				this.habilidad.interactuar(nivel.getPlaneta());	
 			}
@@ -66,9 +67,9 @@ public class Pooglin {
 	}
 
 	public void caminar() {
-
+		letraHabilidad='W';//W de walk
 		int direccion = this.vectorDireccion;
-
+		
 		if ((!estaMuerto) && (!estaSalvado)) {
 
 			// Si de entrada abajo no hay nada...
@@ -130,7 +131,7 @@ public class Pooglin {
 	}
 
 	public void caer() {
-
+		letraHabilidad='F';// f de fall
 		if (bloquesCaidos >= 4) {
 			this.morir();
 		}
@@ -212,6 +213,10 @@ public class Pooglin {
 		this.estaSalvado=Boolean.parseBoolean(elementoPooglin.attributeValue("estaSalvado"));
 		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
 		/*falta recuperar la referencia al nivel*/
+	}
+
+	public char getHabilidad() {
+		return letraHabilidad;
 	}
 
 }
