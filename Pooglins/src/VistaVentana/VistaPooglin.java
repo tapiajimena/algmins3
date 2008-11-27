@@ -19,11 +19,13 @@ public class VistaPooglin extends JComponent{
 	private Rectangle rectanguloImpresion;
 	private Rectangle rectanguloImagen;
 	private Pooglin pooglin;
+	private char ultimaLetra;
 	private static BufferedImage imagen;
 
 	public VistaPooglin(Pooglin modelo){
 		super();
 		this.pooglin=modelo;
+		ultimaLetra=pooglin.getHabilidad();
 		this.rectanguloImpresion=new Rectangle(pooglin.getPosicion().getX(),pooglin.getPosicion().getY(),20,20);
 		this.rectanguloImagen=new Rectangle(0,0,50,50);
 		/*Me parece medio sonso crear una imagen para cada instancia  
@@ -57,19 +59,51 @@ public class VistaPooglin extends JComponent{
 	public void actualizar(){
 		Random generador= new Random();
 		int numero=generador.nextInt(10);
-		
 		rectanguloImpresion.x=pooglin.getPosicion().getY()*rectanguloImpresion.width+numero;
 		rectanguloImpresion.y=pooglin.getPosicion().getX()*rectanguloImpresion.height;
 		cambiarCuadro();
-		super.setBounds(rectanguloImpresion);
-		
-		
+		super.setBounds(rectanguloImpresion);		
 	}
 	
 	
 	public void cambiarCuadro(){
-		if(rectanguloImagen.x>350)rectanguloImagen.x=0;
-		else rectanguloImagen.x+=rectanguloImagen.width;
+		
+		//ultimaLetra=pooglin.getHabilidad();
+		switch (pooglin.getHabilidad()){
+		case 'F':rectanguloImagen.y=100;
+				if(ultimaLetra!='F')rectanguloImagen.x=0;
+				if(rectanguloImagen.x<350)rectanguloImagen.x+=50;
+		break;
+		case 'T':
+			rectanguloImagen.y=150;
+			if(ultimaLetra!='T')rectanguloImagen.x=0;
+			if(rectanguloImagen.x<200)rectanguloImagen.x+=50;
+			break;
+		case 'L':
+			if(ultimaLetra!='L')rectanguloImagen.x=200;
+			rectanguloImagen.y=200;
+			if(rectanguloImagen.x<350)rectanguloImagen.x+=50;
+			else rectanguloImagen.x=250;
+			break;
+		//case 'C':break;
+		//case 'V':break;
+		case 'U':
+			rectanguloImagen.y=200;
+			if(ultimaLetra!='U')rectanguloImagen.x=0;
+			if(rectanguloImagen.x<200)rectanguloImagen.x+=50;
+			else rectanguloImagen.x=0;
+			break;
+		default : 
+			
+			if(pooglin.getVectorDireccion()>0)
+				rectanguloImagen.y=0;
+			else rectanguloImagen.y=50;
+			if(rectanguloImagen.x>350) 
+				rectanguloImagen.x=0;
+			else rectanguloImagen.x+=rectanguloImagen.width;
+			break;
+		};
+		
 	}
 	
 	public void borrar(){
