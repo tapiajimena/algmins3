@@ -61,9 +61,8 @@ public class Pooglin {
 	}
 
 	public void morir() {
-
-		estaMuerto = true;
 		if(nivel!=null) nivel.pooglinMuerto(this);
+		estaMuerto = true;
 	}
 
 	public void caminar() {
@@ -167,8 +166,7 @@ public class Pooglin {
 	}
 
 	public void salvar() {
-		
-		this.nivel.pooglinSalvado(this);
+		if(nivel!=null)	this.nivel.pooglinSalvado(this);
 		estaSalvado = true;
 	}
 
