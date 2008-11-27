@@ -25,13 +25,14 @@ public class VistaPooglin extends JComponent{
 		super();
 		this.pooglin=modelo;
 		this.rectanguloImpresion=new Rectangle(pooglin.getPosicion().getX(),pooglin.getPosicion().getY(),20,20);
-		this.rectanguloImagen=new Rectangle(50,0,60,80);
+		this.rectanguloImagen=new Rectangle(0,0,50,50);
 		/*Me parece medio sonso crear una imagen para cada instancia  
 		 * debo sincronizar esto? o alcanza con q sea volatile `esPrimeraInstancia´ ?
 		 */
 		if(esPrimeraInstancia){
 			try{
-				imagen= ImageIO.read(new File("akuma.png"));
+				imagen= ImageIO.read(new File("pooglin.png"));
+				
 			}catch(IOException e){
 				e.printStackTrace();
 			};
@@ -40,7 +41,7 @@ public class VistaPooglin extends JComponent{
 		/*Defino el tamaño del componente*/
 		super.setBounds(rectanguloImpresion);
 		/*Fuerzo un unico tamaño para el componente*/
-		Dimension dim=new Dimension(100,100);// se podria hacer sola la primera vez
+		Dimension dim=new Dimension(rectanguloImpresion.width,rectanguloImpresion.height);// se podria hacer sola la primera vez
 		super.setPreferredSize(dim);
 		super.setMaximumSize(dim);
 		super.setMinimumSize(dim);
@@ -49,8 +50,6 @@ public class VistaPooglin extends JComponent{
 	}
 	/*------------------------------------------------------*/
 	public void paintComponent(Graphics g){
-		   /*llamada al padre para habilitar look n feel , es necesario?*/
-		   super.paintComponent(g);
 		   g.drawImage(imagen,0,0,rectanguloImpresion.width,rectanguloImpresion.height,
 				rectanguloImagen.x, rectanguloImagen.y,rectanguloImagen.x+rectanguloImagen.width ,rectanguloImagen.y+rectanguloImagen.height, null);
 	}
@@ -59,15 +58,19 @@ public class VistaPooglin extends JComponent{
 		Random generador= new Random();
 		int numero=generador.nextInt(10);
 		
-		rectanguloImpresion.x=pooglin.getPosicion().getY()*20+numero;
-		rectanguloImpresion.y=pooglin.getPosicion().getX()*20;
-		
+		rectanguloImpresion.x=pooglin.getPosicion().getY()*rectanguloImpresion.width+numero;
+		rectanguloImpresion.y=pooglin.getPosicion().getX()*rectanguloImpresion.height;
+		cambiarCuadro();
 		super.setBounds(rectanguloImpresion);
+		
 		
 	}
 	
 	
-	public void cambiarCuadro(){}
+	public void cambiarCuadro(){
+		if(rectanguloImagen.x>350)rectanguloImagen.x=0;
+		else rectanguloImagen.x+=rectanguloImagen.width;
+	}
 	
 	public void borrar(){
 		super.setVisible(false);
