@@ -2,19 +2,27 @@ package VistaVentana;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
+import javax.swing.Timer;
 
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
 import Controlador.Controlador;
 import juego.Nivel;
+import juego.TiempoNivel;
 import pooglin.Pooglin;
 
 public class VistaNivel extends JFrame {
@@ -32,6 +40,9 @@ public class VistaNivel extends JFrame {
 	 * Recibe un conjunto de las habilidades permitidas en el nivel para generar
 	 * el panel de opciones de las habilidades
 	 */
+	private Timer timerProgressBar;
+	private TiempoNivel tiempo;
+	private JProgressBar progressBar;
 
 	private void cargarPanelHabilidad() {
 		panelHabilidad = new JPanel();
@@ -120,4 +131,41 @@ public class VistaNivel extends JFrame {
 		
 		return groupHabilidad.getSelection();
 	}
+	public void crearProgressBar(){
+	     timerProgressBar = new Timer(1000,actualizarProgressBar);
+	     timerProgressBar.start();
+	     tiempo=nivel.getTiempo();
+	     //progBarPanel = new JPanel();
+	
+	     progressBar = new JProgressBar(0, tiempo.getMinutosRestantes()*60);
+	     progressBar.setStringPainted(true);     
+	     add(progressBar);
+	     //progBarPanel.add(progressBar);
+	     //add(progBarPanel);
+	}
+	
+	Action actualizarProgressBar = new AbstractAction() {
+       public void actionPerformed(ActionEvent e) //this inner class generates an exeption if the player takes to long to finish a level 
+       {
+           tiempo.setSegundosRestantes(tiempo.getSegundosRestantes() - 1);
+           tiempo.setTiempoTrascurrido(tiempo.getTiempoTrascurrido() + 1);
+           
+           if(tiempo.getSegundosRestantes()<0)
+           {
+               tiempo.setSegundosRestantes(60);
+               tiempo.setMinutosRestantes(tiempo.getMinutosRestantes() - 1); 
+           }
+       if(tiempo.getMinutosRestantes()==0 && tiempo.getSegundosRestantes()==0)
+       {
+       	timerProgressBar.stop();
+       	JFrame frame = new JFrame("Warning");
+           JOptionPane.showMessageDialog(frame, "Se ha acabado el tiempo. GAME OVER!");
+           //Borrar toda la otra vista.
+           pack();
+           setVisible (true);      	
+       }
+           progressBar.setValue(tiempo.getTiempoTrascurrido());
+           progressBar.setString(tiempo.getMinutosRestantes()+":"+tiempo.getSegundosRestantes());
+       }
+   };
 }
