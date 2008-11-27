@@ -47,7 +47,7 @@ public class Pooglin {
 	public void interactuar() {
 
 		if (habilidad != null) {
-			letraHabilidad=habilidad.getLetra();
+			
 			if (!(nivel.getPlaneta().getBloque(this.getPosicion()).esMatable())){
 				this.habilidad.interactuar(nivel.getPlaneta());	
 			}
@@ -216,6 +216,7 @@ public class Pooglin {
 	}
 
 	public char getHabilidad() {
+		if(habilidad!=null)letraHabilidad=habilidad.getLetra();
 		return letraHabilidad;
 	}
 

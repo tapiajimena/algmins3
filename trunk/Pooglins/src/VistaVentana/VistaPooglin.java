@@ -103,6 +103,7 @@ public class VistaPooglin extends JComponent{
 			else rectanguloImagen.x+=rectanguloImagen.width;
 			break;
 		};
+		ultimaLetra=pooglin.getHabilidad();
 		
 	}
 	
