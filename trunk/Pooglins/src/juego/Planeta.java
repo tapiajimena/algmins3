@@ -143,7 +143,7 @@ public class Planeta {
 	public Bloque getBloque(Punto punto) {
 		if (punto.getX() < this.alto && punto.getY() < this.ancho)
 			return terreno[punto.getX()][punto.getY()];
-		return null;
+		return new Roca(punto);
 	}
 
 	public int getAncho() {
