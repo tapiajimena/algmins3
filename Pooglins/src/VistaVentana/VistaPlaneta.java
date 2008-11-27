@@ -33,26 +33,27 @@ public class VistaPlaneta extends JPanel {
 	Color						last;
 
 	public void cargarListaImagenes() throws IOException{
-		
-		/*char[] lista={'A','T','F','R','S','O','H'};
-		
-		for (int i=0; i<lista.length;i++){
-		BufferedImage nueva= ImageIO.read(new File(lista[i]+".png"));
-		listaDeImagenes.add(nueva);
-		}*/
-		
+		/*
+		 * Aca Cargamos imagenes a una lista de BufferedImage, esto
+		 * esta hecho asi ya que cargando una vez todo a una lista 
+		 * se hace mas rapido cada vez que actualizamos la vista del planeta
+		 * que leyendo cada vez del disco.
+		 * Por ahi existen otras formas mejores, en internet buscamos
+		 * y decia que el metodo drawImage() y leyendo una imagen
+		 * era siempre lento.
+		 * 
+		 */
 		listaDeImagenes.add( ImageIO.read(new File( "K.gif")));
 		listaDeImagenes.add( ImageIO.read(new File( "B.png")));
-		listaDeImagenes.add( ImageIO.read(new File( "G.jpg")));
+		listaDeImagenes.add( ImageIO.read(new File( "F.png")));
 		listaDeImagenes.add( ImageIO.read(new File( "P.gif")));
 		listaDeImagenes.add( ImageIO.read(new File( "E.gif")));
-		listaDeImagenes.add( ImageIO.read(new File( "N.gif")));
+		listaDeImagenes.add( ImageIO.read(new File( "O.png")));
 		listaDeImagenes.add( ImageIO.read(new File( "H.png")));
 	
 	}
 	private void pintarBloque(Bloque bloque) throws IOException {
 		Graphics2D gra = frente.createGraphics();
-		
 		
 		switch (bloque.getLetra()) {
 		case 'A': 
@@ -78,55 +79,11 @@ public class VistaPlaneta extends JPanel {
 		break;
 		}
 		
-		//gra.drawImage(ImageIO.read(new File(bloque.getLetra()+".png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-		
-		//gra.drawImage(listaDeImagenes.get(0), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-		
-		/*switch (bloque.getLetra()) {
-	case 'A':
-		return;
-	case 'T':
-		gra.setColor(Color.green);
-	break;
-	case 'F':
-		gra.setColor(Color.red);
-	break;
-	case 'R':
-		gra.setColor(Color.gray);
-	break;
-	case 'S':
-		gra.setColor(Color.black);
-	break;
-		}
-		gra.fillRect(20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20, 20);*/
-		/*switch (bloque.getLetra()) {
-			case 'A': 
-				gra.drawImage(ImageIO.read(new File("A.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-				return;
-			case 'T':
-				gra.drawImage(ImageIO.read(new File("T.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-			break;
-			case 'F':
-				gra.drawImage(ImageIO.read(new File("F.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-			break;
-			case 'R':
-				gra.drawImage(ImageIO.read(new File("R.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-			break;
-			case 'H':
-				gra.drawImage(ImageIO.read(new File("H.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-			break;
-			case 'O':
-				gra.drawImage(ImageIO.read(new File("O.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-			break;
-			case 'S':
-				gra.drawImage(ImageIO.read(new File("S.png")), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
-			break;
-		}*/
+	
 		
 	}
 	private void pintarFondo(){
 		Graphics2D gra = fondo.createGraphics();
-		//gra.setColor(Color.cyan);
 		gra.fillRect(0, 0, ancho,alto);
 		
 	}
@@ -179,12 +136,9 @@ public class VistaPlaneta extends JPanel {
 		 */
 	}
 	
+	//Actualiza la vista.
 	public void actualizar(){
-		
 		pintarPlaneta();
 	}
 	
-	public void update(Observable o, Object arg) {
-			
-	}
 }
