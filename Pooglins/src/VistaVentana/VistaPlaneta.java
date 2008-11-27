@@ -34,14 +34,17 @@ public class VistaPlaneta extends JPanel {
 
 	public void cargarListaImagenes() throws IOException{
 		
-		char[] lista={'A','T','F','R','S','O','H'};
+		char[] lista={'A','B','F','R','S','O','H'};
 		
 		for (int i=0; i<lista.length;i++){
 		BufferedImage nueva= ImageIO.read(new File(lista[i]+".png"));
 		listaDeImagenes.add(nueva);
 		}
 		listaDeImagenes.add( ImageIO.read(new File( "E.gif")));
-		
+		listaDeImagenes.add( ImageIO.read(new File( "N.gif")));
+		listaDeImagenes.add( ImageIO.read(new File( "K.gif")));
+		listaDeImagenes.add( ImageIO.read(new File( "P.gif")));
+		listaDeImagenes.add( ImageIO.read(new File( "G.jpg")));
 		
 		
 	}
@@ -51,22 +54,22 @@ public class VistaPlaneta extends JPanel {
 		
 		switch (bloque.getLetra()) {
 		case 'A': 
-			gra.drawImage(listaDeImagenes.get(0), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			gra.drawImage(listaDeImagenes.get(9), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 			return;
 		case 'T':
 			gra.drawImage(listaDeImagenes.get(1), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'F':
-			gra.drawImage(listaDeImagenes.get(2), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			gra.drawImage(listaDeImagenes.get(11), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'R':
-			gra.drawImage(listaDeImagenes.get(3), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			gra.drawImage(listaDeImagenes.get(10), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'S':
 			gra.drawImage(listaDeImagenes.get(7), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'O':
-			gra.drawImage(listaDeImagenes.get(5), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+			gra.drawImage(listaDeImagenes.get(8), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
 		case 'H':
 			gra.drawImage(listaDeImagenes.get(6), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
