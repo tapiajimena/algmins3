@@ -33,7 +33,7 @@ public class Controlador {
 		
 	}
 	
-
+	
 	private class EscuchadorDePooglin implements MouseListener{
 		private Pooglin pooglin;
 
@@ -56,16 +56,12 @@ public class Controlador {
 		}
 
 		public void mouseEntered(MouseEvent arg0) {
-			
-			System.out.println("Estas sobre el pooglin: "+pooglin.getId());
 		}
 
 		public void mouseExited(MouseEvent arg0) {
-			
 		}
 
 		public void mousePressed(MouseEvent arg0) {
-			
 		}
 
 		public void mouseReleased(MouseEvent arg0) {

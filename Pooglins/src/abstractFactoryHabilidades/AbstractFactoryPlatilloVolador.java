@@ -7,11 +7,11 @@ import habilidad.Habilidad;
 import habilidad.PlatilloVolador;
 import pooglin.Pooglin;
 
-public class AbtractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
+public class AbstractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 	
 	private int cantidadDisponible;
 	
-	public AbtractFactoryPlatilloVolador(int cantidadHabilidades){
+	public AbstractFactoryPlatilloVolador(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
 	public Habilidad asignarHabilidad(Pooglin pooglin) {
