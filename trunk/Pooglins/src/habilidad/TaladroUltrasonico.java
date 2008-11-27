@@ -1,4 +1,7 @@
 package habilidad;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import juego.Planeta;
 import pooglin.Pooglin;
 import punto.Punto;
@@ -37,4 +40,15 @@ public class TaladroUltrasonico extends Habilidad{
 	public int getVueltasDeTorpedo() {
 		return vueltasDeTorpedo;
 	}
+	
+	public Element serializar() {
+		Element elementTaladroUltrasonico=DocumentHelper.createElement("TaladroUltrasonico");
+		elementTaladroUltrasonico.addAttribute("vueltasDeTorpedo",String.valueOf(this.vueltasDeTorpedo));
+		return elementTaladroUltrasonico;
+	}
+
+	public void recuperarEstado(Element elementoTaladroUltrasonico) {
+		this.vueltasDeTorpedo = Integer.parseInt(elementoTaladroUltrasonico.attributeValue("vueltasDeTorpedo"));
+	}
+
 }

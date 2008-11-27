@@ -176,12 +176,10 @@ public class Pooglin {
 		return new Punto(this.vectorDireccion, 0);
 	}
 
-	/* Devuelve el numero identificador del Pooglin */
 	public int getId() {
 		return id;
 	}
 
-	/* Devuelve */
 	public int getVectorDireccion() {
 		return this.vectorDireccion;
 	}

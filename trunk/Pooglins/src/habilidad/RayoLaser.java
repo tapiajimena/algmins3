@@ -1,4 +1,7 @@
 package habilidad;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import juego.Planeta;
 import pooglin.Pooglin;
 import punto.Punto;
@@ -11,10 +14,10 @@ public class RayoLaser extends Habilidad{
 	public RayoLaser(Pooglin unPooglin){
 		super(unPooglin);
 	}
+	
 	public RayoLaser(Pooglin unPooglin,int cantidadDisparos){
 		super(unPooglin);
 		this.disparos = cantidadDisparos;
-		
 	}
 	
 	/*
@@ -52,5 +55,14 @@ public class RayoLaser extends Habilidad{
 		return this.disparos;
 	}
 
+	public Element serializar() {
+		Element elementRayoLaser=DocumentHelper.createElement("RayoLaser");
+		elementRayoLaser.addAttribute("disparos",String.valueOf(this.disparos));
+		return elementRayoLaser;
+	}
+
+	public void recuperarEstado(Element elementoRayoLaser) {
+		this.disparos = Integer.parseInt(elementoRayoLaser.attributeValue("disparos"));
+	}
 
 }

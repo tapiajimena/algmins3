@@ -1,4 +1,7 @@
 package habilidad;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+
 import juego.Planeta;
 import pooglin.Pooglin;
 import punto.Punto;
@@ -32,6 +35,17 @@ public class TunelElectroMagnetico extends Habilidad {
 	public int getLongitudFaltante() {
 		return longitudFaltante;
 	}
+	
+	public Element serializar() {
+		Element elementTunelElectroMagnetico=DocumentHelper.createElement("TunelElectromagnetico");
+		elementTunelElectroMagnetico.addAttribute("longitudFaltante",String.valueOf(this.longitudFaltante));
+		return elementTunelElectroMagnetico;
+	}
+
+	public void recuperarEstado(Element elementoTunelElectroMagnetico) {
+		this.longitudFaltante = Integer.parseInt(elementoTunelElectroMagnetico.attributeValue("longitudFaltante"));
+	}
+
 	 
 }
  

@@ -1,4 +1,6 @@
 package habilidad;
+import org.dom4j.Element;
+
 import pooglin.Pooglin;
 import juego.Planeta;
 
@@ -13,6 +15,10 @@ public abstract class Habilidad {
 	}
 	 
 	public abstract void interactuar(Planeta planeta);
+	
+	public abstract Element serializar();
+	
+	public abstract void recuperarEstado(Element unElemento);
 	
 }
  
