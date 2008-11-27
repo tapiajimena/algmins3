@@ -34,12 +34,12 @@ public class TierraTest extends TestCase {
 		 */
 		
 		int decremento = 0;
-		while(unaTierra.getDureza()<=4 && unaTierra.getDureza()>0 && decremento<4){
+		int durezaInicial=unaTierra.getDureza();
+		while(unaTierra.getDureza()<=durezaInicial && unaTierra.getDureza()>0 && decremento<durezaInicial){
 			//El m�todo golpear disminuye en 1 la dureza.
 			unaTierra.golpear();
 			decremento++;
-			assertEquals(4-decremento,unaTierra.getDureza());
-			
+			assertEquals(durezaInicial-decremento,unaTierra.getDureza());
 		}
 		/*
 		 * Si contin�o decrementando, una vez que llegu� a cero, el proceso se 
