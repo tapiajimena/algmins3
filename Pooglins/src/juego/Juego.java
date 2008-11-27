@@ -9,10 +9,10 @@ import VistaVentana.VistaNivel;
 public class Juego {
 	// TODO que hacemos? lista de niveles o lista de configuracion de nivel, es
 	// decir cargamos todo de una sola vez o a medida q se necesita?
-	private String[] configNiveles;
+	//private String[] configNiveles;
 	private Nivel nivel;
 	private VistaNivel vista;
-	private int numeroNivel;
+	//private int numeroNivel;
 	
 	public Juego() {
 		this.nivel = CreadorNiveles.crearNivel();
@@ -20,6 +20,7 @@ public class Juego {
 	}
 
 	// interno para cargar el nivel q sigue
+	@SuppressWarnings("unused")
 	private void siguienteNivel() {
 		this.nivel=CreadorNiveles.crearNivel();
 	}
