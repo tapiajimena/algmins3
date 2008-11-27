@@ -69,8 +69,7 @@ public class VistaNivel extends JFrame implements ActionListener {
 		ArrayList<AbstractFactoryHabilidad> listaFabricasHabilidad=nivel.getFabricasHabilidad();
 		if(listaFabricasHabilidad!=null)
 		for(int i=0;i<listaFabricasHabilidad.size();i++){
-			JRadioButton habilidad = new JRadioButton(listaFabricasHabilidad.get(i).toString()+" "+listaFabricasHabilidad.get(i).cantidadDisponible());
-			controlador.setEscuchaHabilidad(habilidad, listaFabricasHabilidad.get(i));
+			JRadioButton habilidad = new JRadioButton(listaFabricasHabilidad.get(i).cantidadDisponible()+"-"+listaFabricasHabilidad.get(i).toString());
 			habilidad.setBackground(Color.white);
 			habilidad.setActionCommand(new Integer(i).toString());
 			groupHabilidad.add(habilidad);
@@ -151,15 +150,9 @@ public class VistaNivel extends JFrame implements ActionListener {
 	}
 	
 	public void actualizarVista() {
-		
 		int cantidadVivos=nivel.getPooglinsVivos().size();
-		
 		escenario.actualizar();
-		
-		
-		if(cantidadVivos>this.pooglins.size()){
-			
-			
+		if(cantidadVivos>this.pooglins.size()){			
 			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(cantidadVivos-1);
 			
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);
@@ -169,8 +162,6 @@ public class VistaNivel extends JFrame implements ActionListener {
 			pooglins.add(vistaPooglin);
 			
 			escenario.add(vistaPooglin);
-			
-			
 		}
 		
 		for(int i=0;i<this.pooglins.size();i++){
@@ -180,6 +171,13 @@ public class VistaNivel extends JFrame implements ActionListener {
 			 }
 			
 		}
+		ButtonModel boton=groupHabilidad.getSelection();
+		if(boton!=null){
+			int i=Integer.parseInt(boton.getActionCommand());
+			JRadioButton botonRadio=(JRadioButton)panelHabilidad.getComponent(i);
+			botonRadio.setText(nivel.getFabricasHabilidad().get(i).cantidadDisponible()+"-"+nivel.getFabricasHabilidad().get(i).toString());
+		}
+		
 	}
 	public VistaPlaneta getVistaPlaneta(){
 		return escenario;
@@ -188,52 +186,51 @@ public class VistaNivel extends JFrame implements ActionListener {
 		
 		return groupHabilidad.getSelection();
 	}
-	public void crearProgressBar(){
-	     timerProgressBar = new Timer(1000,actualizarProgressBar);
-	     timerProgressBar.start();
-	     tiempo=nivel.getTiempo();
-	     //progBarPanel = new JPanel();
-	
-	     progressBar = new JProgressBar(0, tiempo.getMinutosRestantes()*60);
-	     progressBar.setStringPainted(true);     
-	     add(progressBar);
-	     //progBarPanel.add(progressBar);
-	     //add(progBarPanel);
+	private void closeMyself(){
+		this.dispose();
+		System.exit(DISPOSE_ON_CLOSE);
+		//this.setVisible(false);
+	}
+	public void crearProgressBar() {
+		Action actualizarProgressBar = new AbstractAction() {
+			
+			private static final long serialVersionUID = 1L;
+			public void actionPerformed(ActionEvent e) {
+				tiempo.setSegundosRestantes(tiempo.getSegundosRestantes() - 1);
+				tiempo.setTiempoTrascurrido(tiempo.getTiempoTrascurrido() + 1);
+
+				if (tiempo.getSegundosRestantes() < 0) {
+					tiempo.setSegundosRestantes(60);
+					tiempo.setMinutosRestantes(tiempo.getMinutosRestantes() - 1);
+				}
+				if (tiempo.getMinutosRestantes() == 0
+						&& tiempo.getSegundosRestantes() == 0) {
+					timerProgressBar.stop();
+					JFrame frame = new JFrame("Warning");
+					JOptionPane.showMessageDialog(frame,"Se ha acabado el tiempo. GAME OVER!");		
+					for (int i = 0; i < pooglins.size(); i++) {
+						pooglins.get(i).getPooglin().morir();
+					}
+					closeMyself();	
+					
+				}
+				progressBar.setValue(tiempo.getTiempoTrascurrido());
+				progressBar.setString(tiempo.getMinutosRestantes() + ":"+ tiempo.getSegundosRestantes());
+			}
+		};
+		timerProgressBar = new Timer(100, actualizarProgressBar);
+		timerProgressBar.start();
+		tiempo = nivel.getTiempo();
+		// progBarPanel = new JPanel();
+
+		progressBar = new JProgressBar(0, tiempo.getMinutosRestantes() * 60);
+		progressBar.setStringPainted(true);
+		add(progressBar);
+		// progBarPanel.add(progressBar);
+		// add(progBarPanel);
 	}
 	
-	Action actualizarProgressBar = new AbstractAction() {
-       /**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-
-	public void actionPerformed(ActionEvent e) //this inner class generates an exeption if the player takes to long to finish a level 
-       {
-           tiempo.setSegundosRestantes(tiempo.getSegundosRestantes() - 1);
-           tiempo.setTiempoTrascurrido(tiempo.getTiempoTrascurrido() + 1);
-           
-           if(tiempo.getSegundosRestantes()<0)
-           {
-               tiempo.setSegundosRestantes(60);
-               tiempo.setMinutosRestantes(tiempo.getMinutosRestantes() - 1); 
-           }
-       if(tiempo.getMinutosRestantes()==0 && tiempo.getSegundosRestantes()==0)
-       {
-       	timerProgressBar.stop();
-       	JFrame frame = new JFrame("Warning");
-           JOptionPane.showMessageDialog(frame, "Se ha acabado el tiempo. GAME OVER!");
-           //Borrar toda la otra vista.
-          // frame.dispose();
-           pack();
-           setVisible (true);  
-           for (int i = 0; i<pooglins.size();i++){
-               pooglins.get(i).getPooglin().morir();
-           }
-       }
-           progressBar.setValue(tiempo.getTiempoTrascurrido());
-           progressBar.setString(tiempo.getMinutosRestantes()+":"+tiempo.getSegundosRestantes());
-       }
-   };
+	
 
    public void actionPerformed(ActionEvent e)
    {

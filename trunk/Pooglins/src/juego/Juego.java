@@ -52,13 +52,14 @@ public class Juego {
 			}
 		};
 		vista.setVisible(true);
+		vista.setAlwaysOnTop(true);
 		Timer timer = new Timer(400, gameLoop);
 		timer.start();
 	}
 	public void gameStart() {
 		VistaPresentacion pre=new VistaPresentacion();
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

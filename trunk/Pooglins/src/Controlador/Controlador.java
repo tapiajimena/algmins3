@@ -30,14 +30,13 @@ public class Controlador {
 		this.nivel=nivel;
 		this.vistaNivel=vistaNivel;
 	}
-
 	
 	public void setPooglin(VistaPooglin vistaPooglin, Pooglin nuevoPooglin) {
 		
 		vistaPooglin.addMouseListener(new EscuchadorDePooglin (nuevoPooglin));
 		
 	}
-	public void setEscuchaHabilidad(JRadioButton boton,AbstractFactoryHabilidad fabrica){
+/*	public void setEscuchaHabilidad(JRadioButton boton,AbstractFactoryHabilidad fabrica){
 		boton.addActionListener(new EscuchaOpcionesHabilidades(fabrica));
 	};
 	private class EscuchaOpcionesHabilidades implements ActionListener{
@@ -51,7 +50,7 @@ public class Controlador {
 			botonHabilidad.setText(texto);
 		}
 		
-	}
+	}*/
 	
 	private class EscuchadorDePooglin implements MouseListener{
 		private Pooglin pooglin;
@@ -62,7 +61,7 @@ public class Controlador {
 		
 		public void mouseClicked(MouseEvent arg0) {
 			
-			JRadioButton boton=(JRadioButton)vistaNivel.getSeleccionado();
+			ButtonModel boton=vistaNivel.getSeleccionado();
 			if(boton!=null){
 				int i=Integer.parseInt(boton.getActionCommand());
 				nivel.getFabricasHabilidad().get(i).asignarHabilidad(pooglin);		
