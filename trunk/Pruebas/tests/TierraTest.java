@@ -24,7 +24,11 @@ public class TierraTest extends TestCase {
 	*P:Lugar de partida.(2,0)
 	*Lugar donde deberia llegar.(2,1)
 	*/
-	char[][] matriz={{'A','A','A','A','A'},{'A','A','A','A','A'},{'A','A','A','A','A'},{'T','T','T','T','T'}};
+	char[][] matriz={
+			{'A','A','A','A','A'},
+			{'A','A','A','A','A'},
+			{'A','A','A','A','A'},
+			{'T','T','T','T','T'}};
 
 	
 	public void testGolpear(){
@@ -79,13 +83,11 @@ public class TierraTest extends TestCase {
 		
 	
 	public void testInteraccionPooglinTierra(){
-		
+		punto = new Punto(2,0);
+		unaTierra = new Tierra(punto.puntoRelativo(-1, 0));
 		Planeta unPlaneta=new Planeta(4,5,matriz);
 		nivel.setPlaneta(unPlaneta);
 		Pooglin pooglin = new Pooglin(punto ,nivel);
-	//Corroboro que esten en la misma posicion.
-		boolean posiciones = pooglin.getPosicion().equals(unaTierra.getPosicion());
-		assertTrue(posiciones);
 	//Los hago interactuar
 		unaTierra.interactuar(pooglin);
 		/*

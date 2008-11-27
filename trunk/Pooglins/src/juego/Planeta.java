@@ -140,10 +140,10 @@ public class Planeta {
 		}
 	}
 
-	public Bloque getBloque(Punto punto) {
+	public Bloque getBloque(Punto punto)throws ArrayIndexOutOfBoundsException {
 		if (punto.getX() < this.alto && punto.getY() < this.ancho)
 			return terreno[punto.getX()][punto.getY()];
-		return new Roca(punto);
+		else throw new ArrayIndexOutOfBoundsException();
 	}
 
 	public int getAncho() {
