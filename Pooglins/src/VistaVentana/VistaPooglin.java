@@ -85,7 +85,12 @@ public class VistaPooglin extends JComponent{
 			if(rectanguloImagen.x<350)rectanguloImagen.x+=50;
 			else rectanguloImagen.x=250;
 			break;
-		//case 'C':break;
+		case 'C':
+			rectanguloImagen.y=250;
+			if(ultimaLetra!='C')rectanguloImagen.x=0;
+			if(rectanguloImagen.x<200)rectanguloImagen.x+=50;
+			else rectanguloImagen.x=0;
+			break;
 		//case 'V':break;
 		case 'U':
 			rectanguloImagen.y=200;
