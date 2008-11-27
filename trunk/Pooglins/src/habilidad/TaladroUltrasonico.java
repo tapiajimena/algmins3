@@ -9,7 +9,7 @@ import bloque.Rompible;
 
 public class TaladroUltrasonico extends Habilidad{
 	
-	private int vueltasDeTorpedo=25;
+	private int vueltasDeTorpedo=10;
 	
 	public TaladroUltrasonico(Pooglin unPooglin){
 		super(unPooglin);
@@ -23,7 +23,7 @@ public class TaladroUltrasonico extends Habilidad{
 				Rompible bloqueRompible=(Rompible)unPlaneta.getBloque(posicionBloque);
 				bloqueRompible.golpear();
 				this.decrementarVueltas();
-				if (bloqueRompible.getDureza() <=0){
+				if (bloqueRompible.getDureza()<=0){
 					unPlaneta.quitarObstaculo(posicionBloque);
 					pooglin.caminar();
 				}

@@ -1,8 +1,8 @@
 package pooglin;
 
+import java.lang.reflect.Constructor;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-
 import punto.Punto;
 import juego.Nivel;
 import habilidad.Habilidad;
@@ -200,9 +200,12 @@ public class Pooglin {
 		elementPooglin.addAttribute("vectorDireccion",new Integer(this.vectorDireccion).toString());
 		elementPooglin.addAttribute("estaMuerto",new Boolean(this.estaMuerto).toString());
 		elementPooglin.addAttribute("estaSalvado",new Boolean(this.estaSalvado).toString());
-		Element elementoPunto=this.posicion.serializar();
-		elementPooglin.add(elementoPunto);
-		/*falta serializar las referencias a habilidad y nivel*/
+		elementPooglin.add(this.posicion.serializar());
+		//hago un nodo de 2 niveles para la habilidad, por razones de polimorfismo
+		Element elemHabilidad=DocumentHelper.createElement("Habilidad");
+		elemHabilidad.add(this.habilidad.serializar());
+		elementPooglin.add(elemHabilidad);
+		/*falta serializar las referencias y nivel*/
 		return elementPooglin;
 	}
 	public void recuperarEstado(Element elementoPooglin){
@@ -212,7 +215,20 @@ public class Pooglin {
 		this.estaMuerto=Boolean.parseBoolean(elementoPooglin.attributeValue("estaMuerto"));
 		this.estaSalvado=Boolean.parseBoolean(elementoPooglin.attributeValue("estaSalvado"));
 		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
-		/*falta recuperar la referencia al nivel*/
+		
+		//que feo pero no me importa por q son las 4 am
+		Element elemHabilidad=(Element)elementoPooglin.element("Habilidad").elementIterator().next();
+		try {
+			Class<?> claseHabilidad=Class.forName("habilidad."+elemHabilidad.getName());
+			if(claseHabilidad.getSuperclass().equals(Habilidad.class)){
+				Constructor<?> constructor=claseHabilidad.getDeclaredConstructor(Pooglin.class);
+				Habilidad habilidad=(Habilidad)constructor.newInstance(this);
+				habilidad.recuperarEstado(elemHabilidad);
+				this.definirHabilidad(habilidad);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public char getHabilidad() {
