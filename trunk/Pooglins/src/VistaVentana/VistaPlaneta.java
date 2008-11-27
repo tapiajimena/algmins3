@@ -47,7 +47,7 @@ public class VistaPlaneta extends JPanel {
 		listaDeImagenes.add( ImageIO.read(new File( "P.gif")));
 		listaDeImagenes.add( ImageIO.read(new File( "E.gif")));
 		listaDeImagenes.add( ImageIO.read(new File( "N.gif")));
-		listaDeImagenes.add( ImageIO.read(new File( "H.gif")));
+		listaDeImagenes.add( ImageIO.read(new File( "H.png")));
 	
 	}
 	private void pintarBloque(Bloque bloque) throws IOException {

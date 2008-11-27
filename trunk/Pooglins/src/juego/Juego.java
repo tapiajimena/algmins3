@@ -1,8 +1,21 @@
 package juego;
 import java.awt.event.ActionEvent;
+import java.io.FileOutputStream;
+
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Timer;
+
+import org.dom4j.Document;
+import org.dom4j.DocumentException;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+import org.dom4j.io.XMLWriter;
+
+import punto.Punto;
+import bloque.Bloque;
+
 import VistaVentana.VistaNivel;
 
 
@@ -42,6 +55,31 @@ public class Juego {
 		Timer timer = new Timer(400, gameLoop);
 		timer.start();
 	}
-
+	public void salvarJuego(String ruta){
+		Document doc=DocumentHelper.createDocument();
+		doc.add(nivel.serializar());
+		try {
+			FileOutputStream archivo = new FileOutputStream(ruta);
+			XMLWriter writer = new XMLWriter(archivo);
+			writer.write(doc);
+			writer.flush();
+			writer.close();
+			archivo.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void cargarJuego(String ruta){
+		Document doc=DocumentHelper.createDocument();
+		SAXReader xmlReader = new SAXReader();
+		try {
+			doc = xmlReader.read(ruta);
+			Element nivelXML=doc.getRootElement();
+			nivel.recuperarEstado(nivelXML);		
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
  
