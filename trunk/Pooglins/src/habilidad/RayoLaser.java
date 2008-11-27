@@ -64,5 +64,7 @@ public class RayoLaser extends Habilidad{
 	public void recuperarEstado(Element elementoRayoLaser) {
 		this.disparos = Integer.parseInt(elementoRayoLaser.attributeValue("disparos"));
 	}
-
+	public char getLetra(){
+		return 'L';
+	}
 }

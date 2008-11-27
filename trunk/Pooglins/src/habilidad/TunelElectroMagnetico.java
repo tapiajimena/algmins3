@@ -45,7 +45,9 @@ public class TunelElectroMagnetico extends Habilidad {
 	public void recuperarEstado(Element elementoTunelElectroMagnetico) {
 		this.longitudFaltante = Integer.parseInt(elementoTunelElectroMagnetico.attributeValue("longitudFaltante"));
 	}
-
+	public char getLetra(){
+		return 'E';
+	}
 	 
 }
  

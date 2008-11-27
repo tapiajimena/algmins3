@@ -29,7 +29,9 @@ public class PlatilloVolador extends Habilidad {
 		Element elementPlatilloVolador=DocumentHelper.createElement("PlatilloVolador");
 		return elementPlatilloVolador;
 	}
-
+	public char getLetra(){
+		return 'V';
+	}
 }
 	 
 	
