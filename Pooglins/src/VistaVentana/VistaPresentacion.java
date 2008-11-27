@@ -53,7 +53,7 @@ public class VistaPresentacion extends JFrame {
 	public static void main(String[] args){
 		VistaPresentacion pre=new VistaPresentacion();
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
