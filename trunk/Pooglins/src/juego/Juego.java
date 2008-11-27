@@ -16,6 +16,7 @@ import org.dom4j.io.XMLWriter;
 
 
 import VistaVentana.VistaNivel;
+import VistaVentana.VistaPresentacion;
 
 
 public class Juego {
@@ -24,7 +25,7 @@ public class Juego {
 	//private String[] configNiveles;
 	private Nivel nivel;
 	private VistaNivel vista;
-	//private int numeroNivel;
+	private int numeroNivel=1;
 	
 	public Juego() {
 		this.nivel = CreadorNiveles.crearNivel();
@@ -34,16 +35,15 @@ public class Juego {
 	// interno para cargar el nivel q sigue
 	@SuppressWarnings("unused")
 	private void siguienteNivel() {
-		this.nivel=CreadorNiveles.crearNivel();
+		numeroNivel++;
+		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
 	}
 
 	// Para ver el nivel actual desde MVC
 	public Nivel getNivelActual() {
 		return nivel;
 	}
-
-	public void gameStart() {
-		
+	private void empesar(){
 		Action gameLoop = new AbstractAction() {
 			private static final long serialVersionUID = 1L;
 			public void actionPerformed(ActionEvent evt) {
@@ -54,6 +54,16 @@ public class Juego {
 		vista.setVisible(true);
 		Timer timer = new Timer(400, gameLoop);
 		timer.start();
+	}
+	public void gameStart() {
+		VistaPresentacion pre=new VistaPresentacion();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		pre.dispose();
+		empesar();
 	}
 	public void salvarJuego(String ruta){
 		Document doc=DocumentHelper.createDocument();

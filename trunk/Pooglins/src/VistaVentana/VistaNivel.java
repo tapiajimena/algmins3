@@ -50,10 +50,11 @@ public class VistaNivel extends JFrame {
 		panelHabilidad.setBackground(Color.white);
 		groupHabilidad = new ButtonGroup();
 		
-		ArrayList<AbstractFactoryHabilidad> nombres=nivel.getFabricasHabilidad();
-		if(nombres!=null)
-		for(int i=0;i<nombres.size();i++){
-			JRadioButton habilidad = new JRadioButton(nombres.get(i).toString());
+		ArrayList<AbstractFactoryHabilidad> listaFabricasHabilidad=nivel.getFabricasHabilidad();
+		if(listaFabricasHabilidad!=null)
+		for(int i=0;i<listaFabricasHabilidad.size();i++){
+			JRadioButton habilidad = new JRadioButton(listaFabricasHabilidad.get(i).toString()+" "+listaFabricasHabilidad.get(i).cantidadDisponible());
+			controlador.setEscuchaHabilidad(habilidad, listaFabricasHabilidad.get(i));
 			habilidad.setBackground(Color.white);
 			habilidad.setActionCommand(new Integer(i).toString());
 			groupHabilidad.add(habilidad);
@@ -65,7 +66,7 @@ public class VistaNivel extends JFrame {
 		super();
 		this.pooglins=new ArrayList<VistaPooglin>();
 		this.nivel = nivel;
-		
+		controlador=new Controlador(this.nivel,this);
 		super.setTitle("Pooglins "+nivel.getNombre());
 		escenario = new VistaPlaneta(nivel.getPlaneta());
 		escenario.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -87,7 +88,7 @@ public class VistaNivel extends JFrame {
 		// tama�o de la ventana
 		// ventana.setResizable(false);
 		super.getContentPane().setBackground(Color.black);
-		controlador=new Controlador(this.nivel,this);
+		
 		super.setPreferredSize(new Dimension(1050, 500));
 		// preparo la venta
 		super.pack();

@@ -42,29 +42,20 @@ public class VistaPresentacion extends JFrame {
 		EL OBJETO QUE CONTIENE LA IMAGEN.
 	*/
 
-	JLabel etiqueta2 = new JLabel(imagen);		
+	JLabel etiqueta2 = new JLabel(imagen);
+
 	
 	public VistaPresentacion()
 	{
 		super("Bienvenidos");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		//AGREGAMOS LA ETIQUETA QUE CONTIENE LA IMAGEN AL FRAME
+		etiqueta2.setSize(1050,500);
 		getContentPane().add(etiqueta2);
-		this.setSize(500, 500);
+		this.setSize(1050, 500);
 		this.pack();
 		this.setVisible(true);
 		
 	}
-	public static void main(String[] args){
-		VistaPresentacion pre=new VistaPresentacion();
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		pre.dispose();
-		//new VistaNivel(CreadorNiveles.crearNivel()).setVisible(true);
-		
-	}
-		
+	
 }

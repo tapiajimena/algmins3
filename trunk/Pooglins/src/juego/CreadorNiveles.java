@@ -42,7 +42,7 @@ public class CreadorNiveles {
 			nivel.setNombre("Nivel:2");
 			break;
 		default:
-			planeta = CreadorPlanetas.crearPlaneta(1);
+			planeta = CreadorPlanetas.crearPlaneta(0);
 			fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
 			fabricasHabilidad.add(new AbstractFactoryCongelamiento(3));
 			fabricasHabilidad.add(new AbstractFactoryRayoLaser(3));
