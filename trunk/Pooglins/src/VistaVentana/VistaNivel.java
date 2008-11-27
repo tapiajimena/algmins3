@@ -164,7 +164,10 @@ public class VistaNivel extends JFrame {
            //Borrar toda la otra vista.
           // frame.dispose();
            pack();
-           setVisible (true);      	
+           setVisible (true);  
+           for (int i = 0; i<pooglins.size();i++){
+               pooglins.get(i).getPooglin().morir();
+           }
        }
            progressBar.setValue(tiempo.getTiempoTrascurrido());
            progressBar.setString(tiempo.getMinutosRestantes()+":"+tiempo.getSegundosRestantes());
