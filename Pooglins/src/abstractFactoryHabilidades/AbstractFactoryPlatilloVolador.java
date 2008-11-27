@@ -14,12 +14,11 @@ public class AbstractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 	public AbstractFactoryPlatilloVolador(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
-	public Habilidad asignarHabilidad(Pooglin pooglin) {
+	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new PlatilloVolador(pooglin);
 			pooglin.definirHabilidad(habilidad);
-		}
-		return null;
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

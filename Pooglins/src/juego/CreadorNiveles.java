@@ -15,7 +15,7 @@ public class CreadorNiveles {
 		Planeta planeta = CreadorPlanetas.crearPlaneta(1);
 		ArrayList<AbstractFactoryHabilidad> fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
 		fabricasHabilidad.add(new AbstractFactoryCongelamiento(3));
-		fabricasHabilidad.add(new AbstractFactoryRayoLaser(3));
+		fabricasHabilidad.add(new AbstractFactoryRayoLaser(1));
 		fabricasHabilidad.add(new AbstractFactoryTeletransportacion(3));
 		fabricasHabilidad.add(new AbstractFactoryTaladroUltrasonico(3));
 		Nivel nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);

@@ -14,12 +14,11 @@ public class AbstractFactoryTeletransportacion extends AbstractFactoryHabilidad{
 	public AbstractFactoryTeletransportacion(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
-	public Habilidad asignarHabilidad(Pooglin pooglin) {
+	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new Teletransportacion(pooglin);
 			pooglin.definirHabilidad(habilidad);
-		}
-		return null;
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

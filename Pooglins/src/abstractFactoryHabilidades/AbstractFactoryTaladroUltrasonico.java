@@ -14,12 +14,11 @@ public class AbstractFactoryTaladroUltrasonico extends AbstractFactoryHabilidad{
 	public AbstractFactoryTaladroUltrasonico(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
-	public Habilidad asignarHabilidad(Pooglin pooglin) {
+	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new TaladroUltrasonico(pooglin);
 			pooglin.definirHabilidad(habilidad);
-		}
-		return null;
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

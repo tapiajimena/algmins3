@@ -43,6 +43,7 @@ public class Juego {
 	}
 
 	public void gameStart() {
+		
 		Action gameLoop = new AbstractAction() {
 			private static final long serialVersionUID = 1L;
 			public void actionPerformed(ActionEvent evt) {
