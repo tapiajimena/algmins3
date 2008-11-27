@@ -63,7 +63,7 @@ public class CreadorPlanetas {
 	
 	switch(id){
 		case 1:matriz=m1;break;
-		/*case 2:matriz=m2;break;
+		case 2:matriz=m2;break;
 		/*case 3:matriz=m3;break;
 		case 4:matriz=m4;break;
 		case 5:matriz=m5;break;
