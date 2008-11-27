@@ -25,6 +25,8 @@ public class Congelamiento extends Habilidad {
 		Element elementCongelamiento=DocumentHelper.createElement("Congelamiento");
 		return elementCongelamiento;
 	}
-
+	public char getLetra(){
+		return 'C';
+	}
 }
  

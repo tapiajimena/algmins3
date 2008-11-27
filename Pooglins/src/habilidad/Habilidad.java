@@ -19,6 +19,10 @@ public abstract class Habilidad {
 	public abstract Element serializar();
 	
 	public abstract void recuperarEstado(Element unElemento);
+
+	public char getLetra() {
+		return '0';
+	}
 	
 }
  

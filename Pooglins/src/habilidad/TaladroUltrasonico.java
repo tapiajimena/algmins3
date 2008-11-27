@@ -50,5 +50,7 @@ public class TaladroUltrasonico extends Habilidad{
 	public void recuperarEstado(Element elementoTaladroUltrasonico) {
 		this.vueltasDeTorpedo = Integer.parseInt(elementoTaladroUltrasonico.attributeValue("vueltasDeTorpedo"));
 	}
-
+	public char getLetra(){
+		return 'U';
+	}
 }

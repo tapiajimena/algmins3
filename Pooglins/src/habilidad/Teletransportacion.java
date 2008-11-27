@@ -32,7 +32,9 @@ public class Teletransportacion extends Habilidad {
 	public void recuperarEstado(Element elementoTeletransportacion) {
 		this.contadorPasos = Integer.parseInt(elementoTeletransportacion.attributeValue("contadorPasos"));
 	}
-
+	public char getLetra(){
+		return 'T';
+	}
 	 
 }
  
