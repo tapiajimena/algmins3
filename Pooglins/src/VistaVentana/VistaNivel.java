@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
@@ -120,7 +121,13 @@ public class VistaNivel extends JFrame implements ActionListener {
 		
 		opcionGuardar = new JMenuItem("Guardar");
 		opcionGuardar.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_G, KeyEvent.CTRL_MASK));
-	
+		opcionGuardar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+			
+		});
 		opcionDeSalida = new JMenuItem("Salir");
 		//crtl+S sale del juego
 		opcionDeSalida.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_S, KeyEvent.CTRL_MASK));
@@ -218,7 +225,7 @@ public class VistaNivel extends JFrame implements ActionListener {
 				progressBar.setString(tiempo.getMinutosRestantes() + ":"+ tiempo.getSegundosRestantes());
 			}
 		};
-		timerProgressBar = new Timer(100, actualizarProgressBar);
+		timerProgressBar = new Timer(1000, actualizarProgressBar);
 		timerProgressBar.start();
 		tiempo = nivel.getTiempo();
 		// progBarPanel = new JPanel();
