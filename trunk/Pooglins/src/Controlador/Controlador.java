@@ -46,9 +46,7 @@ public class Controlador {
 			ButtonModel boton=vistaNivel.getSeleccionado();
 			if(boton!=null){
 				int i=Integer.parseInt(boton.getActionCommand());
-				nivel.getFabricasHabilidad().get(i).asignarHabilidad(pooglin);
-				
-				
+				nivel.getFabricasHabilidad().get(i).asignarHabilidad(pooglin);		
 			}else {
 				 JFrame frame = new JFrame("Warning");
 	             JOptionPane.showMessageDialog(frame, "No has seleccionado ninguna habilidad");

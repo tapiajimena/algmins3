@@ -15,12 +15,11 @@ public class AbstractFactoryTunelEletromagnetico extends AbstractFactoryHabilida
 		cantidadDisponible=cantidadHabilidades;
 	}
 	
-	public Habilidad asignarHabilidad(Pooglin pooglin) {
+	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new TunelElectroMagnetico(pooglin);
 			pooglin.definirHabilidad(habilidad);
-		}
-		return null;
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

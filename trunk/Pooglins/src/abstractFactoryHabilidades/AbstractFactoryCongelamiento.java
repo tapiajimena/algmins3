@@ -14,12 +14,11 @@ public class AbstractFactoryCongelamiento extends AbstractFactoryHabilidad{
 		cantidadDisponible=cantidadHabilidades;
 	}
 	
-	public Habilidad asignarHabilidad(Pooglin pooglin) {
-		if(cantidadDisponible>0){
+	public void asignarHabilidad(Pooglin pooglin) {
+		if(cantidadDisponible>=0){
 			Habilidad habilidad=new Congelamiento(pooglin);
 			pooglin.definirHabilidad(habilidad);
-		}
-		return null;
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

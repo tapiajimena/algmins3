@@ -10,14 +10,13 @@ import pooglin.Pooglin;
 public class AbstractFactoryRayoLaser extends AbstractFactoryHabilidad{
 	private int cantidadDisponible;
 	public AbstractFactoryRayoLaser(int cantidadHabilidades){
-		cantidadDisponible=cantidadHabilidades;
+		cantidadDisponible=1;
 	}
-	public Habilidad asignarHabilidad(Pooglin pooglin) {
+	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new RayoLaser(pooglin);
 			pooglin.definirHabilidad(habilidad);
-		}
-		return null;
+		}else pooglin.definirHabilidad(null);
 	}
 
 	public int cantidadDisponible() {

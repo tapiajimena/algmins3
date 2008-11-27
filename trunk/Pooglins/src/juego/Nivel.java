@@ -105,7 +105,6 @@ public class Nivel extends Observable {
 		if (pooglins != null) {
 			this.cantidadSalvados++;
 			pooglins.remove(elSalvado);
-			System.out.println("SE SALVA");
 		}
 	};
 
