@@ -146,7 +146,6 @@ public class VistaPlaneta extends JPanel {
 		
 		alto = elPlaneta.getAlto()*20;
 		ancho = elPlaneta.getAncho()*20;
-		System.out.println(alto +" "+ancho);
 		fondo = new BufferedImage(ancho,alto,BufferedImage.TYPE_INT_ARGB);
 		frente = new BufferedImage(ancho, alto,BufferedImage.TYPE_INT_ARGB);
 		
