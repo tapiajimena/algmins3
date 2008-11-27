@@ -21,7 +21,7 @@ public class Juego {
 
 	// interno para cargar el nivel q sigue
 	private void siguienteNivel() {
-
+		this.nivel=CreadorNiveles.crearNivel();
 	}
 
 	// Para ver el nivel actual desde MVC

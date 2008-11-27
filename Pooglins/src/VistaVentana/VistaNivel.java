@@ -1,5 +1,4 @@
 package VistaVentana;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -146,7 +145,12 @@ public class VistaNivel extends JFrame {
 	}
 	
 	Action actualizarProgressBar = new AbstractAction() {
-       public void actionPerformed(ActionEvent e) //this inner class generates an exeption if the player takes to long to finish a level 
+       /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	public void actionPerformed(ActionEvent e) //this inner class generates an exeption if the player takes to long to finish a level 
        {
            tiempo.setSegundosRestantes(tiempo.getSegundosRestantes() - 1);
            tiempo.setTiempoTrascurrido(tiempo.getTiempoTrascurrido() + 1);
