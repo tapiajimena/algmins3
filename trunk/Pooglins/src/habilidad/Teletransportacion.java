@@ -15,7 +15,7 @@ public class Teletransportacion extends Habilidad {
 	public void interactuar(Planeta planeta) {
 		if(contadorPasos==0){
 			Punto proximaPosicion = pooglin.getPosicion();
-			proximaPosicion.setY(proximaPosicion.getY()+6);
+			proximaPosicion.setY(proximaPosicion.getY()+super.pooglin.getVectorDireccion()*6);
 			pooglin.setPosicion(proximaPosicion);
 			pooglin.definirHabilidad(null);
 		}else if(contadorPasos>0)
