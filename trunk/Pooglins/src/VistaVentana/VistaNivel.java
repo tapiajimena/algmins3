@@ -1,7 +1,11 @@
 package VistaVentana;
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import javax.swing.AbstractAction;
@@ -10,11 +14,16 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
@@ -24,7 +33,7 @@ import juego.Nivel;
 import juego.TiempoNivel;
 import pooglin.Pooglin;
 
-public class VistaNivel extends JFrame {
+public class VistaNivel extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
@@ -42,6 +51,13 @@ public class VistaNivel extends JFrame {
 	private Timer timerProgressBar;
 	private TiempoNivel tiempo;
 	private JProgressBar progressBar;
+	private JMenuItem opcionNuevoJuego;
+	private JMenuItem opcionAbrir;
+	private JMenuItem opcionGuardar;
+	private JMenuItem opcionDeSalida;
+	private JMenu menu;
+	private JMenuBar barraDeMenu;
+
 
 	private void cargarPanelHabilidad() {
 		panelHabilidad = new JPanel();
@@ -74,6 +90,7 @@ public class VistaNivel extends JFrame {
 
 		// add funciona como pila L-A-F-P
 		//crear
+		barraMenu();
 		cargarPanelHabilidad();
 		//super.add(panelHabilidad);
 		crearProgressBar();
@@ -92,6 +109,45 @@ public class VistaNivel extends JFrame {
 		super.setPreferredSize(new Dimension(1050, 500));
 		// preparo la venta
 		super.pack();
+	}
+	
+	public void barraMenu(){		
+	
+		opcionNuevoJuego = new JMenuItem("Juego Nuevo");
+		opcionNuevoJuego.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_N, KeyEvent.CTRL_MASK));
+		
+		opcionAbrir = new JMenuItem("Abrir");
+		opcionAbrir.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_A, KeyEvent.CTRL_MASK));
+		
+		opcionGuardar = new JMenuItem("Guardar");
+		opcionGuardar.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_G, KeyEvent.CTRL_MASK));
+	
+		opcionDeSalida = new JMenuItem("Salir");
+		//crtl+S sale del juego
+		opcionDeSalida.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_S, KeyEvent.CTRL_MASK));
+	
+		opcionNuevoJuego.setActionCommand("Nuevo");
+		opcionNuevoJuego.addActionListener(this);
+		
+		opcionAbrir.setActionCommand("Abrir");
+		opcionAbrir.addActionListener(this);
+	    
+		opcionGuardar.setActionCommand("Guardar");
+		opcionGuardar.addActionListener(this);
+		
+		opcionDeSalida.setActionCommand("Salir");
+		opcionDeSalida.addActionListener(this);
+		
+		 menu = new JMenu("Archivo");
+		 menu.add(opcionNuevoJuego);
+		 menu.add(opcionAbrir);
+		 menu.add(opcionGuardar);
+		 menu.add(opcionDeSalida);
+		 
+		 barraDeMenu = new JMenuBar();
+		 barraDeMenu.add(menu);
+	     setJMenuBar(barraDeMenu);
+	
 	}
 	
 	public void actualizarVista() {
@@ -178,4 +234,30 @@ public class VistaNivel extends JFrame {
            progressBar.setString(tiempo.getMinutosRestantes()+":"+tiempo.getSegundosRestantes());
        }
    };
+
+   public void actionPerformed(ActionEvent e)
+   {
+       if (e.getActionCommand().equals("Salir"))
+       {
+            System.exit(0);  
+       }
+       else if (e.getActionCommand().equals("Nuevo"))
+       {
+ 
+       }
+       else if(e.getActionCommand().equals("Guardar"))
+       {
+        
+       }
+       else if(e.getActionCommand().equals("Open"))
+       {
+           JFileChooser chooser = new JFileChooser();
+           int returnVal = chooser.showOpenDialog(this);
+           if(returnVal == JFileChooser.APPROVE_OPTION) 
+           {
+             
+
+           }
+        }
+    }
 }
