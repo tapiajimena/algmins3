@@ -3,14 +3,13 @@ package juego;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Observable;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 import pooglin.Pooglin;
 import punto.Punto;
 
-public class Nivel extends Observable {
+public class Nivel {
 	/*
 	 * En esta clase falta la implementacion de algunos metodos que van a estar
 	 * para la segunda entrega cuando decimos bien como realizar el motor del
@@ -68,8 +67,7 @@ public class Nivel extends Observable {
 		// definir mas adelante el punto de Partida
 		Punto puntoEntrada = new Punto(1, 1);
 		// agregar un Contador Para asegurar intervalo entre pooglins
-		if (pooglins.size() < (cantInicialPooglins + (this.cantidadSalvados + this.cantMuertos))
-				&& ronda % 4 == 0) {
+		if (pooglins.size() < cantInicialPooglins -(cantidadSalvados+cantMuertos)&& ronda % 4 == 0) {
 			Pooglin unPooglin = new Pooglin(puntoEntrada, this);
 			unPooglin.setId(pooglins.size());
 			pooglins.add(unPooglin);
@@ -77,7 +75,6 @@ public class Nivel extends Observable {
 		for (int i = 0; i < pooglins.size(); i++) {
 			pooglins.get(i).interactuar();
 		}
-		super.notifyObservers();
 		ronda++;
 	}
 
@@ -116,6 +113,9 @@ public class Nivel extends Observable {
 		this.tiempo = new TiempoNivel();
 		this.tiempo.setMinutosRestantes(min);
 
+	}
+	public int cantidadDePooglinsVivos(){
+		return this.pooglins.size();
 	}
 
 	/*------------------------------------------------------------------------------------------------------*/

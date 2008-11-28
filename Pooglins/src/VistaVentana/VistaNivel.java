@@ -34,11 +34,9 @@ public class VistaNivel extends JPanel  {
 	 */
 	private void cargarPanelHabilidad() {
 		panelHabilidad = new JPanel();
-		panelHabilidad.setLayout(new BoxLayout(panelHabilidad,
-				BoxLayout.X_AXIS));
+		panelHabilidad.setLayout(new BoxLayout(panelHabilidad,BoxLayout.X_AXIS));
 		panelHabilidad.setBackground(Color.white);
 		groupHabilidad = new ButtonGroup();
-		
 		ArrayList<AbstractFactoryHabilidad> listaFabricasHabilidad=nivel.getFabricasHabilidad();
 		if(listaFabricasHabilidad!=null)
 		for(int i=0;i<listaFabricasHabilidad.size();i++){
@@ -55,55 +53,32 @@ public class VistaNivel extends JPanel  {
 		this.pooglins=new ArrayList<VistaPooglin>();
 		this.nivel = nivel;
 		controlador=new Controlador(this.nivel,this);
-		//super.setTitle("Pooglins "+nivel.getNombre());
 		escenario = new VistaPlaneta(nivel.getPlaneta());
 		escenario.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		escenario.setLayout(null);
-
-		// add funciona como pila L-A-F-P
-		//crear
-		
 		cargarPanelHabilidad();
-		//super.add(panelHabilidad);barraMenu();
-		
 		this.add(escenario);
-
-		//super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// defino es la forma en que se acomodan los componentes
 		this.setLayout( new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
 		add(panelHabilidad);
-		
-		// tama�o de la ventana
-		// ventana.setResizable(false);
 		this.setBackground(Color.black);
-		
 		super.setPreferredSize(new Dimension(1050, 500));
-		// preparo la venta
-	
 	}
 	
-
-	
 	public void actualizarVista() {
-		int cantidadVivos=nivel.getPooglinsVivos().size();
+		int nroVivosModelo=nivel.cantidadDePooglinsVivos();
 		escenario.actualizar();
-		while(cantidadVivos>this.pooglins.size()){			
-			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(cantidadVivos-1);
-			
+		while(nroVivosModelo>this.pooglins.size()){			
+			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(this.pooglins.size());
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);
-			
 			controlador.setPooglin(vistaPooglin,nuevoPooglin);
-			
 			pooglins.add(vistaPooglin);
-			
 			escenario.add(vistaPooglin);
 		}
-		
 		for(int i=0;i<this.pooglins.size();i++){
 			pooglins.get(i).actualizar();
 			if((pooglins.get(i).getPooglin().EstaSalvado())||(pooglins.get(i).getPooglin().estaMuerto())){
 				pooglins.get(i).borrar(); 
+				pooglins.remove(i);
 			 }
 			
 		}
@@ -113,13 +88,11 @@ public class VistaNivel extends JPanel  {
 			JRadioButton botonRadio=(JRadioButton)panelHabilidad.getComponent(i);
 			botonRadio.setText(nivel.getFabricasHabilidad().get(i).cantidadDisponible()+"-"+nivel.getFabricasHabilidad().get(i).toString());
 		}
-		
 	}
 	public VistaPlaneta getVistaPlaneta(){
 		return escenario;
 	}
 	public ButtonModel getSeleccionado(){
-		
 		return groupHabilidad.getSelection();
 	}
 

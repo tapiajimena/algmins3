@@ -100,7 +100,6 @@ public class VistaPooglin extends JComponent{
 			else rectanguloImagen.x=0;
 			break;
 		default : 
-			
 			if(pooglin.getVectorDireccion()>0)
 				rectanguloImagen.y=0;
 			else rectanguloImagen.y=50;
