@@ -1,6 +1,6 @@
 package tests;
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import junit.framework.TestCase;
 
 

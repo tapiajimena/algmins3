@@ -11,7 +11,7 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import punto.Punto;
+import Modelo.Punto;
 import bloque.Aire;
 import bloque.Bloque;
 import bloque.Tierra;
@@ -52,7 +52,7 @@ public class PlanetaTest extends TestCase {
 		/*
 		 * Agrego un bloque Tierra al Planeta y verifico las posiciones.
 		 */
-		unPlaneta.agregarObstaculo(unaTierra);
+		unPlaneta.agregar(unaTierra);
 		assertEquals(2,unPlaneta.getBloque(new Punto(2,2)).getPosicion().getX());
 		assertEquals(2,unPlaneta.getBloque(new Punto(2,2)).getPosicion().getY());
 	}
@@ -64,7 +64,7 @@ public class PlanetaTest extends TestCase {
 		 * donde estaba el bloque Tierra ahora hay Aire.
 		 * Para esto compruebo que ese bloque sea traspasable.
 		 */
-		unPlaneta.quitarObstaculo(new Punto(2,2));
+		unPlaneta.quitarBloque(new Punto(2,2));
 		assertTrue(unPlaneta.getBloque(new Punto(2,2)).esTraspasable());
 	}
 	public void testSerializacionIOXML(){

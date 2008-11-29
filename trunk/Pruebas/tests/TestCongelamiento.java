@@ -5,8 +5,8 @@ import habilidad.Habilidad;
 import juego.Nivel;
 import juego.Planeta;
 import junit.framework.TestCase;
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Aire;
 import bloque.Hielo;
 

@@ -2,8 +2,9 @@ package habilidad;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
+
 import juego.Planeta;
 public class Teletransportacion extends Habilidad {
 	private int contadorPasos=3;

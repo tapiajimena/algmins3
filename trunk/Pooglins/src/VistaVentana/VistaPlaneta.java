@@ -15,7 +15,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import juego.Planeta;
-import punto.Punto;
+import Modelo.Punto;
 import bloque.Bloque;
 
 public class VistaPlaneta extends JPanel {

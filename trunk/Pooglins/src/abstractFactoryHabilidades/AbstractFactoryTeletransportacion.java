@@ -3,9 +3,10 @@ package abstractFactoryHabilidades;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import Modelo.Pooglin;
+
 import habilidad.Habilidad;
 import habilidad.Teletransportacion;
-import pooglin.Pooglin;
 
 public class AbstractFactoryTeletransportacion extends AbstractFactoryHabilidad{
 	

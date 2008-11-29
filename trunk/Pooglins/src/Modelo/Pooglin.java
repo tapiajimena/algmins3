@@ -1,9 +1,8 @@
-package pooglin;
+package Modelo;
 
 import java.lang.reflect.Constructor;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import punto.Punto;
 import juego.Nivel;
 import habilidad.Habilidad;
 

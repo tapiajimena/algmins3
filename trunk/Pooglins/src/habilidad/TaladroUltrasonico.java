@@ -3,8 +3,8 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import juego.Planeta;
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Rompible;
 
 public class TaladroUltrasonico extends Habilidad{
@@ -24,7 +24,7 @@ public class TaladroUltrasonico extends Habilidad{
 				bloqueRompible.golpear();
 				this.decrementarVueltas();
 				if (bloqueRompible.getDureza()<=0){
-					unPlaneta.quitarObstaculo(posicionBloque);
+					unPlaneta.quitarBloque(posicionBloque);
 					pooglin.caminar();
 				}
 			}else{

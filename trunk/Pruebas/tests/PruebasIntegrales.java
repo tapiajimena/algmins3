@@ -1,7 +1,9 @@
 package tests;
 import java.io.IOException;
 
-import pooglin.Pooglin;
+import Modelo.Pooglin;
+import Modelo.Punto;
+
 import juego.*;
 import punto.*;
 

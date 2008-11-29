@@ -1,8 +1,8 @@
 package tests;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Bloque;
 import bloque.Tierra;
-import pooglin.Pooglin;
-import punto.Punto;
 import habilidad.RayoLaser;
 import habilidad.TaladroUltrasonico;
 import habilidad.TunelElectroMagnetico;

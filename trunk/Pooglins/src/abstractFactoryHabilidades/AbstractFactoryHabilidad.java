@@ -2,7 +2,8 @@ package abstractFactoryHabilidades;
 
 import org.dom4j.Element;
 
-import pooglin.Pooglin;
+import Modelo.Pooglin;
+
 
 public abstract class AbstractFactoryHabilidad {
 	//el contructor debe definir cuantas veces se debe crear la habilidad

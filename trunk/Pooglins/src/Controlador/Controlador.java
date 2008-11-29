@@ -12,8 +12,8 @@ import javax.swing.JRadioButton;
 
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
-import pooglin.Pooglin;
 
+import Modelo.Pooglin;
 import VistaVentana.VistaNivel;
 import VistaVentana.VistaPooglin;
 import juego.Nivel;

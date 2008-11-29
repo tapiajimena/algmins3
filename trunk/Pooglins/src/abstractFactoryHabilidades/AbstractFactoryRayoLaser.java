@@ -3,9 +3,10 @@ package abstractFactoryHabilidades;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import Modelo.Pooglin;
+
 import habilidad.Habilidad;
 import habilidad.RayoLaser;
-import pooglin.Pooglin;
 
 public class AbstractFactoryRayoLaser extends AbstractFactoryHabilidad{
 	private int cantidadDisponible;

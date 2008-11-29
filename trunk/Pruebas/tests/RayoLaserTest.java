@@ -4,8 +4,8 @@ import habilidad.RayoLaser;
 import juego.Nivel;
 import juego.Planeta;
 import junit.framework.TestCase;
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Bloque;
 import bloque.Tierra;
 
@@ -38,7 +38,7 @@ public class RayoLaserTest extends TestCase {
 	    /* La idea es golpear la tierra hasta tenga dureza cero*/
 	    for(int i=1;disparosInicial>i;i++){
 	    	unRayoLaser.interactuar(unPlaneta);
-	    	unPlaneta.agregarObstaculo(new Tierra(new Punto(unPooglin.getPosicion().puntoRelativo(0,1))));
+	    	unPlaneta.agregar(new Tierra(new Punto(unPooglin.getPosicion().puntoRelativo(0,1))));
 	    	assertEquals(disparosInicial-i,unRayoLaser.getDisparos());
 	    }
 	}

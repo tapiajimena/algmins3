@@ -1,11 +1,11 @@
 package tests;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import habilidad.Habilidad;
 import habilidad.Teletransportacion;
 import juego.Nivel;
 import juego.Planeta;
 import junit.framework.TestCase;
-import pooglin.Pooglin;
-import punto.Punto;
 
 
 public class TeletrasportacionTest extends TestCase {

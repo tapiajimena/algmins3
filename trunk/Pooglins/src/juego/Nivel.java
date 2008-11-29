@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+
+import Modelo.Pooglin;
+import Modelo.Punto;
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
-import pooglin.Pooglin;
-import punto.Punto;
 
 public class Nivel {
 	/*
@@ -232,12 +233,7 @@ public class Nivel {
 		/* listo el pollo, pelada la gallina */
 	}
 	public boolean estaFinalizado(){
-		if((this.cantidadSalvados+this.cantMuertos)==(this.cantInicialPooglins)){
-		return true;	
-		} else
-		{
-			return false;
-		}
+		return (this.cantidadSalvados+this.cantMuertos)==(this.cantInicialPooglins);
 		
 	}
 

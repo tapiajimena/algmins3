@@ -3,7 +3,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import juego.Planeta;
-import pooglin.Pooglin;
+import Modelo.Pooglin;
 import bloque.Hielo;
 
 
@@ -16,7 +16,7 @@ public class Congelamiento extends Habilidad {
 	public void interactuar(Planeta planeta) {
 		if(tiempo>0 )tiempo --;
 		else {
-			planeta.agregarObstaculo(new Hielo(pooglin.getPosicion()));
+			planeta.agregar(new Hielo(pooglin.getPosicion()));
 			pooglin.morir();
 		}
 	}

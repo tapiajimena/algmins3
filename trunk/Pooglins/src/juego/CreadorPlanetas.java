@@ -2,8 +2,9 @@ package juego;
 
 import java.lang.reflect.Constructor;
 import java.util.Hashtable;
+
+import Modelo.Punto;
 import bloque.Bloque;
-import punto.Punto;
 
 public class CreadorPlanetas {
 	private static CreadorPlanetas creadorDefault=null;

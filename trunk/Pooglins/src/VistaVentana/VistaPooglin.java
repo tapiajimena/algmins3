@@ -11,7 +11,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
-import pooglin.Pooglin;
+import Modelo.Pooglin;
+
 
 public class VistaPooglin extends JComponent{
 	private static final long serialVersionUID = 1L;

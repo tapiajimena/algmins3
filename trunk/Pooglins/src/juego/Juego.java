@@ -71,7 +71,6 @@ public class Juego extends JFrame {
 	}
 
 	// interno para cargar el nivel q sigue
-	@SuppressWarnings("unused")
 	public void siguienteNivel() {
 		numeroNivel++;
 		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
@@ -91,15 +90,11 @@ public class Juego extends JFrame {
 				vista.actualizarVista();
 				
 				if(nivel.estaFinalizado()){
-					System.out.println("FINALIZO");
 					timer.stop(); 
 					siguienteNivel();
 					}
 			}
 		};
-		
-		
-		
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
 		timer = new Timer(400, gameLoop);
