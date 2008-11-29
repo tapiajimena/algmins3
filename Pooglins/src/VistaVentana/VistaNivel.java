@@ -9,6 +9,8 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -67,6 +69,10 @@ public class VistaNivel extends JPanel  {
 	public void actualizarVista() {
 		int nroVivosModelo=nivel.cantidadDePooglinsVivos();
 		escenario.actualizar();
+		
+
+		
+		
 		while(nroVivosModelo>this.pooglins.size()){			
 			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(this.pooglins.size());
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);
@@ -88,6 +94,12 @@ public class VistaNivel extends JPanel  {
 			JRadioButton botonRadio=(JRadioButton)panelHabilidad.getComponent(i);
 			botonRadio.setText(nivel.getFabricasHabilidad().get(i).cantidadDisponible()+"-"+nivel.getFabricasHabilidad().get(i).toString());
 		}
+		
+		if(((nivel.getCantSalvados() + nivel.getCantMuertos())==(nivel.getCantInicialPooglins()))){ 
+		estadisticas();
+	}
+		
+		
 	}
 	public VistaPlaneta getVistaPlaneta(){
 		return escenario;
@@ -96,7 +108,11 @@ public class VistaNivel extends JPanel  {
 		return groupHabilidad.getSelection();
 	}
 
-	
+    public void estadisticas(){
+		
+        JOptionPane.showMessageDialog(this, "Se han salvado: "+nivel.getCantSalvados()+"  Lamentablemente murieron: "+nivel.getCantMuertos());
+	   
+   }
 	
 
  
