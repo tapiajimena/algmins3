@@ -231,4 +231,17 @@ public class Nivel {
 		//tiempo.recuperarEstado(nivelXML.element("tiempoNivel"));
 		/* listo el pollo, pelada la gallina */
 	}
+	public boolean estaFinalizado(){
+		if((this.cantidadSalvados+this.cantMuertos)==(this.cantInicialPooglins)){
+		return true;	
+		} else
+		{
+			return false;
+		}
+		
+	}
+
+	public int getCantSalvados() {
+		return cantidadSalvados;
+	}
 }

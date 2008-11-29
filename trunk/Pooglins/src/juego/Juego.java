@@ -53,7 +53,7 @@ public class Juego extends JFrame {
 
 	public Juego() {
 		this.nivel = CreadorNiveles.crearNivel();
-		cargarJuego("juegoSalvado.xml");
+		//cargarJuego("juegoSalvado.xml");
 		this.vista = new VistaNivel(nivel);
 		// add funciona como pila L-A-F-P
         //crear
@@ -72,23 +72,34 @@ public class Juego extends JFrame {
 
 	// interno para cargar el nivel q sigue
 	@SuppressWarnings("unused")
-	private void siguienteNivel() {
+	public void siguienteNivel() {
 		numeroNivel++;
 		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
+		this.vista = new VistaNivel(nivel);
+		empezar();
 	}
 
 	// Para ver el nivel actual desde MVC
 	public Nivel getNivelActual() {
 		return nivel;
 	}
-	private void empesar(){
+	private void empezar(){
 		Action gameLoop = new AbstractAction() {
 			private static final long serialVersionUID = 1L;
 			public void actionPerformed(ActionEvent evt) {
 				nivel.siguienteRonda();
 				vista.actualizarVista();
+				
+				if(nivel.estaFinalizado()){
+					System.out.println("FINALIZO");
+					timer.stop(); 
+					siguienteNivel();
+					}
 			}
 		};
+		
+		
+		
 		this.setVisible(true);
 		this.setAlwaysOnTop(true);
 		timer = new Timer(400, gameLoop);
@@ -102,7 +113,7 @@ public class Juego extends JFrame {
 			e.printStackTrace();
 		}
 		pre.dispose();
-		empesar();
+		empezar();
 	}
 	public void salvarJuego(String ruta){
 		Document doc=DocumentHelper.createDocument();

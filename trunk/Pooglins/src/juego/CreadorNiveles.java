@@ -18,7 +18,7 @@ public class CreadorNiveles {
 		fabricasHabilidad.add(new AbstractFactoryRayoLaser(1));
 		fabricasHabilidad.add(new AbstractFactoryTeletransportacion(3));
 		fabricasHabilidad.add(new AbstractFactoryTaladroUltrasonico(3));
-		Nivel nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);
+		Nivel nivel = new Nivel(fabricasHabilidad, 3, planeta, 2);
 		nivel.setNombre("Nivel:1");
 		return nivel;
 	}
