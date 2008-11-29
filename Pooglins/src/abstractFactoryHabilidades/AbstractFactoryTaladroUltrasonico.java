@@ -3,9 +3,10 @@ package abstractFactoryHabilidades;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import Modelo.Pooglin;
+
 import habilidad.Habilidad;
 import habilidad.TaladroUltrasonico;
-import pooglin.Pooglin;
 
 public class AbstractFactoryTaladroUltrasonico extends AbstractFactoryHabilidad{
 	

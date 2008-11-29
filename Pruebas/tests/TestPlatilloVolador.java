@@ -1,12 +1,12 @@
 package tests;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Aire;
 import juego.Nivel;
 import juego.Planeta;
 import junit.framework.TestCase;
 import habilidad.PlatilloVolador;
 import habilidad.Habilidad;
-import pooglin.Pooglin;
-import punto.Punto;
 
 public class TestPlatilloVolador extends TestCase {
 	

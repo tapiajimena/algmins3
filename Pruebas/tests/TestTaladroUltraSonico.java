@@ -3,8 +3,8 @@ import habilidad.TaladroUltrasonico;
 import juego.Nivel;
 import juego.Planeta;
 import junit.framework.TestCase;
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Bloque;
 import bloque.Tierra;
 
@@ -37,7 +37,7 @@ public class TestTaladroUltraSonico extends TestCase {
 	    /*Empiezo la interaccion*/
 	    /* La idea es golpear la tierra hasta tenga dureza cero*/
 	    for(int i=1;vueltasIniciales>i;i++){
-	    	unPlaneta.agregarObstaculo(new Tierra(unPooglin.getPosicion().puntoRelativo(1, 0)));
+	    	unPlaneta.agregar(new Tierra(unPooglin.getPosicion().puntoRelativo(1, 0)));
 	    	unTaladro.interactuar(unPlaneta);
 	    	assertEquals(vueltasIniciales-i,unTaladro.getVueltasDeTorpedo());
 	    }

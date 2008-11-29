@@ -3,8 +3,8 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import juego.Planeta;
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
 import bloque.Tunel;
 
 public class TunelElectroMagnetico extends Habilidad {
@@ -24,7 +24,7 @@ public class TunelElectroMagnetico extends Habilidad {
 		
 		if (unPlaneta.getBloque(posicionBloque).esTraspasable()){
 			if (this.longitudFaltante>0){
-				unPlaneta.agregarObstaculo(new Tunel(posicionBloque));
+				unPlaneta.agregar(new Tunel(posicionBloque));
 				this.longitudFaltante--;
 				pooglin.caminar();
 			}else pooglin.definirHabilidad(null);

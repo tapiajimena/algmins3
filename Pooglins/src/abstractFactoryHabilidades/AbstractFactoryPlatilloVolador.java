@@ -3,9 +3,10 @@ package abstractFactoryHabilidades;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import Modelo.Pooglin;
+
 import habilidad.Habilidad;
 import habilidad.PlatilloVolador;
-import pooglin.Pooglin;
 
 public class AbstractFactoryPlatilloVolador extends AbstractFactoryHabilidad{
 	

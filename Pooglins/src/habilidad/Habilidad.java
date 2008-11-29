@@ -1,7 +1,8 @@
 package habilidad;
 import org.dom4j.Element;
 
-import pooglin.Pooglin;
+import Modelo.Pooglin;
+
 import juego.Planeta;
 
 

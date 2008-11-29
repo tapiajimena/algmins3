@@ -2,8 +2,9 @@ package bloque;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-import pooglin.Pooglin;
-import punto.Punto;
+import Modelo.Pooglin;
+import Modelo.Punto;
+
 
 
 public class Fuego extends Bloque implements Apagable {

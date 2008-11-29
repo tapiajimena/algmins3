@@ -1,9 +1,10 @@
 package bloque;
-import pooglin.Pooglin;
-import punto.Punto;
 
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+
+import Modelo.Pooglin;
+import Modelo.Punto;
 
 
 public class AgujeroNegro extends Bloque {

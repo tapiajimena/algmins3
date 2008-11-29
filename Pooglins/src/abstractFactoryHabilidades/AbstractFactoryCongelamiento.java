@@ -3,9 +3,10 @@ package abstractFactoryHabilidades;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+import Modelo.Pooglin;
+
 import habilidad.Congelamiento;
 import habilidad.Habilidad;
-import pooglin.Pooglin;
 
 public class AbstractFactoryCongelamiento extends AbstractFactoryHabilidad{
 	private int cantidadDisponible;

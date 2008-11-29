@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import juego.Nivel;
-import pooglin.Pooglin;
 import Controlador.Controlador;
+import Modelo.Pooglin;
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
 public class VistaNivel extends JPanel  {
@@ -95,10 +95,7 @@ public class VistaNivel extends JPanel  {
 			botonRadio.setText(nivel.getFabricasHabilidad().get(i).cantidadDisponible()+"-"+nivel.getFabricasHabilidad().get(i).toString());
 		}
 		
-		if(((nivel.getCantSalvados() + nivel.getCantMuertos())==(nivel.getCantInicialPooglins()))){ 
-		estadisticas();
-	}
-		
+		if(nivel.estaFinalizado())estadisticas();	
 		
 	}
 	public VistaPlaneta getVistaPlaneta(){
@@ -109,9 +106,7 @@ public class VistaNivel extends JPanel  {
 	}
 
     public void estadisticas(){
-		
         JOptionPane.showMessageDialog(this, "Se han salvado: "+nivel.getCantSalvados()+"  Lamentablemente murieron: "+nivel.getCantMuertos());
-	   
    }
 	
 
