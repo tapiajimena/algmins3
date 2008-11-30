@@ -3,7 +3,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import juego.Planeta;
-import Modelo.Pooglin;
+import juego.Pooglin;
 import bloque.Hielo;
 
 

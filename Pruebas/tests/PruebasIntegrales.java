@@ -1,8 +1,6 @@
 package tests;
 import java.io.IOException;
 
-import Modelo.Pooglin;
-import Modelo.Punto;
 
 import juego.*;
 import punto.*;

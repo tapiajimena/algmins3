@@ -2,9 +2,9 @@ package tests;
 import habilidad.TaladroUltrasonico;
 import juego.Nivel;
 import juego.Planeta;
+import juego.Pooglin;
+import juego.Punto;
 import junit.framework.TestCase;
-import Modelo.Pooglin;
-import Modelo.Punto;
 import bloque.Bloque;
 import bloque.Tierra;
 

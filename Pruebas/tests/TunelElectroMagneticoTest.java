@@ -1,6 +1,4 @@
 package tests;
-import Modelo.Pooglin;
-import Modelo.Punto;
 import bloque.Bloque;
 import bloque.Tierra;
 import habilidad.RayoLaser;
@@ -8,6 +6,8 @@ import habilidad.TaladroUltrasonico;
 import habilidad.TunelElectroMagnetico;
 import juego.Nivel;
 import juego.Planeta;
+import juego.Pooglin;
+import juego.Punto;
 import junit.framework.TestCase;
 
 

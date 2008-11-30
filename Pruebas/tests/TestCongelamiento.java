@@ -4,9 +4,9 @@ import habilidad.Congelamiento;
 import habilidad.Habilidad;
 import juego.Nivel;
 import juego.Planeta;
+import juego.Pooglin;
+import juego.Punto;
 import junit.framework.TestCase;
-import Modelo.Pooglin;
-import Modelo.Punto;
 import bloque.Aire;
 import bloque.Hielo;
 

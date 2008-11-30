@@ -1,9 +1,9 @@
 package tests;
-import Modelo.Pooglin;
-import Modelo.Punto;
 import bloque.Hielo;
 import juego.Nivel;
 import juego.Planeta;
+import juego.Pooglin;
+import juego.Punto;
 import junit.framework.TestCase;
 
 public class HieloTest extends TestCase {

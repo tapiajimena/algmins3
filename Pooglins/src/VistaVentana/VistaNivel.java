@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 import juego.Nivel;
+import juego.Pooglin;
 import Controlador.Controlador;
-import Modelo.Pooglin;
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
 public class VistaNivel extends JPanel  {
