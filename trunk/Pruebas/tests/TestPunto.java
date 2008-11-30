@@ -1,8 +1,9 @@
 package tests;
+import modelo.Punto;
+
 import org.dom4j.Element;
 
 
-import juego.Punto;
 import junit.framework.TestCase;
 
 

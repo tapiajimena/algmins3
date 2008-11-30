@@ -1,13 +1,13 @@
 package tests;
-import bloque.Bloque;
-import bloque.Tierra;
-import habilidad.RayoLaser;
-import habilidad.TaladroUltrasonico;
-import habilidad.TunelElectroMagnetico;
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Bloque;
+import modelo.bloque.Tierra;
+import modelo.habilidad.RayoLaser;
+import modelo.habilidad.TaladroUltrasonico;
+import modelo.habilidad.TunelElectroMagnetico;
 import junit.framework.TestCase;
 
 

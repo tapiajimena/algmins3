@@ -1,14 +1,14 @@
 package tests;
 
-import habilidad.Congelamiento;
-import habilidad.Habilidad;
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Aire;
+import modelo.bloque.Hielo;
+import modelo.habilidad.Congelamiento;
+import modelo.habilidad.Habilidad;
 import junit.framework.TestCase;
-import bloque.Aire;
-import bloque.Hielo;
 
 public class TestCongelamiento extends TestCase {
 

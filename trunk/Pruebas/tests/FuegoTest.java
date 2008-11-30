@@ -1,7 +1,7 @@
 package tests;
-import bloque.Fuego;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Fuego;
 import junit.framework.*;
 
 public class FuegoTest extends TestCase {

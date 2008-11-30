@@ -1,8 +1,8 @@
 package tests;
-import bloque.AgujeroNegro;
-import bloque.Bloque;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.AgujeroNegro;
+import modelo.bloque.Bloque;
 import junit.framework.TestCase;
 
 

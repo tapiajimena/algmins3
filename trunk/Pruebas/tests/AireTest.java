@@ -1,9 +1,9 @@
 package tests;
-import bloque.Aire;
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Aire;
 import junit.framework.TestCase;
 
 

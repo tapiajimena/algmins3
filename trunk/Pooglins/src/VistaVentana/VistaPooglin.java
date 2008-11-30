@@ -11,7 +11,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
-import juego.Pooglin;
+import modelo.Pooglin;
+
 
 
 

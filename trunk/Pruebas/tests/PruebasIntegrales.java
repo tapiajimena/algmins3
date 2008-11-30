@@ -1,9 +1,11 @@
 package tests;
 import java.io.IOException;
 
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
 
-import juego.*;
-import punto.*;
 
 import junit.framework.TestCase;
 

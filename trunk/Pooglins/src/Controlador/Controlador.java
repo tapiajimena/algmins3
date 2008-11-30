@@ -10,13 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
-import abstractFactoryHabilidades.AbstractFactoryHabilidad;
+import modelo.Nivel;
+import modelo.Pooglin;
+import modelo.abstractFactoryHabilidades.AbstractFactoryHabilidad;
+
 
 
 import VistaVentana.VistaNivel;
 import VistaVentana.VistaPooglin;
-import juego.Nivel;
-import juego.Pooglin;
 
 public class Controlador {
 	private Nivel nivel;

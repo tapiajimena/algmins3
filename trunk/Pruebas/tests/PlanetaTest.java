@@ -1,9 +1,13 @@
 package tests;
 import java.io.FileOutputStream;
-import juego.CreadorPlanetas;
-import juego.Planeta;
-import juego.Punto;
 import junit.framework.TestCase;
+import modelo.CreadorPlanetas;
+import modelo.Planeta;
+import modelo.Punto;
+import modelo.bloque.Aire;
+import modelo.bloque.Bloque;
+import modelo.bloque.Tierra;
+
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -12,9 +16,6 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import bloque.Aire;
-import bloque.Bloque;
-import bloque.Tierra;
 
 public class PlanetaTest extends TestCase {
 	
