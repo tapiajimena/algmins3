@@ -2,10 +2,10 @@ package habilidad;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-import Modelo.Pooglin;
-import Modelo.Punto;
 
 import juego.Planeta;
+import juego.Pooglin;
+import juego.Punto;
 
 
 

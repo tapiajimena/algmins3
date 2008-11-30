@@ -1,12 +1,12 @@
 package Main;
-import juego.Juego;
+import VistaVentana.VistaJuego;
 
 
 public class MainTest {
 
 	public static void main(String[] args) {
 
-		Juego juego = new Juego();
+		VistaJuego juego = new VistaJuego();
 
 		juego.gameStart();
 

@@ -1,9 +1,9 @@
 package habilidad;
 import org.dom4j.Element;
 
-import Modelo.Pooglin;
 
 import juego.Planeta;
+import juego.Pooglin;
 
 
 public abstract class Habilidad {

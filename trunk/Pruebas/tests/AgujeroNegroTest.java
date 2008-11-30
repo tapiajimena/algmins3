@@ -1,8 +1,8 @@
 package tests;
-import Modelo.Pooglin;
-import Modelo.Punto;
 import bloque.AgujeroNegro;
 import bloque.Bloque;
+import juego.Pooglin;
+import juego.Punto;
 import junit.framework.TestCase;
 
 

@@ -11,7 +11,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
-import Modelo.Pooglin;
+import juego.Pooglin;
+
 
 
 public class VistaPooglin extends JComponent{

@@ -5,7 +5,6 @@ import java.util.Iterator;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-import Modelo.Punto;
 import bloque.AgujeroNegro;
 import bloque.Aire;
 import bloque.Bloque;

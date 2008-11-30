@@ -2,6 +2,7 @@ package tests;
 import java.io.FileOutputStream;
 import juego.CreadorPlanetas;
 import juego.Planeta;
+import juego.Punto;
 import junit.framework.TestCase;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -11,7 +12,6 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import Modelo.Punto;
 import bloque.Aire;
 import bloque.Bloque;
 import bloque.Tierra;

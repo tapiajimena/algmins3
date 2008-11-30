@@ -1,4 +1,4 @@
-package juego;
+package VistaVentana;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -19,6 +19,10 @@ import javax.swing.JProgressBar;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
+import juego.CreadorNiveles;
+import juego.Nivel;
+import juego.TiempoNivel;
+
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -28,11 +32,9 @@ import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
 
-import VistaVentana.VistaNivel;
-import VistaVentana.VistaPresentacion;
 
 
-public class Juego extends JFrame {
+public class VistaJuego extends JFrame {
 	/**
 	 * 
 	 */
@@ -51,7 +53,7 @@ public class Juego extends JFrame {
 	private Timer timerProgressBar;
 	private Timer timer;
 
-	public Juego() {
+	public VistaJuego() {
 		this.nivel = CreadorNiveles.crearNivel();
 		//cargarJuego("juegoSalvado.xml");
 		this.vista = new VistaNivel(nivel);

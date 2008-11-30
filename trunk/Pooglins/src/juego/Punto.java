@@ -1,4 +1,4 @@
-package Modelo;
+package juego;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 

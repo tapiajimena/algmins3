@@ -1,9 +1,9 @@
-package Modelo;
+package juego;
 
 import java.lang.reflect.Constructor;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
-import juego.Nivel;
+
 import habilidad.Habilidad;
 
 public class Pooglin {

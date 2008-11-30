@@ -6,8 +6,6 @@ import java.util.Iterator;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-import Modelo.Pooglin;
-import Modelo.Punto;
 import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
 public class Nivel {

@@ -3,8 +3,8 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import juego.Planeta;
-import Modelo.Pooglin;
-import Modelo.Punto;
+import juego.Pooglin;
+import juego.Punto;
 import bloque.Rompible;
 
 public class RayoLaser extends Habilidad{

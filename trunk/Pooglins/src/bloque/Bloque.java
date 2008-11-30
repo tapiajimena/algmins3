@@ -1,8 +1,9 @@
 package bloque;
+import juego.Pooglin;
+import juego.Punto;
+
 import org.dom4j.Element;
 
-import Modelo.Pooglin;
-import Modelo.Punto;
 
 public abstract class Bloque {
  

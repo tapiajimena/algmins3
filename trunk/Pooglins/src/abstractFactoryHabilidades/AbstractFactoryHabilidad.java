@@ -1,8 +1,9 @@
 package abstractFactoryHabilidades;
 
+import juego.Pooglin;
+
 import org.dom4j.Element;
 
-import Modelo.Pooglin;
 
 
 public abstract class AbstractFactoryHabilidad {
