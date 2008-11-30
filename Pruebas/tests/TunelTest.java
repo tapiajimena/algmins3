@@ -1,12 +1,12 @@
 package tests;
 
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Bloque;
+import modelo.bloque.Tunel;
 import junit.framework.TestCase;
-import bloque.Bloque;
-import bloque.Tunel;
 
 
 public class TunelTest extends TestCase {

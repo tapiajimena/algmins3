@@ -14,10 +14,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-import juego.Nivel;
-import juego.Pooglin;
+import modelo.Nivel;
+import modelo.Pooglin;
+import modelo.abstractFactoryHabilidades.AbstractFactoryHabilidad;
+
 import Controlador.Controlador;
-import abstractFactoryHabilidades.AbstractFactoryHabilidad;
 
 public class VistaNivel extends JPanel  {
 	/**

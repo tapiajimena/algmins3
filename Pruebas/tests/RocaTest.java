@@ -1,9 +1,9 @@
 package tests;
-import bloque.Roca;
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Roca;
 import junit.framework.TestCase;
 public class RocaTest extends TestCase {
 	

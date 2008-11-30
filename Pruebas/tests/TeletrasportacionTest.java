@@ -1,10 +1,10 @@
 package tests;
-import habilidad.Habilidad;
-import habilidad.Teletransportacion;
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.habilidad.Habilidad;
+import modelo.habilidad.Teletransportacion;
 import junit.framework.TestCase;
 
 

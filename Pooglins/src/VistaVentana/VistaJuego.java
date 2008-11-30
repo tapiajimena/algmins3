@@ -19,9 +19,10 @@ import javax.swing.JProgressBar;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
-import juego.CreadorNiveles;
-import juego.Nivel;
-import juego.TiempoNivel;
+
+import modelo.CreadorNiveles;
+import modelo.Nivel;
+import modelo.TiempoNivel;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;

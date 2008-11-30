@@ -1,12 +1,12 @@
 package tests;
-import habilidad.TaladroUltrasonico;
-import juego.Nivel;
-import juego.Planeta;
-import juego.Pooglin;
-import juego.Punto;
+import modelo.Nivel;
+import modelo.Planeta;
+import modelo.Pooglin;
+import modelo.Punto;
+import modelo.bloque.Bloque;
+import modelo.bloque.Tierra;
+import modelo.habilidad.TaladroUltrasonico;
 import junit.framework.TestCase;
-import bloque.Bloque;
-import bloque.Tierra;
 
 
 public class TestTaladroUltraSonico extends TestCase {
