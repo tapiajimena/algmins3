@@ -15,6 +15,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
@@ -116,6 +117,35 @@ public class VistaJuego extends JFrame {
 	        // preparo la venta
 	     super.pack();
 		
+		System.out.print("NIVEL:"+numeroNivel);
+		
+		
+		empezar();
+		
+		
+	}
+
+	public void cargarNivel(int numeroNivel) {
+		
+		vista.setVisible(false);
+		progressBar.setVisible(false);
+		
+		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
+		this.vista = new VistaNivel(nivel);
+		
+		 barraMenu();
+	    
+	    
+		 crearProgressBar();
+	     super.getContentPane().add(vista);
+	     super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	     super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
+      
+	     super.getContentPane().setBackground(Color.black);
+	     super.setPreferredSize(new Dimension(1050, 500));
+	        // preparo la venta
+	     super.pack();
+		
 		System.out.print("NUEVO NIVEL:"+numeroNivel);
 		
 		
@@ -124,6 +154,8 @@ public class VistaJuego extends JFrame {
 		
 	}
 
+	
+	
 	// Para ver el nivel actual desde MVC
 	public Nivel getNivelActual() {
 		return nivel;
@@ -137,10 +169,16 @@ public class VistaJuego extends JFrame {
 				nivel.siguienteRonda();
 				vista.actualizarVista();
 				
+				if ( nivel.estaBloqueado()){
+					timer.stop(); 
+					alertas(1);
+					cargarNivel(numeroNivel);
+				}
+				
 				if(nivel.estaFinalizado()){
 					timer.stop(); 
+					alertas(3);
 					//timerProgressBar.stop();
-					
 					siguienteNivel();
 					}
 			}
@@ -267,6 +305,32 @@ public class VistaJuego extends JFrame {
              setJMenuBar(barraDeMenu);
     
     }
+	public void alertas(int i){
+		String mensaje=new String();
+		
+		switch (i) {
+		case 1:
+			mensaje="Muerieron todos! Vuelve a empezar!!!";
+			break;
+		case 2:
+			mensaje="Se acabo el tiempo!!! Vuelve a empezar";	
+			break;
+			
+		case 3:
+			mensaje= "Salvaste a:  "+nivel.getCantSalvados()+"  Murieron: "+nivel.getCantMuertos();
+			
+			break;	
+			
+	        
+		
+		default:
+			mensaje="ERROR: Error inesperado, salga y vuelva a iniciar el programa";
+			break;
+		}
+	
+		JOptionPane.showMessageDialog(this,mensaje,"Atencion!" , JOptionPane.WARNING_MESSAGE); 
+		
+	}
 	private void closeMyself(){
 		this.dispose();
 		System.exit(DISPOSE_ON_CLOSE);
@@ -288,8 +352,7 @@ public class VistaJuego extends JFrame {
 				if (tiempo.getMinutosRestantes() == 0
 						&& tiempo.getSegundosRestantes() == 0) {
 					timerProgressBar.stop();
-					JFrame frame = new JFrame("Warning");
-					JOptionPane.showMessageDialog(frame,"Se ha acabado el tiempo. GAME OVER!");		
+					alertas(2);
 					/*for (int i = 0; i < pooglins.size(); i++) {
 						pooglins.get(i).getPooglin().morir();
 					}*/

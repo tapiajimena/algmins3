@@ -94,9 +94,7 @@ public class VistaNivel extends JPanel  {
 			int i=Integer.parseInt(boton.getActionCommand());
 			JRadioButton botonRadio=(JRadioButton)panelHabilidad.getComponent(i);
 			botonRadio.setText(nivel.getFabricasHabilidad().get(i).cantidadDisponible()+"-"+nivel.getFabricasHabilidad().get(i).toString());
-		}
-		
-		if(nivel.estaFinalizado())estadisticas();	
+		}	
 		
 	}
 	public VistaPlaneta getVistaPlaneta(){
@@ -106,9 +104,7 @@ public class VistaNivel extends JPanel  {
 		return groupHabilidad.getSelection();
 	}
 
-    public void estadisticas(){
-        JOptionPane.showMessageDialog(this, "Se han salvado: "+nivel.getCantSalvados()+"  Lamentablemente murieron: "+nivel.getCantMuertos());
-   }
+
 	
 
  

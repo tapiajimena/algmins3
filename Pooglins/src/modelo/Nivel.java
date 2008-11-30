@@ -240,4 +240,13 @@ public class Nivel {
 	public int getCantSalvados() {
 		return cantidadSalvados;
 	}
+
+	public boolean estaBloqueado() {
+		if(this.cantMuertos==this.cantInicialPooglins){
+			return true;
+		}else{
+			return false;	
+		}
+		
+	}
 }
