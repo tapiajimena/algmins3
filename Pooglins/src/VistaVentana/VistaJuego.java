@@ -72,36 +72,85 @@ public class VistaJuego extends JFrame {
         super.pack();
 
 	}
+	
+	public VistaJuego(int i) {
+		this.nivel = CreadorNiveles.crearNivel(i);
+		//cargarJuego("juegoSalvado.xml");
+		this.vista = new VistaNivel(nivel);
+		// add funciona como pila L-A-F-P
+        //crear
+        barraMenu();
+        crearProgressBar();
+        
+        super.getContentPane().add(vista);
+        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
+        // ventana.setResizable(false);
+        super.getContentPane().setBackground(Color.black);
+        super.setPreferredSize(new Dimension(1050, 500));
+        // preparo la venta
+        super.pack();
+
+	}
+	
 
 	// interno para cargar el nivel q sigue
 	public void siguienteNivel() {
 		numeroNivel++;
+		vista.setVisible(false);
+		progressBar.setVisible(false);
+		
 		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
 		this.vista = new VistaNivel(nivel);
+		
+		 barraMenu();
+	    
+	    
+		 crearProgressBar();
+	     super.getContentPane().add(vista);
+	     super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	     super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
+      
+	     super.getContentPane().setBackground(Color.black);
+	     super.setPreferredSize(new Dimension(1050, 500));
+	        // preparo la venta
+	     super.pack();
+		
+		System.out.print("NUEVO NIVEL:"+numeroNivel);
+		
+		
 		empezar();
+		
+		
 	}
 
 	// Para ver el nivel actual desde MVC
 	public Nivel getNivelActual() {
 		return nivel;
 	}
-	private void empezar(){
+	public void empezar(){
 		Action gameLoop = new AbstractAction() {
 			private static final long serialVersionUID = 1L;
+			
 			public void actionPerformed(ActionEvent evt) {
+				
 				nivel.siguienteRonda();
 				vista.actualizarVista();
 				
 				if(nivel.estaFinalizado()){
 					timer.stop(); 
+					//timerProgressBar.stop();
+					
 					siguienteNivel();
 					}
 			}
 		};
+		
 		this.setVisible(true);
-		this.setAlwaysOnTop(true);
+    	this.setAlwaysOnTop(true);
 		timer = new Timer(400, gameLoop);
 		timer.start();
+		
 	}
 	public void gameStart() {
 		VistaPresentacion pre=new VistaPresentacion();
