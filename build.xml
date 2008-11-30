@@ -1,7 +1,7 @@
 <?xml version="1.0" ?> 
 <project default="all" basedir=".">
 
-	<property name="src" value="src"/>
+	<property name="src" value="Pooglins/src"/>
 	<property name="lib" value="lib"/>
 	<property name="testSrc" value="pruebas"/> 
 	<property name="build" value="build"/> 
@@ -26,13 +26,12 @@
 		</javac>
 		<javac srcdir="${testSrc}" destdir="${testBuild}">
 			<classpath>
-				<pathelement location="${lib}/junit.jar"/>						<pathelement location="${lib}/dom4j-1.6.1.jar"/>
+				<pathelement location="${lib}/junit.jar"/>	
+				<pathelement location="${lib}/dom4j-1.6.1.jar"/>
 				<pathelement location="${build}"/>	
 			</classpath>
 		</javac>
 	</target>
-
-
 	<target name="test" depends="compile">
 		<junit>	
 			<classpath>
@@ -48,5 +47,14 @@
 		</junit>
 	</target>
 
-	<target name="all" depends="test"/>
+	<target name="run" depends="test">
+		<java classname="Main" fork="true" classpath="${build}">
+         		<classpath>
+           			<pathelement location="${lib}/dom4j-1.6.1.jar"/>
+           			<pathelement location="${build}"/>
+         		</classpath>
+       		</java>
+	</target>
+
+	<target name="all" depends="run"/>
 </project>
