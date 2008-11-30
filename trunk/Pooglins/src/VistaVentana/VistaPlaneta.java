@@ -78,6 +78,9 @@ public class VistaPlaneta extends JPanel {
 		case 'H':
 			gra.drawImage(listaDeImagenes.get(6), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
 		break;
+		case 'B':
+			gra.drawImage(listaDeImagenes.get(1), 20 * bloque.getPosicionY(), 20 * bloque.getPosicionX(),20+20 * bloque.getPosicionY(), 20+20 * bloque.getPosicionX(), 0, 0,32, 32, null);
+		break;
 		}
 		
 	
