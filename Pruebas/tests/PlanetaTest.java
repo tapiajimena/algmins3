@@ -28,8 +28,8 @@ public class PlanetaTest extends TestCase {
 	public void setUp(){
 		posTierra = new Punto (2,2);
 		this.unTerreno = new Bloque[4][4];
-		for(int i=0;i<3;i++){
-			for(int j=0;j<3;j++) {
+		for(int i=0;i<4;i++){
+			for(int j=0;j<4;j++) {
 				Tierra tierra=new Tierra(new Punto(i,j));
 				this.unTerreno[i][j]=tierra;
 			}
@@ -89,7 +89,7 @@ public class PlanetaTest extends TestCase {
 			e.printStackTrace();
 		}
 		/*Leyendo de XML*/
-		Planeta planetaRecuperado=new Planeta(0,0,new Bloque[1][1]);
+		Planeta planetaRecuperado=new Planeta(1,1,new Bloque[1][1]);
 		SAXReader xmlReader = new SAXReader();
 		try {
 			doc = xmlReader.read("planetaTest.xml");
