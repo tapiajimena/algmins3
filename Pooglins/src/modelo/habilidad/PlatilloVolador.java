@@ -21,8 +21,12 @@ public class PlatilloVolador extends Habilidad {
 		posicionBloque.setX(posicionBloque.getX()+1);
 		if(planeta.getBloque(posicionBloque).esTraspasable())
 			pooglin.setPosicion(posicionBloque);
-				
-		}
+		 else	
+			 pooglin.caminar();
+	} 
+		
+			
+		
 	
 	public void recuperarEstado(Element unElemento) {
 	}
