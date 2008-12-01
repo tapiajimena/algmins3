@@ -76,38 +76,30 @@ public class Pooglin {
 		if ((!estaMuerto) && (!estaSalvado)) {
 
 			// Si de entrada abajo no hay nada...
-			if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, 0)).esTraspasable())) {
-				// System.out.println("Cae para abajo");
+			if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, 0)).esTraspasable())) {
 				this.caer();
 			}
 			// Si abajo a la derecha no hay bloque no transpasable el pooglin
 			// cae.
 			// No puede haber un bloque tierra si abajo hay aire.
-			else if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())
-					&& (nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, direccion)).esTraspasable())) {
-
-				// System.out.println("Cae en diagonal");
-				this.posicion.setY(this.getPosicion().getY() + direccion);
-				this.posicion.setX(this.getPosicion().getX() + 1);
-
+			else if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())
+					&& (nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, direccion)).esTraspasable())) {
+				
+				this.posicion=this.posicion.puntoRelativo(1, direccion);
 			}
 			// Adelante normal...
-			else if ((nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())
-					&& !(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(1, direccion)).esTraspasable())) {
-				if ((nivel.getPlaneta().getBloque(this.getPosicion())).esDerretible()) {
-					// System.out.println("Me resbalo, hay hielo");
-					this.posicion.setY(this.getPosicion().getY() + direccion);
+			else if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())
+					&& !(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, direccion)).esTraspasable())) {
+				if ((nivel.getPlaneta().getBloque(this.posicion)).esDerretible()) {
+					this.posicion.setY(this.posicion.getY() + direccion);
 				} else {
-					// System.out.println("Avanzo hacia adelante");
-					this.posicion.setY(this.getPosicion().getY() + direccion);
+					this.posicion.setY(this.posicion.getY() + direccion);
 				}
-			} else if (!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(0, direccion)).esTraspasable())) {
-				if (!(nivel.getPlaneta().getBloque(this.getPosicion().puntoRelativo(-1, direccion)).esTraspasable())) {
-					// System.out.println("Doy la vuelta");
+			} else if (!(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())) {
+				if (!(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(-1, direccion)).esTraspasable())) {
 					this.darVuelta();
 				} else {
-					this.posicion.setY(this.getPosicion().getY() + direccion);
-					this.posicion.setX(this.getPosicion().getX() - 1);
+					this.posicion=this.posicion.puntoRelativo(-1, direccion);
 				}
 			}
 		}
@@ -129,17 +121,23 @@ public class Pooglin {
 
 	public void caer() {
 		letraHabilidad = 'F';// f de fall
-		if (bloquesCaidos >= 4) {
+		if (nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(2, 0)).esTraspasable()) {
+			bloquesCaidos++;
+		}else {
+			if(bloquesCaidos>4)this.morir();
+			bloquesCaidos=0;
+		}
+		this.posicion.setX(this.getPosicion().getX() + 1);
+/*		if (bloquesCaidos >= 4) {
 			this.morir();
 		}
 		if (bloquesCaidos <= 4) {
 			bloquesCaidos++;
-			this.posicion.setX(this.getPosicion().getX() + 1);
 		}
 		if (!(nivel.getPlaneta().getBloque(
 				this.getPosicion().puntoRelativo(1, 0)).esTraspasable())) {
 			bloquesCaidos = 0;
-		}
+		}*/
 
 	}
 
@@ -253,3 +251,4 @@ public class Pooglin {
 	}
 
 }
+
