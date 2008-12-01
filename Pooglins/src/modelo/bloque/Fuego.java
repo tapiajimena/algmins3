@@ -3,7 +3,6 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 
@@ -40,15 +39,13 @@ public class Fuego extends Bloque implements Apagable {
 	}
 	
 	public Element serializar(){
-		Element elementFuego=DocumentHelper.createElement("Fuego");
+		Element elementFuego=super.serializar();
 		elementFuego.addAttribute("resistencia",String.valueOf(this.resistencia));
-		Element elementoPunto=this.posicion.serializar();
-		elementFuego.add(elementoPunto);
 		return elementFuego;
 	}
 	
 	public void recuperarEstado(Element elementoFuego){
-		this.posicion.recuperarEstado(elementoFuego.element("Punto"));
+		super.recuperarEstado(elementoFuego);
 		this.resistencia = Integer.parseInt(elementoFuego.attributeValue("resistencia"));
 	}
 	public boolean equals(Object obj){

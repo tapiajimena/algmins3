@@ -3,7 +3,6 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 
@@ -60,15 +59,13 @@ public class Hielo extends Bloque implements Rompible{
 	}
 
 	public Element serializar(){
-		Element elementHielo=DocumentHelper.createElement("Hielo");
+		Element elementHielo=super.serializar();
 		elementHielo.addAttribute("dureza",String.valueOf(this.dureza));
-		Element elementoPunto=this.posicion.serializar();
-		elementHielo.add(elementoPunto);
 		return elementHielo;
 	}
 	
 	public void recuperarEstado(Element elementoHielo){
-		this.posicion.recuperarEstado(elementoHielo.element("Punto"));
+		super.recuperarEstado(elementoHielo);
 		this.dureza = Integer.parseInt(elementoHielo.attributeValue("dureza"));
 	}
 	public boolean equals(Object obj){

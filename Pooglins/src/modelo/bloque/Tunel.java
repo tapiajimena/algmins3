@@ -3,7 +3,6 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 
@@ -34,15 +33,13 @@ public class Tunel extends Bloque {
 	}
 	
 	public Element serializar(){
-		Element elementTunel=DocumentHelper.createElement("Tunel");
+		Element elementTunel=super.serializar();
 		elementTunel.addAttribute("duracion",String.valueOf(this.duracion));
-		Element elementoPunto=this.posicion.serializar();
-		elementTunel.add(elementoPunto);
 		return elementTunel;
 	}
 	
 	public void recuperarEstado(Element elementoTunel){
-		this.posicion.recuperarEstado(elementoTunel.element("Punto"));
+		super.recuperarEstado(elementoTunel);
 		this.duracion = Integer.parseInt(elementoTunel.attributeValue("duracion"));
 	}
 	public boolean equals(Object obj){
