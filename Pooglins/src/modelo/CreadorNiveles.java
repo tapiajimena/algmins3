@@ -2,23 +2,23 @@ package modelo;
 
 import java.util.ArrayList;
 
-import modelo.abstractFactoryHabilidades.AbstractFactoryCongelamiento;
-import modelo.abstractFactoryHabilidades.AbstractFactoryHabilidad;
-import modelo.abstractFactoryHabilidades.AbstractFactoryPlatilloVolador;
-import modelo.abstractFactoryHabilidades.AbstractFactoryRayoLaser;
-import modelo.abstractFactoryHabilidades.AbstractFactoryTaladroUltrasonico;
-import modelo.abstractFactoryHabilidades.AbstractFactoryTeletransportacion;
-import modelo.abstractFactoryHabilidades.AbstractFactoryTunelEletromagnetico;
+import modelo.FactoryHabilidades.AbstractFactoryHabilidad;
+import modelo.FactoryHabilidades.FactoryCongelamiento;
+import modelo.FactoryHabilidades.FactoryPlatilloVolador;
+import modelo.FactoryHabilidades.FactoryRayoLaser;
+import modelo.FactoryHabilidades.FactoryTaladroUltrasonico;
+import modelo.FactoryHabilidades.FactoryTeletransportacion;
+import modelo.FactoryHabilidades.FactoryTunelEletromagnetico;
 
 
 public class CreadorNiveles {
 	public static Nivel crearNivel() {
 		Planeta planeta = CreadorPlanetas.crearPlaneta(1);
 		ArrayList<AbstractFactoryHabilidad> fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-		fabricasHabilidad.add(new AbstractFactoryCongelamiento(3));
-		fabricasHabilidad.add(new AbstractFactoryRayoLaser(1));
-		fabricasHabilidad.add(new AbstractFactoryTeletransportacion(3));
-		fabricasHabilidad.add(new AbstractFactoryTaladroUltrasonico(3));
+		fabricasHabilidad.add(new FactoryCongelamiento(3));
+		fabricasHabilidad.add(new FactoryRayoLaser(1));
+		fabricasHabilidad.add(new FactoryTeletransportacion(3));
+		fabricasHabilidad.add(new FactoryTaladroUltrasonico(3));
 		Nivel nivel = new Nivel(fabricasHabilidad, 3, planeta, 2);
 		nivel.setNombre("Nivel:1");
 		return nivel;
@@ -33,10 +33,10 @@ public class CreadorNiveles {
 			
 		planeta = CreadorPlanetas.crearPlaneta(1);
 		fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-		fabricasHabilidad.add(new AbstractFactoryCongelamiento(3));
-		fabricasHabilidad.add(new AbstractFactoryRayoLaser(1));
-		fabricasHabilidad.add(new AbstractFactoryTeletransportacion(3));
-		fabricasHabilidad.add(new AbstractFactoryTaladroUltrasonico(3));
+		fabricasHabilidad.add(new FactoryCongelamiento(3));
+		fabricasHabilidad.add(new FactoryRayoLaser(1));
+		fabricasHabilidad.add(new FactoryTeletransportacion(3));
+		fabricasHabilidad.add(new FactoryTaladroUltrasonico(3));
 		nivel = new Nivel(fabricasHabilidad, 3, planeta, 2);
 		nivel.setNombre("Nivel:1");
 		
@@ -47,11 +47,11 @@ public class CreadorNiveles {
 			planeta = CreadorPlanetas.crearPlaneta(2);
 			// creo el array de habilidades
 			fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-			fabricasHabilidad.add(new AbstractFactoryPlatilloVolador(10));
-			fabricasHabilidad.add(new AbstractFactoryRayoLaser(10));
-			fabricasHabilidad.add(new AbstractFactoryTeletransportacion(10));
-			fabricasHabilidad.add(new AbstractFactoryTunelEletromagnetico(10));
-			fabricasHabilidad.add(new AbstractFactoryTaladroUltrasonico(10));
+			fabricasHabilidad.add(new FactoryPlatilloVolador(10));
+			fabricasHabilidad.add(new FactoryRayoLaser(10));
+			fabricasHabilidad.add(new FactoryTeletransportacion(10));
+			fabricasHabilidad.add(new FactoryTunelEletromagnetico(10));
+			fabricasHabilidad.add(new FactoryTaladroUltrasonico(10));
 			// cargo el nivel 
 			nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);
 			nivel.setNombre("Nivel:2");
@@ -62,10 +62,10 @@ public class CreadorNiveles {
 			planeta = CreadorPlanetas.crearPlaneta(2);
 			// creo el array de habilidades
 			fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-			fabricasHabilidad.add(new AbstractFactoryPlatilloVolador(8));
-			fabricasHabilidad.add(new AbstractFactoryRayoLaser(3));
-			fabricasHabilidad.add(new AbstractFactoryTeletransportacion(3));
-			fabricasHabilidad.add(new AbstractFactoryTunelEletromagnetico(4));
+			fabricasHabilidad.add(new FactoryPlatilloVolador(8));
+			fabricasHabilidad.add(new FactoryRayoLaser(3));
+			fabricasHabilidad.add(new FactoryTeletransportacion(3));
+			fabricasHabilidad.add(new FactoryTunelEletromagnetico(4));
 			// cargo el nivel 
 			nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);
 			nivel.setNombre("Nivel:3");
@@ -76,10 +76,10 @@ public class CreadorNiveles {
 		default:
 			planeta = CreadorPlanetas.crearPlaneta(0);
 			fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-			fabricasHabilidad.add(new AbstractFactoryCongelamiento(3));
-			fabricasHabilidad.add(new AbstractFactoryRayoLaser(3));
-			fabricasHabilidad.add(new AbstractFactoryTeletransportacion(3));
-			fabricasHabilidad.add(new AbstractFactoryTaladroUltrasonico(3));
+			fabricasHabilidad.add(new FactoryCongelamiento(3));
+			fabricasHabilidad.add(new FactoryRayoLaser(3));
+			fabricasHabilidad.add(new FactoryTeletransportacion(3));
+			fabricasHabilidad.add(new FactoryTaladroUltrasonico(3));
 			nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);
 			nivel.setNombre("Nivel:0");
 			break;

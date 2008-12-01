@@ -12,7 +12,7 @@ import javax.swing.JRadioButton;
 
 import modelo.Nivel;
 import modelo.Pooglin;
-import modelo.abstractFactoryHabilidades.AbstractFactoryHabilidad;
+import modelo.FactoryHabilidades.AbstractFactoryHabilidad;
 
 
 

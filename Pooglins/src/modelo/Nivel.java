@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import modelo.abstractFactoryHabilidades.AbstractFactoryHabilidad;
+import modelo.FactoryHabilidades.AbstractFactoryHabilidad;
 
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;

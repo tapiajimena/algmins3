@@ -1,19 +1,19 @@
-package modelo.abstractFactoryHabilidades;
+package modelo.FactoryHabilidades;
 
 
 import modelo.Pooglin;
 import modelo.habilidad.Habilidad;
-import modelo.habilidad.TaladroUltrasonico;
+import modelo.habilidad.RayoLaser;
 
 
 
-public class FactoryTaladroUltrasonico extends AbstractFactoryHabilidad{
-	public FactoryTaladroUltrasonico(int cantidadHabilidades){
+public class FactoryRayoLaser extends AbstractFactoryHabilidad{
+	public FactoryRayoLaser(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
 	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
-			Habilidad habilidad=new TaladroUltrasonico(pooglin);
+			Habilidad habilidad=new RayoLaser(pooglin);
 			pooglin.definirHabilidad(habilidad);
 			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
@@ -24,6 +24,6 @@ public class FactoryTaladroUltrasonico extends AbstractFactoryHabilidad{
 	}
 	
 	public String toString(){
-		return new String("TaladroUltrasonico");
+		return new String("RayoLaser");
 	}
 }

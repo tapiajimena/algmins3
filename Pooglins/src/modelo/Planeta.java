@@ -25,10 +25,14 @@ public class Planeta {
 	private char[][] CTerreno;
 
 	public Planeta(int alto, int ancho, Bloque[][] terreno) {
-		this.alto = (alto);
-		this.ancho = (ancho);
-		this.terreno = terreno;
-		//this.cargarMatrizCaracteres();
+		if(terreno!=null){
+			this.alto = terreno.length;
+			if(terreno[0]!=null)
+				this.ancho = terreno[0].length;
+			this.terreno = terreno;
+			this.cargarMatrizCaracteres(this.CTerreno);
+		}
+		//TODO 
 	}
 
 	public Planeta(int alto, int ancho, char[][] terreno) {
@@ -82,10 +86,13 @@ public class Planeta {
 		return bloque;
 	}
 	
-	private void cargarMatrizCaracteres() {
-		for (int i = 0; i < alto; i++) {
-			for (int j = 0; j < ancho; j++) {
-				this.CTerreno[i][j] = terreno[i][j].getLetra();
+	private void cargarMatrizCaracteres(char[][] CTerreno) {
+		CTerreno=new char[alto][ancho];
+		for (int i = 0; i < CTerreno.length; i++) {
+			for (int j = 0; j < CTerreno[i].length; j++) {
+				if(terreno[i][j]!=null)	
+					CTerreno[i][j] = terreno[i][j].getLetra();
+				//TODO tirar excepcion si el terreno es nulo
 			}
 		}
 	}
@@ -145,8 +152,7 @@ public class Planeta {
 		while (iteradorDeXML.hasNext()) {
 			Element bloqueXML = (Element) iteradorDeXML.next();
 			try {
-				Class<?> claseBloque = Class.forName("bloque."
-						+ bloqueXML.getName());
+				Class<?> claseBloque = Class.forName(bloqueXML.getName());
 				if (claseBloque.getSuperclass().equals(Bloque.class)) {
 					Constructor<?> constructor = claseBloque
 							.getDeclaredConstructor(Punto.class);

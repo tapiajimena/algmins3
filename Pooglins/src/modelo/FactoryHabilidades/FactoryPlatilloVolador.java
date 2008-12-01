@@ -1,19 +1,20 @@
-package modelo.abstractFactoryHabilidades;
+package modelo.FactoryHabilidades;
 
 
 import modelo.Pooglin;
 import modelo.habilidad.Habilidad;
-import modelo.habilidad.Teletransportacion;
+import modelo.habilidad.PlatilloVolador;
 
 
 
-public class FactoryTeletransportacion extends AbstractFactoryHabilidad{
-	public FactoryTeletransportacion(int cantidadHabilidades){
+public class FactoryPlatilloVolador extends AbstractFactoryHabilidad{
+		
+	public FactoryPlatilloVolador(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
 	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
-			Habilidad habilidad=new Teletransportacion(pooglin);
+			Habilidad habilidad=new PlatilloVolador(pooglin);
 			pooglin.definirHabilidad(habilidad);
 			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
@@ -24,6 +25,6 @@ public class FactoryTeletransportacion extends AbstractFactoryHabilidad{
 	}
 	
 	public String toString(){
-		return new String("Teletransportacion");
+		return new String("PlatilloVolador");
 	}
 }

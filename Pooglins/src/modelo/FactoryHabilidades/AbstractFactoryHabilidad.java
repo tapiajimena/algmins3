@@ -1,4 +1,4 @@
-package modelo.abstractFactoryHabilidades;
+package modelo.FactoryHabilidades;
 
 
 import modelo.Pooglin;
