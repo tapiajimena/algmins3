@@ -4,9 +4,6 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
-
 
 
 public class AgujeroNegro extends Bloque {
@@ -33,17 +30,7 @@ public class AgujeroNegro extends Bloque {
 	public boolean esMatable() {
 		return true;
 	}
-	
-	public Element serializar(){
-		Element elementAgujeroNegro=DocumentHelper.createElement("AgujeroNegro");
-		Element elementoPunto=this.posicion.serializar();
-		elementAgujeroNegro.add(elementoPunto);
-		return elementAgujeroNegro;
-	}
-	
-	public void recuperarEstado(Element elementoAgujeroNegro){
-		this.posicion.recuperarEstado(elementoAgujeroNegro.element("Punto"));
-	}
+
 	public boolean equals(Object obj){
 		if(obj instanceof AgujeroNegro){
 			return super.equals(obj);

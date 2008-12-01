@@ -3,9 +3,6 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
-
 
 
 public class Roca extends Bloque{
@@ -26,17 +23,6 @@ public class Roca extends Bloque{
 	
 	public char getLetra(){
 		return 'R';
-	}
-	
-	public Element serializar(){
-		Element elementRoca=DocumentHelper.createElement("Roca");
-		Element elementoPunto=this.posicion.serializar();
-		elementRoca.add(elementoPunto);
-		return elementRoca;
-	}
-	
-	public void recuperarEstado(Element elementoRoca){
-		this.posicion.recuperarEstado(elementoRoca.element("Punto"));
 	}
 	public boolean equals(Object obj){
 		if(obj instanceof Roca){

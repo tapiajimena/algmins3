@@ -3,6 +3,7 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
+import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 
@@ -63,8 +64,14 @@ public abstract class Bloque {
 		Bloque otroBloque=(Bloque)obj;
 		return this.posicion.equals(otroBloque.posicion);
 	}
-	public abstract Element serializar();
+	public Element serializar(){
+		Element bloqueXML=DocumentHelper.createElement(this.getClass().getName());
+		bloqueXML.add(this.posicion.serializar());
+		return bloqueXML;
+	};
 	
-	public abstract void recuperarEstado(Element elementoAire);
+	public void recuperarEstado(Element bloqueXML){
+		this.posicion.recuperarEstado(bloqueXML.element("Punto"));
+	};
 }
  
