@@ -5,15 +5,13 @@ import modelo.Pooglin;
 import modelo.habilidad.Congelamiento;
 import modelo.habilidad.Habilidad;
 
-import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 
 
-public class AbstractFactoryCongelamiento extends AbstractFactoryHabilidad{
-	private int cantidadDisponible;
-	
-	public AbstractFactoryCongelamiento(int cantidadHabilidades){
+public class FactoryCongelamiento extends AbstractFactoryHabilidad{
+
+	public FactoryCongelamiento(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
 	
@@ -34,12 +32,10 @@ public class AbstractFactoryCongelamiento extends AbstractFactoryHabilidad{
 	}
 	
 	public void recuperarEstado(Element elementoAbstractFactoryCongelamiento) {
-		this.cantidadDisponible = Integer.parseInt(elementoAbstractFactoryCongelamiento.attributeValue("cantidadDisponible"));
+		super.recuperarEstado(elementoAbstractFactoryCongelamiento);
 	}
 
 	public Element serializar() {
-		Element elementAbstractFactoryCongelamiento=DocumentHelper.createElement("AbstractFactoryCongelamiento");
-		elementAbstractFactoryCongelamiento.addAttribute("cantidadDisponible",String.valueOf(this.cantidadDisponible));
-		return elementAbstractFactoryCongelamiento;
+		return super.serializar();
 	}
 }
