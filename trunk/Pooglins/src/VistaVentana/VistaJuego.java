@@ -130,6 +130,12 @@ public class VistaJuego extends JFrame {
 		vista.setVisible(false);
 		progressBar.setVisible(false);
 		
+		timerProgressBar.restart();
+		timer.restart();
+		timer.stop();
+		timerProgressBar.stop();
+		
+		
 		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
 		this.vista = new VistaNivel(nivel);
 		
