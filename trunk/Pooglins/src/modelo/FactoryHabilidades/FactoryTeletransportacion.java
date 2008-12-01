@@ -1,17 +1,19 @@
-package modelo.abstractFactoryHabilidades;
+package modelo.FactoryHabilidades;
 
 
 import modelo.Pooglin;
 import modelo.habilidad.Habilidad;
-import modelo.habilidad.TunelElectroMagnetico;
-public class FactoryTunelEletromagnetico extends AbstractFactoryHabilidad{	
-	public FactoryTunelEletromagnetico(int cantidadHabilidades){
+import modelo.habilidad.Teletransportacion;
+
+
+
+public class FactoryTeletransportacion extends AbstractFactoryHabilidad{
+	public FactoryTeletransportacion(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
-	
 	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
-			Habilidad habilidad=new TunelElectroMagnetico(pooglin);
+			Habilidad habilidad=new Teletransportacion(pooglin);
 			pooglin.definirHabilidad(habilidad);
 			cantidadDisponible--;
 		}else pooglin.definirHabilidad(null);
@@ -22,6 +24,6 @@ public class FactoryTunelEletromagnetico extends AbstractFactoryHabilidad{
 	}
 	
 	public String toString(){
-		return new String("TunelElectromagentico");
+		return new String("Teletransportacion");
 	}
 }
