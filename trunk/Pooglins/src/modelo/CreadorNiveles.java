@@ -53,7 +53,7 @@ public class CreadorNiveles {
 			fabricasHabilidad.add(new FactoryTunelEletromagnetico(10));
 			fabricasHabilidad.add(new FactoryTaladroUltrasonico(10));
 			// cargo el nivel 
-			nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);
+			nivel = new Nivel(fabricasHabilidad, 10, planeta, 4);
 			nivel.setNombre("Nivel:2");
 			break;
 			

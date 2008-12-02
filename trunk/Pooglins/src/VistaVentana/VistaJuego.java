@@ -316,7 +316,8 @@ public class VistaJuego extends JFrame {
 						&& tiempo.getSegundosRestantes() == 0) {
 					timerProgressBar.stop();
 					alertas(2);
-					closeMyself();	
+					cargarNivel(numeroNivel);
+					//closeMyself();	
 				}
 				progressBar.setValue(tiempo.getTiempoTrascurrido());
 				progressBar.setString(tiempo.getMinutosRestantes() + ":"+ tiempo.getSegundosRestantes());
