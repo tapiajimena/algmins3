@@ -4,21 +4,16 @@ import modelo.Planeta;
 import modelo.Pooglin;
 import modelo.Punto;
 import modelo.bloque.Bloque;
-import modelo.bloque.Tierra;
-import modelo.habilidad.RayoLaser;
-import modelo.habilidad.TaladroUltrasonico;
 import modelo.habilidad.TunelElectroMagnetico;
 import junit.framework.TestCase;
 
 
-@SuppressWarnings("unused")
 public class TunelElectroMagneticoTest extends TestCase {
     Pooglin unPooglin ;
 	Nivel nivel;
 	Planeta unPlaneta ;
 	TunelElectroMagnetico constructorDeTunel;
-	
-	
+		
 	public void testInteraccionPooglin(){
 	    /*Creo el nivel del pooglin y cargo el planeta*/
 	    nivel=new Nivel();
@@ -32,18 +27,14 @@ public class TunelElectroMagneticoTest extends TestCase {
 	    };
 	    
 	    unPlaneta=new Planeta(6,6,matriz);
-	    
 	    nivel.setPlaneta(unPlaneta);
-	    
 	    unPooglin=new Pooglin(new Punto(4,0),nivel);
 	    /*
 	     * Corroboro que un bloque traspasable se
 	     * encuentra delante del Pooglin
 	     */
 	    Bloque bloqueFrontal=unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(0,1));
-	    
 	    assertTrue(bloqueFrontal.esTraspasable());
-	    
 	    constructorDeTunel =new TunelElectroMagnetico(unPooglin);
 	    unPooglin.definirHabilidad(constructorDeTunel);
 	    int longitudInicial=constructorDeTunel.getLongitudFaltante();

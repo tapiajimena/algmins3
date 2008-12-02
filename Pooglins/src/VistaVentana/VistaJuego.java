@@ -9,13 +9,13 @@ import java.io.FileOutputStream;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.BoxLayout;
-import javax.swing.JFileChooser;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 import javax.swing.JProgressBar;
 import javax.swing.KeyStroke;
 import javax.swing.Timer;
@@ -33,21 +33,13 @@ import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-
-
-
 public class VistaJuego extends JFrame {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1343048817996491590L;
-	// TODO que hacemos? lista de niveles o lista de configuracion de nivel, es
-	// decir cargamos todo de una sola vez o a medida q se necesita?
-	//private String[] configNiveles;
+	
 	private Nivel nivel;
 	private VistaNivel vista;
 	private int numeroNivel=1;
-	
 	private JMenu menu;
 	private JMenuBar barraDeMenu;
 	private JProgressBar progressBar;
@@ -60,7 +52,6 @@ public class VistaJuego extends JFrame {
 		//cargarJuego("juegoSalvado.xml");
 		this.vista = new VistaNivel(nivel);
 		// add funciona como pila L-A-F-P
-        //crear
         barraMenu();
         crearProgressBar();
         super.getContentPane().add(vista);
@@ -91,37 +82,26 @@ public class VistaJuego extends JFrame {
         super.setPreferredSize(new Dimension(1050, 500));
         // preparo la venta
         super.pack();
-
 	}
 	
-
-	// interno para cargar el nivel q sigue
+	// interno para cargar el nivel que sigue
 	public void siguienteNivel() {
 		numeroNivel++;
 		vista.setVisible(false);
 		progressBar.setVisible(false);
-		
 		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
 		this.vista = new VistaNivel(nivel);
-		
-		 barraMenu();
-	    
-	    
-		 crearProgressBar();
-	     super.getContentPane().add(vista);
-	     super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	     super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
-      
-	     super.getContentPane().setBackground(Color.black);
-	     super.setPreferredSize(new Dimension(1050, 500));
-	        // preparo la venta
-	     super.pack();
-		
+		barraMenu();
+	    crearProgressBar();
+	    super.getContentPane().add(vista);
+	    super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
+        super.getContentPane().setBackground(Color.black);
+	    super.setPreferredSize(new Dimension(1050, 500));
+	    // preparo la venta
+	    super.pack();
 		System.out.print("NIVEL:"+numeroNivel);
-		
-		
 		empezar();
-		
 		
 	}
 
@@ -129,83 +109,66 @@ public class VistaJuego extends JFrame {
 		
 		vista.setVisible(false);
 		progressBar.setVisible(false);
-		
 		timerProgressBar.restart();
 		timer.restart();
 		timer.stop();
 		timerProgressBar.stop();
 		
-		
 		this.nivel=CreadorNiveles.crearNivel(numeroNivel);
 		this.vista = new VistaNivel(nivel);
-		
-		 barraMenu();
-	    
-	    
-		 crearProgressBar();
-	     super.getContentPane().add(vista);
-	     super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	     super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
-      
-	     super.getContentPane().setBackground(Color.black);
-	     super.setPreferredSize(new Dimension(1050, 500));
-	        // preparo la venta
-	     super.pack();
-		
+		barraMenu();
+	    crearProgressBar();
+	    super.getContentPane().add(vista);
+	    super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    super.getContentPane().setLayout( new BoxLayout(super.getContentPane(), BoxLayout.PAGE_AXIS));
+        super.getContentPane().setBackground(Color.black);
+	    super.setPreferredSize(new Dimension(1050, 500));
+	    // preparo la venta
+	    super.pack();
 		System.out.print("NUEVO NIVEL:"+numeroNivel);
-		
-		
 		empezar();
-		
-		
 	}
 
-	
-	
 	// Para ver el nivel actual desde MVC
 	public Nivel getNivelActual() {
 		return nivel;
 	}
+	
 	public void empezar(){
 		Action gameLoop = new AbstractAction() {
 			private static final long serialVersionUID = 1L;
-			
 			public void actionPerformed(ActionEvent evt) {
-				
 				nivel.siguienteRonda();
 				vista.actualizarVista();
-				
 				if ( nivel.estaBloqueado()){
 					timer.stop(); 
 					alertas(1);
 					cargarNivel(numeroNivel);
 				}
-				
 				if(nivel.estaFinalizado()){
 					timer.stop(); 
 					alertas(3);
-					//timerProgressBar.stop();
 					siguienteNivel();
 					}
 			}
 		};
-		
 		this.setVisible(true);
     	this.setAlwaysOnTop(true);
-		timer = new Timer(400, gameLoop);
+		timer = new Timer(350, gameLoop);
 		timer.start();
-		
 	}
+	
 	public void gameStart() {
 		VistaPresentacion pre=new VistaPresentacion();
 		try {
-			Thread.sleep(500);
+			Thread.sleep(2100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		pre.dispose();
 		empezar();
 	}
+	
 	public void salvarJuego(String ruta){
 		Document doc=DocumentHelper.createDocument();
 		doc.add(nivel.serializar());
@@ -221,6 +184,7 @@ public class VistaJuego extends JFrame {
 			e.printStackTrace();
 		}
 	}
+	
 	public void cargarJuego(String ruta){
 		Document doc=DocumentHelper.createDocument();
 		SAXReader xmlReader = new SAXReader();
@@ -232,8 +196,7 @@ public class VistaJuego extends JFrame {
 			e.printStackTrace();
 		}
 	}
-	private JFrame yo(){return this;};
-	/*-----------------------------------------------------------------------------**/
+	
 	public void barraMenu(){
 			ActionListener action=new ActionListener(){
 			     public void actionPerformed(ActionEvent e){
@@ -251,8 +214,7 @@ public class VistaJuego extends JFrame {
 			         else if(e.getActionCommand().equals("Abrir")){
 			             cargarJuego("juegoSalvado.xml");
 			             vista = new VistaNivel(nivel);
-			             
-			          }
+			         }
 			         else if (e.getActionCommand().equals("Pausa")){
 			        	 if(timer.isRunning()) {
 			        		 timer.stop();
@@ -275,9 +237,7 @@ public class VistaJuego extends JFrame {
             opcionGuardar.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_G, KeyEvent.CTRL_MASK));
             opcionGuardar.addActionListener(new ActionListener(){
                     public void actionPerformed(ActionEvent e) {
-                            
-                            
-                    }
+                                           }
                     
             });
             JMenuItem pausa= new JMenuItem("Pausa");
@@ -311,37 +271,33 @@ public class VistaJuego extends JFrame {
              setJMenuBar(barraDeMenu);
     
     }
+	
 	public void alertas(int i){
 		String mensaje=new String();
 		
 		switch (i) {
-		case 1:
-			mensaje="Muerieron todos! Vuelve a empezar!!!";
-			break;
-		case 2:
-			mensaje="Se acabo el tiempo!!! Vuelve a empezar";	
-			break;
-			
-		case 3:
-			mensaje= "Salvaste a:  "+nivel.getCantSalvados()+"  Murieron: "+nivel.getCantMuertos();
-			
-			break;	
-			
-	        
-		
-		default:
-			mensaje="ERROR: Error inesperado, salga y vuelva a iniciar el programa";
-			break;
+			case 1:
+				mensaje="Muerieron todos! Vuelve a empezar!!!";
+				break;
+			case 2:
+				mensaje="Se acabo el tiempo!!! Lo siento..";	
+				break;
+			case 3:
+				mensaje= "Salvaste a:  "+nivel.getCantSalvados()+"  Murieron: "+nivel.getCantMuertos();
+				break;	
+			default:
+				mensaje="ERROR: Error inesperado, salga y vuelva a iniciar el programa";
+				break;
 		}
-	
 		JOptionPane.showMessageDialog(this,mensaje,"Atencion!" , JOptionPane.WARNING_MESSAGE); 
-		
 	}
+	
 	private void closeMyself(){
 		this.dispose();
 		System.exit(DISPOSE_ON_CLOSE);
 		//this.setVisible(false);
 	}
+	
 	public void crearProgressBar() {
 		Action actualizarProgressBar = new AbstractAction() {
 			
@@ -355,15 +311,12 @@ public class VistaJuego extends JFrame {
 					tiempo.setSegundosRestantes(60);
 					tiempo.setMinutosRestantes(tiempo.getMinutosRestantes() - 1);
 				}
+				
 				if (tiempo.getMinutosRestantes() == 0
 						&& tiempo.getSegundosRestantes() == 0) {
 					timerProgressBar.stop();
 					alertas(2);
-					/*for (int i = 0; i < pooglins.size(); i++) {
-						pooglins.get(i).getPooglin().morir();
-					}*/
 					closeMyself();	
-					
 				}
 				progressBar.setValue(tiempo.getTiempoTrascurrido());
 				progressBar.setString(tiempo.getMinutosRestantes() + ":"+ tiempo.getSegundosRestantes());
@@ -372,13 +325,9 @@ public class VistaJuego extends JFrame {
 		timerProgressBar = new Timer(1000, actualizarProgressBar);
 		timerProgressBar.start();
 		tiempo = nivel.getTiempo();
-		// progBarPanel = new JPanel();
-
 		progressBar = new JProgressBar(0, tiempo.getMinutosRestantes() * 60);
 		progressBar.setStringPainted(true);
 		add(progressBar);
-		// progBarPanel.add(progressBar);
-		// add(progBarPanel);
-	}
+		}
 }
  

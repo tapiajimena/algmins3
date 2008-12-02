@@ -7,7 +7,6 @@ import modelo.bloque.Tunel;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 public class TunelElectroMagnetico extends Habilidad {
  
 	private int longitudFaltante;
@@ -19,7 +18,7 @@ public class TunelElectroMagnetico extends Habilidad {
 	
 	public void interactuar(Planeta unPlaneta){
 		Punto posicionBloque = pooglin.getPosicion();
-		/*el bloque de delante*/	
+		/*el bloque de adelante*/	
 		
 		posicionBloque=pooglin.getPosicion().puntoRelativo(0,pooglin.getVectorDireccion());
 		
@@ -46,6 +45,7 @@ public class TunelElectroMagnetico extends Habilidad {
 	public void recuperarEstado(Element elementoTunelElectroMagnetico) {
 		this.longitudFaltante = Integer.parseInt(elementoTunelElectroMagnetico.attributeValue("longitudFaltante"));
 	}
+	
 	public char getLetra(){
 		return 'E';
 	}

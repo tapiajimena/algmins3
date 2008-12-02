@@ -8,14 +8,11 @@ import org.dom4j.Element;
 
 public class TiempoNivel {
 
-	
 	private int minutosRestantes;
 	private int segundosRestantes;
 	private int tiempoTrascurrido;//en segundos.
 	
-
 	public TiempoNivel(){
-	
 		setMinutosRestantes(0);
 		setSegundosRestantes(0);
 		setTiempoTrascurrido(0);

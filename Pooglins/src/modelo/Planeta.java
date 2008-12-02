@@ -32,7 +32,6 @@ public class Planeta {
 			this.terreno = terreno;
 			this.cargarMatrizCaracteres(this.CTerreno);
 		}
-		//TODO 
 	}
 
 	public Planeta(int alto, int ancho, char[][] terreno) {
@@ -92,7 +91,7 @@ public class Planeta {
 			for (int j = 0; j < CTerreno[i].length; j++) {
 				if(terreno[i][j]!=null)	
 					CTerreno[i][j] = terreno[i][j].getLetra();
-				//TODO tirar excepcion si el terreno es nulo
+				
 			}
 		}
 	}

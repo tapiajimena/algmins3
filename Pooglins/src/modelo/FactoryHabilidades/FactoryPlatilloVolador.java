@@ -1,17 +1,15 @@
 package modelo.FactoryHabilidades;
 
-
 import modelo.Pooglin;
 import modelo.habilidad.Habilidad;
 import modelo.habilidad.PlatilloVolador;
-
-
 
 public class FactoryPlatilloVolador extends AbstractFactoryHabilidad{
 		
 	public FactoryPlatilloVolador(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
+	
 	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new PlatilloVolador(pooglin);

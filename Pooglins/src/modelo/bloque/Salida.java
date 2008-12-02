@@ -3,9 +3,6 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-
-
-
 public class Salida extends Bloque {
 		
 	public Salida(Punto punto) {
@@ -25,6 +22,7 @@ public class Salida extends Bloque {
 	public char getLetra(){
 		return 'S';
 	}
+	
 	public boolean equals(Object obj){
 		if(obj instanceof Salida){
 			return super.equals(obj);

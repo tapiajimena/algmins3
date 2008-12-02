@@ -29,7 +29,7 @@ public class RayoLaser extends Habilidad{
 		
 		Punto posicionBloque;
 
-		/*el bloque de delante*/
+		/*el bloque de adelante*/
 		posicionBloque=pooglin.getPosicion().puntoRelativo(0, pooglin.getVectorDireccion());
 		
 		if (unPlaneta.getBloque(posicionBloque) instanceof Rompible){
@@ -65,6 +65,7 @@ public class RayoLaser extends Habilidad{
 	public void recuperarEstado(Element elementoRayoLaser) {
 		this.disparos = Integer.parseInt(elementoRayoLaser.attributeValue("disparos"));
 	}
+	
 	public char getLetra(){
 		return 'L';
 	}

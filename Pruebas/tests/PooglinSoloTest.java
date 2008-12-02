@@ -25,5 +25,4 @@ public class PooglinSoloTest extends TestCase {
 		pooglin.morir();
 		assertTrue(pooglin.estaMuerto());
 	}
-
 }

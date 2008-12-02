@@ -11,7 +11,7 @@ import junit.framework.TestCase;
 
 public class RayoLaserTest extends TestCase {
 	
-	   	Pooglin unPooglin ;
+	Pooglin unPooglin ;
     	Nivel nivel;
     	Planeta unPlaneta ;
     	RayoLaser unRayoLaser;
@@ -25,12 +25,11 @@ public class RayoLaserTest extends TestCase {
 		    {'T','T','T','T','T','T'}};
 	    
 	    unPlaneta=new Planeta(4,6,matriz);
-	    
 	    nivel.setPlaneta(unPlaneta);
-	    
 	    unPooglin=new Pooglin(new Punto(2,2),nivel);
 	    
     }
+    
 	public void testLosDisparosSeGastan(){
 		unRayoLaser=new RayoLaser(unPooglin);
 		int disparosInicial=unRayoLaser.getDisparos();
@@ -42,23 +41,16 @@ public class RayoLaserTest extends TestCase {
 	    	assertEquals(disparosInicial-i,unRayoLaser.getDisparos());
 	    }
 	}
+	
 	public void testInteraccionPooglin(){
 	    /*
 	     * Corroboro que un bloque del tipo tierra se
 	     * encuentra delante del Pooglin
 	     */
 	    Bloque bloqueFrontal=unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(0,1));
-	    
 	    assertTrue(bloqueFrontal instanceof Tierra);
-	    
-	    
-	    
-	    /*guardo informacion inicial*/
-	    
 	    int durezaInicial=((Tierra)bloqueFrontal).getDureza();
-	    
 	    Punto posicionInicialPooglin=unPooglin.getPosicion();
-	    
 	    Punto posicionInicialBloque=bloqueFrontal.getPosicion();
 	    
 	    /*Empiezo la interaccion*/
@@ -91,15 +83,11 @@ public class RayoLaserTest extends TestCase {
 	    *empiezo por guardar el estado inicial
 	    */
 	    bloqueFrontal =unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(0,1));
-	   
 	    durezaInicial=((Tierra)bloqueFrontal).getDureza();
-	    
 	    posicionInicialPooglin=unPooglin.getPosicion();
-	    
 	    posicionInicialBloque=bloqueFrontal.getPosicion();
-	    /*Opero*/
-	    assertTrue(bloqueFrontal instanceof Tierra);
 	    
+	    assertTrue(bloqueFrontal instanceof Tierra);
 	    for(int i=1;durezaInicial>i;i++){
 	    	if(unRayoLaser.getDisparos()<=0){
 	    		unRayoLaser=new RayoLaser(unPooglin);
@@ -112,7 +100,6 @@ public class RayoLaserTest extends TestCase {
 	    assertTrue(posicionInicialPooglin.equals(unPooglin.getPosicion()));
 	    /*rompe el bloque y avanza*/
 	    unPooglin.interactuar();
-	    
 	    bloqueFrontal=unPlaneta.getBloque(posicionInicialBloque);
 	    /*Corroboro que ahora hay una bloque traspasable en lugar del 
 	     * bloque anterior y que el pooglin avanzo una posicion
@@ -120,5 +107,4 @@ public class RayoLaserTest extends TestCase {
 	    assertTrue(bloqueFrontal.esTraspasable());
 	    assertTrue( unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(0, 1)));
 	}
-
 }

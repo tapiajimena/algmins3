@@ -25,7 +25,6 @@ public class Pooglin {
 		this.estaSalvado = false;
 		this.posicion = new Punto(0, 0);
 		this.vectorDireccion = 1;
-
 	}
 
 	public Pooglin(Punto punto) {
@@ -36,11 +35,9 @@ public class Pooglin {
 	}
 
 	public Pooglin(Punto punto, Nivel nivel) {
-
 		this.posicion = punto;
 		this.nivel = nivel;
 		this.vectorDireccion = 1;
-
 	}
 
 	public void setNivel(Nivel nivel) {
@@ -48,9 +45,7 @@ public class Pooglin {
 	}
 
 	public void interactuar() {
-
 		if (habilidad != null) {
-
 			if (!(nivel.getPlaneta().getBloque(this.getPosicion()).esMatable())) {
 				this.habilidad.interactuar(nivel.getPlaneta());
 			} else {
@@ -58,7 +53,7 @@ public class Pooglin {
 						this);
 			}
 
-		} else {
+		}else{
 			nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);
 		}
 	}
@@ -74,8 +69,7 @@ public class Pooglin {
 		int direccion = this.vectorDireccion;
 		try{
 		if ((!estaMuerto) && (!estaSalvado)) {
-
-			// Si de entrada abajo no hay nada...
+			// Si en la entrada abajo no hay nada
 			if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, 0)).esTraspasable())) {
 				this.caer();
 			}
@@ -87,7 +81,7 @@ public class Pooglin {
 				
 				this.posicion=this.posicion.puntoRelativo(1, direccion);
 			}
-			// Adelante normal...
+			// Adelante normal
 			else if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())
 					&& !(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, direccion)).esTraspasable())) {
 				if ((nivel.getPlaneta().getBloque(this.posicion)).esDerretible()) {
@@ -103,7 +97,8 @@ public class Pooglin {
 				}
 			}
 		}
-		}catch(ArrayIndexOutOfBoundsException e){
+		}
+		catch(ArrayIndexOutOfBoundsException e){
 			this.darVuelta();
 			// segun por donde haya sobrepasado el terreno lo hago volver un par de casilleros
 			if(posicion.getX()<=0) posicion.setX(1);
@@ -114,9 +109,7 @@ public class Pooglin {
 	}
 
 	public void darVuelta() {
-
 		this.vectorDireccion *= -1;
-
 	}
 
 	public void caer() {
@@ -128,31 +121,16 @@ public class Pooglin {
 			bloquesCaidos=0;
 		}
 		this.posicion.setX(this.getPosicion().getX() + 1);
-/*		if (bloquesCaidos >= 4) {
-			this.morir();
-		}
-		if (bloquesCaidos <= 4) {
-			bloquesCaidos++;
-		}
-		if (!(nivel.getPlaneta().getBloque(
-				this.getPosicion().puntoRelativo(1, 0)).esTraspasable())) {
-			bloquesCaidos = 0;
-		}*/
-
 	}
 
 	public void definirHabilidad(Habilidad habilidad) {
-
 		this.habilidad = habilidad;
-
 	}
 
 	public Punto getPosicion() {
-
 		return new Punto(this.posicion);
-
 	}
-
+	
 	public void setPosicion(Punto punto) {
 		this.posicion = punto;
 	}
@@ -208,7 +186,6 @@ public class Pooglin {
 			elemHabilidad.add(this.habilidad.serializar());
 			elementPooglin.add(elemHabilidad);
 		}
-		/* falta serializar las referencias y nivel */
 		return elementPooglin;
 	}
 

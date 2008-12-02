@@ -61,6 +61,7 @@ public class Tierra extends Bloque implements Rompible {
 		super.recuperarEstado(elementoTierra);
 		this.dureza = Integer.parseInt(elementoTierra.attributeValue("dureza"));
 	}
+	
 	public boolean equals(Object obj){
 		if(obj instanceof Tierra){
 			if(super.equals(obj))

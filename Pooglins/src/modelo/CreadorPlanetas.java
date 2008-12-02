@@ -40,7 +40,7 @@ public class CreadorPlanetas {
     			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
     			{ 'R', 'A', 'A', 'A', 'A', 'A', 'T', 'T', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
     			{ 'R', 'R', 'R', 'R', 'A', 'A', 'T', 'T', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
-    			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
+    			{ 'R', 'A', 'A', 'A', 'A', 'A', 'T', 'T', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
     			{ 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
     			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
     			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
@@ -49,7 +49,7 @@ public class CreadorPlanetas {
     			{ 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
     			{ 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },	
     			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','T', 'A', 'A', 'A', 'A', 'A', 'T', 'T', 'T', 'T', 'A','A', 'A', 'A', 'A', 'A', 'R' },
-    			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'S', 'T', 'F', 'F', 'F','F', 'F', 'F', 'F', 'F', 'R' },
+    			{ 'R', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'O', 'A', 'A', 'A', 'A', 'S', 'T', 'F', 'F', 'F','F', 'F', 'F', 'F', 'F', 'R' },
     			{ 'R', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T','T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T','T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T','T', 'T', 'T', 'T', 'T', 'T' } 
     	};
     	char[][] m3={
@@ -72,7 +72,6 @@ public class CreadorPlanetas {
 				{ 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R' }
     	};
     	
-    	
     	char[][] m2= {
     			{ 'A', 'T', 'T', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R','R', 'R', 'R', 'R', 'R', 'R' },
     			{ 'A', 'A', 'T', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A','A', 'A', 'A', 'A', 'A', 'R' },
@@ -94,30 +93,19 @@ public class CreadorPlanetas {
     			{ 'R', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T','T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T','T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'T','T', 'T', 'T', 'T', 'T', 'T' } 
     	};
     	
-    	
-    	
-    	/*
-		 * char[][] m3; char[][] m4; char[][] m5; char[][] m6;
-		 */
-
-		switch (id) {
-		case 1:
-			matriz = m1;
-			break;
-		case 2:
-			matriz = m2;
-			break;
-			
-		case 3:
-			matriz = m3;
-			break;
-		/*
-		 * case 3:matriz=m3;break; case 4:matriz=m4;break; case
-		 * 5:matriz=m5;break; case 6:matriz=m6;break;
-		 */
+    	switch (id) {
+			case 1:
+				matriz = m1;
+				break;
+			case 2:
+				matriz = m2;
+				break;
+			case 3:
+				matriz = m3;
+				break;
 		default:
-			matriz = m0;
-			break;
+				matriz = m0;
+				break;
 		}
 		return creadorDefault.cargarPlaneta(matriz.length, matriz[0].length, matriz);
 	}
@@ -147,12 +135,11 @@ public class CreadorPlanetas {
 				return (Bloque)constructorBloque.newInstance(punto);
 			} catch (Exception e) {
 				return null;
-			}
+				}
 		}
 		return null;
 	}
-    /*
-     * */
+   
     public Planeta cargarPlaneta(int alto, int ancho, char[][] charTerreno){
     	Bloque[][] terreno=new Bloque[alto][ancho];
     	for (int i = 0; i < alto; i++) {

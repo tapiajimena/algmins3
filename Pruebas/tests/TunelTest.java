@@ -11,7 +11,6 @@ import junit.framework.TestCase;
 
 public class TunelTest extends TestCase {
 	
-
 	Nivel nivel = new Nivel();
 	Punto punto = new Punto(2,0);
 	Bloque unTunel;

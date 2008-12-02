@@ -5,9 +5,6 @@ import modelo.Punto;
 
 import org.dom4j.Element;
 
-
-
-
 public class Fuego extends Bloque implements Apagable {
  
 	private int resistencia=100;
@@ -48,6 +45,7 @@ public class Fuego extends Bloque implements Apagable {
 		super.recuperarEstado(elementoFuego);
 		this.resistencia = Integer.parseInt(elementoFuego.attributeValue("resistencia"));
 	}
+	
 	public boolean equals(Object obj){
 		if(obj instanceof Fuego){
 			if( super.equals(obj))

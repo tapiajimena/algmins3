@@ -9,8 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ButtonModel;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
+
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -21,9 +20,7 @@ import modelo.FactoryHabilidades.AbstractFactoryHabilidad;
 import Controlador.Controlador;
 
 public class VistaNivel extends JPanel  {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel panelHabilidad;
 	private ButtonGroup groupHabilidad;
@@ -31,6 +28,7 @@ public class VistaNivel extends JPanel  {
 	private Nivel nivel;
 	private ArrayList<VistaPooglin> pooglins;
 	private Controlador controlador;
+	
 	/*
 	 * Recibe un conjunto de las habilidades permitidas en el nivel para generar
 	 * el panel de opciones de las habilidades
@@ -70,10 +68,6 @@ public class VistaNivel extends JPanel  {
 	public void actualizarVista() {
 		int nroVivosModelo=nivel.cantidadDePooglinsVivos();
 		escenario.actualizar();
-		
-
-		
-		
 		while(nroVivosModelo>this.pooglins.size()){			
 			Pooglin nuevoPooglin=nivel.getPooglinsVivos().get(this.pooglins.size());
 			VistaPooglin vistaPooglin=new VistaPooglin(nuevoPooglin);
@@ -87,7 +81,6 @@ public class VistaNivel extends JPanel  {
 				pooglins.get(i).borrar(); 
 				pooglins.remove(i);
 			 }
-			
 		}
 		ButtonModel boton=groupHabilidad.getSelection();
 		if(boton!=null){
@@ -95,17 +88,13 @@ public class VistaNivel extends JPanel  {
 			JRadioButton botonRadio=(JRadioButton)panelHabilidad.getComponent(i);
 			botonRadio.setText(nivel.getFabricasHabilidad().get(i).cantidadDisponible()+"-"+nivel.getFabricasHabilidad().get(i).toString());
 		}	
-		
 	}
+	
 	public VistaPlaneta getVistaPlaneta(){
 		return escenario;
 	}
+	
 	public ButtonModel getSeleccionado(){
 		return groupHabilidad.getSelection();
 	}
-
-
-	
-
- 
 }

@@ -6,8 +6,8 @@ import modelo.Punto;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 public class Teletransportacion extends Habilidad {
+	
 	private int contadorPasos=3;
 	
 	public Teletransportacion(Pooglin unPooglin){
@@ -34,6 +34,7 @@ public class Teletransportacion extends Habilidad {
 	public void recuperarEstado(Element elementoTeletransportacion) {
 		this.contadorPasos = Integer.parseInt(elementoTeletransportacion.attributeValue("contadorPasos"));
 	}
+	
 	public char getLetra(){
 		return 'T';
 	}

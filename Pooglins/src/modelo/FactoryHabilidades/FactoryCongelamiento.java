@@ -1,13 +1,9 @@
 package modelo.FactoryHabilidades;
 
-
 import modelo.Pooglin;
 import modelo.habilidad.Congelamiento;
 import modelo.habilidad.Habilidad;
-
 import org.dom4j.Element;
-
-
 
 public class FactoryCongelamiento extends AbstractFactoryHabilidad{
 

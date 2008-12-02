@@ -6,10 +6,10 @@ import modelo.bloque.Hielo;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
-
 public class Congelamiento extends Habilidad {
+	
 	private int  tiempo=4;
+	
 	public Congelamiento(Pooglin pooglin) {
 		super(pooglin);
 	}
@@ -31,6 +31,7 @@ public class Congelamiento extends Habilidad {
 		elementCongelamiento.addAttribute("tiempo", String.valueOf(tiempo));
 		return elementCongelamiento;
 	}
+	
 	public char getLetra(){
 		return 'C';
 	}

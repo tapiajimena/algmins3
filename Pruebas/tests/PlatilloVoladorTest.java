@@ -74,8 +74,5 @@ public class PlatilloVoladorTest extends TestCase {
 		 */
 		assertEquals(6,unPooglin.getPosicion().getX());
 		assertFalse(unPooglin.estaMuerto());
- 
-
-	}
-	
+ 	}
 }

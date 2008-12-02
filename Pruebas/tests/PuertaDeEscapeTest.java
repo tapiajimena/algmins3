@@ -4,7 +4,6 @@ import modelo.Punto;
 import modelo.bloque.Salida;
 import junit.framework.TestCase;
 
-
 public class PuertaDeEscapeTest extends TestCase {
 	
 	public void testInteraccionPuertaDeEscapePooglin (){

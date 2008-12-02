@@ -11,9 +11,9 @@ import junit.framework.TestCase;
 
 public class TestTaladroUltraSonico extends TestCase {
     	Pooglin unPooglin ;
-	Nivel nivel;
-	Planeta unPlaneta ;
-	TaladroUltrasonico unTaladro;
+    	Nivel nivel;
+    	Planeta unPlaneta ;
+		TaladroUltrasonico unTaladro;
 	
 	public void setUp(){
 		 /*Creo el nivel del pooglin y cargo el planeta*/
@@ -26,11 +26,10 @@ public class TestTaladroUltraSonico extends TestCase {
 	    };
 	    
 	    unPlaneta=new Planeta(4,6,matriz);
-	    
 	    nivel.setPlaneta(unPlaneta);
-	    
 	    unPooglin=new Pooglin(new Punto(0,2),nivel);
 	}
+	
 	public void testElTaladroSeGasta(){
 		unTaladro=new TaladroUltrasonico(unPooglin);
 		int vueltasIniciales=unTaladro.getVueltasDeTorpedo();
@@ -42,28 +41,20 @@ public class TestTaladroUltraSonico extends TestCase {
 	    	assertEquals(vueltasIniciales-i,unTaladro.getVueltasDeTorpedo());
 	    }
 	}
+	
 	public void testInteraccionPooglin(){
-	   
-	    /*
+	     /*
 	     * Corroboro que un bloque del tipo tierra se
 	     * encuentra delante del Pooglin
 	     */
 	    Bloque bloqueInferior=unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(1,0));
-	    
 	    assertTrue(bloqueInferior instanceof Tierra);
-	    
 	    unTaladro=new TaladroUltrasonico(unPooglin);
-	    
 	    /*guardo informacion inicial*/
-	    
 	    int durezaInicial=((Tierra)bloqueInferior).getDureza();
-	    
 	    Punto posicionInicialPooglin=unPooglin.getPosicion();
-	    
 	    Punto posicionInicialBloque=bloqueInferior.getPosicion();
-	    
 	    int disparosInicial=unTaladro.getVueltasDeTorpedo();
-	    
 	    /*Empiezo la interaccion*/
 	    /* La idea es golpear la tierra hasta tenga dureza cero*/
 	    for(int i=1;durezaInicial>i;i++){
@@ -81,24 +72,17 @@ public class TestTaladroUltraSonico extends TestCase {
 	     * ya que la Tierra no lo era y el Aire si.
 	     */
 	    unTaladro.interactuar(unPlaneta);
-	    
 	    bloqueInferior=unPlaneta.getBloque(posicionInicialBloque);
-	    
 	    assertTrue(bloqueInferior.esTraspasable());
-	    
 	    assertTrue( unPooglin.getPosicion().equals(posicionInicialPooglin.puntoRelativo(1,0)));
 	    /*Ahora de manera similar compruebo que rompa el bloque siguiente
 	    *empiezo por guardar el estado inicial
 	    */
 	    bloqueInferior =unPlaneta.getBloque( unPooglin.getPosicion().puntoRelativo(1,0));
-	   
 	    durezaInicial=((Tierra)bloqueInferior).getDureza();
-	    
 	    posicionInicialPooglin=unPooglin.getPosicion();
-	    
 	    posicionInicialBloque=bloqueInferior.getPosicion();
 	    assertTrue(posicionInicialPooglin.puntoRelativo(1,0).equals(posicionInicialBloque));
-	    /*Opero*/
 	    assertTrue(bloqueInferior instanceof Tierra);
 	    for(int i=1;durezaInicial>i;i++){
 	    	if(unTaladro.getVueltasDeTorpedo()<=0){
@@ -112,7 +96,6 @@ public class TestTaladroUltraSonico extends TestCase {
 	    assertTrue(posicionInicialPooglin.equals(unPooglin.getPosicion()));
 	    /*rompe el bloque y avanza*/
 	    unTaladro.interactuar(unPlaneta);
-	    
 	    bloqueInferior=unPlaneta.getBloque(posicionInicialBloque);
 	    /*Corroboro que ahora hay una bloque traspasable en lugar del 
 	     * bloque anterior y que el pooglin avanzo una posicion
@@ -122,6 +105,4 @@ public class TestTaladroUltraSonico extends TestCase {
 	    /*Corroboro que la posicionFinal es la esperada, decencio de  0,2 al 2,2  (y,x)*/
 	    assertTrue(unPooglin.getPosicion().equals(new Punto(2,2)));
 	}
-
- 
 }

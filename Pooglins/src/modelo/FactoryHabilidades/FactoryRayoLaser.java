@@ -1,16 +1,15 @@
 package modelo.FactoryHabilidades;
 
-
 import modelo.Pooglin;
 import modelo.habilidad.Habilidad;
 import modelo.habilidad.RayoLaser;
 
-
-
 public class FactoryRayoLaser extends AbstractFactoryHabilidad{
+	
 	public FactoryRayoLaser(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}
+	
 	public void asignarHabilidad(Pooglin pooglin) {
 		if(cantidadDisponible>0){
 			Habilidad habilidad=new RayoLaser(pooglin);

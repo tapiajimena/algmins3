@@ -6,10 +6,6 @@ import modelo.Punto;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
-
-
-
 public class PlatilloVolador extends Habilidad {
 
 	public PlatilloVolador(Pooglin pooglin) {
@@ -25,9 +21,6 @@ public class PlatilloVolador extends Habilidad {
 			 pooglin.caminar();
 	} 
 		
-			
-		
-	
 	public void recuperarEstado(Element unElemento) {
 	}
 
@@ -35,6 +28,7 @@ public class PlatilloVolador extends Habilidad {
 		Element elementPlatilloVolador=DocumentHelper.createElement("PlatilloVolador");
 		return elementPlatilloVolador;
 	}
+	
 	public char getLetra(){
 		return 'V';
 	}

@@ -33,27 +33,18 @@ public class RocaTest extends TestCase {
 		
 		Punto otroPunto = new Punto(0,0);
 		Pooglin pooglin= new Pooglin(otroPunto,nivel);
-		
-		
+				
 		/*La roca le debe decir al pooglin que de la vuelta, asique 
 		 * interactuamos 3 veces. 
 		 */
+		for (int i =1;i<4;i++){
 		pooglin.interactuar();
-	
-		pooglin.interactuar();
-		
-		pooglin.interactuar();
+		}
 		/*
 		 * Ahora debe estar en la posicion (1,1)
 		 * 
 		 */
-	Punto unPunto=new Punto(1,1);
-	 assertEquals(unPunto,pooglin.getPosicion());
-		
-		
+		Punto unPunto=new Punto(1,1);
+		assertEquals(unPunto,pooglin.getPosicion());
 	}
-
-
-
-	
 }

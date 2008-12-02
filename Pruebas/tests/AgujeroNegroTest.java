@@ -12,14 +12,17 @@ public class AgujeroNegroTest extends TestCase {
 		Bloque agujero=new AgujeroNegro(new Punto(1,1));
 		assertFalse(agujero.vacio());
 	}
+	
 	public void testDestruir(){
 		
 	}
+	
 	public void testSetGetPosicionX(){
 		AgujeroNegro agujero=new AgujeroNegro(new Punto(1,1));
 		agujero.setPosicionX(3);
 		assertEquals(3,agujero.getPosicionX());
 	}
+	
 	public void testSetGetPosicionY(){
 		AgujeroNegro agujero=new AgujeroNegro(new Punto(1,1));
 		agujero.setPosicionY(3);
@@ -37,6 +40,7 @@ public class AgujeroNegroTest extends TestCase {
 			assertEquals(muerto,unPooglin.estaMuerto());
 		}
 	}
+	
 	public void testEsTraspasable() {	
 		AgujeroNegro agujero=new AgujeroNegro(new Punto(1,1));
 		assertEquals(true,agujero.esTraspasable());
