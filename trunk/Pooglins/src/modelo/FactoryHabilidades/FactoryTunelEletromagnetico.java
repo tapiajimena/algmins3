@@ -1,10 +1,11 @@
 package modelo.FactoryHabilidades;
 
-
 import modelo.Pooglin;
 import modelo.habilidad.Habilidad;
 import modelo.habilidad.TunelElectroMagnetico;
+
 public class FactoryTunelEletromagnetico extends AbstractFactoryHabilidad{	
+	
 	public FactoryTunelEletromagnetico(int cantidadHabilidades){
 		cantidadDisponible=cantidadHabilidades;
 	}

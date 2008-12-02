@@ -7,7 +7,6 @@ import modelo.bloque.Rompible;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 public class TaladroUltrasonico extends Habilidad{
 	
 	private int vueltasDeTorpedo=10;
@@ -51,6 +50,7 @@ public class TaladroUltrasonico extends Habilidad{
 	public void recuperarEstado(Element elementoTaladroUltrasonico) {
 		this.vueltasDeTorpedo = Integer.parseInt(elementoTaladroUltrasonico.attributeValue("vueltasDeTorpedo"));
 	}
+	
 	public char getLetra(){
 		return 'U';
 	}

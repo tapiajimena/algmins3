@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-
 public class VistaPresentacion extends JFrame {
 	/*	CREAMOS UN OBJETO QUE PUEDA CONTENER LA IMAGEN. ESTA IMAGEN
 		PUEDE SER UN ARCHIVO .GIF O .JPG. PARA ESTO UTILIZAMOS LA CLASE
@@ -25,14 +24,8 @@ public class VistaPresentacion extends JFrame {
 		ImageIcon img = new ImageIcon("C:/IMAGENES/logotipo.gif");
 	*/ 
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
-
 	ImageIcon imagen = new ImageIcon("lemmings.jpg");
-
 
 	/*	COMO LAS IMAGENES, SE DEBEN COLOCAR DENTRO DE COMPONENTES
 		(ETIQUETAS, BOTONES, ETC..), LO QUE HARÉ SERÁ UNA ETIQUETA (LABEL)
@@ -43,7 +36,6 @@ public class VistaPresentacion extends JFrame {
 	*/
 
 	JLabel etiqueta2 = new JLabel(imagen);
-
 	
 	public VistaPresentacion()
 	{
@@ -55,7 +47,5 @@ public class VistaPresentacion extends JFrame {
 		this.setSize(1050, 500);
 		this.pack();
 		this.setVisible(true);
-		
 	}
-	
 }

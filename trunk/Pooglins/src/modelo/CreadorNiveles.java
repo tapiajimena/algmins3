@@ -10,16 +10,16 @@ import modelo.FactoryHabilidades.FactoryTaladroUltrasonico;
 import modelo.FactoryHabilidades.FactoryTeletransportacion;
 import modelo.FactoryHabilidades.FactoryTunelEletromagnetico;
 
-
 public class CreadorNiveles {
+	
 	public static Nivel crearNivel() {
 		Planeta planeta = CreadorPlanetas.crearPlaneta(1);
 		ArrayList<AbstractFactoryHabilidad> fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-		fabricasHabilidad.add(new FactoryCongelamiento(3));
-		fabricasHabilidad.add(new FactoryRayoLaser(1));
-		fabricasHabilidad.add(new FactoryTeletransportacion(3));
-		fabricasHabilidad.add(new FactoryTaladroUltrasonico(3));
-		Nivel nivel = new Nivel(fabricasHabilidad, 3, planeta, 2);
+		fabricasHabilidad.add(new FactoryCongelamiento(5));
+		fabricasHabilidad.add(new FactoryRayoLaser(5));
+		fabricasHabilidad.add(new FactoryTeletransportacion(5));
+		fabricasHabilidad.add(new FactoryTaladroUltrasonico(5));
+		Nivel nivel = new Nivel(fabricasHabilidad, 5, planeta, 2);
 		nivel.setNombre("Nivel:1");
 		return nivel;
 	}
@@ -29,18 +29,18 @@ public class CreadorNiveles {
 		Planeta planeta;
 		ArrayList<AbstractFactoryHabilidad> fabricasHabilidad;
 		switch (id) {
-		case 1:
-			
-		planeta = CreadorPlanetas.crearPlaneta(1);
-		fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
-		fabricasHabilidad.add(new FactoryCongelamiento(3));
-		fabricasHabilidad.add(new FactoryRayoLaser(1));
-		fabricasHabilidad.add(new FactoryTeletransportacion(3));
-		fabricasHabilidad.add(new FactoryTaladroUltrasonico(3));
-		nivel = new Nivel(fabricasHabilidad, 3, planeta, 2);
-		nivel.setNombre("Nivel:1");
 		
-		break;
+		case 1:
+			planeta = CreadorPlanetas.crearPlaneta(1);
+			fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
+			fabricasHabilidad.add(new FactoryCongelamiento(5));
+			fabricasHabilidad.add(new FactoryRayoLaser(5));
+			fabricasHabilidad.add(new FactoryTeletransportacion(5));
+			fabricasHabilidad.add(new FactoryTaladroUltrasonico(5));
+			nivel = new Nivel(fabricasHabilidad, 5, planeta, 2);
+			nivel.setNombre("Nivel:1");
+			
+			break;
 		
 		case 2:
 			// creo el planeta
@@ -70,8 +70,6 @@ public class CreadorNiveles {
 			nivel = new Nivel(fabricasHabilidad, 10, planeta, 2);
 			nivel.setNombre("Nivel:3");
 			break;	
-			
-			
 			
 		default:
 			planeta = CreadorPlanetas.crearPlaneta(0);

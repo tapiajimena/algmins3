@@ -68,6 +68,7 @@ public class PlanetaTest extends TestCase {
 		unPlaneta.quitarBloque(new Punto(2,2));
 		assertTrue(unPlaneta.getBloque(new Punto(2,2)).esTraspasable());
 	}
+	
 	public void testSerializacionIOXML(){
 		/*Prueba donde escribo un planeta en xml y luego recupero desde el documento*/
 		Planeta planetaOriginal=CreadorPlanetas.crearPlaneta(0);
@@ -75,7 +76,6 @@ public class PlanetaTest extends TestCase {
 		/*Escribiendo a xml*/
 		Document doc=DocumentHelper.createDocument();
 		doc.add(planetaXML);
-		
 		try {
 			OutputFormat formato=OutputFormat.createPrettyPrint();
 			FileOutputStream archivo = new FileOutputStream("planetaTest.xml");
@@ -88,6 +88,7 @@ public class PlanetaTest extends TestCase {
 			fail();
 			e.printStackTrace();
 		}
+		
 		/*Leyendo de XML*/
 		Planeta planetaRecuperado=new Planeta(1,1,new Bloque[1][1]);
 		SAXReader xmlReader = new SAXReader();
@@ -106,8 +107,7 @@ public class PlanetaTest extends TestCase {
 			assertTrue(false);
 			e.printStackTrace();
 		}
-		
-	}
+}
 	public void testSerializacion(){
 		Planeta planetaOriginal=CreadorPlanetas.crearPlaneta(0);
 		Planeta planetaRecuperado=new Planeta(0,0,new Bloque[1][1]);
@@ -121,5 +121,4 @@ public class PlanetaTest extends TestCase {
 			}
 		}	
 	}
-	
 }

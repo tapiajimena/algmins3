@@ -11,6 +11,7 @@ public class Punto {
 		this.posicionX=unPunto.posicionX;
 		this.posicionY=unPunto.posicionY;
 	}
+	
 	public Punto(int x, int y){
 		this.posicionX=x;
 		this.posicionY=y;		

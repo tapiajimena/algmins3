@@ -35,7 +35,6 @@ public class TestCongelamiento extends TestCase {
 		 * aire
 		 */
 		assertTrue(unPlaneta.getBloque(punto) instanceof Aire);
-		
 		/*
 		 * luego de aplicar la habilidad el pooglin muere y un bloqe de hielo
 		 * ocupa su lugar en planeta

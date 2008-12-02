@@ -13,7 +13,6 @@ public class AireTest extends TestCase {
 	Aire  aire = new Aire(punto);
 	Nivel nivel=new Nivel();
 	
-	
 	/*Creo una matriz con el terreno a utilizar.
 	*Tambien si se quiere se le puede pasar un archivo con la matriz al constructor 
 	*de Planeta.
@@ -32,8 +31,7 @@ public class AireTest extends TestCase {
 		//verifico que esten en las mismas posiciones
 		 boolean posiciones = (pooglin.getPosicion().equals(this.aire.getPosicion()));
 		 assertTrue(posiciones);
-		 
-		/*Produzco la interaccion 
+		 /*Produzco la interaccion 
 		 * y solo debe pasar que el pooglin
 		 * camine, ahora esta en la posicion
 		 * (1,1) debe pasar a la (1,2)

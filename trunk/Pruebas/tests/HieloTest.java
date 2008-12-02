@@ -12,7 +12,6 @@ public class HieloTest extends TestCase {
 	Hielo hielo = new Hielo(punto);
 	Nivel nivel=new Nivel();
 	
-	
 	/*Creo una matriz con el terreno a utilizar.
 	*Tambien si se quiere se le puede pasar un archivo con la matriz al constructor 
 	*de Planeta.
@@ -39,19 +38,15 @@ public class HieloTest extends TestCase {
 		//Probemos que pasa si sigo decrementando una vez
 		//que ya llegue a 0 en la dureza del hielo.
 		int nuevoDecremento = 0;
-		
 		while (nuevoDecremento < 3){
 			hielo.golpear();
 			nuevoDecremento++;
-			
 			if (hielo.getDureza()>0){
 				assertEquals(2-nuevoDecremento,hielo.getDureza());
 			}else{
 					assertEquals(0,hielo.getDureza());
 				}	
-				
 			}
-		
 	}
 	
 	public void testDecrementarDureza(){
@@ -72,9 +67,6 @@ public class HieloTest extends TestCase {
 		Pooglin pooglin = new Pooglin(punto,nivel);
 		Planeta unPlaneta=new Planeta(4,5,matriz);
 		nivel.setPlaneta(unPlaneta);
-			
-	
-		//Los hago interactuar
 		hielo.interactuar(pooglin);
 		/*
 		 * su nueva posicion al hacer el hielo avanzarlo 
@@ -84,10 +76,7 @@ public class HieloTest extends TestCase {
 		 */
 		Punto nuevoPunto=new Punto(1,3);
 		assertEquals(nuevoPunto,pooglin.getPosicion());
-		
 	}
-
-	
 }
 
 

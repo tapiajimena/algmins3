@@ -8,7 +8,6 @@ import junit.framework.TestCase;
 
 public class TierraTest extends TestCase {
 	
-
 	Nivel nivel = new Nivel();
 	Punto punto = new Punto(2,0);
 	Tierra unaTierra = new Tierra(punto);
@@ -59,26 +58,23 @@ public class TierraTest extends TestCase {
 			}else{
 					assertEquals(0,unaTierra.getDureza());
 				}	
-				
 			}
-		
 	}
 	
-	
 	public void testDecrementarDureza(){
-	/*
-	 * Este m�todo, a diferencia del golpear, permite decrementar la dureza
-	 * en un valor determinado. 
-	 */
-		int durezaInicial=unaTierra.getDureza();
-		unaTierra.decrementarDureza(3);
-		assertEquals(durezaInicial-3,unaTierra.getDureza());
-	/*
-	 * Veamos si le damos un valor de decremento mayor que 4, deja la
-	 * dureza en 0. 
-	 */
-		unaTierra.decrementarDureza(20);
-		assertEquals(0,unaTierra.getDureza());		
+		/*
+		 * Este m�todo, a diferencia del golpear, permite decrementar la dureza
+		 * en un valor determinado. 
+		 */
+			int durezaInicial=unaTierra.getDureza();
+			unaTierra.decrementarDureza(3);
+			assertEquals(durezaInicial-3,unaTierra.getDureza());
+			/*
+			 * Veamos si le damos un valor de decremento mayor que 4, deja la
+			 * dureza en 0. 
+			 */
+			unaTierra.decrementarDureza(20);
+			assertEquals(0,unaTierra.getDureza());		
 	}
 		
 	
@@ -100,9 +96,7 @@ public class TierraTest extends TestCase {
 		assertEquals(nuevoPunto,pooglin.getPosicion());
 		
 	}
-	
-	
-	
+		
 	public void testEsTraspasable(){
 		assertFalse(unaTierra.esTraspasable());
 	}

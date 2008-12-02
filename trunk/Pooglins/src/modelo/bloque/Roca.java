@@ -24,6 +24,7 @@ public class Roca extends Bloque{
 	public char getLetra(){
 		return 'R';
 	}
+	
 	public boolean equals(Object obj){
 		if(obj instanceof Roca){
 			return super.equals(obj);

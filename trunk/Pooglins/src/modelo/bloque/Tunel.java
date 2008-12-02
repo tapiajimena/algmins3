@@ -42,6 +42,7 @@ public class Tunel extends Bloque {
 		super.recuperarEstado(elementoTunel);
 		this.duracion = Integer.parseInt(elementoTunel.attributeValue("duracion"));
 	}
+	
 	public boolean equals(Object obj){
 		if(obj instanceof Tunel){
 			if(super.equals(obj))

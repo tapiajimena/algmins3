@@ -4,12 +4,8 @@ import modelo.Pooglin;
 
 import org.dom4j.Element;
 
-
-
-
 public abstract class Habilidad {
  
-	
 	protected Pooglin pooglin;
 
 	public Habilidad(Pooglin pooglin){

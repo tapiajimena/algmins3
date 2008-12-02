@@ -9,6 +9,7 @@ import junit.framework.TestCase;
 
 
 public class TeletrasportacionTest extends TestCase {
+	
 	public void testInteractuar() {
 	    	/*Creo una matriz con el terreno a utilizar.
 	    	*Tambien si se quiere se le puede pasar un archivo con la matriz al constructor 

@@ -25,7 +25,6 @@ public class TestPlatilloVolador extends TestCase {
 	 *     P:Lugar de partida.(1,0)
 	 *     Lugar donde deberia llegar.(6,1)
 	 */     
-		
 		char[][] matriz={
 				{'A','A','A','A','A'},
 				{'A','A','A','A','A'},
@@ -43,13 +42,11 @@ public class TestPlatilloVolador extends TestCase {
 		nivel.setPlaneta(unPlaneta);
 		Pooglin unPooglin = new Pooglin();
 		Habilidad miPlatillo = new PlatilloVolador(unPooglin);
-		
 		/*
 		 * Inicialmente el pooglin está en la posición de un Bloque del 
 		 * tipo aire.
 		 */
 		assertTrue(unPlaneta.getBloque(punto) instanceof Aire );
-		
 		/*
 		 * Interactuo y observo que la posicion del Pooglin aumento una 
 		 * unidad, es decir que descendio una posicion en el sentido de las
@@ -57,7 +54,6 @@ public class TestPlatilloVolador extends TestCase {
 		 */
 		miPlatillo.interactuar(unPlaneta);
 		assertEquals(1,unPooglin.getPosicion().getX());
-		
 		/*
 		 * El platillo volador debe ayudar al Pooglin a que caiga más de
 		 * cinco bloques y no muera.
@@ -74,8 +70,5 @@ public class TestPlatilloVolador extends TestCase {
 		 */
 		assertEquals(6,unPooglin.getPosicion().getX());
 		assertFalse(unPooglin.estaMuerto());
- 
-
-	}
-	
+ 	}
 }

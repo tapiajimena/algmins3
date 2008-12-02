@@ -11,19 +11,7 @@ import org.dom4j.Element;
 
 
 public class Nivel {
-	/*
-	 * En esta clase falta la implementacion de algunos metodos que van a estar
-	 * para la segunda entrega cuando decimos bien como realizar el motor del
-	 * juego y cuestiones relacionadas con el mismo y su interaccion con la
-	 * clase Nivel.
-	 */
-
-	/*
-	 * @SuppressWarnings("unused") //Todavia no lo vamos a usar al tiempo, para
-	 * mas adelante private Tiempo cantTiempo;
-	 * 
-	 * @SuppressWarnings("unused") private Tiempo tiempoTranscurrido;
-	 */
+	
 	private int ronda = 0;
 	private ArrayList<Pooglin> pooglins;
 	private int cantMuertos;
@@ -36,38 +24,19 @@ public class Nivel {
 	private AbstractFactoryHabilidad habilidadSeleccionada;
 	private TiempoNivel tiempo;
 
-	/*
-	 * --------------------------------------------------------------------------
-	 * ----------------------------
-	 */
+
 	public ArrayList<Pooglin> getPooglinsVivos() {
 		return pooglins;
 	}
 
 	public ArrayList<AbstractFactoryHabilidad> getFabricasHabilidad() {
-		/*
-		 * int cantHabilidades=fabricasHabilidades.size(); String[]
-		 * habilidades=null; if(cantHabilidades>0){ habilidades=new
-		 * String[cantHabilidades]; for(int i=0;i<cantHabilidades;i++){
-		 * habilidades[i]=fabricasHabilidades.get(i).toString(); } } return
-		 * habilidades;
-		 */
 		return this.fabricasHabilidades;
 	}
 
-	/*
-	 * public void crearMatrizPooglins(){ for (int i=0;
-	 * i<this.cantInicialPooglins;i++){
-	 * 
-	 * this.pooglins.add(i, new Pooglin(new Punto(0,0),this));
-	 * 
-	 * } }
-	 */
-
 	public void siguienteRonda() {
-		// definir mas adelante el punto de Partida
+		
 		Punto puntoEntrada = new Punto(1, 1);
-		// agregar un Contador Para asegurar intervalo entre pooglins
+		
 		if (pooglins.size() < cantInicialPooglins -(cantidadSalvados+cantMuertos)&& ronda % 4 == 0) {
 			Pooglin unPooglin = new Pooglin(puntoEntrada, this);
 			unPooglin.setId(pooglins.size());
@@ -81,14 +50,13 @@ public class Nivel {
 
 	public void asignarHabilidad(int numeroHabilidad, int numeroPooglin) {
 		try {
-			AbstractFactoryHabilidad fabrica = fabricasHabilidades
-					.get(numeroHabilidad);
+			AbstractFactoryHabilidad fabrica = fabricasHabilidades.get(numeroHabilidad);
 			if (fabrica.cantidadDisponible() > 0) {
 				fabrica.asignarHabilidad(pooglins.get(numeroPooglin));
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
-			// nada
-		}
+		
+			}	
 	}
 
 	public void pooglinMuerto(Pooglin elMuerto) {
@@ -106,7 +74,7 @@ public class Nivel {
 	};
 
 	public Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,
-			int cantidadDePooglins, Planeta planeta, int min) {
+		int cantidadDePooglins, Planeta planeta, int min) {
 		this.planeta = planeta;
 		this.pooglins = new ArrayList<Pooglin>();
 		this.cantInicialPooglins = cantidadDePooglins;
@@ -119,7 +87,6 @@ public class Nivel {
 		return this.pooglins.size();
 	}
 
-	/*------------------------------------------------------------------------------------------------------*/
 	public Nivel() {
 		this.pooglins = new ArrayList<Pooglin>();
 	}
@@ -158,7 +125,6 @@ public class Nivel {
 	}
 
 	public int getPooglinALanzar() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -216,8 +182,9 @@ public class Nivel {
 				this.fabricasHabilidades.add(fabricaHabilidad);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
+				}
 		}
+		
 		/* Recupero La lista de Pooglin */
 		iterador = nivelXML.element("ListaPooglins").elementIterator();
 		this.pooglins = new ArrayList<Pooglin>();
@@ -230,11 +197,10 @@ public class Nivel {
 		}
 		tiempo=new TiempoNivel();
 		//tiempo.recuperarEstado(nivelXML.element("tiempoNivel"));
-		/* listo el pollo, pelada la gallina */
+	
 	}
 	public boolean estaFinalizado(){
 		return (this.cantidadSalvados+this.cantMuertos)==(this.cantInicialPooglins);
-		
 	}
 
 	public int getCantSalvados() {
@@ -247,6 +213,5 @@ public class Nivel {
 		}else{
 			return false;	
 		}
-		
 	}
 }

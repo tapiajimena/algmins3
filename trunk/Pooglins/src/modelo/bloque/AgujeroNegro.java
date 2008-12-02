@@ -4,11 +4,9 @@ package modelo.bloque;
 import modelo.Pooglin;
 import modelo.Punto;
 
-
-
 public class AgujeroNegro extends Bloque {
 	
-    public AgujeroNegro(Punto punto) {
+	public AgujeroNegro(Punto punto) {
 		super(punto);
 	}
 	
@@ -20,7 +18,6 @@ public class AgujeroNegro extends Bloque {
 		if(this.posicion.distancia(unPooglin.getPosicion()) <= 1){
 			unPooglin.morir();
 		}
-		
 	}
 
     public char getLetra(){
