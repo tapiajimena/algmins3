@@ -105,7 +105,7 @@ public class VistaJuego extends JFrame {
 	    super.setPreferredSize(new Dimension(1050, 500));
 	    // preparo la venta
 	    super.pack();
-		System.out.print("NIVEL:"+numeroNivel);
+		System.out.println("NIVEL:"+numeroNivel);
 		empezar();
 		
 	}
@@ -130,7 +130,7 @@ public class VistaJuego extends JFrame {
 	    super.setPreferredSize(new Dimension(1050, 500));
 	    // preparo la venta
 	    super.pack();
-		System.out.print("NUEVO NIVEL:"+numeroNivel);
+		System.out.println("NIVEL:"+numeroNivel);
 		empezar();
 	}
 
