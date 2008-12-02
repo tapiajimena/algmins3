@@ -59,7 +59,7 @@ public class CreadorNiveles {
 			
 		case 3:
 			// creo el planeta
-			planeta = CreadorPlanetas.crearPlaneta(2);
+			planeta = CreadorPlanetas.crearPlaneta(3);
 			// creo el array de habilidades
 			fabricasHabilidad = new ArrayList<AbstractFactoryHabilidad>();
 			fabricasHabilidad.add(new FactoryPlatilloVolador(8));
