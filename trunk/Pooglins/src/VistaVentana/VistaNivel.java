@@ -97,4 +97,10 @@ public class VistaNivel extends JPanel  {
 	public ButtonModel getSeleccionado(){
 		return groupHabilidad.getSelection();
 	}
+	
+	public void salvarTodos(){
+		for(int i=0;i<this.pooglins.size();i++){	
+				pooglins.get(i).getPooglin().salvar();
+			 }
+		}
 }

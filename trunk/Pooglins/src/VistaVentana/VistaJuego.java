@@ -213,15 +213,20 @@ public class VistaJuego extends JFrame {
 			         }
 			         else if (e.getActionCommand().equals("Nuevo"))
 			         {
-			        	 System.out.println("Pausar");
+			        	 cargarNivel(1);
 			         }
 			         else if(e.getActionCommand().equals("Guardar")){
 			        	 salvarJuego("juegoSalvado.xml");
 			         }
 			         else if(e.getActionCommand().equals("IRA")){
-			        	 numeroNivel++;
-			        	 cargarNivel(numeroNivel);
+
+			        	numeroNivel++;
+			        	cargarNivel(numeroNivel);
+			        	 	 
 			         }
+			         else if(e.getActionCommand().equals("Salvar")){
+			        	 vista.salvarTodos();
+			         }			         
 			         else if(e.getActionCommand().equals("Abrir")){
 			             cargarJuego("juegoSalvado.xml");
 			             vista = new VistaNivel(nivel);
@@ -246,6 +251,9 @@ public class VistaJuego extends JFrame {
             opcionIrA.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_S, KeyEvent.CTRL_MASK+KeyEvent.ALT_MASK));
             opcionIrA.setVisible(false);
             
+            JMenuItem opcionSalvar = new JMenuItem("Salvar Todos");
+            opcionSalvar.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_D, KeyEvent.CTRL_MASK+KeyEvent.ALT_MASK));
+            opcionSalvar.setVisible(false);
             
             JMenuItem opcionAbrir = new JMenuItem("Abrir");
             opcionAbrir.setAccelerator (KeyStroke.getKeyStroke (KeyEvent.VK_A, KeyEvent.CTRL_MASK));
@@ -274,16 +282,19 @@ public class VistaJuego extends JFrame {
             
             opcionDeSalida.setActionCommand("Salir");
             opcionDeSalida.addActionListener(action);
-            
-            
+                      
             opcionIrA.setActionCommand("IRA");
             opcionIrA.addActionListener(action);
+                 
+            opcionSalvar.setActionCommand("Salvar");
+            opcionSalvar.addActionListener(action);
             
             pausa.setActionCommand("Pausa");
             pausa.addActionListener(action);
              menu = new JMenu("Archivo");
              menu.add(opcionNuevoJuego);
              menu.add(opcionIrA);
+             menu.add(opcionSalvar);
              menu.add(opcionAbrir);
              menu.add(opcionGuardar);
              menu.add(opcionDeSalida);
