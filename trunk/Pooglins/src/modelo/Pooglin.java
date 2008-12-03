@@ -201,7 +201,7 @@ public class Pooglin {
 				.attributeValue("estaSalvado"));
 		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
 
-		Element elemHabilidad = (Element) elementoPooglin.element("Habilidad");
+		Element elemHabilidad = elementoPooglin.element("Habilidad");
 		if (elemHabilidad != null) {
 			elemHabilidad = (Element) elemHabilidad.elementIterator().next();
 			try {
