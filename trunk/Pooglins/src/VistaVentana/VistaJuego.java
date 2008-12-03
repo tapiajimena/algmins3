@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.FileOutputStream;
-import java.io.IOException;
+
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -205,7 +205,7 @@ public class VistaJuego extends JFrame {
 	
 	public void barraMenu(){
 			ActionListener action=new ActionListener(){
-			     @SuppressWarnings("static-access")
+			   
 				public void actionPerformed(ActionEvent e){
 			         if (e.getActionCommand().equals("Salir"))
 			         {
@@ -325,6 +325,7 @@ public class VistaJuego extends JFrame {
 		JOptionPane.showMessageDialog(this,mensaje,"Atencion!" , JOptionPane.WARNING_MESSAGE); 
 	}
 	
+	@SuppressWarnings("unused")
 	private void closeMyself(){
 		this.dispose();
 		System.exit(DISPOSE_ON_CLOSE);
