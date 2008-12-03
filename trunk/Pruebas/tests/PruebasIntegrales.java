@@ -104,13 +104,12 @@ public class PruebasIntegrales extends TestCase {
 		 * vemos que el pooglin debe "caer" 5 bloque y "morir"
 		 * Debe interactuar 5 veces para llegar a esa posicion en teoria
 		 */
-		for(int i=1; i<=5;i++){
+		for(int i=0; i<5;i++){
 			unPooglin.interactuar();
 		}
 		/*
 		 * Como el Pooglin cae 5 bloques
 		 * El mismo debe estar muerto, sino algo esta mal
-		 *  
 		 */
 		assertEquals(true,unPooglin.estaMuerto());	
 	}
