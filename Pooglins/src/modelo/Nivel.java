@@ -206,7 +206,7 @@ public class Nivel {
 	}
 
 	public boolean estaFinalizado() {
-		if (ronda > maxRondas)
+		if (ronda >= maxRondas)
 			return true;
 		return (this.cantidadSalvados + this.cantMuertos) == (this.cantInicialPooglins);
 	}
