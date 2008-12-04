@@ -7,7 +7,6 @@ import modelo.habilidad.Habilidad;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 public class Pooglin {
 
 	private Punto posicion;
@@ -53,7 +52,7 @@ public class Pooglin {
 						this);
 			}
 
-		}else{
+		} else {
 			nivel.getPlaneta().getBloque(this.getPosicion()).interactuar(this);
 		}
 	}
@@ -67,44 +66,64 @@ public class Pooglin {
 	public void caminar() {
 		letraHabilidad = 'W';// W de walk
 		int direccion = this.vectorDireccion;
-		try{
-		if ((!estaMuerto) && (!estaSalvado)) {
-			// Si en la entrada abajo no hay nada
-			if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, 0)).esTraspasable())) {
-				this.caer();
-			}
-			// Si abajo a la derecha no hay bloque no transpasable el pooglin
-			// cae.
-			// No puede haber un bloque tierra si abajo hay aire.
-			else if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())
-					&& (nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, direccion)).esTraspasable())) {
-				
-				this.posicion=this.posicion.puntoRelativo(1, direccion);
-			}
-			// Adelante normal
-			else if ((nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())
-					&& !(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(1, direccion)).esTraspasable())) {
-				if ((nivel.getPlaneta().getBloque(this.posicion)).esDerretible()) {
-					this.posicion.setY(this.posicion.getY() + direccion);
-				} else {
-					this.posicion.setY(this.posicion.getY() + direccion);
+		try {
+			if ((!estaMuerto) && (!estaSalvado)) {
+				// Si en la entrada abajo no hay nada
+				if ((nivel.getPlaneta().getBloque(
+						this.posicion.puntoRelativo(1, 0)).esTraspasable())) {
+					this.caer();
 				}
-			} else if (!(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(0, direccion)).esTraspasable())) {
-				if (!(nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(-1, direccion)).esTraspasable())) {
-					this.darVuelta();
-				} else {
-					this.posicion=this.posicion.puntoRelativo(-1, direccion);
+				// Si abajo a la derecha no hay bloque no transpasable el
+				// pooglin
+				// cae.
+				// No puede haber un bloque tierra si abajo hay aire.
+				else if ((nivel.getPlaneta().getBloque(
+						this.posicion.puntoRelativo(0, direccion))
+						.esTraspasable())
+						&& (nivel.getPlaneta().getBloque(
+								this.posicion.puntoRelativo(1, direccion))
+								.esTraspasable())) {
+
+					this.posicion = this.posicion.puntoRelativo(1, direccion);
+				}
+				// Adelante normal
+				else if ((nivel.getPlaneta().getBloque(
+						this.posicion.puntoRelativo(0, direccion))
+						.esTraspasable())
+						&& !(nivel.getPlaneta().getBloque(
+								this.posicion.puntoRelativo(1, direccion))
+								.esTraspasable())) {
+					if ((nivel.getPlaneta().getBloque(this.posicion))
+							.esDerretible()) {
+						this.posicion.setY(this.posicion.getY() + direccion);
+					} else {
+						this.posicion.setY(this.posicion.getY() + direccion);
+					}
+				} else if (!(nivel.getPlaneta().getBloque(
+						this.posicion.puntoRelativo(0, direccion))
+						.esTraspasable())) {
+					if (!(nivel.getPlaneta().getBloque(
+							this.posicion.puntoRelativo(-1, direccion))
+							.esTraspasable())) {
+						this.darVuelta();
+					} else {
+						this.posicion = this.posicion.puntoRelativo(-1,
+								direccion);
+					}
 				}
 			}
-		}
-		}
-		catch(ArrayIndexOutOfBoundsException e){
+		} catch (ArrayIndexOutOfBoundsException e) {
 			this.darVuelta();
-			// segun por donde haya sobrepasado el terreno lo hago volver un par de casilleros
-			if(posicion.getX()<=0) posicion.setX(1);
-			else if(posicion.getX()>=nivel.getPlaneta().getAlto())posicion.setX(nivel.getPlaneta().getAlto()-2);
-			if(posicion.getY()<=0) posicion.setY(1);
-			else if(posicion.getY()>=nivel.getPlaneta().getAncho())posicion.setY(nivel.getPlaneta().getAncho()-2);
+			// segun por donde haya sobrepasado el terreno lo hago volver un par
+			// de casilleros
+			if (posicion.getX() <= 0)
+				posicion.setX(1);
+			else if (posicion.getX() >= nivel.getPlaneta().getAlto())
+				posicion.setX(nivel.getPlaneta().getAlto() - 2);
+			if (posicion.getY() <= 0)
+				posicion.setY(1);
+			else if (posicion.getY() >= nivel.getPlaneta().getAncho())
+				posicion.setY(nivel.getPlaneta().getAncho() - 2);
 		}
 	}
 
@@ -114,11 +133,13 @@ public class Pooglin {
 
 	public void caer() {
 		letraHabilidad = 'F';// f de fall
-		if (nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(2, 0)).esTraspasable()) {
+		if (nivel.getPlaneta().getBloque(this.posicion.puntoRelativo(2, 0))
+				.esTraspasable()) {
 			bloquesCaidos++;
-		}else {
-			if(bloquesCaidos>=4)this.morir();
-			bloquesCaidos=0;
+		} else {
+			if (bloquesCaidos >= 4)
+				this.morir();
+			bloquesCaidos = 0;
 		}
 		this.posicion.setX(this.getPosicion().getX() + 1);
 	}
@@ -130,7 +151,7 @@ public class Pooglin {
 	public Punto getPosicion() {
 		return new Punto(this.posicion);
 	}
-	
+
 	public void setPosicion(Punto punto) {
 		this.posicion = punto;
 	}
@@ -169,20 +190,20 @@ public class Pooglin {
 
 	public Element serializar() {
 		Element elementPooglin = DocumentHelper.createElement("Pooglin");
-		elementPooglin.addAttribute("id", new Integer(this.id).toString());
-		elementPooglin.addAttribute("bloquesCaidos", new Integer(
-				this.bloquesCaidos).toString());
-		elementPooglin.addAttribute("vectorDireccion", new Integer(
-				this.vectorDireccion).toString());
-		elementPooglin.addAttribute("estaMuerto", new Boolean(this.estaMuerto)
-				.toString());
-		elementPooglin.addAttribute("estaSalvado",
-				new Boolean(this.estaSalvado).toString());
+		elementPooglin.addAttribute("id", String.valueOf(this.id));
+		elementPooglin.addAttribute("bloquesCaidos", String
+				.valueOf(this.bloquesCaidos));
+		elementPooglin.addAttribute("vectorDireccion", String
+				.valueOf(this.vectorDireccion));
+		elementPooglin.addAttribute("estaMuerto", String
+				.valueOf(this.estaMuerto));
+		elementPooglin.addAttribute("estaSalvado", String
+				.valueOf(this.estaSalvado));
+		elementPooglin.addAttribute("letraHabilidad", Character
+				.toString(letraHabilidad));
 		elementPooglin.add(this.posicion.serializar());
-		// hago un nodo de 2 niveles para la habilidad, por razones de
-		// polimorfismo
 		Element elemHabilidad = DocumentHelper.createElement("Habilidad");
-		if(habilidad!=null)	{
+		if (habilidad != null) {
 			elemHabilidad.add(this.habilidad.serializar());
 			elementPooglin.add(elemHabilidad);
 		}
@@ -199,14 +220,16 @@ public class Pooglin {
 				.attributeValue("estaMuerto"));
 		this.estaSalvado = Boolean.parseBoolean(elementoPooglin
 				.attributeValue("estaSalvado"));
+		this.letraHabilidad = elementoPooglin.attributeValue("letraHabilidad")
+				.charAt(0);
 		this.posicion.recuperarEstado(elementoPooglin.element("Punto"));
 
-		Element elemHabilidad = elementoPooglin.element("Habilidad");
+		Element elemHabilidad = (Element) elementoPooglin.element("Habilidad");
 		if (elemHabilidad != null) {
 			elemHabilidad = (Element) elemHabilidad.elementIterator().next();
 			try {
-				Class<?> claseHabilidad = Class.forName("habilidad."
-						+ elemHabilidad.getName());
+				Class<?> claseHabilidad = Class
+						.forName(elemHabilidad.getName());
 				if (claseHabilidad.getSuperclass().equals(Habilidad.class)) {
 					Constructor<?> constructor = claseHabilidad
 							.getDeclaredConstructor(Pooglin.class);
@@ -228,4 +251,3 @@ public class Pooglin {
 	}
 
 }
-
