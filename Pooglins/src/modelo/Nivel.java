@@ -9,9 +9,8 @@ import modelo.FactoryHabilidades.AbstractFactoryHabilidad;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 public class Nivel {
-	
+
 	private int ronda = 0;
 	private ArrayList<Pooglin> pooglins;
 	private int cantMuertos;
@@ -20,10 +19,21 @@ public class Nivel {
 	private String nombre;
 	private Planeta planeta;
 	private ArrayList<AbstractFactoryHabilidad> fabricasHabilidades;
-	@SuppressWarnings("unused")
-	private AbstractFactoryHabilidad habilidadSeleccionada;
-	private TiempoNivel tiempo;
+	private AbstractFactoryHabilidad habilidadSeleccionada = null;
+	private int maxRondas;
 
+	public Nivel() {
+		this.pooglins = new ArrayList<Pooglin>();
+	}
+
+	public Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,
+			int cantidadDePooglins, Planeta planeta, int min) {
+		this.planeta = planeta;
+		this.pooglins = new ArrayList<Pooglin>();
+		this.cantInicialPooglins = cantidadDePooglins;
+		this.fabricasHabilidades = fabricas;
+		this.maxRondas = min;
+	}
 
 	public ArrayList<Pooglin> getPooglinsVivos() {
 		return pooglins;
@@ -34,29 +44,32 @@ public class Nivel {
 	}
 
 	public void siguienteRonda() {
-		
-		Punto puntoEntrada = new Punto(1, 1);
-		
-		if (pooglins.size() < cantInicialPooglins -(cantidadSalvados+cantMuertos)&& ronda % 4 == 0) {
-			Pooglin unPooglin = new Pooglin(puntoEntrada, this);
-			unPooglin.setId(pooglins.size());
-			pooglins.add(unPooglin);
+		if (maxRondas >= ronda) {
+			if (pooglins.size() < cantInicialPooglins
+					- (cantidadSalvados + cantMuertos)
+					&& ronda % 4 == 0) {
+				Punto puntoEntrada = planeta.getPuntoEntrada();
+				Pooglin unPooglin = new Pooglin(puntoEntrada, this);
+				unPooglin.setId(pooglins.size());
+				pooglins.add(unPooglin);
+			}
+			for (int i = 0; i < pooglins.size(); i++) {
+				pooglins.get(i).interactuar();
+			}
+			ronda++;
 		}
-		for (int i = 0; i < pooglins.size(); i++) {
-			pooglins.get(i).interactuar();
-		}
-		ronda++;
 	}
 
 	public void asignarHabilidad(int numeroHabilidad, int numeroPooglin) {
 		try {
-			AbstractFactoryHabilidad fabrica = fabricasHabilidades.get(numeroHabilidad);
+			AbstractFactoryHabilidad fabrica = fabricasHabilidades
+					.get(numeroHabilidad);
 			if (fabrica.cantidadDisponible() > 0) {
 				fabrica.asignarHabilidad(pooglins.get(numeroPooglin));
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {
-		
-			}	
+
+		}
 	}
 
 	public void pooglinMuerto(Pooglin elMuerto) {
@@ -73,22 +86,8 @@ public class Nivel {
 		}
 	};
 
-	public Nivel(ArrayList<AbstractFactoryHabilidad> fabricas,
-		int cantidadDePooglins, Planeta planeta, int min) {
-		this.planeta = planeta;
-		this.pooglins = new ArrayList<Pooglin>();
-		this.cantInicialPooglins = cantidadDePooglins;
-		this.fabricasHabilidades = fabricas;
-		this.tiempo = new TiempoNivel();
-		this.tiempo.setMinutosRestantes(min);
-
-	}
-	public int cantidadDePooglinsVivos(){
+	public int cantidadDePooglinsVivos() {
 		return this.pooglins.size();
-	}
-
-	public Nivel() {
-		this.pooglins = new ArrayList<Pooglin>();
 	}
 
 	public void setPlaneta(Planeta planeta) {
@@ -128,21 +127,23 @@ public class Nivel {
 		return 0;
 	}
 
-	public void setTiempo(int min, int seg) {
-		this.tiempo.setMinutosRestantes(min);
-		this.tiempo.setSegundosRestantes(seg);
+	public int getTiempoTotal() {
+		return maxRondas;
 	}
 
-	public TiempoNivel getTiempo() {
-		return tiempo;
+	public int getTiempo() {
+		return ronda;
 	}
 
 	public Element serializar() {
 		Element nivelXML = DocumentHelper.createElement("Nivel");
 		nivelXML.addAttribute("cantMuertos", String.valueOf(cantMuertos));
-		nivelXML.addAttribute("cantidadSalvados", String.valueOf(cantidadSalvados));
-		nivelXML.addAttribute("cantidadInicialPooglins", String.valueOf(cantInicialPooglins));
+		nivelXML.addAttribute("cantidadSalvados", String
+				.valueOf(cantidadSalvados));
+		nivelXML.addAttribute("cantidadInicialPooglins", String
+				.valueOf(cantInicialPooglins));
 		nivelXML.addAttribute("ronda", String.valueOf(ronda));
+		nivelXML.addAttribute("maxRondas", String.valueOf(maxRondas));
 		nivelXML.addAttribute("nombre", nombre);
 		nivelXML.add(planeta.serializar());
 		Element fabricasXML = DocumentHelper.createElement("Habilidades");
@@ -151,40 +152,46 @@ public class Nivel {
 			fabricasXML.add(fabrica);
 		}
 		nivelXML.add(fabricasXML);
-		Element listaPooglinsXML = DocumentHelper.createElement("ListaPooglins");
+		Element listaPooglinsXML = DocumentHelper
+				.createElement("ListaPooglins");
 		for (int i = 0; i < pooglins.size(); i++) {
 			Element unPooglinXML = pooglins.get(i).serializar();
 			listaPooglinsXML.add(unPooglinXML);
 		}
 		nivelXML.add(listaPooglinsXML);
-		//nivelXML.add(tiempo.serializar);
 		return nivelXML;
 	}
 
 	public void recuperarEstado(Element nivelXML) {
 		/* recupero Atributos simples */
 		cantMuertos = Integer.parseInt(nivelXML.attributeValue("cantMuertos"));
-		cantidadSalvados = Integer.parseInt(nivelXML.attributeValue("cantidadSalvados"));
-		cantInicialPooglins = Integer.parseInt(nivelXML.attributeValue("cantidadInicialPooglins"));
+		cantidadSalvados = Integer.parseInt(nivelXML
+				.attributeValue("cantidadSalvados"));
+		cantInicialPooglins = Integer.parseInt(nivelXML
+				.attributeValue("cantidadInicialPooglins"));
 		ronda = Integer.parseInt(nivelXML.attributeValue("ronda"));
+		maxRondas = Integer.parseInt(nivelXML.attributeValue("maxRondas"));
 		nombre = nivelXML.attributeValue("nombre");
 		planeta.recuperarEstado(nivelXML.element("Planeta"));
 		/* Recupero las fabricas de las habilidades */
-		Iterator<?> iterador = nivelXML.element("Habilidades").elementIterator();
+		Iterator<?> iterador = nivelXML.element("Habilidades")
+				.elementIterator();
 		this.fabricasHabilidades = new ArrayList<AbstractFactoryHabilidad>();
 		while (iterador.hasNext()) {
 			try {
 				Element fabricaXML = (Element) iterador.next();
-				Class<?> claseFabrica = Class.forName("abstractFactoryHabilidades."+ fabricaXML.getName());
-				Constructor<?> constructor = claseFabrica.getDeclaredConstructor(int.class);
-				AbstractFactoryHabilidad fabricaHabilidad = (AbstractFactoryHabilidad) constructor.newInstance(0);
+				Class<?> claseFabrica = Class.forName(fabricaXML.getName());
+				Constructor<?> constructor = claseFabrica
+						.getDeclaredConstructor(int.class);
+				AbstractFactoryHabilidad fabricaHabilidad = (AbstractFactoryHabilidad) constructor
+						.newInstance(0);
 				fabricaHabilidad.recuperarEstado(fabricaXML);
 				this.fabricasHabilidades.add(fabricaHabilidad);
 			} catch (Exception e) {
 				e.printStackTrace();
-				}
+			}
 		}
-		
+
 		/* Recupero La lista de Pooglin */
 		iterador = nivelXML.element("ListaPooglins").elementIterator();
 		this.pooglins = new ArrayList<Pooglin>();
@@ -195,12 +202,13 @@ public class Nivel {
 			pooglin.setNivel(this);
 			this.pooglins.add(pooglin);
 		}
-		tiempo=new TiempoNivel();
-		//tiempo.recuperarEstado(nivelXML.element("tiempoNivel"));
-	
+
 	}
-	public boolean estaFinalizado(){
-		return (this.cantidadSalvados+this.cantMuertos)==(this.cantInicialPooglins);
+
+	public boolean estaFinalizado() {
+		if (ronda > maxRondas)
+			return true;
+		return (this.cantidadSalvados + this.cantMuertos) == (this.cantInicialPooglins);
 	}
 
 	public int getCantSalvados() {
@@ -208,10 +216,32 @@ public class Nivel {
 	}
 
 	public boolean estaBloqueado() {
-		if(this.cantMuertos==this.cantInicialPooglins){
-			return true;
-		}else{
-			return false;	
+		return (this.cantMuertos == this.cantInicialPooglins);
+	}
+
+	public void seleccionarHabilidad(String nombre) {
+
+		int i = 0;
+		boolean esIgual = false;
+		while (i < this.fabricasHabilidades.size() && !esIgual) {
+			if (nombre.equals(fabricasHabilidades.get(i).toString())) {
+				habilidadSeleccionada = fabricasHabilidades.get(i);
+				esIgual = true;
+			} else
+				i++;
+		}
+
+	}
+
+	public AbstractFactoryHabilidad getHabilidadSeleccionada() {
+
+		return habilidadSeleccionada;
+	}
+
+	public void salvarATodos() {
+
+		for (int i = 0; i < this.pooglins.size(); i++) {
+			pooglins.get(i).salvar();
 		}
 	}
 }

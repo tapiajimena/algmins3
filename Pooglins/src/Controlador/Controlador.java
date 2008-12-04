@@ -1,23 +1,40 @@
 package Controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.ButtonModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import modelo.Nivel;
 import modelo.Pooglin;
-import VistaVentana.VistaNivel;
+import modelo.FactoryHabilidades.AbstractFactoryHabilidad;
 import VistaVentana.VistaPooglin;
 
 public class Controlador {
 	private Nivel nivel;
-	private VistaNivel vistaNivel;
+	private JRadioButton botonSeleccionado = null;
 
-	public Controlador(Nivel nivel, VistaNivel vistaNivel) {
+	public Controlador(Nivel nivel) {
 		this.nivel = nivel;
-		this.vistaNivel = vistaNivel;
 	}
+
+	/*
+	 * Asocia a este controlador el botonSeleccionHabilidad
+	 */
+	public void setControlador(JRadioButton botonSeleccionHabilidad) {
+		botonSeleccionHabilidad.addActionListener(new EscuchaBoton());
+	}
+
+	private class EscuchaBoton implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			botonSeleccionado = (JRadioButton) e.getSource();
+			nivel.seleccionarHabilidad(botonSeleccionado.getActionCommand());
+		}
+	}
+
+	/**/
 
 	public void setPooglin(VistaPooglin vistaPooglin, Pooglin nuevoPooglin) {
 		vistaPooglin.addMouseListener(new EscuchadorDePooglin(nuevoPooglin));
@@ -31,10 +48,12 @@ public class Controlador {
 		}
 
 		public void mouseClicked(MouseEvent arg0) {
-			ButtonModel boton = vistaNivel.getSeleccionado();
-			if (boton != null) {
-				int i = Integer.parseInt(boton.getActionCommand());
-				nivel.getFabricasHabilidad().get(i).asignarHabilidad(pooglin);
+			AbstractFactoryHabilidad seleccionada = nivel
+					.getHabilidadSeleccionada();
+			if (seleccionada != null) {
+				seleccionada.asignarHabilidad(pooglin);
+				botonSeleccionado.setText(seleccionada.cantidadDisponible()
+						+ "-" + seleccionada.toString());
 			} else {
 				JFrame frame = new JFrame("Warning");
 				JOptionPane.showMessageDialog(frame,
@@ -55,4 +74,5 @@ public class Controlador {
 		}
 
 	};
+
 }

@@ -17,20 +17,30 @@ import modelo.bloque.Tunel;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
-
 public class Planeta {
 	private int ancho;
 	private int alto;
 	private Bloque[][] terreno;
 	private char[][] CTerreno;
+	private Punto entrada = new Punto(1, 1);
+
+	private void setEntrada() {
+		for (int i = 0; i < alto; i++) {
+			for (int j = 0; j < ancho; j++) {
+				if (this.terreno[i][j] instanceof modelo.bloque.Entrada)
+					entrada = new Punto(i, j);
+			}
+		}
+	}
 
 	public Planeta(int alto, int ancho, Bloque[][] terreno) {
-		if(terreno!=null){
+		if (terreno != null) {
 			this.alto = terreno.length;
-			if(terreno[0]!=null)
+			if (terreno[0] != null)
 				this.ancho = terreno[0].length;
 			this.terreno = terreno;
 			this.cargarMatrizCaracteres(this.CTerreno);
+			setEntrada();
 		}
 	}
 
@@ -46,6 +56,7 @@ public class Planeta {
 			}
 		}
 	}
+
 	/*
 	 * Devuelve el bloque representado por el caracter,lo inicializa en el punto
 	 */
@@ -72,6 +83,7 @@ public class Planeta {
 			break;
 		case 'E':/* Entrada */
 			bloque = new Entrada(punto);
+			entrada = punto;
 			break;
 		case 'S':/* Salida */
 			bloque = new Salida(punto);
@@ -84,19 +96,25 @@ public class Planeta {
 		}
 		return bloque;
 	}
-	
+
+	public Punto getPuntoEntrada() {
+		return new Punto(entrada);
+	}
+
 	private void cargarMatrizCaracteres(char[][] CTerreno) {
-		CTerreno=new char[alto][ancho];
+		CTerreno = new char[alto][ancho];
 		for (int i = 0; i < CTerreno.length; i++) {
 			for (int j = 0; j < CTerreno[i].length; j++) {
-				if(terreno[i][j]!=null)	
+				if (terreno[i][j] != null)
 					CTerreno[i][j] = terreno[i][j].getLetra();
-				
+
 			}
 		}
 	}
+
 	public void agregar(Bloque bloque) {
-		if (bloque.getPosicion().getX() < this.alto && bloque.getPosicion().getY() < this.ancho)
+		if (bloque.getPosicion().getX() < this.alto
+				&& bloque.getPosicion().getY() < this.ancho)
 			this.terreno[bloque.getPosicionX()][bloque.getPosicionY()] = bloque;
 	}
 
@@ -127,6 +145,7 @@ public class Planeta {
 	public char[][] getCTerreno() {
 		return this.CTerreno;
 	}
+
 	/*
 	 * Serializacion
 	 */
