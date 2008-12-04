@@ -98,12 +98,14 @@ public class VistaJuego extends JFrame {
 				vista.actualizarVista();
 				if (nivel.estaFinalizado()) {
 					timer.stop();
-					if (nivel.estaBloqueado()) {
-						alertas(1);
-						cargarNivel(numeroNivel);
-					} else if (nivel.getTiempo() == nivel.getTiempoTotal()) {
+					if (nivel.getTiempo() == nivel.getTiempoTotal()) {
 						alertas(2);
 						cargarNivel(numeroNivel);
+						empezar();
+					} else if (nivel.estaBloqueado()) {
+						alertas(1);
+						cargarNivel(numeroNivel);
+						empezar();
 					} else {
 						alertas(3);
 						siguienteNivel();
